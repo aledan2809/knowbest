@@ -1,0 +1,32 @@
+name: Audit Regression Tests
+
+on:
+  push:
+    branches:
+      - 'fix/audit-*'
+  pull_request:
+    branches:
+      - 'fix/audit-*'
+      - main
+      - master
+
+jobs:
+  audit-regression:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - run: npm ci
+
+      - name: Run audit regression tests
+        run: npm run test:audit-regression
+        env:
+          ADMIN_SECRET: ci-test-secret-do-not-use-in-prod
+          ADMIN_PASSWORD: ci-test-password-do-not-use
+          NEXTAUTH_SECRET: ci-test-nextauth-secret

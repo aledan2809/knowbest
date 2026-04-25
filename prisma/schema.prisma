@@ -1,0 +1,420 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model api_keys {
+  id           String   @id
+  project_id   String
+  key_name     String
+  key_value    String
+  is_sensitive Boolean  @default(false)
+  created_at   DateTime @default(now())
+  updated_at   DateTime @updatedAt
+  projects     projects @relation(fields: [project_id], references: [id], onDelete: Cascade)
+
+  @@unique([project_id, key_name])
+  @@index([project_id])
+}
+
+model audit_logs {
+  id         String   @id
+  action     String
+  details    Json?
+  user_id    String?
+  ip_address String?
+  created_at DateTime @default(now())
+
+  @@index([action])
+  @@index([created_at(sort: Desc)])
+}
+
+model knowledge_entries {
+  id         String   @id
+  project_id String
+  key        String
+  value      String
+  updated_at DateTime @updatedAt
+  projects   projects @relation(fields: [project_id], references: [id], onDelete: Cascade)
+
+  @@unique([project_id, key])
+  @@index([project_id])
+}
+
+model launchers {
+  id         String   @id
+  project_id String
+  command    String
+  name       String?
+  created_at DateTime @default(now())
+  projects   projects @relation(fields: [project_id], references: [id], onDelete: Cascade)
+
+  @@index([project_id])
+}
+
+model music_generations {
+  id           String             @id
+  userId       String
+  provider     music_provider
+  prompt       String
+  genre        String?
+  mood         String?
+  tempo        Int?
+  duration     Int                @default(30)
+  trackType    music_track_type   @default(INSTRUMENTAL)
+  status       music_track_status @default(PENDING)
+  externalId   String?
+  errorMsg     String?
+  costCredits  Int                @default(0)
+  createdAt    DateTime           @default(now())
+  completedAt  DateTime?
+  music_users  music_users        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  music_tracks music_tracks[]
+}
+
+model music_login_attempts {
+  id        String   @id
+  email     String
+  ipAddress String
+  success   Boolean
+  createdAt DateTime @default(now())
+
+  @@index([email, createdAt])
+  @@index([ipAddress, createdAt])
+}
+
+model music_playlist_tracks {
+  id              String          @id
+  playlistId      String
+  trackId         String
+  position        Int             @default(0)
+  music_playlists music_playlists @relation(fields: [playlistId], references: [id], onDelete: Cascade)
+  music_tracks    music_tracks    @relation(fields: [trackId], references: [id], onDelete: Cascade)
+
+  @@unique([playlistId, trackId])
+}
+
+model music_playlists {
+  id                    String                  @id
+  userId                String
+  name                  String
+  isPublic              Boolean                 @default(false)
+  createdAt             DateTime                @default(now())
+  updatedAt             DateTime
+  music_playlist_tracks music_playlist_tracks[]
+  music_users           music_users             @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model music_refresh_tokens {
+  id          String      @id
+  token       String      @unique
+  userId      String
+  expiresAt   DateTime
+  createdAt   DateTime    @default(now())
+  music_users music_users @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([expiresAt])
+}
+
+model music_templates {
+  id          String           @id
+  name        String
+  description String?
+  genre       String
+  mood        String
+  tempo       Int?
+  prompt      String
+  trackType   music_track_type @default(INSTRUMENTAL)
+  provider    music_provider   @default(STABLE_AUDIO)
+  iconName    String?
+  sortOrder   Int              @default(0)
+  isActive    Boolean          @default(true)
+  createdAt   DateTime         @default(now())
+}
+
+model music_track_edits {
+  id           String       @id
+  trackId      String
+  action       String
+  params       String
+  fileUrl      String?
+  createdAt    DateTime     @default(now())
+  music_tracks music_tracks @relation(fields: [trackId], references: [id], onDelete: Cascade)
+
+  @@index([trackId])
+}
+
+model music_tracks {
+  id                    String                  @id
+  userId                String
+  generationId          String?
+  title                 String
+  prompt                String?
+  provider              music_provider
+  trackType             music_track_type        @default(INSTRUMENTAL)
+  genre                 String?
+  mood                  String?
+  tempo                 Int?
+  duration              Int?
+  fileUrl               String?
+  fileSize              Int?
+  format                String                  @default("mp3")
+  waveformData          String?
+  isPublic              Boolean                 @default(false)
+  isFavorite            Boolean                 @default(false)
+  playCount             Int                     @default(0)
+  createdAt             DateTime                @default(now())
+  updatedAt             DateTime
+  music_playlist_tracks music_playlist_tracks[]
+  music_track_edits     music_track_edits[]
+  music_generations     music_generations?      @relation(fields: [generationId], references: [id])
+  music_users           music_users             @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([genre])
+  @@index([userId])
+}
+
+model music_users {
+  id                   String                 @id
+  name                 String
+  email                String                 @unique
+  passwordHash         String
+  role                 music_role             @default(USER)
+  locale               String                 @default("en")
+  createdAt            DateTime               @default(now())
+  updatedAt            DateTime
+  music_generations    music_generations[]
+  music_playlists      music_playlists[]
+  music_refresh_tokens music_refresh_tokens[]
+  music_tracks         music_tracks[]
+}
+
+model project_capabilities {
+  id          String   @id
+  project_id  String
+  category    String
+  name        String
+  description String?
+  status      String   @default("active")
+  added_at    DateTime @default(now())
+  updated_at  DateTime @updatedAt
+  projects    projects @relation(fields: [project_id], references: [id], onDelete: Cascade)
+
+  @@unique([project_id, category, name])
+  @@index([project_id])
+}
+
+model PageContent {
+  id        String   @id @default(cuid())
+  page      String
+  section   String
+  key       String
+  valueRo   String
+  valueEn   String?
+  sortOrder Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([page, section, key])
+  @@map("page_content")
+}
+
+model Partner {
+  id        String   @id @default(cuid())
+  name      String
+  logo      String
+  website   String?
+  active    Boolean  @default(true)
+  sortOrder Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("partners")
+}
+
+model Project {
+  id                String   @id @default(cuid())
+  name              String
+  nameEn            String?
+  slug              String   @unique
+  description       String?
+  descriptionEn     String?
+  longDescription   String?
+  longDescriptionEn String?
+  category          String   @default("WEB_APP")
+  status            String   @default("DEVELOPMENT")
+  demoUrl           String?
+  prodUrl           String?
+  repoUrl           String?
+  standalone        Boolean  @default(false)
+  icon              String?
+  coverImage        String?
+  screenshots       Json     @default("[]")
+  videoUrl          String?
+  tags              Json     @default("[]")
+  techStack         Json     @default("[]")
+  sortOrder         Int      @default(0)
+  visible           Boolean  @default(true)
+  featured          Boolean  @default(false)
+  accessType        String   @default("PUBLIC")
+  accessCode        String?
+  pricingType       String   @default("FREE")
+  monthlyPrice      Float?
+  yearlyPrice       Float?
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  @@map("kb_projects")
+}
+
+model Subscription {
+  id                String   @id @default(cuid())
+  userId            String
+  stripeCustomerId  String
+  stripeSubId       String
+  plan              String
+  status            String
+  currentPeriodEnd  DateTime
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  @@map("subscriptions")
+}
+
+// AUDIT-011: User-scoped API keys for third-party access to knowbest APIs.
+// Stored as a bcrypt hash (never plaintext). At creation, we return the raw
+// token to the user exactly once; afterwards only the prefix is shown.
+model UserApiKey {
+  id         String    @id @default(cuid())
+  userId     String
+  name       String
+  keyPrefix  String    // First 8 chars of the token, for display (`kb_xxxxxxxx...`)
+  keyHash    String    // bcrypt hash of the full token
+  lastUsedAt DateTime?
+  revokedAt  DateTime?
+  createdAt  DateTime  @default(now())
+
+  @@index([userId])
+  @@index([keyPrefix])
+  @@map("user_api_keys")
+}
+
+// AUDIT-012: Usage tracking / credits per user.
+// Incremented by metered API calls (AI, etc.). Periodically aggregated into
+// monthly UsageSummary rows for faster quota checks.
+model UsageRecord {
+  id        String   @id @default(cuid())
+  userId    String
+  kind      String   // "ai_call", "transcription", "report_export", etc.
+  cost      Int      @default(1) // credits consumed
+  metadata  Json?
+  createdAt DateTime @default(now())
+
+  @@index([userId, createdAt])
+  @@index([kind])
+  @@map("usage_records")
+}
+
+model projects {
+  id                   String                 @id
+  name                 String                 @unique
+  display_name         String?
+  description          String?
+  aliases              Json                   @default("[]")
+  github_url           String?
+  vercel_url           String?
+  vps_url              String?
+  local_path           String?
+  port                 Int?
+  stack                String?
+  status               String                 @default("active")
+  created_at           DateTime               @default(now())
+  updated_at           DateTime               @updatedAt
+  api_keys             api_keys[]
+  knowledge_entries    knowledge_entries[]
+  launchers            launchers[]
+  project_capabilities project_capabilities[]
+}
+
+model sessions {
+  id         String   @id
+  user_id    String
+  token      String   @unique
+  expires_at DateTime
+  created_at DateTime @default(now())
+  users      users    @relation(fields: [user_id], references: [id], onDelete: Cascade)
+}
+
+model test_results {
+  id           String   @id
+  project      String
+  tester_name  String
+  tester_email String?
+  total_steps  Int
+  passed       Int      @default(0)
+  failed       Int      @default(0)
+  skipped      Int      @default(0)
+  details      Json     @default("[]")
+  full_results Json     @default("[]")
+  submitted_at DateTime @default(now())
+  created_at   DateTime @default(now())
+
+  @@index([project])
+  @@index([submitted_at(sort: Desc)])
+  @@index([tester_name])
+}
+
+model user_preferences {
+  id         String   @id
+  user_id    String
+  key        String
+  value      Json
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+  users      users    @relation(fields: [user_id], references: [id], onDelete: Cascade)
+
+  @@unique([user_id, key])
+}
+
+model users {
+  id               String             @id
+  email            String             @unique
+  password_hash    String
+  totp_secret      String?
+  totp_enabled     Boolean            @default(false)
+  created_at       DateTime           @default(now())
+  updated_at       DateTime           @updatedAt
+  sessions         sessions[]
+  user_preferences user_preferences[]
+}
+
+enum music_provider {
+  STABLE_AUDIO
+  SUNO
+  MUBERT
+  MUSICGEN
+  APIFRAME
+}
+
+enum music_role {
+  USER
+  ADMIN
+}
+
+enum music_track_status {
+  PENDING
+  GENERATING
+  COMPLETED
+  FAILED
+}
+
+enum music_track_type {
+  INSTRUMENTAL
+  VOCAL
+  SOUND_EFFECT
+}

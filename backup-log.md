@@ -1,0 +1,1 @@
+[2026-04-04 18:30] | knowbest | NEXTAUTH_SECRET + ADMIN_PASSWORD rotated | ✅ OK

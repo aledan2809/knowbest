@@ -1,0 +1,431 @@
+{
+  "common": {
+    "brand": "KnowBest",
+    "subtitle": "Software Solutions",
+    "loading": "Loading...",
+    "cancel": "Cancel",
+    "save": "Save",
+    "create": "Create",
+    "delete": "Delete",
+    "search": "Search projects...",
+    "all": "All",
+    "free": "Free",
+    "clearSearch": "Clear search"
+  },
+  "nav": {
+    "home": "Home",
+    "products": "Products",
+    "useCases": "Use Cases",
+    "about": "About",
+    "contact": "Contact",
+    "portfolio": "Portfolio",
+    "pricing": "Pricing",
+    "admin": "Admin",
+    "viewSite": "View site",
+    "addProject": "Add project",
+    "getInTouch": "Get in Touch",
+    "caseStudies": "Case Studies"
+  },
+  "hero": {
+    "title": "Professional Software",
+    "titleHighlight": "Solutions",
+    "subtitle": "Explore our portfolio of web applications, APIs and software modules. Live demo available for every product."
+  },
+  "home": {
+    "badge": "IT Consulting & Custom Software",
+    "heroTitle": "We Build",
+    "heroHighlight": "Software That Works",
+    "heroDescription": "IT consulting, custom software development, process automation (RPA), and AI integration. We deliver scalable solutions that transform how businesses operate.",
+    "exploreProducts": "Explore Products",
+    "getInTouch": "Get in Touch",
+    "stats": {
+      "projects": "Active Projects",
+      "clients": "Happy Clients",
+      "industries": "Industries Served",
+      "uptime": "System Uptime"
+    },
+    "featuredTitle": "Featured Products",
+    "featuredDescription": "Our most popular solutions trusted by businesses across multiple industries.",
+    "viewAllProducts": "View All Products",
+    "useCasesTitle": "Industry Solutions",
+    "useCasesDescription": "Tailored software solutions for specific industry needs.",
+    "useCases": {
+      "healthcare": {
+        "title": "Healthcare & Medical",
+        "description": "Speech-to-text, patient records, and practice management."
+      },
+      "hoa": {
+        "title": "Property Management",
+        "description": "HOA and building administration with AI automation."
+      },
+      "fitness": {
+        "title": "Auto Service & Fitness",
+        "description": "Appointment booking and customer management platforms."
+      },
+      "marketing": {
+        "title": "Marketing & Sales",
+        "description": "Campaign automation and customer engagement tools."
+      }
+    },
+    "exploreUseCases": "Explore Use Cases",
+    "ctaTitle": "Ready to Transform Your Business?",
+    "ctaDescription": "Let's discuss how our software solutions can help streamline your operations and drive growth.",
+    "ctaButton": "Start a Conversation",
+    "learnMore": "Learn More About Us",
+    "trustedBy": "Trusted by teams across industries",
+    "clientsTitle": "Some of our partners"
+  },
+  "products": {
+    "title": "Our",
+    "titleHighlight": "Products",
+    "subtitle": "Browse our complete portfolio of software solutions, modules, and APIs."
+  },
+  "categories": {
+    "WEB_APP": "Web Application",
+    "API_SERVICE": "API Service",
+    "MODULE": "Module",
+    "UTILITY": "Utility",
+    "MOBILE_APP": "Mobile App"
+  },
+  "status": {
+    "LIVE": "Live",
+    "BETA": "Beta",
+    "DEVELOPMENT": "In Development",
+    "COMING_SOON": "Coming Soon",
+    "DEPRECATED": "Deprecated"
+  },
+  "access": {
+    "PUBLIC": "Public",
+    "PASSWORD": "Password Protected",
+    "AUTHENTICATED": "Authenticated",
+    "SUBSCRIBERS": "Subscribers Only"
+  },
+  "portfolio": {
+    "featured": "Featured",
+    "allProjects": "All Projects",
+    "noProjects": "No projects yet. Add from Admin.",
+    "noResults": "No projects found.",
+    "demoLive": "Live Demo",
+    "passwordAccess": "Password Access",
+    "inDevelopment": "In Development",
+    "standalone": "Standalone Product",
+    "viewDemo": "View Demo",
+    "viewProduction": "View Production"
+  },
+  "about": {
+    "badge": "Our Story",
+    "heroTitle": "Building the Future of",
+    "heroHighlight": "Business Software",
+    "heroDescription": "We're a team of passionate developers and entrepreneurs dedicated to creating software that makes a difference.",
+    "storyTitle": "Our Journey",
+    "storyP1": "KnowBest is a technology company specializing in IT consulting and custom software solutions. We help businesses modernize their operations through automation, web and mobile application development, and AI integration.",
+    "storyP2": "Our expertise spans process automation (RPA), custom software development, and integrating artificial intelligence into business workflows. We work with clients across healthcare, property management, and service industries to deliver scalable, production-ready solutions.",
+    "storyP3": "From concept to deployment, we handle the entire software lifecycle, ensuring our clients receive reliable, maintainable solutions that drive measurable business value.",
+    "missionTitle": "Our Mission",
+    "missionDescription": "To democratize access to professional-grade software by creating affordable, reliable solutions that empower businesses of all sizes to operate more efficiently.",
+    "valuesTitle": "Our Values",
+    "valuesDescription": "The principles that guide everything we do.",
+    "values": {
+      "innovation": {
+        "title": "Innovation",
+        "description": "We constantly explore new technologies and approaches to deliver better solutions."
+      },
+      "quality": {
+        "title": "Quality",
+        "description": "Every line of code we write is crafted with care and tested thoroughly."
+      },
+      "collaboration": {
+        "title": "Collaboration",
+        "description": "We work closely with our clients to understand and solve their unique challenges."
+      },
+      "reliability": {
+        "title": "Reliability",
+        "description": "Our systems are built to be dependable, with 99.9% uptime as our standard."
+      }
+    },
+    "techTitle": "Our Tech Stack",
+    "techDescription": "We use modern, battle-tested technologies to build scalable and maintainable software.",
+    "timelineTitle": "Key Milestones",
+    "milestones": {
+      "founded": {
+        "title": "Company Founded",
+        "description": "Started with a vision to create better business software."
+      },
+      "firstProduct": {
+        "title": "First Product Launch",
+        "description": "Released our first SaaS platform for auto service management."
+      },
+      "expansion": {
+        "title": "Portfolio Expansion",
+        "description": "Expanded into healthcare, real estate, and marketing verticals."
+      },
+      "aiIntegration": {
+        "title": "AI Integration",
+        "description": "Integrated AI capabilities across multiple products."
+      },
+      "scale": {
+        "title": "Scaling Operations",
+        "description": "Reached 50+ active clients and 28+ software products."
+      }
+    }
+  },
+  "useCases": {
+    "badge": "Industry Solutions",
+    "heroTitle": "Solutions for",
+    "heroHighlight": "Every Industry",
+    "heroDescription": "Discover how our software products can transform operations in your specific industry.",
+    "relatedProducts": "Related Products",
+    "viewProduct": "View",
+    "noProducts": "Products coming soon.",
+    "getStarted": "Get Started",
+    "cases": {
+      "healthcare": {
+        "title": "Healthcare & Medical",
+        "description": "Streamline medical practice operations with our suite of healthcare-focused tools.",
+        "benefit1": "Accurate medical transcription with Romanian language support",
+        "benefit2": "Complete patient record management system",
+        "benefit3": "OCR for document digitization and processing"
+      },
+      "hoa": {
+        "title": "Property & HOA Management",
+        "description": "Automate building administration and homeowner association management.",
+        "benefit1": "95%+ automation of routine administrative tasks",
+        "benefit2": "Integrated payment processing and billing",
+        "benefit3": "Resident communication and notification system"
+      },
+      "fitness": {
+        "title": "Auto Service & Fitness",
+        "description": "Manage appointments, customers, and operations for service-based businesses.",
+        "benefit1": "Smart appointment scheduling with SMS reminders",
+        "benefit2": "Customer loyalty and gamification features",
+        "benefit3": "Business analytics and reporting dashboards"
+      },
+      "realestate": {
+        "title": "Real Estate & Government",
+        "description": "Tools for property management and public procurement processes.",
+        "benefit1": "AI-powered document analysis for SEAP procurement",
+        "benefit2": "Automated bid preparation and tracking",
+        "benefit3": "Contract management and compliance monitoring"
+      },
+      "marketing": {
+        "title": "Marketing & Sales",
+        "description": "Automate your marketing campaigns and customer engagement.",
+        "benefit1": "Multi-channel campaign automation",
+        "benefit2": "Customer feedback collection and analysis",
+        "benefit3": "Email template engine with personalization"
+      }
+    },
+    "ctaTitle": "Don't See Your Industry?",
+    "ctaDescription": "We build custom software solutions tailored to your specific business needs. Let's talk about your requirements.",
+    "ctaButton": "Contact Us",
+    "browseProducts": "Browse All Products"
+  },
+  "contact": {
+    "badge": "Get in Touch",
+    "heroTitle": "Let's Build",
+    "heroHighlight": "Something Great",
+    "heroDescription": "Have a project in mind? We'd love to hear about it. Reach out and let's start a conversation.",
+    "infoTitle": "Contact Information",
+    "infoDescription": "Feel free to reach out through any of these channels. We typically respond within 24 hours.",
+    "emailLabel": "Email",
+    "phoneLabel": "Phone",
+    "locationLabel": "Location",
+    "locationValue": "Bucharest, Romania",
+    "followUs": "Follow Us",
+    "successTitle": "Message Sent!",
+    "successMessage": "Thank you for reaching out. We'll get back to you as soon as possible.",
+    "sendAnother": "Send Another Message",
+    "form": {
+      "name": "Name",
+      "namePlaceholder": "Your name",
+      "email": "Email",
+      "emailPlaceholder": "your@email.com",
+      "company": "Company",
+      "companyPlaceholder": "Your company (optional)",
+      "subject": "Subject",
+      "subjectPlaceholder": "How can we help?",
+      "message": "Message",
+      "messagePlaceholder": "Tell us about your project or question...",
+      "send": "Send Message",
+      "sending": "Sending..."
+    }
+  },
+  "footer": {
+    "description": "Building professional software solutions that help businesses operate more efficiently.",
+    "products": "Products",
+    "company": "Company",
+    "copyright": "© {year} KnowBest. All rights reserved.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service"
+  },
+  "admin": {
+    "title": "KnowBest Admin",
+    "portfolioLabel": "Portfolio",
+    "noProjects": "No projects. Add your first project.",
+    "editProject": "Edit project",
+    "newProject": "New project",
+    "formDescription": "Fill in the project details.",
+    "confirmDelete": "Delete project \"{name}\"?",
+    "demo": "Demo",
+    "prod": "Prod"
+  },
+  "form": {
+    "name": "Name",
+    "slug": "Slug",
+    "description": "Description",
+    "longDescription": "Long Description",
+    "longDescriptionPlaceholder": "Detailed project description...",
+    "longDescriptionEnPlaceholder": "Detailed project description in English...",
+    "category": "Category",
+    "statusLabel": "Status",
+    "accessLabel": "Access",
+    "accessPassword": "Access Password",
+    "accessPasswordPlaceholder": "Enter access password",
+    "demoUrl": "Demo URL (subdomain)",
+    "prodUrl": "Production URL (standalone)",
+    "repoUrl": "Repository URL (GitHub)",
+    "icon": "Icon (emoji)",
+    "iconHint": "Emoji or icon name (e.g., target)",
+    "coverImage": "Cover Image URL",
+    "videoUrl": "Video URL",
+    "screenshots": "Screenshots",
+    "techStack": "Tech Stack",
+    "tags": "Tags",
+    "visible": "Visible",
+    "featured": "Featured",
+    "standalone": "Standalone Product",
+    "nameEnPlaceholder": "Name in English (optional)",
+    "descriptionEnPlaceholder": "Description in English (optional)",
+    "tabBasic": "Basic Info",
+    "tabMedia": "Media",
+    "tabTechnical": "Technical",
+    "tabPricing": "Pricing",
+    "pricingType": "Pricing Type",
+    "monthlyPrice": "Monthly Price",
+    "yearlyPrice": "Yearly Price",
+    "pricingHint": "Prices are only shown when pricing type is PAID."
+  },
+  "pricing": {
+    "FREE": "Free",
+    "FREEMIUM": "Freemium",
+    "PAID": "Paid",
+    "CONTACT": "Contact Us"
+  },
+  "caseStudies": {
+    "badge": "Case Studies",
+    "heroTitle": "Real Results Across",
+    "heroHighlight": "Industries",
+    "heroDescription": "Discover how our solutions have transformed operations in healthcare, finance, retail, and consulting.",
+    "healthcare": "Healthcare",
+    "finance": "Finance & Accounting",
+    "retail": "Retail & Hospitality",
+    "consulting": "Consulting",
+    "case1": {
+      "title": "Private Hospital Network — ERP Integration",
+      "description": "Multi-location private hospital network with complete financial workflow automation.",
+      "metric1": "15+ locations integrated",
+      "metric2": "Automated bank reconciliation",
+      "metric3": "Medical invoicing & insurance settlements",
+      "tag1": "ERP",
+      "tag2": "SIUI",
+      "tag3": "Invoicing"
+    },
+    "case2": {
+      "title": "Medical Imaging Center — Process Automation",
+      "description": "International diagnostic imaging provider with RPA for doctor invoicing and insurance deductions.",
+      "metric1": "70% reduction in invoice processing time",
+      "metric2": "RPA for collaborating physicians",
+      "metric3": "Patient questionnaire portal",
+      "tag1": "RPA",
+      "tag2": "Insurance",
+      "tag3": "Patient Portal"
+    },
+    "case3": {
+      "title": "Dental Clinic Network — Integrated Management",
+      "description": "Multi-location dental clinic network with BI reporting, inventory, and HR management.",
+      "metric1": "Integrated management across all locations",
+      "metric2": "BI reporting & inventory",
+      "metric3": "HR & bank reconciliation",
+      "tag1": "BI",
+      "tag2": "Inventory",
+      "tag3": "HR"
+    },
+    "case4": {
+      "title": "Medical Excellence Centers — BI & Supply Chain",
+      "description": "Multi-center medical excellence and cardiac centers with Business Intelligence and supply chain optimization.",
+      "metric1": "Real-time operational visibility",
+      "metric2": "Supply chain optimization",
+      "metric3": "Budget control system",
+      "tag1": "BI",
+      "tag2": "Supply Chain",
+      "tag3": "Budget"
+    },
+    "case5": {
+      "title": "Accounting RPA Platform",
+      "description": "Automated bank statement extraction, invoice processing, and balance sheets for 10+ accounting firms.",
+      "metric1": "80% reduction in manual data entry",
+      "metric2": "10+ accounting firms",
+      "metric3": "Fabulosos, Class, OptiBil integration",
+      "tag1": "RPA",
+      "tag2": "Accounting",
+      "tag3": "Bank Statements"
+    },
+    "case6": {
+      "title": "Automated XML Invoice Processing",
+      "description": "Automated XML invoice import, validation, and booking integrated with Romania's e-Factura system.",
+      "metric1": "1000+ invoices/month processed automatically",
+      "metric2": "Romanian e-Factura integration",
+      "metric3": "Automatic validation & booking",
+      "tag1": "e-Factura",
+      "tag2": "XML",
+      "tag3": "Automation"
+    },
+    "case7": {
+      "title": "Financial Reporting Automation",
+      "description": "Automated quarterly/annual balance sheet generation with multi-company consolidation.",
+      "metric1": "Quarterly/annual reporting",
+      "metric2": "Multi-company consolidation",
+      "metric3": "ANAF-compliant output formats",
+      "tag1": "Reporting",
+      "tag2": "ANAF",
+      "tag3": "Consolidation"
+    },
+    "case8": {
+      "title": "Multi-location Retail — POS & Inventory",
+      "description": "Retail chain and restaurant operations with tablet-based inventory and SoftOne ERP integration.",
+      "metric1": "Real-time stock management",
+      "metric2": "Multi-language: RO/EN/DE/HU",
+      "metric3": "SoftOne ERP integration",
+      "tag1": "POS",
+      "tag2": "Inventory",
+      "tag3": "ERP"
+    },
+    "case9": {
+      "title": "Travel Agency — Financial Automation",
+      "description": "Payment analysis, invoice workflow optimization, and automated reconciliation for a travel agency.",
+      "metric1": "60% faster monthly closing",
+      "metric2": "Automated payment reconciliation",
+      "metric3": "Invoice workflow optimization",
+      "tag1": "Travel",
+      "tag2": "Invoicing",
+      "tag3": "Reconciliation"
+    },
+    "case10": {
+      "title": "Digitalization Consulting — PNRR Grants",
+      "description": "SME digitalization support via PNRR (Recovery & Resilience Plan) with assessment and implementation.",
+      "metric1": "Successful PNRR grant applications",
+      "metric2": "Digital transformation assessment",
+      "metric3": "SME solution implementation",
+      "tag1": "PNRR",
+      "tag2": "Digitalization",
+      "tag3": "Consulting"
+    },
+    "ctaTitle": "Have a Similar Project?",
+    "ctaDescription": "Contact us for a free consultation and discover how we can help your business.",
+    "ctaButton": "Contact Us"
+  },
+  "meta": {
+    "title": "KnowBest - Professional Software Solutions",
+    "description": "Central platform for showcasing and live demos of KnowBest software products"
+  }
+}

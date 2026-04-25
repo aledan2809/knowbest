@@ -1,0 +1,6 @@
+// AFTER — Stripe integration implemented
+// Files created:
+// - src/app/api/create-checkout-session/route.ts — Checkout session API
+// - src/app/api/stripe-webhook/route.ts — Webhook handler
+// - src/app/[locale]/pricing/page.tsx — Pricing page with plan tiers
+// - src/app/[locale]/pricing/success/page.tsx — Payment success page

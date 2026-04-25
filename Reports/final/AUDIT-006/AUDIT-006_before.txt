@@ -1,0 +1,3 @@
+// BEFORE — User auth pages
+// No signup/login pages existed despite NextAuth dependencies and auth models in DB schema
+// Users had no way to sign in or create accounts

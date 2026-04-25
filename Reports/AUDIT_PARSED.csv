@@ -1,0 +1,14 @@
+ID,Priority,Type,Location,Description,Status,Fixed In,Test Commit
+AUDIT-001,P0,security,src/lib/admin-auth.ts,"Hardcoded admin password fallback ""KnowBest2026!"" in getAdminPassword(). If ADMIN_PASSWORD env var is missing, anyone reading the code knows the password.",fixed,963acbb,d8f3c7f
+AUDIT-002,P0,security,src/lib/admin-auth.ts,"Insecure JWT secret fallback ""fallback-secret"" as string literal. If ADMIN_SECRET and NEXTAUTH_SECRET env vars are both missing, tokens can be forged.",fixed,963acbb,d8f3c7f
+AUDIT-003,P1,bug,src/app/api/auth/,"NextAuth not implemented — /api/auth/[...nextauth] route missing. User/Account/Session models exist in Prisma schema but no auth routes or login/signup pages exist.",fixed,963acbb,
+AUDIT-004,P1,bug,src/app/api/,"Stripe integration not implemented — dependency installed and Subscription model in schema, but zero API routes, webhooks, or pricing UI exist.",fixed,963acbb,
+AUDIT-005,P1,security,src/app/api/,"No input validation (Zod) on API routes — contact form, admin create/update endpoints accept unvalidated input.",unresolved,,
+AUDIT-006,P1,bug,src/app/[locale]/,No user signup/login pages exist despite NextAuth dependencies being installed and auth models in DB schema.,fixed,963acbb,
+AUDIT-007,P2,security,Reports/AUDIT_E2E_2026-03-21.md,Database connection string with credentials exposed in audit report file (not in application code).,unresolved,,
+AUDIT-008,P2,security,src/app/[locale]/contact/,Contact form has no CSRF token protection — standard requirement for public forms.,unresolved,,
+AUDIT-009,P2,UX,src/app/[locale]/page.tsx,Partner logos (16 entries) hardcoded in page.tsx — should be managed via admin panel or DB as dynamic content.,unresolved,,
+AUDIT-010,P2,performance,src/app/[locale]/,Each public page manually imports Navbar/Footer instead of using a shared layout — code duplication across all page files.,unresolved,,
+AUDIT-011,P2,bug,src/app/api/,API Key management for users not implemented despite ApiKey model existing in Prisma schema.,unresolved,,
+AUDIT-012,P2,bug,prisma/schema.prisma,Usage tracking / credits system not implemented despite UsageRecord model in schema.,unresolved,,
+AUDIT-013,P2,bug,knowledge/,No knowledge/ documentation files exist for the project.,unresolved,,

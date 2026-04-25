@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 500" fill="none">
+  <!-- Floating code blocks -->
+  <rect x="60" y="80" width="220" height="160" rx="16" fill="url(#card1)" opacity="0.9"/>
+  <rect x="76" y="108" width="120" height="8" rx="4" fill="#818cf8" opacity="0.7"/>
+  <rect x="76" y="124" width="80" height="8" rx="4" fill="#a78bfa" opacity="0.5"/>
+  <rect x="76" y="140" width="160" height="8" rx="4" fill="#818cf8" opacity="0.4"/>
+  <rect x="76" y="156" width="100" height="8" rx="4" fill="#c4b5fd" opacity="0.3"/>
+  <rect x="76" y="172" width="140" height="8" rx="4" fill="#818cf8" opacity="0.5"/>
+  <rect x="76" y="188" width="60" height="8" rx="4" fill="#a78bfa" opacity="0.4"/>
+  <!-- Terminal dots -->
+  <circle cx="84" cy="96" r="4" fill="#ef4444" opacity="0.8"/>
+  <circle cx="96" cy="96" r="4" fill="#eab308" opacity="0.8"/>
+  <circle cx="108" cy="96" r="4" fill="#22c55e" opacity="0.8"/>
+
+  <!-- Dashboard card -->
+  <rect x="320" y="40" width="240" height="200" rx="16" fill="url(#card2)" opacity="0.85"/>
+  <rect x="336" y="68" width="80" height="12" rx="4" fill="#e2e8f0" opacity="0.8"/>
+  <rect x="336" y="92" width="208" height="80" rx="8" fill="#1e293b" opacity="0.3"/>
+  <!-- Chart bars -->
+  <rect x="352" y="140" width="20" height="24" rx="4" fill="#3b82f6" opacity="0.8"/>
+  <rect x="380" y="124" width="20" height="40" rx="4" fill="#8b5cf6" opacity="0.8"/>
+  <rect x="408" y="108" width="20" height="56" rx="4" fill="#3b82f6" opacity="0.8"/>
+  <rect x="436" y="132" width="20" height="32" rx="4" fill="#8b5cf6" opacity="0.8"/>
+  <rect x="464" y="116" width="20" height="48" rx="4" fill="#3b82f6" opacity="0.8"/>
+  <rect x="492" y="100" width="20" height="64" rx="4" fill="#8b5cf6" opacity="0.8"/>
+  <!-- Metric cards -->
+  <rect x="336" y="184" width="60" height="40" rx="8" fill="#3b82f6" opacity="0.2"/>
+  <rect x="404" y="184" width="60" height="40" rx="8" fill="#8b5cf6" opacity="0.2"/>
+  <rect x="472" y="184" width="60" height="40" rx="8" fill="#3b82f6" opacity="0.2"/>
+
+  <!-- Mobile device -->
+  <rect x="140" y="280" width="140" height="200" rx="20" fill="url(#card3)" opacity="0.85"/>
+  <rect x="152" y="308" width="116" height="140" rx="8" fill="#1e293b" opacity="0.2"/>
+  <!-- App UI elements -->
+  <circle cx="210" cy="350" r="20" fill="#3b82f6" opacity="0.3"/>
+  <rect x="164" y="380" width="92" height="8" rx="4" fill="#e2e8f0" opacity="0.5"/>
+  <rect x="176" y="396" width="68" height="6" rx="3" fill="#94a3b8" opacity="0.4"/>
+  <rect x="164" y="416" width="92" height="20" rx="6" fill="#3b82f6" opacity="0.5"/>
+  <!-- Phone notch -->
+  <rect x="186" y="288" width="48" height="6" rx="3" fill="#0f172a" opacity="0.2"/>
+
+  <!-- API/Cloud element -->
+  <rect x="340" y="290" width="200" height="140" rx="16" fill="url(#card4)" opacity="0.8"/>
+  <circle cx="380" cy="330" r="16" fill="#3b82f6" opacity="0.3"/>
+  <path d="M374 330 L380 336 L390 324" stroke="#3b82f6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.8"/>
+  <rect x="406" y="322" width="80" height="8" rx="4" fill="#e2e8f0" opacity="0.6"/>
+  <rect x="406" y="336" width="60" height="6" rx="3" fill="#94a3b8" opacity="0.4"/>
+  <circle cx="380" cy="370" r="16" fill="#8b5cf6" opacity="0.3"/>
+  <path d="M374 370 L380 376 L390 364" stroke="#8b5cf6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.8"/>
+  <rect x="406" y="362" width="100" height="8" rx="4" fill="#e2e8f0" opacity="0.6"/>
+  <rect x="406" y="376" width="70" height="6" rx="3" fill="#94a3b8" opacity="0.4"/>
+  <circle cx="380" cy="408" r="16" fill="#3b82f6" opacity="0.3"/>
+  <rect x="406" y="402" width="90" height="8" rx="4" fill="#e2e8f0" opacity="0.6"/>
+  <rect x="406" y="416" width="50" height="6" rx="3" fill="#94a3b8" opacity="0.4"/>
+
+  <!-- Connection lines -->
+  <line x1="280" y1="160" x2="320" y2="140" stroke="#818cf8" stroke-width="1.5" opacity="0.3" stroke-dasharray="4 4"/>
+  <line x1="280" y1="380" x2="340" y2="360" stroke="#818cf8" stroke-width="1.5" opacity="0.3" stroke-dasharray="4 4"/>
+  <line x1="440" y1="240" x2="440" y2="290" stroke="#818cf8" stroke-width="1.5" opacity="0.3" stroke-dasharray="4 4"/>
+
+  <!-- Floating circles (decorative) -->
+  <circle cx="30" cy="200" r="8" fill="#3b82f6" opacity="0.15"/>
+  <circle cx="580" cy="460" r="12" fill="#8b5cf6" opacity="0.15"/>
+  <circle cx="550" cy="20" r="6" fill="#3b82f6" opacity="0.2"/>
+  <circle cx="20" cy="420" r="10" fill="#8b5cf6" opacity="0.1"/>
+
+  <defs>
+    <linearGradient id="card1" x1="60" y1="80" x2="280" y2="240">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="card2" x1="320" y1="40" x2="560" y2="240">
+      <stop offset="0%" stop-color="#f8fafc"/>
+      <stop offset="100%" stop-color="#e2e8f0"/>
+    </linearGradient>
+    <linearGradient id="card3" x1="140" y1="280" x2="280" y2="480">
+      <stop offset="0%" stop-color="#f8fafc"/>
+      <stop offset="100%" stop-color="#e2e8f0"/>
+    </linearGradient>
+    <linearGradient id="card4" x1="340" y1="290" x2="540" y2="430">
+      <stop offset="0%" stop-color="#f8fafc"/>
+      <stop offset="100%" stop-color="#f1f5f9"/>
+    </linearGradient>
+  </defs>
+</svg>

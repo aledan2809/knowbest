@@ -1,0 +1,9 @@
+// AFTER — src/app/api/auth/[...nextauth]/route.ts
+// NextAuth route created with Prisma adapter and Email provider
+// Auth pages added: signin, verify-request, error
+
+// Files created:
+// - src/app/api/auth/[...nextauth]/route.ts
+// - src/app/[locale]/auth/signin/page.tsx
+// - src/app/[locale]/auth/verify-request/page.tsx
+// - src/app/[locale]/auth/error/page.tsx

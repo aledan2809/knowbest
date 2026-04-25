@@ -1,0 +1,6 @@
+// AFTER — User auth pages implemented
+// Files created:
+// - src/app/[locale]/auth/signin/page.tsx — Sign in page with email input
+// - src/app/[locale]/auth/verify-request/page.tsx — Email verification pending page
+// - src/app/[locale]/auth/error/page.tsx — Auth error page
+// Complete auth UI flow now available

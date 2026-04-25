@@ -1,0 +1,6 @@
+// BEFORE — src/lib/admin-auth.ts — getJWTSecret()
+// Insecure fallback secret exposed in source code
+
+export function getJWTSecret(): string {
+  return process.env.ADMIN_SECRET || process.env.NEXTAUTH_SECRET || "fallback-secret";
+}

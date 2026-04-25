@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" fill="none">
+  <!-- Central globe -->
+  <circle cx="300" cy="200" r="100" fill="url(#globe-grad)" opacity="0.15"/>
+  <circle cx="300" cy="200" r="100" stroke="url(#globe-stroke)" stroke-width="1.5" opacity="0.3"/>
+  <!-- Globe grid lines -->
+  <ellipse cx="300" cy="200" rx="100" ry="40" stroke="#818cf8" stroke-width="0.8" opacity="0.2"/>
+  <ellipse cx="300" cy="200" rx="60" ry="100" stroke="#818cf8" stroke-width="0.8" opacity="0.2"/>
+  <line x1="200" y1="200" x2="400" y2="200" stroke="#818cf8" stroke-width="0.8" opacity="0.2"/>
+  <line x1="300" y1="100" x2="300" y2="300" stroke="#818cf8" stroke-width="0.8" opacity="0.2"/>
+
+  <!-- Orbiting nodes -->
+  <!-- Node 1: Code -->
+  <circle cx="140" cy="120" r="32" fill="url(#node1)" opacity="0.9"/>
+  <text x="140" y="126" text-anchor="middle" font-size="24" fill="white" opacity="0.9">&lt;/&gt;</text>
+  <line x1="170" y1="135" x2="230" y2="170" stroke="#3b82f6" stroke-width="1.5" opacity="0.3"/>
+
+  <!-- Node 2: Database -->
+  <circle cx="460" cy="120" r="32" fill="url(#node2)" opacity="0.9"/>
+  <ellipse cx="460" cy="114" rx="16" ry="6" stroke="white" stroke-width="1.5" opacity="0.8"/>
+  <path d="M444 114 V126 Q460 138 476 126 V114" stroke="white" stroke-width="1.5" fill="none" opacity="0.8"/>
+  <line x1="430" y1="135" x2="370" y2="170" stroke="#8b5cf6" stroke-width="1.5" opacity="0.3"/>
+
+  <!-- Node 3: Shield/Security -->
+  <circle cx="140" cy="290" r="32" fill="url(#node3)" opacity="0.9"/>
+  <path d="M140 270 L158 278 V294 Q158 306 140 314 Q122 306 122 294 V278 Z" stroke="white" stroke-width="1.5" fill="none" opacity="0.8"/>
+  <path d="M133 290 L138 296 L148 284" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.8"/>
+  <line x1="170" y1="275" x2="230" y2="240" stroke="#3b82f6" stroke-width="1.5" opacity="0.3"/>
+
+  <!-- Node 4: Cloud -->
+  <circle cx="460" cy="290" r="32" fill="url(#node4)" opacity="0.9"/>
+  <path d="M442 296 Q438 282 450 278 Q454 270 464 272 Q476 270 478 282 Q486 284 484 294 Q486 300 478 300 H446 Q438 300 442 296Z" stroke="white" stroke-width="1.5" fill="none" opacity="0.8"/>
+  <line x1="430" y1="275" x2="370" y2="240" stroke="#8b5cf6" stroke-width="1.5" opacity="0.3"/>
+
+  <!-- Node 5: AI/Brain (top) -->
+  <circle cx="300" cy="50" r="28" fill="url(#node5)" opacity="0.9"/>
+  <circle cx="300" cy="46" r="10" stroke="white" stroke-width="1.5" fill="none" opacity="0.8"/>
+  <path d="M290 50 Q290 62 300 62 Q310 62 310 50" stroke="white" stroke-width="1.5" fill="none" opacity="0.8"/>
+  <line x1="300" y1="78" x2="300" y2="100" stroke="#6366f1" stroke-width="1.5" opacity="0.3"/>
+
+  <!-- Node 6: Users (bottom) -->
+  <circle cx="300" cy="355" r="28" fill="url(#node6)" opacity="0.9"/>
+  <circle cx="300" cy="348" r="7" stroke="white" stroke-width="1.5" fill="none" opacity="0.8"/>
+  <path d="M286 366 Q286 358 300 358 Q314 358 314 366" stroke="white" stroke-width="1.5" fill="none" opacity="0.8"/>
+  <line x1="300" y1="327" x2="300" y2="300" stroke="#6366f1" stroke-width="1.5" opacity="0.3"/>
+
+  <!-- Floating particles -->
+  <circle cx="80" cy="60" r="3" fill="#3b82f6" opacity="0.3"/>
+  <circle cx="520" cy="60" r="4" fill="#8b5cf6" opacity="0.2"/>
+  <circle cx="60" cy="340" r="5" fill="#6366f1" opacity="0.15"/>
+  <circle cx="540" cy="340" r="3" fill="#3b82f6" opacity="0.25"/>
+  <circle cx="200" cy="40" r="2" fill="#818cf8" opacity="0.3"/>
+  <circle cx="400" cy="360" r="3" fill="#818cf8" opacity="0.2"/>
+
+  <defs>
+    <linearGradient id="globe-grad" x1="200" y1="100" x2="400" y2="300">
+      <stop offset="0%" stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#8b5cf6"/>
+    </linearGradient>
+    <linearGradient id="globe-stroke" x1="200" y1="100" x2="400" y2="300">
+      <stop offset="0%" stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#8b5cf6"/>
+    </linearGradient>
+    <linearGradient id="node1" x1="108" y1="88" x2="172" y2="152">
+      <stop offset="0%" stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#2563eb"/>
+    </linearGradient>
+    <linearGradient id="node2" x1="428" y1="88" x2="492" y2="152">
+      <stop offset="0%" stop-color="#8b5cf6"/>
+      <stop offset="100%" stop-color="#7c3aed"/>
+    </linearGradient>
+    <linearGradient id="node3" x1="108" y1="258" x2="172" y2="322">
+      <stop offset="0%" stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#6366f1"/>
+    </linearGradient>
+    <linearGradient id="node4" x1="428" y1="258" x2="492" y2="322">
+      <stop offset="0%" stop-color="#8b5cf6"/>
+      <stop offset="100%" stop-color="#6366f1"/>
+    </linearGradient>
+    <linearGradient id="node5" x1="272" y1="22" x2="328" y2="78">
+      <stop offset="0%" stop-color="#6366f1"/>
+      <stop offset="100%" stop-color="#4f46e5"/>
+    </linearGradient>
+    <linearGradient id="node6" x1="272" y1="327" x2="328" y2="383">
+      <stop offset="0%" stop-color="#6366f1"/>
+      <stop offset="100%" stop-color="#4f46e5"/>
+    </linearGradient>
+  </defs>
+</svg>

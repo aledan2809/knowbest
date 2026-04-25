@@ -1,0 +1,10 @@
+// AFTER — src/lib/admin-auth.ts — getJWTSecret()
+// Throws error if no JWT secret env var is configured
+
+export function getJWTSecret(): string {
+  const secret = process.env.ADMIN_SECRET || process.env.NEXTAUTH_SECRET;
+  if (!secret) {
+    throw new Error("JWT secret is not configured. Set the ADMIN_SECRET or NEXTAUTH_SECRET environment variable.");
+  }
+  return secret;
+}

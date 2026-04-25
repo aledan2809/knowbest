@@ -1,0 +1,3 @@
+// BEFORE — Stripe integration
+// Stripe dependency installed, Subscription model in Prisma schema,
+// but ZERO API routes, webhook handler, or pricing page existed

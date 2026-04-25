@@ -1,0 +1,3 @@
+// BEFORE — src/app/api/auth/[...nextauth]/route.ts
+// FILE DID NOT EXIST — NextAuth route was missing entirely
+// User/Account/Session models existed in Prisma schema but no auth API route was implemented

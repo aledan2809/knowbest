@@ -1,0 +1,129 @@
+[
+  {
+    "priority": "P0",
+    "type": "security",
+    "location": "src/lib/admin-auth.ts",
+    "description": "Hardcoded admin password fallback \"KnowBest2026!\" in getAdminPassword(). If ADMIN_PASSWORD env var is missing, anyone reading the code knows the password.",
+    "id": "AUDIT-001",
+    "status": "fixed",
+    "fixed_in": "963acbb",
+    "test_commit": "d8f3c7f",
+    "audit_line": 137
+  },
+  {
+    "priority": "P0",
+    "type": "security",
+    "location": "src/lib/admin-auth.ts",
+    "description": "Insecure JWT secret fallback \"fallback-secret\" as string literal. If ADMIN_SECRET and NEXTAUTH_SECRET env vars are both missing, tokens can be forged by anyone who reads the code.",
+    "id": "AUDIT-002",
+    "status": "fixed",
+    "fixed_in": "963acbb",
+    "test_commit": "d8f3c7f",
+    "audit_line": 254
+  },
+  {
+    "priority": "P1",
+    "type": "bug",
+    "location": "src/app/api/auth/",
+    "description": "NextAuth not implemented — /api/auth/[...nextauth] route missing. User/Account/Session models exist in Prisma schema but no auth routes or login/signup pages exist. Users cannot authenticate.",
+    "id": "AUDIT-003",
+    "status": "fixed",
+    "fixed_in": "963acbb",
+    "notes": "NextAuth route, signin, verify-request, and error pages all exist",
+    "audit_line": 256
+  },
+  {
+    "priority": "P1",
+    "type": "bug",
+    "location": "src/app/api/",
+    "description": "Stripe integration not implemented — dependency installed and Subscription model in schema, but zero API routes, webhooks, or pricing UI exist.",
+    "id": "AUDIT-004",
+    "status": "fixed",
+    "fixed_in": "963acbb",
+    "notes": "Checkout session API, webhook, and pricing page implemented",
+    "audit_line": 136
+  },
+  {
+    "priority": "P1",
+    "type": "security",
+    "location": "src/app/api/",
+    "description": "No input validation (Zod) on API routes — contact form, admin create/update endpoints accept unvalidated input.",
+    "id": "AUDIT-005",
+    "status": "unresolved",
+    "audit_line": 268
+  },
+  {
+    "priority": "P1",
+    "type": "bug",
+    "location": "src/app/[locale]/",
+    "description": "No user signup/login pages exist despite NextAuth dependencies being installed and auth models in DB schema.",
+    "id": "AUDIT-006",
+    "status": "fixed",
+    "fixed_in": "963acbb",
+    "notes": "Auth pages exist at [locale]/auth/signin, verify-request, error",
+    "audit_line": 136
+  },
+  {
+    "priority": "P2",
+    "type": "security",
+    "location": "Reports/AUDIT_E2E_2026-03-21.md",
+    "description": "Database connection string with credentials exposed in audit report file (not in application code).",
+    "id": "AUDIT-007",
+    "status": "unresolved",
+    "audit_line": 146
+  },
+  {
+    "priority": "P2",
+    "type": "security",
+    "location": "src/app/[locale]/contact/",
+    "description": "Contact form has no CSRF token protection — standard requirement for public forms.",
+    "id": "AUDIT-008",
+    "status": "unresolved",
+    "audit_line": 149
+  },
+  {
+    "priority": "P2",
+    "type": "UX",
+    "location": "src/app/[locale]/page.tsx",
+    "description": "Partner logos (16 entries) hardcoded in page.tsx — should be managed via admin panel or DB as dynamic content.",
+    "id": "AUDIT-009",
+    "status": "unresolved",
+    "audit_line": 260
+  },
+  {
+    "priority": "P2",
+    "type": "performance",
+    "location": "src/app/[locale]/",
+    "description": "Each public page manually imports Navbar/Footer instead of using a shared layout — code duplication across all page files.",
+    "id": "AUDIT-010",
+    "status": "unresolved",
+    "audit_line": 131
+  },
+  {
+    "priority": "P2",
+    "type": "bug",
+    "location": "src/app/api/",
+    "description": "API Key management for users not implemented despite ApiKey model existing in Prisma schema.",
+    "id": "AUDIT-011",
+    "status": "unresolved",
+    "audit_line": 151
+  },
+  {
+    "priority": "P2",
+    "type": "bug",
+    "location": "prisma/schema.prisma",
+    "description": "Usage tracking / credits system not implemented despite UsageRecord model in schema.",
+    "id": "AUDIT-012",
+    "status": "unresolved",
+    "audit_line": 151
+  },
+  {
+    "priority": "P2",
+    "type": "bug",
+    "location": "knowledge/",
+    "description": "No knowledge/ documentation files exist for the project.",
+    "id": "AUDIT-013",
+    "status": "unresolved",
+    "audit_line": 61
+  }
+]

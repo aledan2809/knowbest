@@ -1,0 +1,10 @@
+// AFTER — src/lib/admin-auth.ts — getAdminPassword()
+// Throws error if ADMIN_PASSWORD env var is not configured
+
+export function getAdminPassword(): string {
+  const password = process.env.ADMIN_PASSWORD;
+  if (!password) {
+    throw new Error("Admin password is not configured. Set the ADMIN_PASSWORD environment variable.");
+  }
+  return password;
+}

@@ -1,0 +1,431 @@
+{
+  "common": {
+    "brand": "KnowBest",
+    "subtitle": "Software Solutions",
+    "loading": "Se incarca...",
+    "cancel": "Anuleaza",
+    "save": "Salveaza",
+    "create": "Creeaza",
+    "delete": "Sterge",
+    "search": "Cauta proiecte...",
+    "all": "Toate",
+    "free": "Gratis",
+    "clearSearch": "Sterge cautarea"
+  },
+  "nav": {
+    "home": "Acasa",
+    "products": "Produse",
+    "useCases": "Cazuri de Utilizare",
+    "about": "Despre Noi",
+    "contact": "Contact",
+    "getInTouch": "Contacteaza-ne",
+    "portfolio": "Portfolio",
+    "pricing": "Preturi",
+    "admin": "Admin",
+    "viewSite": "Vezi site",
+    "addProject": "Adauga proiect",
+    "caseStudies": "Studii de Caz"
+  },
+  "home": {
+    "badge": "Consultanta IT & Software Personalizat",
+    "heroTitle": "Transformam Ideile in",
+    "heroHighlight": "Software Performant",
+    "heroDescription": "Consultanta IT, dezvoltare software personalizat, automatizare procese (RPA) si integrare AI. Livram solutii scalabile care transforma modul in care functioneaza afacerile.",
+    "exploreProducts": "Exploreaza Produsele",
+    "getInTouch": "Contacteaza-ne",
+    "stats": {
+      "projects": "Proiecte Active",
+      "clients": "Clienti Multumiti",
+      "industries": "Industrii Servite",
+      "uptime": "Uptime Sistem"
+    },
+    "useCases": {
+      "healthcare": {
+        "title": "Sanatate & Medical",
+        "description": "Transcriere vocala, fise pacienti si management cabinet."
+      },
+      "hoa": {
+        "title": "Administrare Imobile",
+        "description": "Administrare HOA si cladiri cu automatizare AI."
+      },
+      "fitness": {
+        "title": "Auto Service & Fitness",
+        "description": "Programari si platforme de management clienti."
+      },
+      "marketing": {
+        "title": "Marketing & Vanzari",
+        "description": "Automatizare campanii si instrumente de engagement."
+      }
+    },
+    "featuredTitle": "Produse Recomandate",
+    "featuredDescription": "Cele mai populare solutii software din portofoliul nostru, gata de utilizare.",
+    "viewAllProducts": "Vezi Toate Produsele",
+    "useCasesTitle": "Cazuri de Utilizare",
+    "useCasesDescription": "Descopera cum solutiile noastre se aplica in diverse industrii si scenarii.",
+    "exploreUseCases": "Exploreaza Cazurile de Utilizare",
+    "ctaTitle": "Pregatit sa Incepi?",
+    "ctaDescription": "Contacteaza-ne pentru o consultare gratuita si descopera cum putem transforma ideea ta in realitate.",
+    "ctaButton": "Contacteaza-ne Acum",
+    "learnMore": "Afla Mai Multe",
+    "trustedBy": "Cu increderea echipelor din multiple industrii",
+    "clientsTitle": "O parte din partenerii noștri"
+  },
+  "hero": {
+    "title": "Solutii Software",
+    "titleHighlight": "Profesionale",
+    "subtitle": "Exploreaza portofoliul nostru de aplicatii web, API-uri si module software. Demo live disponibil pentru fiecare produs."
+  },
+  "about": {
+    "badge": "Despre KnowBest",
+    "heroTitle": "Pasiune pentru",
+    "heroHighlight": "Tehnologie",
+    "heroDescription": "Suntem o echipa dedicata crearii de solutii software care fac diferenta. De la aplicatii web la module AI, construim viitorul digital.",
+    "storyTitle": "Povestea Noastra",
+    "storyP1": "KnowBest este o companie de tehnologie specializata in consultanta IT si solutii software personalizate. Ajutam afacerile sa-si modernizeze operatiunile prin automatizare, dezvoltare aplicatii web si mobile, si integrare AI.",
+    "storyP2": "Expertiza noastra acopera automatizarea proceselor (RPA), dezvoltarea de software personalizat si integrarea inteligentei artificiale in fluxurile de business. Lucram cu clienti din domeniul medical, administrarea proprietatilor si industrii de servicii pentru a livra solutii scalabile, gata de productie.",
+    "storyP3": "De la concept la implementare, gestionam intregul ciclu de viata al software-ului, asigurandu-ne ca clientii primesc solutii fiabile si usor de mentinut care genereaza valoare de business masurabile.",
+    "missionTitle": "Misiunea Noastra",
+    "missionDescription": "Sa democratizam accesul la software de calitate, oferind solutii modulare, scalabile si accesibile pentru fiecare afacere.",
+    "valuesTitle": "Valorile Noastre",
+    "valuesDescription": "Principiile care ne ghideaza in fiecare proiect pe care il dezvoltam.",
+    "values": {
+      "innovation": {
+        "title": "Inovatie",
+        "description": "Exploram constant tehnologii si abordari noi pentru a livra solutii mai bune."
+      },
+      "quality": {
+        "title": "Calitate",
+        "description": "Fiecare linie de cod este scrisa cu grija si testata riguros."
+      },
+      "collaboration": {
+        "title": "Colaborare",
+        "description": "Lucram indeaproape cu clientii nostri pentru a intelege si rezolva provocarile lor."
+      },
+      "reliability": {
+        "title": "Fiabilitate",
+        "description": "Sistemele noastre sunt construite sa fie de incredere, cu 99.9% uptime ca standard."
+      }
+    },
+    "techTitle": "Stack-ul Tehnologic",
+    "techDescription": "Folosim cele mai moderne tehnologii pentru a construi produse robuste si scalabile.",
+    "timelineTitle": "Evolutia KnowBest",
+    "milestones": {
+      "founded": {
+        "title": "Compania Fondata",
+        "description": "Am pornit cu viziunea de a crea software mai bun pentru afaceri."
+      },
+      "firstProduct": {
+        "title": "Primul Produs Lansat",
+        "description": "Am lansat prima platforma SaaS pentru managementul service-urilor auto."
+      },
+      "expansion": {
+        "title": "Extinderea Portofoliului",
+        "description": "Am intrat in domenii noi: sanatate, imobiliare si marketing."
+      },
+      "aiIntegration": {
+        "title": "Integrare AI",
+        "description": "Am integrat capabilitati de inteligenta artificiala in mai multe produse."
+      },
+      "scale": {
+        "title": "Scalare Operatiuni",
+        "description": "Am ajuns la peste 50 de clienti activi si 28+ produse software."
+      }
+    }
+  },
+  "useCases": {
+    "badge": "Cazuri de Utilizare",
+    "heroTitle": "Solutii pentru",
+    "heroHighlight": "Fiecare Industrie",
+    "heroDescription": "Descopera cum produsele KnowBest rezolva probleme reale in diverse domenii, de la sanatate la imobiliare.",
+    "getStarted": "Incepe Acum",
+    "relatedProducts": "Produse Asociate",
+    "viewProduct": "Vezi Produs",
+    "noProducts": "Niciun produs asociat inca.",
+    "cases": {
+      "healthcare": {
+        "title": "Sanatate & Medical",
+        "description": "Optimizeaza operatiunile cabinetelor medicale cu suita noastra de instrumente dedicate.",
+        "benefit1": "Transcriere medicala precisa cu suport pentru limba romana",
+        "benefit2": "Sistem complet de gestionare a fiselor pacientilor",
+        "benefit3": "OCR pentru digitizarea si procesarea documentelor"
+      },
+      "hoa": {
+        "title": "Administrare Imobile & HOA",
+        "description": "Automatizeaza administrarea cladirilor si asociatiilor de proprietari.",
+        "benefit1": "95%+ automatizare a sarcinilor administrative de rutina",
+        "benefit2": "Procesare integrata a platilor si facturarii",
+        "benefit3": "Sistem de comunicare si notificare pentru locatari"
+      },
+      "fitness": {
+        "title": "Auto Service & Fitness",
+        "description": "Gestioneaza programari, clienti si operatiuni pentru afaceri bazate pe servicii.",
+        "benefit1": "Programare inteligenta cu notificari SMS",
+        "benefit2": "Fidelizare clienti si functii de gamificare",
+        "benefit3": "Analize de business si dashboard-uri de raportare"
+      },
+      "realestate": {
+        "title": "Imobiliare & Guvernamental",
+        "description": "Instrumente pentru managementul proprietatilor si procesele de achizitii publice.",
+        "benefit1": "Analiza documentelor SEAP cu AI",
+        "benefit2": "Pregatire si urmarire automata a ofertelor",
+        "benefit3": "Management contracte si monitorizare conformitate"
+      },
+      "marketing": {
+        "title": "Marketing & Vanzari",
+        "description": "Automatizeaza campaniile de marketing si interactiunea cu clientii.",
+        "benefit1": "Automatizare campanii multi-canal",
+        "benefit2": "Colectare si analiza feedback clienti",
+        "benefit3": "Motor de template-uri email cu personalizare"
+      }
+    },
+    "ctaTitle": "Ai un Caz de Utilizare Specific?",
+    "ctaDescription": "Contacteaza-ne si discutam cum putem adapta solutiile noastre la nevoile tale.",
+    "ctaButton": "Discuta cu Noi",
+    "browseProducts": "Vezi Toate Produsele"
+  },
+  "contact": {
+    "badge": "Contact",
+    "heroTitle": "Hai sa",
+    "heroHighlight": "Discutam",
+    "heroDescription": "Fie ca ai o intrebare, o idee de proiect sau vrei sa afli mai multe despre solutiile noastre, suntem aici pentru tine.",
+    "infoTitle": "Informatii de Contact",
+    "infoDescription": "Alege metoda preferata de comunicare sau completeaza formularul.",
+    "emailLabel": "Email",
+    "phoneLabel": "Telefon",
+    "locationLabel": "Locatie",
+    "locationValue": "Bucuresti, Romania",
+    "followUs": "Urmareste-ne",
+    "successTitle": "Mesaj Trimis!",
+    "successMessage": "Iti multumim pentru mesaj. Te vom contacta in cel mai scurt timp.",
+    "sendAnother": "Trimite Alt Mesaj",
+    "form": {
+      "name": "Nume",
+      "namePlaceholder": "Numele tau",
+      "email": "Email",
+      "emailPlaceholder": "email@exemplu.ro",
+      "company": "Companie",
+      "companyPlaceholder": "Numele companiei (optional)",
+      "subject": "Subiect",
+      "subjectPlaceholder": "Despre ce este vorba?",
+      "message": "Mesaj",
+      "messagePlaceholder": "Descrie pe scurt ce ai nevoie...",
+      "sending": "Se trimite...",
+      "send": "Trimite Mesajul"
+    }
+  },
+  "footer": {
+    "description": "Solutii software profesionale pentru afacerea ta. De la concept la productie.",
+    "products": "Produse",
+    "company": "Companie",
+    "copyright": "© {year} KnowBest. Toate drepturile rezervate.",
+    "privacy": "Politica de Confidentialitate",
+    "terms": "Termeni si Conditii"
+  },
+  "products": {
+    "title": "Produsele",
+    "titleHighlight": "Noastre",
+    "subtitle": "Exploreaza portofoliul complet de solutii software, module si API-uri."
+  },
+  "categories": {
+    "WEB_APP": "Aplicatie Web",
+    "API_SERVICE": "API Service",
+    "MODULE": "Modul",
+    "UTILITY": "Utilitar",
+    "MOBILE_APP": "Mobile App"
+  },
+  "status": {
+    "LIVE": "Live",
+    "BETA": "Beta",
+    "DEVELOPMENT": "In dezvoltare",
+    "COMING_SOON": "In curand",
+    "DEPRECATED": "Deprecated"
+  },
+  "access": {
+    "PUBLIC": "Public",
+    "PASSWORD": "Cu parola",
+    "AUTHENTICATED": "Autentificat",
+    "SUBSCRIBERS": "Abonati"
+  },
+  "portfolio": {
+    "featured": "Recomandate",
+    "allProjects": "Toate proiectele",
+    "noProjects": "Niciun proiect inca. Adauga din Admin.",
+    "noResults": "Niciun proiect gasit.",
+    "demoLive": "Demo Live",
+    "passwordAccess": "Acces cu parola",
+    "inDevelopment": "In dezvoltare",
+    "standalone": "Produs Standalone",
+    "viewDemo": "Vezi Demo",
+    "viewProduction": "Vezi Productie"
+  },
+  "admin": {
+    "title": "KnowBest Admin",
+    "portfolioLabel": "Portfolio",
+    "noProjects": "Niciun proiect. Adauga primul proiect.",
+    "editProject": "Editeaza proiect",
+    "newProject": "Proiect nou",
+    "formDescription": "Completeaza detaliile proiectului.",
+    "confirmDelete": "Sterge proiectul \"{name}\"?",
+    "demo": "Demo",
+    "prod": "Prod"
+  },
+  "form": {
+    "name": "Nume",
+    "slug": "Slug",
+    "description": "Descriere",
+    "longDescription": "Descriere detaliata",
+    "longDescriptionPlaceholder": "Descriere detaliata a proiectului...",
+    "longDescriptionEnPlaceholder": "Detailed project description in English...",
+    "category": "Categorie",
+    "statusLabel": "Status",
+    "accessLabel": "Acces",
+    "accessPassword": "Parola acces",
+    "accessPasswordPlaceholder": "Introdu parola de acces",
+    "demoUrl": "URL Demo (subdomeniu)",
+    "prodUrl": "URL Productie (standalone)",
+    "repoUrl": "URL Repository (GitHub)",
+    "icon": "Icon (emoji)",
+    "iconHint": "Emoji sau nume icon (ex: 🎯)",
+    "coverImage": "Cover Image URL",
+    "videoUrl": "Video URL",
+    "screenshots": "Screenshots",
+    "techStack": "Tech Stack",
+    "tags": "Tags",
+    "visible": "Vizibil",
+    "featured": "Recomandat",
+    "standalone": "Produs Standalone",
+    "nameEnPlaceholder": "Nume in engleza (optional)",
+    "descriptionEnPlaceholder": "Descriere in engleza (optional)",
+    "tabBasic": "Informatii",
+    "tabMedia": "Media",
+    "tabTechnical": "Tehnic",
+    "tabPricing": "Preturi",
+    "pricingType": "Tip pret",
+    "monthlyPrice": "Pret lunar",
+    "yearlyPrice": "Pret anual",
+    "pricingHint": "Preturile se afiseaza doar cand tipul este PAID."
+  },
+  "pricing": {
+    "FREE": "Gratuit",
+    "FREEMIUM": "Freemium",
+    "PAID": "Platit",
+    "CONTACT": "Contacteaza-ne"
+  },
+  "caseStudies": {
+    "badge": "Studii de Caz",
+    "heroTitle": "Rezultate Reale in",
+    "heroHighlight": "Industrii Diverse",
+    "heroDescription": "Descopera cum solutiile noastre au transformat operatiunile in sanatate, finante, retail si consultanta.",
+    "healthcare": "Sanatate",
+    "finance": "Finante & Contabilitate",
+    "retail": "Retail & Hospitality",
+    "consulting": "Consultanta",
+    "case1": {
+      "title": "Retea Medicala Privata — Integrare ERP",
+      "description": "Retea de spitale private multi-locatie cu automatizare financiara completa.",
+      "metric1": "15+ locatii integrate",
+      "metric2": "Reconciliere bancara automatizata",
+      "metric3": "Facturare medicala si decontari asigurari",
+      "tag1": "ERP",
+      "tag2": "SIUI",
+      "tag3": "Facturare"
+    },
+    "case2": {
+      "title": "Centru Imagistica Medicala — Automatizare Procese",
+      "description": "Furnizor international de diagnostic imagistic cu RPA pentru facturare medici si deduceri asigurari.",
+      "metric1": "Reducere 70% timp procesare facturi",
+      "metric2": "RPA facturare medici colaboratori",
+      "metric3": "Portal chestionare pacienti",
+      "tag1": "RPA",
+      "tag2": "Asigurari",
+      "tag3": "Portal Pacienti"
+    },
+    "case3": {
+      "title": "Retea Clinici Dentare — Management Integrat",
+      "description": "Retea de clinici dentare multi-locatie cu BI, inventar si management HR integrat.",
+      "metric1": "Management integrat toate locatiile",
+      "metric2": "Raportare BI si inventar",
+      "metric3": "HR si reconciliere bancara",
+      "tag1": "BI",
+      "tag2": "Inventar",
+      "tag3": "HR"
+    },
+    "case4": {
+      "title": "Centre de Excelenta Medicala — BI & Supply Chain",
+      "description": "Centre medicale de excelenta si centre cardiace cu Business Intelligence si optimizare supply chain.",
+      "metric1": "Vizibilitate operationala in timp real",
+      "metric2": "Optimizare lant de aprovizionare",
+      "metric3": "Sistem control bugetar",
+      "tag1": "BI",
+      "tag2": "Supply Chain",
+      "tag3": "Buget"
+    },
+    "case5": {
+      "title": "Platforma RPA Contabilitate",
+      "description": "Automatizare extrase bancare, procesare facturi si balante pentru 10+ firme de contabilitate.",
+      "metric1": "Reducere 80% introducere manuala date",
+      "metric2": "10+ firme de contabilitate",
+      "metric3": "Integrare Fabulosos, Class, OptiBil",
+      "tag1": "RPA",
+      "tag2": "Contabilitate",
+      "tag3": "Extrase Bancare"
+    },
+    "case6": {
+      "title": "Procesare Automata Facturi XML/e-Factura",
+      "description": "Import automat facturi XML, validare si inregistrare in sistemul contabil.",
+      "metric1": "1000+ facturi/luna procesate automat",
+      "metric2": "Integrare sistem e-Factura Romania",
+      "metric3": "Validare si inregistrare automata",
+      "tag1": "e-Factura",
+      "tag2": "XML",
+      "tag3": "Automatizare"
+    },
+    "case7": {
+      "title": "Automatizare Raportari Financiare",
+      "description": "Generare automata balante trimestriale/anuale cu consolidare multi-companie.",
+      "metric1": "Raportare trimestriala/anuala",
+      "metric2": "Consolidare multi-companie",
+      "metric3": "Formate conforme ANAF",
+      "tag1": "Raportare",
+      "tag2": "ANAF",
+      "tag3": "Consolidare"
+    },
+    "case8": {
+      "title": "Retail Multi-Locatie — POS & Inventar",
+      "description": "Lant retail si restaurant cu inventar pe tableta, multilingv si integrare ERP SoftOne.",
+      "metric1": "Management stoc in timp real",
+      "metric2": "Multilingv: RO/EN/DE/HU",
+      "metric3": "Integrare ERP SoftOne",
+      "tag1": "POS",
+      "tag2": "Inventar",
+      "tag3": "ERP"
+    },
+    "case9": {
+      "title": "Agentie Turism — Automatizare Financiara",
+      "description": "Analiza plati, optimizare flux facturi si reconciliere automata pentru agentie de turism.",
+      "metric1": "Inchidere lunara cu 60% mai rapida",
+      "metric2": "Reconciliere automata plati",
+      "metric3": "Optimizare flux facturare",
+      "tag1": "Turism",
+      "tag2": "Facturare",
+      "tag3": "Reconciliere"
+    },
+    "case10": {
+      "title": "Consultanta Digitalizare — Granturi PNRR",
+      "description": "Suport digitalizare IMM-uri prin PNRR cu evaluare si implementare transformare digitala.",
+      "metric1": "Aplicatii de succes granturi PNRR",
+      "metric2": "Evaluare transformare digitala",
+      "metric3": "Implementare solutii pentru IMM-uri",
+      "tag1": "PNRR",
+      "tag2": "Digitalizare",
+      "tag3": "Consultanta"
+    },
+    "ctaTitle": "Ai un Proiect Similar?",
+    "ctaDescription": "Contacteaza-ne pentru o consultare gratuita si descopera cum putem ajuta afacerea ta.",
+    "ctaButton": "Contacteaza-ne"
+  },
+  "meta": {
+    "title": "KnowBest - Solutii Software Profesionale",
+    "description": "Platforma centrala de prezentare si demo live a produselor software KnowBest"
+  }
+}

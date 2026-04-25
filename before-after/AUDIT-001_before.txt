@@ -1,0 +1,6 @@
+// BEFORE — src/lib/admin-auth.ts — getAdminPassword()
+// Hardcoded admin password fallback exposed in source code
+
+export function getAdminPassword(): string {
+  return process.env.ADMIN_PASSWORD || "KnowBest2026!";
+}
