@@ -1,0 +1,66 @@
+{
+  "project": "knowbest",
+  "baseUrl": "http://localhost:3000",
+  "configSource": "/Users/danciulescu/Projects/knowbest/.journey-audit.json",
+  "timestamp": "2026-05-18T06:46:29.104Z",
+  "totals": {
+    "OK": 5
+  },
+  "findings": [
+    {
+      "page": "Home",
+      "href": "/ro",
+      "status": "OK",
+      "httpStatus": 200,
+      "h1": "KnowBest",
+      "notes": [
+        "tables=0 buttons=3 bodyLen=1657"
+      ],
+      "screenshot": "/Users/danciulescu/Projects/knowbest/journey-audit-results/knowbest/screenshots/ro.png"
+    },
+    {
+      "page": "Products",
+      "href": "/ro/products",
+      "status": "OK",
+      "httpStatus": 200,
+      "h1": "KnowBest",
+      "notes": [
+        "tables=0 buttons=4 bodyLen=516"
+      ],
+      "screenshot": "/Users/danciulescu/Projects/knowbest/journey-audit-results/knowbest/screenshots/ro_products.png"
+    },
+    {
+      "page": "Pricing",
+      "href": "/ro/pricing",
+      "status": "OK",
+      "httpStatus": 200,
+      "h1": "KnowBest",
+      "notes": [
+        "tables=0 buttons=7 bodyLen=1403"
+      ],
+      "screenshot": "/Users/danciulescu/Projects/knowbest/journey-audit-results/knowbest/screenshots/ro_pricing.png"
+    },
+    {
+      "page": "About",
+      "href": "/ro/about",
+      "status": "OK",
+      "httpStatus": 200,
+      "h1": "KnowBest",
+      "notes": [
+        "tables=0 buttons=3 bodyLen=2644"
+      ],
+      "screenshot": "/Users/danciulescu/Projects/knowbest/journey-audit-results/knowbest/screenshots/ro_about.png"
+    },
+    {
+      "page": "Contact",
+      "href": "/ro/contact",
+      "status": "OK",
+      "httpStatus": 200,
+      "h1": "KnowBest",
+      "notes": [
+        "tables=0 buttons=4 bodyLen=793"
+      ],
+      "screenshot": "/Users/danciulescu/Projects/knowbest/journey-audit-results/knowbest/screenshots/ro_contact.png"
+    }
+  ]
+}

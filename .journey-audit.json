@@ -1,0 +1,16 @@
+{
+  "name": "knowbest",
+  "baseUrl": "http://localhost:3000",
+  "navLinks": [
+    { "name": "Home", "href": "/ro" },
+    { "name": "Products", "href": "/ro/products" },
+    { "name": "Pricing", "href": "/ro/pricing" },
+    { "name": "About", "href": "/ro/about" },
+    { "name": "Contact", "href": "/ro/contact" }
+  ],
+  "emptyStateMarkers": "No projects|empty|Nimic|Nu exista",
+  "errorMarkers": "error|failed|eroare|crashed",
+  "viewport": { "width": 1440, "height": 900 },
+  "pageTimeout": 20000,
+  "settleDelay": 2000
+}
