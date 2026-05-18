@@ -6,6 +6,21 @@ import { prisma } from "@/lib/db";
 import { assertHasCredits, recordUsage } from "@/lib/usage";
 import { verifyOrigin } from "@/lib/csrf";
 
+const AI_RATE_MAX = 30;
+const AI_RATE_WINDOW_MS = 60_000;
+const aiCounters = new Map<string, { count: number; resetAt: number }>();
+function checkAIRateLimit(ip: string): boolean {
+  const now = Date.now();
+  const entry = aiCounters.get(ip);
+  if (!entry || entry.resetAt < now) {
+    aiCounters.set(ip, { count: 1, resetAt: now + AI_RATE_WINDOW_MS });
+    return true;
+  }
+  if (entry.count >= AI_RATE_MAX) return false;
+  entry.count++;
+  return true;
+}
+
 const requestSchema = z.object({
   type: z.string().default("conversation"),
   complexity: z.enum(["low", "medium", "high"]).default("medium"),
@@ -32,6 +47,11 @@ async function resolveUserId(): Promise<string | null> {
 }
 
 export async function POST(req: NextRequest) {
+  const ip = req.headers.get("x-forwarded-for") ?? req.headers.get("x-real-ip") ?? "local";
+  if (!checkAIRateLimit(ip)) {
+    return NextResponse.json({ error: "Rate limit exceeded — max 30 AI requests/minute" }, { status: 429 });
+  }
+
   const csrfError = verifyOrigin(req);
   if (csrfError) {
     return NextResponse.json({ error: csrfError.error }, { status: csrfError.status });

@@ -3,6 +3,21 @@ import { Resend } from "resend";
 import { z } from "zod";
 import { verifyOrigin } from "@/lib/csrf";
 
+const CONTACT_RATE_MAX = 5;
+const CONTACT_RATE_WINDOW_MS = 60_000;
+const contactCounters = new Map<string, { count: number; resetAt: number }>();
+function checkContactRateLimit(ip: string): boolean {
+  const now = Date.now();
+  const entry = contactCounters.get(ip);
+  if (!entry || entry.resetAt < now) {
+    contactCounters.set(ip, { count: 1, resetAt: now + CONTACT_RATE_WINDOW_MS });
+    return true;
+  }
+  if (entry.count >= CONTACT_RATE_MAX) return false;
+  entry.count++;
+  return true;
+}
+
 function getResend() {
   if (!process.env.RESEND_API_KEY) {
     throw new Error("RESEND_API_KEY is not configured");
@@ -20,6 +35,11 @@ const ContactSchema = z.object({
 });
 
 export async function POST(request: NextRequest) {
+  const ip = request.headers.get("x-forwarded-for") ?? request.headers.get("x-real-ip") ?? "local";
+  if (!checkContactRateLimit(ip)) {
+    return NextResponse.json({ error: "Too many requests — try again in a minute" }, { status: 429 });
+  }
+
   // AUDIT-008: CSRF origin check
   const csrfError = verifyOrigin(request);
   if (csrfError) {
