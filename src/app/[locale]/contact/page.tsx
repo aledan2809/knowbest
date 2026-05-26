@@ -78,11 +78,13 @@ export default function ContactPage() {
     },
   ];
 
+  // Social profiles disabled until real KnowBest accounts exist.
+  // To re-activate: set enabled:true + the correct href per platform.
   const socialLinks = [
-    { icon: Github, href: "https://github.com/knowbest", label: "GitHub" },
-    { icon: Linkedin, href: "https://linkedin.com/company/knowbest", label: "LinkedIn" },
-    { icon: Twitter, href: "https://twitter.com/knowbest", label: "Twitter" },
-  ];
+    { icon: Github, href: "https://github.com/knowbest", label: "GitHub", enabled: false },
+    { icon: Linkedin, href: "https://linkedin.com/company/knowbest", label: "LinkedIn", enabled: false },
+    { icon: Twitter, href: "https://twitter.com/knowbest", label: "Twitter", enabled: false },
+  ].filter((s) => s.enabled);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
@@ -175,25 +177,27 @@ export default function ContactPage() {
                 ))}
               </div>
 
-              <div>
-                <h3 className="text-sm font-semibold text-slate-500 uppercase tracking-wider mb-4">
-                  {t("contact.followUs")}
-                </h3>
-                <div className="flex gap-3">
-                  {socialLinks.map((social) => (
-                    <a
-                      key={social.label}
-                      href={social.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-slate-100 text-slate-600 hover:bg-gradient-to-br hover:from-blue-600 hover:to-purple-600 hover:text-white transition-all duration-200"
-                      aria-label={social.label}
-                    >
-                      <social.icon className="w-5 h-5" />
-                    </a>
-                  ))}
+              {socialLinks.length > 0 && (
+                <div>
+                  <h3 className="text-sm font-semibold text-slate-500 uppercase tracking-wider mb-4">
+                    {t("contact.followUs")}
+                  </h3>
+                  <div className="flex gap-3">
+                    {socialLinks.map((social) => (
+                      <a
+                        key={social.label}
+                        href={social.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-slate-100 text-slate-600 hover:bg-gradient-to-br hover:from-blue-600 hover:to-purple-600 hover:text-white transition-all duration-200"
+                        aria-label={social.label}
+                      >
+                        <social.icon className="w-5 h-5" />
+                      </a>
+                    ))}
+                  </div>
                 </div>
-              </div>
+              )}
             </motion.div>
 
             {/* Contact Form - Glass effect */}

@@ -19,12 +19,14 @@ export function Footer() {
     { href: `/${locale}/contact`, label: t("nav.contact") },
   ];
 
+  // Social profiles disabled until real KnowBest accounts exist.
+  // To re-activate: set enabled:true + the correct href per platform.
   const socialLinks = [
-    { href: "https://github.com/knowbest", icon: Github, label: "GitHub" },
-    { href: "https://linkedin.com/company/knowbest", icon: Linkedin, label: "LinkedIn" },
-    { href: "https://twitter.com/knowbest", icon: Twitter, label: "Twitter" },
-    { href: "mailto:contact@knowbest.ro", icon: Mail, label: "Email" },
-  ];
+    { href: "https://github.com/knowbest", icon: Github, label: "GitHub", enabled: false },
+    { href: "https://linkedin.com/company/knowbest", icon: Linkedin, label: "LinkedIn", enabled: false },
+    { href: "https://twitter.com/knowbest", icon: Twitter, label: "Twitter", enabled: false },
+    { href: "mailto:contact@knowbest.ro", icon: Mail, label: "Email", enabled: true },
+  ].filter((s) => s.enabled);
 
   return (
     <footer className="relative bg-slate-900 text-slate-300">
