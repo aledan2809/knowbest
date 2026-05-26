@@ -1,0 +1,720 @@
+[
+  {
+    "name": "4PRO Platform",
+    "nameEn": "4PRO Platform",
+    "slug": "4pro",
+    "description": "Platforma completa de management auto service cu programari, clienti si gamification",
+    "descriptionEn": "Complete auto service management platform with appointments, clients and gamification",
+    "category": "WEB_APP",
+    "status": "LIVE",
+    "prodUrl": "https://pro.4pro.io",
+    "standalone": true,
+    "icon": "🚗",
+    "techStack": [
+      "Next.js",
+      "Fastify",
+      "PostgreSQL",
+      "WhatsApp API"
+    ],
+    "tags": [
+      "Auto Service",
+      "SaaS",
+      "CRM"
+    ],
+    "featured": true,
+    "sortOrder": 1
+  },
+  {
+    "name": "4PRO Business",
+    "nameEn": "4PRO Business",
+    "slug": "4pro-biz",
+    "description": "Dashboard business multi-vertical pentru proprietari de afaceri",
+    "descriptionEn": "Multi-vertical business dashboard for business owners",
+    "category": "WEB_APP",
+    "status": "LIVE",
+    "prodUrl": "https://biz.4pro.io",
+    "standalone": true,
+    "icon": "📊",
+    "techStack": [
+      "Next.js",
+      "PostgreSQL",
+      "SSO"
+    ],
+    "tags": [
+      "Business",
+      "Dashboard"
+    ],
+    "featured": false,
+    "sortOrder": 2
+  },
+  {
+    "name": "eCabinet",
+    "nameEn": "eCabinet",
+    "slug": "ecabinet",
+    "description": "Sistem de management cabinet medical/dentar cu programari si fise pacienti",
+    "descriptionEn": "Medical/dental office management system with appointments and patient records",
+    "category": "WEB_APP",
+    "status": "LIVE",
+    "prodUrl": "https://cabinet.4pro.io",
+    "standalone": true,
+    "icon": "🏥",
+    "techStack": [
+      "Next.js",
+      "Fastify",
+      "Neon PostgreSQL"
+    ],
+    "tags": [
+      "Medical",
+      "Dental",
+      "SaaS"
+    ],
+    "featured": true,
+    "sortOrder": 3
+  },
+  {
+    "name": "ProcuChain",
+    "nameEn": "ProcuChain",
+    "slug": "procuchain",
+    "description": "Platforma de supply chain management cu forecasting AI si conectori e-commerce (Shopify, WooCommerce, Amazon)",
+    "descriptionEn": "Supply chain management platform with AI forecasting and e-commerce connectors (Shopify, WooCommerce, Amazon)",
+    "category": "WEB_APP",
+    "status": "LIVE",
+    "prodUrl": "https://procuchain.com",
+    "standalone": true,
+    "icon": "🔗",
+    "techStack": [
+      "Next.js",
+      "Turborepo",
+      "Prisma",
+      "n8n",
+      "ML (Prophet/LightGBM)"
+    ],
+    "tags": [
+      "Supply Chain",
+      "Forecasting",
+      "AI"
+    ],
+    "featured": true,
+    "sortOrder": 4
+  },
+  {
+    "name": "TeInformez",
+    "nameEn": "TeInformez",
+    "slug": "teinformez",
+    "description": "Agregator de stiri romanesti cu AI summarization",
+    "descriptionEn": "Romanian news aggregator with AI summarization",
+    "category": "WEB_APP",
+    "status": "LIVE",
+    "prodUrl": "https://teinformez.eu",
+    "standalone": true,
+    "icon": "📰",
+    "techStack": [
+      "WordPress",
+      "Next.js",
+      "OpenAI"
+    ],
+    "tags": [
+      "News",
+      "AI",
+      "Romania"
+    ],
+    "featured": false,
+    "sortOrder": 5
+  },
+  {
+    "name": "AVE Platform",
+    "nameEn": "AVE Platform",
+    "slug": "ave",
+    "description": "Ecosistem business AVE - platforma centrala",
+    "descriptionEn": "AVE business ecosystem - central platform",
+    "category": "WEB_APP",
+    "status": "DEVELOPMENT",
+    "prodUrl": null,
+    "standalone": true,
+    "icon": "🌐",
+    "techStack": [
+      "Next.js",
+      "Supabase"
+    ],
+    "tags": [
+      "Business",
+      "Platform"
+    ],
+    "featured": false,
+    "sortOrder": 6
+  },
+  {
+    "name": "4uPDF",
+    "nameEn": "4uPDF",
+    "slug": "4updf",
+    "description": "Instrumente online pentru manipulare PDF - merge, split, compress, convert",
+    "descriptionEn": "Online PDF tools - merge, split, compress, convert",
+    "category": "WEB_APP",
+    "status": "LIVE",
+    "prodUrl": "https://4updf.com",
+    "standalone": true,
+    "icon": "📄",
+    "techStack": [
+      "Next.js",
+      "FastAPI",
+      "Python"
+    ],
+    "tags": [
+      "PDF",
+      "Tools",
+      "Free"
+    ],
+    "featured": false,
+    "sortOrder": 7
+  },
+  {
+    "name": "Website Guru",
+    "nameEn": "Website Guru",
+    "slug": "website-guru",
+    "description": "Platforma de constructie si management website-uri",
+    "descriptionEn": "Website building and management platform",
+    "category": "WEB_APP",
+    "status": "DEVELOPMENT",
+    "prodUrl": null,
+    "standalone": false,
+    "icon": "🧙",
+    "techStack": [
+      "Next.js",
+      "AI"
+    ],
+    "tags": [
+      "Website Builder",
+      "AI"
+    ],
+    "featured": false,
+    "sortOrder": 8
+  },
+  {
+    "name": "Marketing Automation",
+    "nameEn": "Marketing Automation",
+    "slug": "marketing-automation",
+    "description": "Automatizare campanii marketing - email, social media, analytics",
+    "descriptionEn": "Marketing campaign automation - email, social media, analytics",
+    "category": "WEB_APP",
+    "status": "LIVE",
+    "prodUrl": "https://app.techbiz.ae",
+    "standalone": true,
+    "icon": "📧",
+    "techStack": [
+      "Next.js",
+      "SMTP",
+      "Social APIs"
+    ],
+    "tags": [
+      "Marketing",
+      "Automation",
+      "Email"
+    ],
+    "featured": false,
+    "sortOrder": 9
+  },
+  {
+    "name": "STT Module",
+    "nameEn": "STT Module",
+    "slug": "stt",
+    "description": "Modul Speech-to-Text cu suport romana, optimizat pt domeniu medical/dentar. Multi-provider: Deepgram, OpenAI Whisper, Whisper Local",
+    "descriptionEn": "Speech-to-Text module with Romanian support, optimized for medical/dental domain. Multi-provider: Deepgram, OpenAI Whisper, Whisper Local",
+    "category": "MODULE",
+    "status": "LIVE",
+    "prodUrl": null,
+    "standalone": false,
+    "icon": "🎙️",
+    "techStack": [
+      "Next.js",
+      "Deepgram",
+      "faster-whisper",
+      "Python"
+    ],
+    "tags": [
+      "STT",
+      "AI",
+      "Medical",
+      "Romanian"
+    ],
+    "featured": true,
+    "sortOrder": 10
+  },
+  {
+    "name": "eProfit",
+    "nameEn": "eProfit",
+    "slug": "eprofit",
+    "description": "Instrument de tracking si analiza financiara pentru freelanceri si SMB",
+    "descriptionEn": "Financial tracking and analysis tool for freelancers and SMBs",
+    "category": "WEB_APP",
+    "status": "LIVE",
+    "prodUrl": "https://eprofit-web.vercel.app",
+    "standalone": true,
+    "icon": "💰",
+    "techStack": [
+      "Next.js",
+      "Neon PostgreSQL"
+    ],
+    "tags": [
+      "Finance",
+      "Analytics"
+    ],
+    "featured": false,
+    "sortOrder": 11
+  },
+  {
+    "name": "HeadHunter",
+    "nameEn": "HeadHunter",
+    "slug": "headhunter",
+    "description": "Platforma de recrutare si talent management cu LinkedIn integration",
+    "descriptionEn": "Recruitment and talent management platform with LinkedIn integration",
+    "category": "WEB_APP",
+    "status": "LIVE",
+    "prodUrl": "https://hh.knowbest.ro",
+    "standalone": true,
+    "icon": "👔",
+    "techStack": [
+      "Next.js",
+      "FastAPI",
+      "PostgreSQL",
+      "AI Matching"
+    ],
+    "tags": [
+      "Recruitment",
+      "HR",
+      "AI"
+    ],
+    "featured": false,
+    "sortOrder": 12
+  },
+  {
+    "name": "Feedback Hub",
+    "nameEn": "Feedback Hub",
+    "slug": "feedback-hub",
+    "description": "Widget si dashboard pentru colectarea feedback-ului de la clienti",
+    "descriptionEn": "Widget and dashboard for collecting customer feedback",
+    "category": "WEB_APP",
+    "status": "LIVE",
+    "prodUrl": "https://feedback-hub-central.vercel.app",
+    "standalone": true,
+    "icon": "💬",
+    "techStack": [
+      "Next.js",
+      "Widget JS"
+    ],
+    "tags": [
+      "Feedback",
+      "SaaS",
+      "Widget"
+    ],
+    "featured": false,
+    "sortOrder": 13
+  },
+  {
+    "name": "Meeting Recorder",
+    "nameEn": "Meeting Recorder",
+    "slug": "meeting-rec",
+    "description": "Inregistrare si transcriere automata a meeting-urilor",
+    "descriptionEn": "Automatic meeting recording and transcription",
+    "category": "WEB_APP",
+    "status": "BETA",
+    "prodUrl": "https://meeting-rec-nu.vercel.app",
+    "standalone": true,
+    "icon": "📹",
+    "techStack": [
+      "Next.js",
+      "Whisper",
+      "Redis"
+    ],
+    "tags": [
+      "Meetings",
+      "Transcription",
+      "AI"
+    ],
+    "featured": false,
+    "sortOrder": 14
+  },
+  {
+    "name": "BlocHub",
+    "nameEn": "BlocHub",
+    "slug": "blochub",
+    "description": "Hub centralizat pentru administrarea asociatiilor de proprietari cu AI 95%+ automatizare",
+    "descriptionEn": "Centralized hub for homeowner association management with 95%+ AI automation",
+    "category": "WEB_APP",
+    "status": "LIVE",
+    "prodUrl": "https://blocx.ro",
+    "standalone": true,
+    "icon": "🏢",
+    "techStack": [
+      "Next.js",
+      "Prisma",
+      "Revolut",
+      "AIRouter"
+    ],
+    "tags": [
+      "HOA",
+      "SaaS",
+      "AI"
+    ],
+    "featured": false,
+    "sortOrder": 15
+  },
+  {
+    "name": "TradeInvest",
+    "nameEn": "TradeInvest",
+    "slug": "tradeinvest",
+    "description": "Instrument de analiza si simulare investitii pe bursa cu AI",
+    "descriptionEn": "AI-powered stock market analysis and investment simulation tool",
+    "category": "WEB_APP",
+    "status": "BETA",
+    "prodUrl": "https://tradeinvest.knowbest.ro",
+    "standalone": true,
+    "icon": "📈",
+    "techStack": [
+      "Next.js",
+      "Market APIs",
+      "AIRouter"
+    ],
+    "tags": [
+      "Trading",
+      "Investment",
+      "Finance",
+      "AI"
+    ],
+    "featured": false,
+    "sortOrder": 16
+  },
+  {
+    "name": "RaceX",
+    "nameEn": "RaceX",
+    "slug": "racex",
+    "description": "Platforma ride-booking cu tracking real-time",
+    "descriptionEn": "Ride-booking platform with real-time tracking",
+    "category": "WEB_APP",
+    "status": "BETA",
+    "prodUrl": "https://racex-ride-book.vercel.app",
+    "standalone": true,
+    "icon": "🏎️",
+    "techStack": [
+      "Next.js",
+      "Supabase",
+      "Maps"
+    ],
+    "tags": [
+      "Ride",
+      "Booking",
+      "Maps"
+    ],
+    "featured": false,
+    "sortOrder": 17
+  },
+  {
+    "name": "SEAP Assistant",
+    "nameEn": "SEAP Assistant",
+    "slug": "seap",
+    "description": "Asistent AI pentru achizitii publice SEAP cu OCR si analiza documente",
+    "descriptionEn": "AI assistant for SEAP public procurement with OCR and document analysis",
+    "category": "WEB_APP",
+    "status": "LIVE",
+    "prodUrl": "https://seap.knowbest.ro",
+    "standalone": true,
+    "icon": "📋",
+    "techStack": [
+      "Next.js",
+      "OCR",
+      "AIRouter",
+      "PostgreSQL"
+    ],
+    "tags": [
+      "Government",
+      "AI",
+      "OCR",
+      "Romania"
+    ],
+    "featured": false,
+    "sortOrder": 18
+  },
+  {
+    "name": "PMB",
+    "nameEn": "PMB",
+    "slug": "pmb",
+    "description": "Project Management Board - Kanban si task management",
+    "descriptionEn": "Project Management Board - Kanban and task management",
+    "category": "WEB_APP",
+    "status": "BETA",
+    "prodUrl": "https://pmb-gray.vercel.app",
+    "standalone": true,
+    "icon": "📌",
+    "techStack": [
+      "Next.js",
+      "Neon PostgreSQL"
+    ],
+    "tags": [
+      "Project Management",
+      "Kanban"
+    ],
+    "featured": false,
+    "sortOrder": 19
+  },
+  {
+    "name": "UtilajHub",
+    "nameEn": "UtilajHub",
+    "slug": "utilajhub",
+    "description": "Marketplace pentru echipamente si utilaje industriale",
+    "descriptionEn": "Marketplace for industrial equipment and machinery",
+    "category": "WEB_APP",
+    "status": "DEVELOPMENT",
+    "prodUrl": null,
+    "standalone": true,
+    "icon": "🏗️",
+    "techStack": [
+      "Next.js",
+      "PostgreSQL",
+      "Maps"
+    ],
+    "tags": [
+      "Marketplace",
+      "Industrial",
+      "Equipment"
+    ],
+    "featured": false,
+    "sortOrder": 20
+  },
+  {
+    "name": "DevLearning Platform",
+    "nameEn": "DevLearning Platform",
+    "slug": "devlearning",
+    "description": "Platforma de invatare online pentru dezvoltatori",
+    "descriptionEn": "Online learning platform for developers",
+    "category": "WEB_APP",
+    "status": "DEVELOPMENT",
+    "prodUrl": null,
+    "standalone": true,
+    "icon": "🎓",
+    "techStack": [
+      "Next.js",
+      "LMS"
+    ],
+    "tags": [
+      "Education",
+      "Learning",
+      "Dev"
+    ],
+    "featured": false,
+    "sortOrder": 21
+  },
+  {
+    "name": "Legal Hub",
+    "nameEn": "Legal Hub",
+    "slug": "legal",
+    "description": "Hub de conformitate multi-entitate: ToS/Privacy/Cookies versionate, consimtaminte GDPR si drepturile persoanelor vizate",
+    "descriptionEn": "Multi-entity compliance hub: versioned ToS/Privacy/Cookies, GDPR consent records and data subject rights",
+    "category": "WEB_APP",
+    "status": "LIVE",
+    "prodUrl": "https://legal.knowbest.ro",
+    "standalone": true,
+    "icon": "⚖️",
+    "techStack": [
+      "Next.js",
+      "Prisma",
+      "PostgreSQL"
+    ],
+    "tags": [
+      "GDPR",
+      "Compliance",
+      "Legal"
+    ],
+    "featured": false,
+    "sortOrder": 22
+  },
+  {
+    "name": "Contakt",
+    "nameEn": "Contakt",
+    "slug": "contakt",
+    "description": "Hub de automatizare procese (RPA) peste ERP-urile romanesti: reconciliere extrase bancare, e-Factura si facturi furnizori cu AI",
+    "descriptionEn": "Process automation (RPA) hub over Romanian ERPs: AI reconciliation of bank statements, e-Factura and supplier invoices",
+    "category": "WEB_APP",
+    "status": "LIVE",
+    "prodUrl": "https://contakt.knowbest.ro",
+    "standalone": true,
+    "icon": "🤖",
+    "techStack": [
+      "Next.js",
+      "Prisma",
+      "PostgreSQL",
+      "AIRouter",
+      "BullMQ"
+    ],
+    "tags": [
+      "RPA",
+      "Automation",
+      "Fintech",
+      "AI"
+    ],
+    "featured": true,
+    "sortOrder": 23
+  },
+  {
+    "name": "OCR Module",
+    "nameEn": "OCR Module",
+    "slug": "ocr",
+    "description": "Serviciu de recunoastere text din imagini si documente scanate",
+    "descriptionEn": "Text recognition service from images and scanned documents",
+    "category": "API_SERVICE",
+    "status": "LIVE",
+    "prodUrl": null,
+    "standalone": false,
+    "icon": "👁️",
+    "techStack": [
+      "FastAPI",
+      "Python",
+      "Tesseract"
+    ],
+    "tags": [
+      "OCR",
+      "AI",
+      "API"
+    ],
+    "featured": false,
+    "sortOrder": 30
+  },
+  {
+    "name": "SMS Module",
+    "nameEn": "SMS Module",
+    "slug": "sms",
+    "description": "Modul de trimitere SMS prin Twilio API",
+    "descriptionEn": "SMS sending module via Twilio API",
+    "category": "MODULE",
+    "status": "LIVE",
+    "prodUrl": null,
+    "standalone": false,
+    "icon": "📱",
+    "techStack": [
+      "Node.js",
+      "Twilio"
+    ],
+    "tags": [
+      "SMS",
+      "API",
+      "Communication"
+    ],
+    "featured": false,
+    "sortOrder": 31
+  },
+  {
+    "name": "Email Guru",
+    "nameEn": "Email Guru",
+    "slug": "email-guru",
+    "description": "Template engine si sistem de trimitere email-uri",
+    "descriptionEn": "Email template engine and sending system",
+    "category": "MODULE",
+    "status": "LIVE",
+    "prodUrl": null,
+    "standalone": false,
+    "icon": "✉️",
+    "techStack": [
+      "Node.js",
+      "SMTP",
+      "Templates"
+    ],
+    "tags": [
+      "Email",
+      "Templates",
+      "Marketing"
+    ],
+    "featured": false,
+    "sortOrder": 32
+  },
+  {
+    "name": "Scraping Module",
+    "nameEn": "Scraping Module",
+    "slug": "scraper",
+    "description": "Modul de web scraping pentru extragere date structurate",
+    "descriptionEn": "Web scraping module for structured data extraction",
+    "category": "MODULE",
+    "status": "LIVE",
+    "prodUrl": null,
+    "standalone": false,
+    "icon": "🕷️",
+    "techStack": [
+      "Node.js",
+      "Puppeteer"
+    ],
+    "tags": [
+      "Scraping",
+      "Data",
+      "Automation"
+    ],
+    "featured": false,
+    "sortOrder": 33
+  },
+  {
+    "name": "Prompt Architect",
+    "nameEn": "Prompt Architect",
+    "slug": "prompt-architect",
+    "description": "Instrument de optimizare si testare prompturi AI",
+    "descriptionEn": "AI prompt optimization and testing tool",
+    "category": "UTILITY",
+    "status": "BETA",
+    "prodUrl": null,
+    "standalone": false,
+    "icon": "🏛️",
+    "techStack": [
+      "Node.js",
+      "Claude API",
+      "OpenAI"
+    ],
+    "tags": [
+      "AI",
+      "Prompts",
+      "Optimization"
+    ],
+    "featured": false,
+    "sortOrder": 34
+  },
+  {
+    "name": "WhatsApp Integration",
+    "nameEn": "WhatsApp Integration",
+    "slug": "whatsapp",
+    "description": "Modul de integrare WhatsApp Business API",
+    "descriptionEn": "WhatsApp Business API integration module",
+    "category": "MODULE",
+    "status": "LIVE",
+    "prodUrl": null,
+    "standalone": false,
+    "icon": "💚",
+    "techStack": [
+      "Node.js",
+      "WhatsApp API"
+    ],
+    "tags": [
+      "WhatsApp",
+      "Messaging",
+      "API"
+    ],
+    "featured": false,
+    "sortOrder": 35
+  },
+  {
+    "name": "Telegram Bot",
+    "nameEn": "Telegram Bot",
+    "slug": "telegram",
+    "description": "Framework de constructie boturi Telegram",
+    "descriptionEn": "Telegram bot building framework",
+    "category": "MODULE",
+    "status": "BETA",
+    "prodUrl": null,
+    "standalone": false,
+    "icon": "🤖",
+    "techStack": [
+      "Node.js",
+      "Telegram API"
+    ],
+    "tags": [
+      "Telegram",
+      "Bot",
+      "Automation"
+    ],
+    "featured": false,
+    "sortOrder": 36
+  }
+]

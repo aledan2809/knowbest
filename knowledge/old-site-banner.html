@@ -1,0 +1,65 @@
+<!--
+  KnowBest — banner site vechi (knowbest.ro / Divi) → îndrumă spre app.knowbest.ro
+  ========================================================================
+  CUM ÎL PUI (30 sec, fără SSH):
+    WP Admin (knowbest.ro/wp-admin)  →  Divi  →  Theme Options  →  Integration
+    →  câmpul "Add code to the < body > (good for tracking codes such as google analytics)"
+    →  lipești TOT codul de mai jos  →  Save Changes.
+  (Alternativ: Appearance → Widgets → un "Custom HTML" widget, sau un Code Module pe homepage.)
+  Se afișează o singură dată per vizitator (reține "închis" în localStorage 7 zile).
+-->
+<style>
+  #kb-newsite-banner{position:fixed;left:0;right:0;bottom:0;z-index:99999;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    background:linear-gradient(120deg,#1e3a8a 0%,#4f46e5 45%,#7c3aed 100%);
+    background-size:200% 200%;animation:kbGrad 8s ease infinite;
+    color:#fff;box-shadow:0 -8px 30px rgba(79,70,229,.35);
+    transform:translateY(120%);transition:transform .6s cubic-bezier(.22,1,.36,1);}
+  #kb-newsite-banner.kb-show{transform:translateY(0);}
+  @keyframes kbGrad{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+  .kb-wrap{max-width:1100px;margin:0 auto;padding:14px 20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;justify-content:center;}
+  .kb-badge{font-size:11px;letter-spacing:.08em;text-transform:uppercase;background:rgba(255,255,255,.18);padding:4px 10px;border-radius:999px;}
+  .kb-text{font-size:15px;line-height:1.35;flex:1;min-width:220px;}
+  .kb-text b{font-weight:700;}
+  .kb-cta{display:inline-flex;align-items:center;gap:8px;background:#fff;color:#4f46e5;font-weight:700;
+    text-decoration:none;padding:11px 20px;border-radius:999px;white-space:nowrap;
+    box-shadow:0 4px 14px rgba(0,0,0,.18);transition:transform .2s,box-shadow .2s;}
+  .kb-cta:hover{transform:translateY(-2px) scale(1.03);box-shadow:0 8px 22px rgba(0,0,0,.28);}
+  .kb-cta .kb-arrow{transition:transform .2s;}
+  .kb-cta:hover .kb-arrow{transform:translateX(4px);}
+  .kb-pulse{position:relative;}
+  .kb-pulse::before{content:"";position:absolute;inset:-4px;border-radius:999px;
+    background:rgba(255,255,255,.5);animation:kbPulse 2s infinite;z-index:-1;}
+  @keyframes kbPulse{0%{transform:scale(1);opacity:.6}70%{transform:scale(1.25);opacity:0}100%{opacity:0}}
+  .kb-close{background:transparent;border:0;color:rgba(255,255,255,.8);font-size:22px;line-height:1;cursor:pointer;padding:4px 8px;}
+  .kb-close:hover{color:#fff;}
+  @media(max-width:640px){.kb-text{font-size:13px;}.kb-wrap{padding:12px;}}
+</style>
+
+<div id="kb-newsite-banner" role="dialog" aria-label="Versiune nouă KnowBest">
+  <div class="kb-wrap">
+    <span class="kb-badge">✨ Versiune nouă</span>
+    <span class="kb-text">Ești pe <b>versiunea veche</b> a KnowBest. Noul site e mai rapid, mai frumos și cu toate produsele la zi. <b>Aruncă o privire!</b></span>
+    <a class="kb-cta kb-pulse" href="https://app.knowbest.ro" rel="noopener">
+      Vezi noul site
+      <span class="kb-arrow">→</span>
+    </a>
+    <button class="kb-close" aria-label="Închide" onclick="kbCloseBanner()">×</button>
+  </div>
+</div>
+
+<script>
+  (function(){
+    try{
+      var KEY='kb_newsite_dismissed';
+      var until=parseInt(localStorage.getItem(KEY)||'0',10);
+      if(Date.now()<until) return;                       // încă în perioada de "închis"
+      var b=document.getElementById('kb-newsite-banner');
+      setTimeout(function(){ b && b.classList.add('kb-show'); }, 900);  // slide-in după 0.9s
+      window.kbCloseBanner=function(){
+        b && b.classList.remove('kb-show');
+        try{ localStorage.setItem(KEY, String(Date.now()+7*24*60*60*1000)); }catch(e){} // 7 zile
+      };
+    }catch(e){}
+  })();
+</script>
