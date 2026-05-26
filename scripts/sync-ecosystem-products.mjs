@@ -23,6 +23,7 @@ import { PrismaClient } from "@prisma/client";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const DRY = process.argv.includes("--dry-run");
+const FULL = process.argv.includes("--full"); // also refresh display fields on existing rows
 const prisma = new PrismaClient();
 
 function loadCatalog() {
@@ -37,6 +38,26 @@ async function main() {
 
   const toAdd = catalog.filter((c) => !known.has(c.slug));
   const log = [];
+
+  // --full: refresh display fields (description/status/url/tech/icon) on existing rows from catalog.
+  if (FULL) {
+    let updated = 0;
+    for (const c of catalog) {
+      if (!known.has(c.slug)) continue;
+      if (DRY) { updated++; continue; }
+      await prisma.project.update({
+        where: { slug: c.slug },
+        data: {
+          name: c.name, nameEn: c.nameEn || c.name,
+          description: c.description, descriptionEn: c.descriptionEn,
+          status: c.status || "LIVE", prodUrl: c.prodUrl || null,
+          icon: c.icon || "📦", techStack: c.techStack || [], tags: c.tags || [],
+        },
+      });
+      updated++;
+    }
+    console.log(`[full] refreshed display fields on ${updated} existing product(s).`);
+  }
 
   for (const c of toAdd) {
     log.push(`+ NEW: ${c.name} (${c.slug}) -> ${c.prodUrl || "(no url)"}`);

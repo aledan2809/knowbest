@@ -108,6 +108,8 @@
     "demoLive": "Live Demo",
     "passwordAccess": "Password Access",
     "inDevelopment": "In Development",
+    "comingSoon": "Coming soon",
+    "onRequest": "On request",
     "standalone": "Standalone Product",
     "viewDemo": "View Demo",
     "viewProduction": "View Production"

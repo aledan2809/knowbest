@@ -226,7 +226,11 @@ function ProjectCard({
 }) {
   const name = locale === "en" && project.nameEn ? project.nameEn : project.name;
   const description = locale === "en" && project.descriptionEn ? project.descriptionEn : project.description;
-  const hasLinks = project.demoUrl || project.prodUrl;
+  // Only expose a clickable production link for stable, LIVE products — never send
+  // a visitor into a BETA/in-progress or module-without-UI surface.
+  const showProd = !!project.prodUrl && project.status === "LIVE";
+  const showDemo = !!project.demoUrl;
+  const hasLinks = showProd || showDemo;
 
   return (
     <motion.div
@@ -300,8 +304,8 @@ function ProjectCard({
         <div className="flex items-center gap-2 flex-wrap">
           {hasLinks ? (
             <>
-              {project.demoUrl && (
-                <Button size="sm" variant={project.prodUrl ? "outline" : "default"} asChild className="gap-1.5">
+              {showDemo && (
+                <Button size="sm" variant={showProd ? "outline" : "default"} asChild className="gap-1.5">
                   <a href={project.demoUrl} target="_blank" rel="noopener noreferrer">
                     {project.accessType === "PASSWORD" ? (
                       <Lock className="w-3.5 h-3.5" />
@@ -312,7 +316,7 @@ function ProjectCard({
                   </a>
                 </Button>
               )}
-              {project.prodUrl && (
+              {showProd && (
                 <Button size="sm" asChild className="gap-1.5">
                   <a href={project.prodUrl} target="_blank" rel="noopener noreferrer">
                     <ExternalLink className="w-3.5 h-3.5" />
@@ -322,7 +326,9 @@ function ProjectCard({
               )}
             </>
           ) : (
-            <Button size="sm" disabled>{t("portfolio.inDevelopment")}</Button>
+            <Button size="sm" variant="secondary" disabled className="cursor-default">
+              {project.status === "BETA" ? t("portfolio.comingSoon") : t("portfolio.onRequest")}
+            </Button>
           )}
           <Badge variant="outline" className="gap-1 text-xs">
             {categoryIcons[project.category]}
