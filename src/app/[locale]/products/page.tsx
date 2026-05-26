@@ -306,7 +306,7 @@ function ProjectCard({
             <>
               {showDemo && (
                 <Button size="sm" variant={showProd ? "outline" : "default"} asChild className="gap-1.5">
-                  <a href={project.demoUrl} target="_blank" rel="noopener noreferrer">
+                  <a href={project.demoUrl!} target="_blank" rel="noopener noreferrer">
                     {project.accessType === "PASSWORD" ? (
                       <Lock className="w-3.5 h-3.5" />
                     ) : (
@@ -318,7 +318,7 @@ function ProjectCard({
               )}
               {showProd && (
                 <Button size="sm" asChild className="gap-1.5">
-                  <a href={project.prodUrl} target="_blank" rel="noopener noreferrer">
+                  <a href={project.prodUrl!} target="_blank" rel="noopener noreferrer">
                     <ExternalLink className="w-3.5 h-3.5" />
                     {t("portfolio.viewProduction")}
                   </a>
