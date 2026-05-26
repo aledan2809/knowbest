@@ -72,9 +72,9 @@ export default function HomePage() {
       fetch("/api/partners").then(r => r.json())
     ])
       .then(([projectsData, partnersData]) => {
-        const projects = projectsData.projects || [];
+        const projects = Array.isArray(projectsData?.projects) ? projectsData.projects : [];
         setFeaturedProjects(projects.filter((p: Project) => p.featured).slice(0, 4));
-        setPartners(partnersData || []);
+        setPartners(Array.isArray(partnersData) ? partnersData : []);
         setLoading(false);
       })
       .catch(() => setLoading(false));
