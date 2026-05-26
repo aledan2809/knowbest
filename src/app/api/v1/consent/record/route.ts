@@ -9,7 +9,27 @@ import { NextRequest, NextResponse } from "next/server";
 const APP_SLUG = "knowbest";
 export const dynamic = "force-dynamic";
 
+// Per-IP rate limit (defense-in-depth: this proxy forwards to Legal Hub).
+const RATE_MAX = 10;
+const RATE_WINDOW_MS = 60_000;
+const counters = new Map<string, { count: number; resetAt: number }>();
+function allow(ip: string): boolean {
+  const now = Date.now();
+  const e = counters.get(ip);
+  if (!e || e.resetAt < now) {
+    counters.set(ip, { count: 1, resetAt: now + RATE_WINDOW_MS });
+    return true;
+  }
+  if (e.count >= RATE_MAX) return false;
+  e.count++;
+  return true;
+}
+
 export async function POST(request: NextRequest) {
+  const ip = request.headers.get("x-forwarded-for") ?? request.headers.get("x-real-ip") ?? "local";
+  if (!allow(ip)) {
+    return NextResponse.json({ recorded: false, reason: "rate-limited" }, { status: 429 });
+  }
   let payload: { type?: string; choice?: string; locale?: string } = {};
   try {
     payload = await request.json();

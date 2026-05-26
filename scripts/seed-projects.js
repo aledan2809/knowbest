@@ -1,9 +1,14 @@
 // Seed all existing projects into KnowBest portfolio (with RO + EN translations)
 // Uses Prisma upsert to avoid duplicates
 const { PrismaClient } = require("@prisma/client");
+const fs = require("fs");
+const path = require("path");
 
 const prisma = new PrismaClient();
 
+// NOTE: ecosystem-catalog.json is the source of truth (carries the curated,
+// business-oriented ro/en copy + correct status/URLs). The inline `projects`
+// array below is a historical fallback only — used if the catalog is missing.
 const projects = [
   // === STANDALONE (redirect to existing URL) ===
   {
@@ -460,13 +465,30 @@ const projects = [
   },
 ];
 
+function loadSource() {
+  try {
+    const p = path.join(__dirname, "ecosystem-catalog.json");
+    if (fs.existsSync(p)) {
+      const cat = JSON.parse(fs.readFileSync(p, "utf8"));
+      if (Array.isArray(cat) && cat.length) {
+        console.log(`(using ecosystem-catalog.json as source — ${cat.length} products)`);
+        return cat;
+      }
+    }
+  } catch (e) {
+    console.warn("catalog load failed, falling back to inline array:", e.message);
+  }
+  return projects;
+}
+
 async function seed() {
-  console.log(`\n🌱 Seeding ${projects.length} projects with upsert...\n`);
+  const seedSource = loadSource();
+  console.log(`\n🌱 Seeding ${seedSource.length} projects with upsert...\n`);
 
   let created = 0;
   let updated = 0;
 
-  for (const project of projects) {
+  for (const project of seedSource) {
     try {
       const result = await prisma.project.upsert({
         where: { slug: project.slug },
@@ -526,7 +548,7 @@ async function seed() {
     }
   }
 
-  console.log(`\n✅ Done! Created: ${created}, Updated: ${updated}, Total: ${projects.length}\n`);
+  console.log(`\n✅ Done! Created: ${created}, Updated: ${updated}, Total: ${seedSource.length}\n`);
 
   await prisma.$disconnect();
 }
