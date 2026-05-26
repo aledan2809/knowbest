@@ -432,5 +432,13 @@
   "meta": {
     "title": "KnowBest - Solutii Software Profesionale",
     "description": "Platforma centrala de prezentare si demo live a produselor software KnowBest"
+  },
+  "cookies": {
+    "title": "Cookie-uri",
+    "message": "Folosim cookie-uri pentru a-ti oferi cea mai buna experienta. Poti accepta sau refuza cookie-urile non-esentiale.",
+    "accept": "Accept",
+    "reject": "Refuz",
+    "cookiesLink": "Politica de cookies",
+    "privacyLink": "Confidentialitate"
   }
 }

@@ -432,5 +432,13 @@
   "meta": {
     "title": "KnowBest - Professional Software Solutions",
     "description": "Central platform for showcasing and live demos of KnowBest software products"
+  },
+  "cookies": {
+    "title": "Cookies",
+    "message": "We use cookies to give you the best experience. You can accept or reject non-essential cookies.",
+    "accept": "Accept",
+    "reject": "Reject",
+    "cookiesLink": "Cookie policy",
+    "privacyLink": "Privacy"
   }
 }
