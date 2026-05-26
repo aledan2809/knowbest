@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useTranslations, useLocale } from "next-intl";
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, Send, Linkedin, Github, Twitter, MessageSquare } from "lucide-react";
+import { Mail, Phone, MapPin, Send, Linkedin, Github, Twitter, MessageSquare, Building2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -61,13 +61,19 @@ export default function ContactPage() {
     {
       icon: Phone,
       label: t("contact.phoneLabel"),
-      value: "+40 721 123 456",
-      href: "tel:+40721123456",
+      value: "+40 749 591 399",
+      href: "tel:+40749591399",
     },
     {
       icon: MapPin,
       label: t("contact.locationLabel"),
       value: t("contact.locationValue"),
+      href: null,
+    },
+    {
+      icon: Building2,
+      label: t("contact.companyLabel"),
+      value: t("contact.companyValue"),
       href: null,
     },
   ];

@@ -395,8 +395,16 @@ export default function HomePage() {
                 className="group bg-slate-800/50 rounded-2xl p-6 border border-slate-700 hover:border-blue-500/50 hover:bg-slate-800/80 transition-all duration-300 cursor-pointer"
                 whileHover={{ y: -4 }}
               >
-                <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-blue-600 to-purple-600 text-white mb-4 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-blue-600/25 transition-all duration-300">
-                  {useCaseIcons[useCase.key]}
+                <div className="relative inline-flex mb-4">
+                  <motion.div
+                    aria-hidden
+                    className="absolute inset-0 rounded-xl bg-gradient-to-br from-blue-500 to-purple-500 blur-lg"
+                    animate={{ opacity: [0.25, 0.55, 0.25], scale: [1, 1.15, 1] }}
+                    transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: index * 0.3 }}
+                  />
+                  <div className="relative inline-flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-blue-600 to-purple-600 text-white group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-blue-600/25 transition-all duration-300">
+                    {useCaseIcons[useCase.key]}
+                  </div>
                 </div>
                 <h3 className="font-semibold text-lg mb-2 group-hover:text-blue-300 transition-colors">
                   {t(`home.useCases.${useCase.key}.title`)}

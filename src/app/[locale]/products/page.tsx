@@ -251,7 +251,21 @@ function ProjectCard({
         {project.coverImage ? (
           <img src={project.coverImage} alt={name} className="w-full h-full object-cover" />
         ) : (
-          <span className="text-6xl drop-shadow-sm group-hover:scale-110 transition-transform duration-300">{project.icon || "📦"}</span>
+          <div className="relative flex items-center justify-center">
+            <motion.div
+              aria-hidden
+              className="absolute h-24 w-24 rounded-full bg-gradient-to-br from-blue-400/40 to-purple-400/40 blur-2xl"
+              animate={{ scale: [1, 1.25, 1], opacity: [0.4, 0.7, 0.4] }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+            />
+            <motion.span
+              className="relative text-6xl drop-shadow-sm group-hover:scale-110 transition-transform duration-300"
+              animate={{ y: [0, -6, 0] }}
+              transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
+            >
+              {project.icon || "📦"}
+            </motion.span>
+          </div>
         )}
       </div>
 

@@ -112,6 +112,9 @@ export function Footer() {
             </Link>
           </div>
         </div>
+        <p className="mt-4 text-xs text-slate-600 text-center md:text-left">
+          {t("footer.legalEntity")}
+        </p>
       </div>
     </footer>
   );

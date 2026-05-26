@@ -230,7 +230,9 @@
     "emailLabel": "Email",
     "phoneLabel": "Phone",
     "locationLabel": "Location",
-    "locationValue": "Bucharest, Romania",
+    "locationValue": "Str. Valea Oltului nr. 8, Sector 6, Bucharest, Romania",
+    "companyLabel": "Company",
+    "companyValue": "Fabulosos S.R.L. · CUI RO33968578 · J2015000297404",
     "followUs": "Follow Us",
     "successTitle": "Message Sent!",
     "successMessage": "Thank you for reaching out. We'll get back to you as soon as possible.",
@@ -255,6 +257,7 @@
     "products": "Products",
     "company": "Company",
     "copyright": "© {year} KnowBest. All rights reserved.",
+    "legalEntity": "Operated by Fabulosos S.R.L. · CUI RO33968578 · J2015000297404 · Str. Valea Oltului 8, Sector 6, Bucharest · +40 749 591 399",
     "privacy": "Privacy Policy",
     "terms": "Terms of Service"
   },

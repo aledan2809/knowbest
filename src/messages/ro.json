@@ -193,7 +193,9 @@
     "emailLabel": "Email",
     "phoneLabel": "Telefon",
     "locationLabel": "Locatie",
-    "locationValue": "Bucuresti, Romania",
+    "locationValue": "Str. Valea Oltului nr. 8, Sector 6, Bucuresti",
+    "companyLabel": "Companie",
+    "companyValue": "Fabulosos S.R.L. · CUI RO33968578 · J2015000297404",
     "followUs": "Urmareste-ne",
     "successTitle": "Mesaj Trimis!",
     "successMessage": "Iti multumim pentru mesaj. Te vom contacta in cel mai scurt timp.",
@@ -218,6 +220,7 @@
     "products": "Produse",
     "company": "Companie",
     "copyright": "© {year} KnowBest. Toate drepturile rezervate.",
+    "legalEntity": "Operat de Fabulosos S.R.L. · CUI RO33968578 · J2015000297404 · Str. Valea Oltului nr. 8, Sector 6, Bucuresti · +40 749 591 399",
     "privacy": "Politica de Confidentialitate",
     "terms": "Termeni si Conditii"
   },
