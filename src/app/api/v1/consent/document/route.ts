@@ -19,7 +19,7 @@ const ENTITY_FALLBACK = {
   cui: "RO33968578",
   jurisdiction: "RO",
   address: "Str. Valea Oltului nr. 8, Sector 6, București",
-  dpoEmail: "dpo@knowbest.ro",
+  dpoEmail: "dpo@4pro.io",
 };
 
 function isValidType(t: string): t is ValidType {
