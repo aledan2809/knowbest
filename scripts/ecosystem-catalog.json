@@ -716,5 +716,29 @@
     ],
     "featured": false,
     "sortOrder": 36
+  },
+  {
+    "name": "tutor",
+    "nameEn": "tutor",
+    "slug": "tutor",
+    "description": "tutor — soluție din suita KnowBest. Descriere în curs de actualizare.",
+    "descriptionEn": "tutor — a solution from the KnowBest suite. Description being updated.",
+    "category": "WEB_APP",
+    "status": "LIVE",
+    "prodUrl": "https://etutor.ro",
+    "standalone": true,
+    "icon": "🎓",
+    "techStack": [
+      "Next.js 15",
+      "Prisma 5",
+      "NextAuth",
+      "Stripe",
+      "i18n",
+      "local PG VPS2 (DBM)"
+    ],
+    "tags": [],
+    "featured": false,
+    "_needsCopyReview": true,
+    "sortOrder": 90
   }
 ]
