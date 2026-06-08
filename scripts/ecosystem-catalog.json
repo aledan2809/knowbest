@@ -740,5 +740,29 @@
     "featured": false,
     "_needsCopyReview": true,
     "sortOrder": 90
+  },
+  {
+    "name": "utilajhub-next",
+    "nameEn": "utilajhub-next",
+    "slug": "utilajhub-next",
+    "description": "utilajhub-next — soluție din suita KnowBest. Descriere în curs de actualizare.",
+    "descriptionEn": "utilajhub-next — a solution from the KnowBest suite. Description being updated.",
+    "category": "WEB_APP",
+    "status": "LIVE",
+    "prodUrl": "https://utilajhub.ro",
+    "standalone": true,
+    "icon": "📦",
+    "techStack": [
+      "Next.js 14",
+      "Prisma 5",
+      "NextAuth",
+      "Stripe",
+      "Upstash",
+      "local MySQL"
+    ],
+    "tags": [],
+    "featured": false,
+    "_needsCopyReview": true,
+    "sortOrder": 90
   }
 ]
