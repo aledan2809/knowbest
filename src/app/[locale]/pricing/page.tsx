@@ -147,10 +147,10 @@ export default function PricingPage() {
       <div className="py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-4xl text-center">
-            <h2 className="text-base font-semibold leading-7 text-indigo-600">Pricing</h2>
-            <p className="mt-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
+            <p className="text-base font-semibold leading-7 text-indigo-600">Pricing</p>
+            <h1 className="mt-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
               Choose the perfect plan for you
-            </p>
+            </h1>
             <p className="mt-6 text-lg leading-8 text-gray-600">
               Start free and scale as you grow. All plans include our core features with different limits and support levels.
             </p>

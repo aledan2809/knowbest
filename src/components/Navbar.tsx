@@ -56,7 +56,7 @@ export function Navbar() {
               <span className="text-white font-bold text-lg">K</span>
             </div>
             <div>
-              <h1 className="text-xl font-bold text-slate-900">{t("common.brand")}</h1>
+              <span className="block text-xl font-bold text-slate-900">{t("common.brand")}</span>
               <p className="text-xs text-slate-500">{t("common.subtitle")}</p>
             </div>
           </Link>

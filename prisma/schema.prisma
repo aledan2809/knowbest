@@ -216,6 +216,7 @@ model PageContent {
   key       String
   valueRo   String
   valueEn   String?
+  type      String   @default("text")
   sortOrder Int      @default(0)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
