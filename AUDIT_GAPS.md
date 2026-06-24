@@ -1,10 +1,13 @@
 # AUDIT_GAPS — knowbest
-Last Updated: 2026-05-26
+Last Updated: 2026-06-24
 
 ## Eliminated Gaps
 
 | ID | Severitate | Descriere | Status | Commit | Data |
 |----|-----------|-----------|--------|--------|------|
+| G-KB-CMS-01 | P2 | CMS gol: `seed-page-content.ts` scrie câmpul `type` inexistent în `PageContent` → upsert aruncă → tabel gol → pagini pe fallback i18n. Fix: coloană `type String @default("text")` (aditiv). **Deploy prod: `prisma db push` + re-run seed pe VPS2 ca CMS-ul să se populeze.** | Eliminated (cod) | 4897b0d | 2026-06-24 |
+| G-KB-SEO-01 | P2 | Lipsă `sitemap.ts` + `robots.ts` (SEO 60/100). Adăugate la `src/app/` (rute publice × locale; zone private disallow). | Eliminated | 4897b0d | 2026-06-24 |
+| G-KB-SEO-02 | P2 | 2× H1/pagină (brand Navbar `h1` + h1 real). Navbar `h1`→`span`; pricing primește h1 propriu. Un singur H1/pagină. | Eliminated | 4897b0d | 2026-06-24 |
 | G-KB-001 | P2 | Lipsă viewport export Next.js 16 (layout.tsx) | Eliminated | 14c320f | 2026-05-18 |
 | G-KB-002 | P1 | Lipsă rate limiting pe /api/contact (email spam) | Eliminated | 14c320f | 2026-05-18 |
 | G-KB-003 | P1 | Lipsă rate limiting pe /api/ai (per-IP, defense-in-depth) | Eliminated | 14c320f | 2026-05-18 |
