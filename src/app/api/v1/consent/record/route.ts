@@ -30,7 +30,8 @@ export async function POST(request: NextRequest) {
   if (!allow(ip)) {
     return NextResponse.json({ recorded: false, reason: "rate-limited" }, { status: 429 });
   }
-  let payload: { type?: string; choice?: string; locale?: string } = {};
+  type Categories = { necessary?: boolean; analytics?: boolean; marketing?: boolean };
+  let payload: { type?: string; choice?: string; locale?: string; categories?: Categories } = {};
   try {
     payload = await request.json();
   } catch {
@@ -43,10 +44,21 @@ export async function POST(request: NextRequest) {
 
   const base = apiUrl.replace(/\/$/, "");
   const docType = (payload.type ?? "COOKIES").toLowerCase();
-  // Only record an affirmative consent; "rejected" is kept client-side only.
-  if (payload.choice !== "accepted") {
+
+  // The granted set always includes strictly-necessary cookies (which need no consent).
+  const cats = payload.categories ?? {};
+  const granted = ["necessary"];
+  if (cats.analytics) granted.push("analytics");
+  if (cats.marketing) granted.push("marketing");
+
+  // Legal Hub's ConsentRecord is an AFFIRMATIVE-consent ledger. Only record when
+  // the visitor actually grants a non-essential category (analytics/marketing).
+  // Refusals / essential-only choices need no consent and stay client-side only —
+  // recording them here could be misread downstream as "accepted cookies".
+  if (granted.length === 1) {
     return NextResponse.json({ recorded: false, reason: "not-granted" });
   }
+  const host = request.headers.get("x-forwarded-host") ?? request.headers.get("host") ?? "knowbest.ro";
 
   try {
     // 1) resolve current document version id
@@ -59,10 +71,11 @@ export async function POST(request: NextRequest) {
     const versionId = doc?.version?.id;
     if (!versionId) return NextResponse.json({ recorded: false, reason: "no-version" });
 
+    const catList = granted.join(", ");
     const consentText =
       payload.locale === "en"
-        ? `Cookie consent accepted via the in-app banner on app.knowbest.ro (${docType} ${doc.version?.version ?? ""}).`
-        : `Consimțământ cookie acordat prin banner-ul din aplicație pe app.knowbest.ro (${docType} ${doc.version?.version ?? ""}).`;
+        ? `Cookie consent (${payload.choice}) via the in-app banner on ${host} — categories: ${catList} (${docType} ${doc.version?.version ?? ""}).`
+        : `Consimțământ cookie (${payload.choice}) prin banner-ul din aplicație pe ${host} — categorii: ${catList} (${docType} ${doc.version?.version ?? ""}).`;
 
     // 2) record (anonymous path: x-app-slug header, no x-user-id)
     const recRes = await fetch(`${base}/api/v1/consents/record`, {

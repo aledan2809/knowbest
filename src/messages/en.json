@@ -438,6 +438,17 @@
     "message": "We use cookies to give you the best experience. You can accept or reject non-essential cookies.",
     "accept": "Accept",
     "reject": "Reject",
+    "acceptAll": "Accept all",
+    "rejectNonEssential": "Essential only",
+    "manage": "Preferences",
+    "save": "Save preferences",
+    "alwaysOn": "Always on",
+    "necessaryName": "Necessary",
+    "necessaryDesc": "Essential for the site to work (authentication, security, remembering your consent). These cannot be turned off.",
+    "analyticsName": "Analytics",
+    "analyticsDesc": "Help us understand how the site is used. Enabled only with your consent.",
+    "marketingName": "Marketing",
+    "marketingDesc": "Used for relevant content and offers. Enabled only with your consent.",
     "cookiesLink": "Cookie policy",
     "privacyLink": "Privacy"
   }

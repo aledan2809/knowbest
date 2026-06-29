@@ -438,6 +438,17 @@
     "message": "Folosim cookie-uri pentru a-ti oferi cea mai buna experienta. Poti accepta sau refuza cookie-urile non-esentiale.",
     "accept": "Accept",
     "reject": "Refuz",
+    "acceptAll": "Accept toate",
+    "rejectNonEssential": "Doar esentiale",
+    "manage": "Preferări",
+    "save": "Salvează preferările",
+    "alwaysOn": "Mereu active",
+    "necessaryName": "Necesare",
+    "necessaryDesc": "Esentiale pentru functionarea site-ului (autentificare, securitate, retinerea consimtamantului). Nu pot fi dezactivate.",
+    "analyticsName": "Analitice",
+    "analyticsDesc": "Ne ajuta sa intelegem cum este folosit site-ul. Se activeaza doar cu acordul tau.",
+    "marketingName": "Marketing",
+    "marketingDesc": "Folosite pentru continut si oferte relevante. Se activeaza doar cu acordul tau.",
     "cookiesLink": "Politica de cookies",
     "privacyLink": "Confidentialitate"
   }
