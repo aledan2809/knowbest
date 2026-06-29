@@ -32,23 +32,33 @@
     "subtitle": "Explore our portfolio of web applications, APIs and software modules. Live demo available for every product."
   },
   "home": {
-    "badge": "IT Consulting & Custom Software",
-    "heroTitle": "We Build",
-    "heroHighlight": "Software That Works",
-    "heroDescription": "IT consulting, custom software development, process automation (RPA), and AI integration. We deliver scalable solutions that transform how businesses operate.",
-    "exploreProducts": "Explore Products",
-    "getInTouch": "Get in Touch",
+    "badge": "IT consulting and custom software",
+    "heroTitle": "Less manual work.",
+    "heroHighlight": "More control.",
+    "heroDescription": "Software already at work across 8 industries. We automate the repetitive tasks — you keep control.",
+    "heroImageAlt": "Dashboard with key metrics — stock, orders and suppliers in one place",
+    "exploreProducts": "See the products",
+    "getInTouch": "Tell us your challenge",
     "stats": {
-      "projects": "Active Projects",
-      "clients": "Happy Clients",
-      "industries": "Industries Served",
-      "uptime": "System Uptime"
+      "projects": "Live products",
+      "clients": "Active clients",
+      "industries": "Industries served",
+      "uptime": "System uptime"
     },
-    "featuredTitle": "Featured Products",
-    "featuredDescription": "Our most popular solutions trusted by businesses across multiple industries.",
-    "viewAllProducts": "View All Products",
-    "useCasesTitle": "Industry Solutions",
-    "useCasesDescription": "Tailored software solutions for specific industry needs.",
+    "selector": {
+      "title": "What's your business?",
+      "subtitle": "Pick your field — we'll show you exactly what we solve.",
+      "prefix": "Software for"
+    },
+    "industries": {
+      "medical": { "chip": "Medical clinics", "name": "medical clinics", "line": "Romanian voice dictation, patient records, digitized documents. More time with patients." },
+      "hoa": { "chip": "Buildings & HOAs", "name": "buildings and HOAs", "line": "95% of admin work, automated. Payments and alerts that handle themselves." },
+      "service": { "chip": "Service & fitness", "name": "service and fitness", "line": "SMS bookings, loyalty, reports. Customers who come back, not lost calendars." },
+      "horeca": { "chip": "Hotels & tourism", "name": "hotels and tourism", "line": "Group bookings, accommodation sourcing, quoting. Fewer calls — more confirmed bookings." },
+      "supply": { "chip": "Trade & supply", "name": "trade and supply", "line": "Stock, orders, suppliers and forecasting — all in one control tower." },
+      "public": { "chip": "Public administration", "name": "public administration", "line": "Public tender analysis, bid tracking, compliance. Win more contracts." },
+      "itweb": { "chip": "IT & web", "name": "IT and web", "line": "Automated site audits and optimization. Performance, SEO and security — under control." }
+    },
     "useCases": {
       "healthcare": {
         "title": "Healthcare & Medical",
@@ -56,7 +66,7 @@
       },
       "hoa": {
         "title": "Property Management",
-        "description": "HOA and building administration with AI automation."
+        "description": "HOA and building administration, automated."
       },
       "fitness": {
         "title": "Auto Service & Fitness",
@@ -67,12 +77,32 @@
         "description": "Campaign automation and customer engagement tools."
       }
     },
+    "featuredTitle": "Products already running",
+    "featuredDescription": "Real solutions in production — not prototypes.",
+    "viewAllProducts": "See all products",
+    "products": {
+      "procuchain": "Supply and stock under control — orders, suppliers, forecasting.",
+      "ecabinet": "Complete medical clinic management.",
+      "blochub": "Building and HOA administration.",
+      "pro": "Bookings and clients for service businesses.",
+      "travelagency": "Accommodation and group sourcing for tourism.",
+      "seap": "Public tenders: analysis and bids.",
+      "ave": "Automated website audit and optimization.",
+      "marketing": "Campaigns and lead nurturing."
+    },
+    "useCasesTitle": "Industry Solutions",
+    "useCasesDescription": "Tailored software solutions for specific industry needs.",
     "exploreUseCases": "Explore Use Cases",
-    "ctaTitle": "Ready to Transform Your Business?",
-    "ctaDescription": "Let's discuss how our software solutions can help streamline your operations and drive growth.",
-    "ctaButton": "Start a Conversation",
-    "learnMore": "Learn More About Us",
-    "trustedBy": "Trusted by teams across industries",
+    "testimonial": {
+      "quote": "Since we started working with KnowBest, group bookings and quotes no longer get lost in email. We see everything in one place and reply to clients in minutes, not days.",
+      "author": "Hotel manager · Poiana Brașov"
+    },
+    "ctaTitle": "Tell us what's holding you back.",
+    "ctaDescription": "A short, jargon-free chat. We'll show you exactly what we could build — and how long it takes.",
+    "ctaButton": "Let's talk",
+    "ctaRisk": "Free consultation · no commitment · we reply within 24h",
+    "learnMore": "Learn more about us",
+    "trustedBy": "Trusted by teams across multiple industries",
     "clientsTitle": "Some of our partners"
   },
   "products": {

@@ -27,47 +27,77 @@
     "caseStudies": "Studii de Caz"
   },
   "home": {
-    "badge": "Consultanta IT & Software Personalizat",
-    "heroTitle": "Transformam Ideile in",
-    "heroHighlight": "Software Performant",
-    "heroDescription": "Consultanta IT, dezvoltare software personalizat, automatizare procese (RPA) si integrare AI. Livram solutii scalabile care transforma modul in care functioneaza afacerile.",
-    "exploreProducts": "Exploreaza Produsele",
-    "getInTouch": "Contacteaza-ne",
+    "badge": "Consultanță IT și software personalizat",
+    "heroTitle": "Mai puțină muncă manuală.",
+    "heroHighlight": "Mai mult control.",
+    "heroDescription": "Soluții care lucrează deja în 8 industrii. Automatizăm munca repetitivă — tu păstrezi controlul.",
+    "heroImageAlt": "Tablou de bord cu indicatori — stocuri, comenzi și furnizori într-un singur loc",
+    "exploreProducts": "Vezi produsele",
+    "getInTouch": "Spune-ne provocarea ta",
     "stats": {
-      "projects": "Proiecte Active",
-      "clients": "Clienti Multumiti",
-      "industries": "Industrii Servite",
-      "uptime": "Uptime Sistem"
+      "projects": "Produse în producție",
+      "clients": "Clienți activi",
+      "industries": "Industrii servite",
+      "uptime": "Uptime sistem"
+    },
+    "selector": {
+      "title": "Ce afacere ai?",
+      "subtitle": "Alege-ți domeniul — îți arătăm exact ce rezolvăm.",
+      "prefix": "Software pentru"
+    },
+    "industries": {
+      "medical": { "chip": "Cabinet medical", "name": "cabinete medicale", "line": "Dictare în română, fișe pacienți, documente digitalizate. Mai mult timp cu pacienții." },
+      "hoa": { "chip": "Asociații și clădiri", "name": "asociații și clădiri", "line": "95% din munca administrativă, automată. Plăți și notificări care se rezolvă singure." },
+      "service": { "chip": "Service și fitness", "name": "service și săli", "line": "Rezervări cu SMS, fidelizare, rapoarte. Clienți care revin, nu agende pierdute." },
+      "horeca": { "chip": "Horeca și turism", "name": "hoteluri și turism", "line": "Rezervări de grup, sourcing de cazare, ofertare. Mai puține telefoane — mai multe rezervări confirmate." },
+      "supply": { "chip": "Comerț și aprovizionare", "name": "comerț și aprovizionare", "line": "Stocuri, comenzi, furnizori și forecast — totul într-un singur control tower." },
+      "public": { "chip": "Administrație publică", "name": "administrație publică", "line": "Analiză documente SEAP, urmărire oferte, conformitate. Câștigi mai multe contracte." },
+      "itweb": { "chip": "IT și web", "name": "IT și web", "line": "Audit și optimizare automată de site-uri. Performanță, SEO și securitate — sub control." }
     },
     "useCases": {
       "healthcare": {
-        "title": "Sanatate & Medical",
-        "description": "Transcriere vocala, fise pacienti si management cabinet."
+        "title": "Sănătate & Medical",
+        "description": "Transcriere vocală, fișe pacienți și management cabinet."
       },
       "hoa": {
         "title": "Administrare Imobile",
-        "description": "Administrare HOA si cladiri cu automatizare AI."
+        "description": "Administrare asociații și clădiri, automatizată."
       },
       "fitness": {
         "title": "Auto Service & Fitness",
-        "description": "Programari si platforme de management clienti."
+        "description": "Programări și platforme de management clienți."
       },
       "marketing": {
-        "title": "Marketing & Vanzari",
-        "description": "Automatizare campanii si instrumente de engagement."
+        "title": "Marketing & Vânzări",
+        "description": "Automatizare campanii și instrumente de engagement."
       }
     },
-    "featuredTitle": "Produse Recomandate",
-    "featuredDescription": "Cele mai populare solutii software din portofoliul nostru, gata de utilizare.",
-    "viewAllProducts": "Vezi Toate Produsele",
-    "useCasesTitle": "Cazuri de Utilizare",
-    "useCasesDescription": "Descopera cum solutiile noastre se aplica in diverse industrii si scenarii.",
-    "exploreUseCases": "Exploreaza Cazurile de Utilizare",
-    "ctaTitle": "Pregatit sa Incepi?",
-    "ctaDescription": "Contacteaza-ne pentru o consultare gratuita si descopera cum putem transforma ideea ta in realitate.",
-    "ctaButton": "Contacteaza-ne Acum",
-    "learnMore": "Afla Mai Multe",
-    "trustedBy": "Cu increderea echipelor din multiple industrii",
+    "featuredTitle": "Produse care rulează deja",
+    "featuredDescription": "Soluții reale, în producție — nu prototipuri.",
+    "viewAllProducts": "Vezi toate produsele",
+    "products": {
+      "procuchain": "Aprovizionare și stocuri sub control — comenzi, furnizori, forecast.",
+      "ecabinet": "Management complet de cabinet medical.",
+      "blochub": "Administrare de asociații și clădiri.",
+      "pro": "Programări și clienți pentru servicii.",
+      "travelagency": "Sourcing de cazare și grupuri pentru turism.",
+      "seap": "Licitații publice: analiză și oferte.",
+      "ave": "Audit și optimizare automată de site-uri.",
+      "marketing": "Campanii și nurturing de lead-uri."
+    },
+    "useCasesTitle": "Cazuri de utilizare",
+    "useCasesDescription": "Descoperă cum soluțiile noastre se aplică în diverse industrii și scenarii.",
+    "exploreUseCases": "Explorează cazurile de utilizare",
+    "testimonial": {
+      "quote": "De când lucrăm cu KnowBest, rezervările de grup și ofertele nu mai stau în e-mailuri pierdute. Vedem totul într-un loc și răspundem clienților în minute, nu în zile.",
+      "author": "Manager hotel · Poiana Brașov"
+    },
+    "ctaTitle": "Spune-ne ce te ține pe loc.",
+    "ctaDescription": "O discuție scurtă, fără jargon. Îți arătăm exact ce am putea construi — și cât durează.",
+    "ctaButton": "Hai să discutăm",
+    "ctaRisk": "Consultare gratuită · fără obligație · răspundem în 24h",
+    "learnMore": "Află mai multe",
+    "trustedBy": "Cu încrederea echipelor din mai multe industrii",
     "clientsTitle": "O parte din partenerii noștri"
   },
   "hero": {
