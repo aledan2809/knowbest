@@ -3,10 +3,11 @@
 > Reconciliat 2026-06-29 (sesiune dedicată). Fișierul avea blocul de 6 items triplicat + claim-uri vechi.
 > Verificat fiecare item pe codul + DB-ul real. Majoritatea erau deja rezolvate.
 
-## 🌐 Cutover domeniu knowbest.ro (în curs — 2026-06-29)
-- [x] **Arhivă site vechi → `old.knowbest.ro`** — snapshot static al WordPress-ului vechi (9 pagini, 11M) servit la `https://old.knowbest.ro` (SSL până 2026-09-27, http→https 301, asset-uri rescrise spre `old.`). DONE.
-- [x] **Pregătire apex pe VPS2** — vhost `knowbest.ro`→app(:3023) gata (inert până muți DNS), `www`→apex 301, `ALLOWED_ORIGINS` extins cu apex, app restartat (app.knowbest.ro neatins). DONE.
-- [ ] 🔑 **ACȚIUNE USER: muți A-record `knowbest.ro` + `www` la `72.62.155.74`** (Hostico, acum pe 45.67.39.205). După propagare → eu rulez certbot pe apex + setez `NEXT_PUBLIC_SITE_URL=https://knowbest.ro` (canonical SEO) + deploy bundle (vezi mai jos). Atunci cutover complet.
+## 🌐 Cutover domeniu knowbest.ro — ✅ COMPLET 2026-06-29
+- [x] **Arhivă site vechi → `old.knowbest.ro`** — snapshot static WP (9 pagini, 11M), SSL până 2026-09-27, http→https, asset-uri rescrise. LIVE.
+- [x] **Apex `knowbest.ro` → app nou (:3023)** — DNS mutat de user la 72.62.155.74; certbot SSL (până 2026-09-27); `www`→apex 301; http→https 301. LIVE + verificat (knowbest.ro/ro+/en 200, title app nou).
+- [x] **Canonical SEO** — `NEXT_PUBLIC_SITE_URL=https://knowbest.ro` setat înainte de build; sitemap/robots emit acum apex.
+- [x] **Deploy bundle livrat la cutover** — commit-uri `c465c0b` (deps) + `160e888` (cookie categories) LIVE pe knowbest.ro + app.knowbest.ro (HEAD `2b35fd4`). app.knowbest.ro neatins (307, funcțional). L41 ecosystem 200.
 
 ## Items din Introspection 2026-06-20 — REZOLVATE (verificat 2026-06-29)
 - [x] **CMS seed (G-01)** — *claim vechi, nu era bug.* Modelul `PageContent` ARE câmpurile `page`+`type`, DB-ul prod are **153 rânduri** pe toate paginile, seeder-ul trece tsc. Nimic de reparat.
