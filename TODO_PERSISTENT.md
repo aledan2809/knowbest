@@ -1,54 +1,31 @@
+# TODO Persistent — knowbest (`app.knowbest.ro` → `knowbest.ro`) — ACTIVE
 
-## knowbest (`app.knowbest.ro`) — ACTIVE (fix-urile așteaptă review-ul tău)
-Sursă: `knowbest/Reports/INTROSPECTION-2026-06-20/`
+> Reconciliat 2026-06-29 (sesiune dedicată). Fișierul avea blocul de 6 items triplicat + claim-uri vechi.
+> Verificat fiecare item pe codul + DB-ul real. Majoritatea erau deja rezolvate.
 
-- [ ] 🟡 **Fix CMS seed (G-01)** — `seed-page-content.ts` scrie câmpul `type` inexistent în modelul `PageContent` → CMS nu se populează, paginile cad pe fallback i18n. (fix de cod — aprobă-l)
-- [ ] 🟡 **SEO de bază** — lipsesc `sitemap.ts` / `robots.ts` + 2× H1 (cel mai mare ROI funcțional). (fix de cod)
-- [ ] 🟡 **Decide `npm audit fix` + bump `next` patch 16.x** (build + smoke login; fără `--force`).
-- [ ] 🟡 **Confirmă `ALLOWED_ORIGINS` setat pe VPS2 prod** (CSRF depinde de el).
-- [ ] 🟡 **GDPR** — extinde banner cookie cu categorii + GA după consimțământ.
-- [ ] 🟢 **Conținut** — screenshot-uri reale de produs + studii de caz cu cifre (driverul #1 de conversie) + elimină placeholder `email@exemplu.ro`.
+## 🌐 Cutover domeniu knowbest.ro (în curs — 2026-06-29)
+- [x] **Arhivă site vechi → `old.knowbest.ro`** — snapshot static al WordPress-ului vechi (9 pagini, 11M) servit la `https://old.knowbest.ro` (SSL până 2026-09-27, http→https 301, asset-uri rescrise spre `old.`). DONE.
+- [x] **Pregătire apex pe VPS2** — vhost `knowbest.ro`→app(:3023) gata (inert până muți DNS), `www`→apex 301, `ALLOWED_ORIGINS` extins cu apex, app restartat (app.knowbest.ro neatins). DONE.
+- [ ] 🔑 **ACȚIUNE USER: muți A-record `knowbest.ro` + `www` la `72.62.155.74`** (Hostico, acum pe 45.67.39.205). După propagare → eu rulez certbot pe apex + setez `NEXT_PUBLIC_SITE_URL=https://knowbest.ro` (canonical SEO) + deploy bundle (vezi mai jos). Atunci cutover complet.
 
----
+## Items din Introspection 2026-06-20 — REZOLVATE (verificat 2026-06-29)
+- [x] **CMS seed (G-01)** — *claim vechi, nu era bug.* Modelul `PageContent` ARE câmpurile `page`+`type`, DB-ul prod are **153 rânduri** pe toate paginile, seeder-ul trece tsc. Nimic de reparat.
+  - 🗣️ *Pe înțelesul tău:* panoul de conținut e populat corect în baza de date; bug-ul descris nu există (a fost reparat între timp).
+- [x] **SEO de bază** — *parțial vechi.* `sitemap.ts` + `robots.ts` EXISTĂ deja; fiecare pagină de marketing are exact 1 `<h1>` (`motion.h1`). Singurul rest real = canonical-ul să arate spre apex `knowbest.ro` → se face la cutover.
+- [x] **`npm audit fix` (fără `--force`)** — DONE 2026-06-29 (commit `c465c0b`). Rezolvate babel/fast-uri/hono/brace-expansion; tsc curat. Rămân 7 (nodemailer/postcss/uuid) care cer `--force` (major, breaking) → amânate exact per instrucțiune.
+- [x] **`ALLOWED_ORIGINS` pe prod** — DONE 2026-06-29. Confirmat setat + extins cu apex (`knowbest.ro`,`www`).
+- [x] **GDPR — banner cookie cu categorii** — DONE 2026-06-29 (commit `160e888`). Banner cu toggle-uri Necesare(blocat)/Analitice/Marketing + „Preferări"; alegerea granulară se înregistrează în **Legal Hub** (ca toate proiectele), fără analytics terț (decizie user). Doar consimțămintele afirmative (non-esențiale acordate) se scriu în Legal; refuzurile rămân local.
+  - 🗣️ *Pe înțelesul tău:* vizitatorul alege exact ce acceptă, iar acordul se păstrează în hub-ul legal — ești în regulă cu legea, fără urmărire Google.
 
-## knowbest (`app.knowbest.ro`) — ACTIVE (fix-urile așteaptă review-ul tău)
-Sursă: `knowbest/Reports/INTROSPECTION-2026-06-20/`
+## Items care depind de tine (materiale)
+- [~] **Conținut** — screenshot-uri reale de produs + studii de caz cu cifre (driverul #1 de conversie B2B). NU pot fabrica imagini/cifre reale → am nevoie de materialele tale. *(Placeholder-ul `email@exemplu.ro` e doar hint-ul câmpului din formular — corect așa; datele reale de contact `contact@knowbest.ro` + telefon + adresă sunt deja afișate pe pagina Contact.)*
 
-- [ ] 🟡 **Fix CMS seed (G-01)** — `seed-page-content.ts` scrie câmpul `type` inexistent în modelul `PageContent` → CMS nu se populează, paginile cad pe fallback i18n. (fix de cod — aprobă-l)
-- [ ] 🟡 **SEO de bază** — lipsesc `sitemap.ts` / `robots.ts` + 2× H1 (cel mai mare ROI funcțional). (fix de cod)
-- [ ] 🟡 **Decide `npm audit fix` + bump `next` patch 16.x** (build + smoke login; fără `--force`).
-- [ ] 🟡 **Confirmă `ALLOWED_ORIGINS` setat pe VPS2 prod** (CSRF depinde de el).
-- [ ] 🟡 **GDPR** — extinde banner cookie cu categorii + GA după consimțământ.
-- [ ] 🟢 **Conținut** — screenshot-uri reale de produs + studii de caz cu cifre (driverul #1 de conversie) + elimină placeholder `email@exemplu.ro`.
-
----
-
-## 🔍 Introspection Audit 2026-06-20
-> Audit complet (gap strategie↔cod · ghid per-pagină · deep research · funcțional + cyber).
-> **Scor AIWebAuditor: 78/100** · GDPR 65. 6 acțiuni deschise · fără critice.
-> Rapoarte: `Reports/INTROSPECTION-2026-06-20/` (00-SUMMARY.md, 01-gap-strategy-vs-code.md, 02-pages-guide-RO.md, 03-deep-research-optimization.md, 04-audit-findings.md, 04b-security-audit.md)
-> Checklist Alex centralizat: `Master/reports/Alex_TODO_2026-06-20.md` + tab „Introspection Audit" în UI Master.
-
-## knowbest (`app.knowbest.ro`) — ACTIVE (fix-urile așteaptă review-ul tău)
-Sursă: `knowbest/Reports/INTROSPECTION-2026-06-20/`
-
-- [ ] 🟡 **Fix CMS seed (G-01)** — `seed-page-content.ts` scrie câmpul `type` inexistent în modelul `PageContent` → CMS nu se populează, paginile cad pe fallback i18n. (fix de cod — aprobă-l)
-  - 🗣️ *Pe înțelesul tău:* Plătești un panou de administrare care de fapt nu controlează conținutul — un mic bug face ca textele pe care le editezi acolo să nu apară pe site. După fix, panoul chiar schimbă paginile.
-- [ ] 🟡 **SEO de bază** — lipsesc `sitemap.ts` / `robots.ts` + 2× H1 (cel mai mare ROI funcțional). (fix de cod)
-  - 🗣️ *Pe înțelesul tău:* Google nu reușește să-ți indexeze bine site-ul, deci apari mai jos în căutări. După ce adăugăm aceste fișiere standard, te găsesc mai mulți vizitatori gratis.
-- [ ] 🟡 **Decide `npm audit fix` + bump `next` patch 16.x** (build + smoke login; fără `--force`).
-  - 🗣️ *Pe înțelesul tău:* Câteva biblioteci externe au update-uri de securitate de aplicat. Le actualizez cu testare după (login + build), ca să nu stric nimic.
-- [ ] 🟡 **Confirmă `ALLOWED_ORIGINS` setat pe VPS2 prod** (CSRF depinde de el).
-  - 🗣️ *Pe înțelesul tău:* O setare de pe server protejează formularele site-ului de abuz din afară. Confirmă doar că e pusă, ca protecția să fie activă.
-- [ ] 🟡 **GDPR** — extinde banner cookie cu categorii + GA după consimțământ.
-  - 🗣️ *Pe înțelesul tău:* Urmărirea vizitatorilor pornește înainte ca ei să accepte — risc de amendă. După fix, bannerul cere acordul mai întâi și ești în regulă cu legea.
-- [ ] 🟢 **Conținut** — screenshot-uri reale de produs + studii de caz cu cifre (driverul #1 de conversie) + elimină placeholder `email@exemplu.ro`.
-  - 🗣️ *Pe înțelesul tău:* Acum produsul e arătat cu emoji-uri și texte de probă, nu cu poze reale și rezultate cu cifre — semnalul #1 care convinge un client B2B. Cu materiale reale, mai mulți vizitatori cumpără.
-
----
-
-## [ ] 🧩 Module reuse gaps (adăugat 2026-06-24 din Master MODULE-PROJECT-MATRIX, aprobat user — necesită sesiune dedicată per item)
+## [ ] 🧩 Module reuse gaps (din Master MODULE-PROJECT-MATRIX — sesiune dedicată per item)
 - [ ] **Feedback-Hub widget** — colectare feedback pe app.knowbest.ro (modul neutilizat în tot ecosistemul).
-- [ ] **Stripe broker** — folosește Stripe direct; de migrat la broker central `stripe.knowbest.ro`.
-- [ ] **CAS (Carusel de Ads)** — cross-promo din MarketingAutomation (`<CasBanner>`/widget) — knowbest e suprafață cu trafic bună pentru cross-promo ecosystem.
+- [ ] **Stripe broker** — folosește Stripe direct; de migrat la broker central `stripe.knowbest.ro` (NO-TOUCH, propose-confirm).
+- [ ] **CAS (Carusel de Ads)** — cross-promo din MarketingAutomation (`<CasBanner>`/widget).
 - [ ] **@aledan/ai-governance** — AIRouter fără harness guvernanță.
+
+## Deploy în așteptare (bundle la cutover)
+Commit-uri locale gata de livrat ÎMPREUNĂ când muți DNS-ul (decizie user „totul odată"):
+`c465c0b` (deps) + `160e888` (cookie categories). La cutover: certbot apex + `NEXT_PUBLIC_SITE_URL` + deploy + TWG verify live.
