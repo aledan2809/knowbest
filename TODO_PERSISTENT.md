@@ -9,6 +9,15 @@
 - [x] **Canonical SEO** — `NEXT_PUBLIC_SITE_URL=https://knowbest.ro` setat înainte de build; sitemap/robots emit acum apex.
 - [x] **Deploy bundle livrat la cutover** — commit-uri `c465c0b` (deps) + `160e888` (cookie categories) LIVE pe knowbest.ro + app.knowbest.ro (HEAD `2b35fd4`). app.knowbest.ro neatins (307, funcțional). L41 ecosystem 200.
 
+## 🎨 Redesign teaser homepage + copy nou — ✅ LIVE 2026-06-29 (commit `58ab434`)
+Direcție: **hibrid** = erou dark („Mai puțină muncă manuală. **Mai mult control.**" + dovadă + dashboard) → corp light (selector industrii + produse + testimonial + CTA). Copy fără „AI". RO aprobat de user → tradus EN. Deployat pe knowbest.ro (tsc + /review Approve + build OK + verificat live, zero pageerrors prod).
+- [x] **Captură produs** — DONE: dashboard ProcuChain (tenant demo RedoGroup) capturat headless + **anonimizat** (RedoGroup→Acme, chrome de test tăiat) → `public/dashboard-hero.png`. KPI-uri + grafice (bar + donut).
+- [x] **Selector industrie (7)** — DONE: Cabinet medical / Asociații / Service / **Horeca-Turism** / Comerț / Administrație publică / **IT & web**. Interactiv (verificat).
+- [x] **8 flagship homepage** — DONE: ProcuChain, eCabinet, BlocHub, PRO, TravelAgency, SEAP, AVE, Marketing Automation (copy outcome).
+- [x] **Testimonial anonim** (Manager hotel · Poiana Brașov, decizie B) + **CTA cu reducere de risc** — DONE.
+- [ ] **RĂMAS — catalog DB `/produse`:** adaugă **PRO** + **TravelAgency** ca produse reale în DB (acum sunt flagship doar hardcodate pe homepage; nu apar în `/produse`). + reconciliere completă catalog (ecosisteme 4PRO/AVE ca suite; exclude module interne `@aledan/*`/AIRouter/OCR; exclude deprecate PMB/KB). Sursă: ECOSYSTEM_REGISTRY + CLASSIFICATION + `knowledge/projects.json`.
+- [ ] **Opțional:** optimizează `dashboard-hero.png` 541KB → webp pt LCP (Next/Image oricum servește optimizat). + dacă obții acordul Hotel Alpin → testimonial pe nume real (acum anonim).
+
 ## Items din Introspection 2026-06-20 — REZOLVATE (verificat 2026-06-29)
 - [x] **CMS seed (G-01)** — *claim vechi, nu era bug.* Modelul `PageContent` ARE câmpurile `page`+`type`, DB-ul prod are **153 rânduri** pe toate paginile, seeder-ul trece tsc. Nimic de reparat.
   - 🗣️ *Pe înțelesul tău:* panoul de conținut e populat corect în baza de date; bug-ul descris nu există (a fost reparat între timp).
