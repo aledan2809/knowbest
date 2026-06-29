@@ -173,6 +173,14 @@ export default function HomePage() {
                   className="w-full h-auto"
                 />
               </div>
+              <Link
+                href={`/${locale}/products`}
+                className="mt-3 flex items-center justify-center gap-1.5 text-sm text-slate-400 hover:text-slate-200 transition-colors"
+              >
+                <span className="font-medium text-blue-300">ProcuChain</span>
+                <span>— {t("home.heroImageCaption")}</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
             </motion.div>
           </div>
         </div>
