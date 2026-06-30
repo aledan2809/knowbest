@@ -78,8 +78,8 @@ const heroSlides = [
     kind: "mobile" as const,
     name: "eat",
     img: "/eat-hero.png",
-    w: 720,
-    h: 1676,
+    w: 292,
+    h: 720,
     url: "https://eat.4pro.io",
     altKey: "home.eatImageAlt",
     captionKey: "home.eatImageCaption",
@@ -196,7 +196,7 @@ export default function HomePage() {
               transition={{ delay: 0.4, duration: 0.6 }}
               className="relative"
             >
-              <div className="flex h-[440px] items-center justify-center lg:h-[480px]">
+              <div className="flex h-[360px] items-center justify-center sm:h-[380px] lg:h-[400px]">
                 <motion.div
                   key={heroSlide.key}
                   initial={{ opacity: 0 }}
@@ -205,7 +205,7 @@ export default function HomePage() {
                   className="flex w-full items-center justify-center"
                 >
                   {heroSlide.kind === "desktop" ? (
-                    <div className="w-full max-w-[560px] overflow-hidden rounded-xl border border-slate-700/70 bg-slate-800/40 shadow-2xl">
+                    <div className="w-full max-w-[460px] overflow-hidden rounded-xl border border-slate-700/70 bg-slate-800/40 shadow-2xl">
                       <div className="flex items-center gap-1.5 border-b border-slate-700/70 bg-slate-800/60 px-4 py-2.5">
                         <span className="h-2.5 w-2.5 rounded-full bg-red-400/70" />
                         <span className="h-2.5 w-2.5 rounded-full bg-amber-400/70" />
