@@ -215,41 +215,49 @@ export default function HomePage() {
                   transition={{ duration: 0.4 }}
                   className="flex w-full items-center justify-center"
                 >
-                  {heroSlide.kind === "desktop" ? (
-                    <div className="w-full max-w-[460px] overflow-hidden rounded-xl border border-slate-700/70 bg-slate-800/40 shadow-2xl">
-                      <div className="flex items-center gap-1.5 border-b border-slate-700/70 bg-slate-800/60 px-4 py-2.5">
-                        <span className="h-2.5 w-2.5 rounded-full bg-red-400/70" />
-                        <span className="h-2.5 w-2.5 rounded-full bg-amber-400/70" />
-                        <span className="h-2.5 w-2.5 rounded-full bg-green-400/70" />
+                  <a
+                    href={heroSlide.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={heroSlide.name}
+                    className="group block w-full"
+                  >
+                    {heroSlide.kind === "desktop" ? (
+                      <div className="mx-auto w-full max-w-[460px] overflow-hidden rounded-xl border border-slate-700/70 bg-slate-800/40 shadow-2xl transition-transform duration-300 group-hover:scale-[1.015]">
+                        <div className="flex items-center gap-1.5 border-b border-slate-700/70 bg-slate-800/60 px-4 py-2.5">
+                          <span className="h-2.5 w-2.5 rounded-full bg-red-400/70" />
+                          <span className="h-2.5 w-2.5 rounded-full bg-amber-400/70" />
+                          <span className="h-2.5 w-2.5 rounded-full bg-green-400/70" />
+                        </div>
+                        <Image
+                          src={heroSlide.img}
+                          alt={t(heroSlide.altKey)}
+                          width={heroSlide.w}
+                          height={heroSlide.h}
+                          priority
+                          className="h-auto w-full"
+                        />
                       </div>
-                      <Image
-                        src={heroSlide.img}
-                        alt={t(heroSlide.altKey)}
-                        width={heroSlide.w}
-                        height={heroSlide.h}
-                        priority
-                        className="h-auto w-full"
-                      />
-                    </div>
-                  ) : (
-                    <div className="aspect-[9/19] h-full overflow-hidden rounded-[2rem] border-4 border-slate-700 bg-slate-900 shadow-2xl">
-                      <Image
-                        src={heroSlide.img}
-                        alt={t(heroSlide.altKey)}
-                        width={heroSlide.w}
-                        height={heroSlide.h}
-                        priority
-                        className="h-full w-full object-cover object-top"
-                      />
-                    </div>
-                  )}
+                    ) : (
+                      <div className="mx-auto aspect-[9/19] h-[360px] overflow-hidden rounded-[2rem] border-4 border-slate-700 bg-slate-900 shadow-2xl transition-transform duration-300 group-hover:scale-[1.015]">
+                        <Image
+                          src={heroSlide.img}
+                          alt={t(heroSlide.altKey)}
+                          width={heroSlide.w}
+                          height={heroSlide.h}
+                          priority
+                          className="h-full w-full object-cover object-top"
+                        />
+                      </div>
+                    )}
+                  </a>
                 </motion.div>
               </div>
               <a
                 href={heroSlide.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-3 flex items-center justify-center gap-1.5 text-sm text-slate-400 hover:text-slate-200 transition-colors"
+                className="mt-7 flex items-center justify-center gap-1.5 text-sm text-slate-400 hover:text-slate-200 transition-colors"
               >
                 <span className="font-medium text-blue-300">{heroSlide.name}</span>
                 <span>— {t(heroSlide.captionKey)}</span>
