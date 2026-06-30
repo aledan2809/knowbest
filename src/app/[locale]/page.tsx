@@ -58,44 +58,62 @@ const flagship = [
   { key: "marketing", label: "Marketing Automation", abbr: "MA" },
 ];
 
-// Hero product carousel. Add a slide per product as a chart-rich, anonymized
-// screenshot becomes available (see knowbest TODO). With one slide it renders
-// as a single framed image; with >1 it auto-rotates with dots.
-const heroSlides = [
-  {
-    key: "procuchain",
-    kind: "desktop" as const,
-    name: "ProcuChain",
-    img: "/dashboard-hero.png",
-    w: 1200,
-    h: 841,
-    url: "https://procuchain.com",
-    altKey: "home.heroImageAlt",
-    captionKey: "home.heroImageCaption",
-  },
-  {
-    key: "eat",
-    kind: "mobile" as const,
-    name: "eat",
-    img: "/eat-hero.png",
-    w: 292,
-    h: 720,
-    url: "https://eat.4pro.io",
-    altKey: "home.eatImageAlt",
-    captionKey: "home.eatImageCaption",
-  },
-  {
-    key: "ave",
-    kind: "mobile" as const,
-    name: "AVE",
-    img: "/ave-hero.png",
-    w: 353,
-    h: 720,
-    url: "https://app.techbiz.ae",
-    altKey: "home.aveImageAlt",
-    captionKey: "home.aveImageCaption",
-  },
-];
+// Hero product carousel. Screenshots have the product's UI language baked in,
+// so the set is curated per locale: each product is shown only on the page
+// whose language matches its real UI. ProcuChain's dashboard + AVE are
+// English-only; eat + UtilajHub are Romanian-only. With >1 slide it
+// auto-rotates with dots. See knowbest TODO for adding more per-locale slides.
+const SLIDE_PROCUCHAIN = {
+  key: "procuchain",
+  kind: "desktop" as const,
+  name: "ProcuChain",
+  img: "/dashboard-hero.png",
+  w: 1200,
+  h: 841,
+  url: "https://procuchain.com",
+  altKey: "home.heroImageAlt",
+  captionKey: "home.heroImageCaption",
+};
+const SLIDE_AVE = {
+  key: "ave",
+  kind: "mobile" as const,
+  name: "AVE",
+  img: "/ave-hero.png",
+  w: 353,
+  h: 720,
+  url: "https://app.techbiz.ae",
+  altKey: "home.aveImageAlt",
+  captionKey: "home.aveImageCaption",
+};
+const SLIDE_EAT = {
+  key: "eat",
+  kind: "mobile" as const,
+  name: "eat",
+  img: "/eat-hero.png",
+  w: 292,
+  h: 720,
+  url: "https://eat.4pro.io",
+  altKey: "home.eatImageAlt",
+  captionKey: "home.eatImageCaption",
+};
+const SLIDE_UTILAJHUB = {
+  key: "utilajhub",
+  kind: "desktop" as const,
+  name: "UtilajHub",
+  img: "/utilajhub-hero.png",
+  w: 1440,
+  h: 900,
+  url: "https://utilajhub.ro",
+  altKey: "home.utilajhubImageAlt",
+  captionKey: "home.utilajhubImageCaption",
+};
+
+// Romanian visitors see Romanian-UI products; English visitors see English-UI
+// products. Falls back to the English set for any other locale.
+const heroSlidesByLocale: Record<string, (typeof SLIDE_PROCUCHAIN | typeof SLIDE_AVE)[]> = {
+  ro: [SLIDE_EAT, SLIDE_UTILAJHUB],
+  en: [SLIDE_PROCUCHAIN, SLIDE_AVE],
+};
 
 export default function HomePage() {
   const t = useTranslations();
@@ -104,6 +122,8 @@ export default function HomePage() {
   const [activeIndustry, setActiveIndustry] = useState("medical");
   const [slide, setSlide] = useState(0);
 
+  const heroSlides = heroSlidesByLocale[locale] ?? heroSlidesByLocale.en;
+
   useEffect(() => {
     fetch("/api/partners")
       .then((r) => r.json())
@@ -111,13 +131,18 @@ export default function HomePage() {
       .catch(() => {});
   }, []);
 
+  // Reset to the first slide whenever the locale (and thus the slide set) changes.
+  useEffect(() => {
+    setSlide(0);
+  }, [locale]);
+
   useEffect(() => {
     if (heroSlides.length <= 1) return;
     const id = setInterval(() => setSlide((s) => (s + 1) % heroSlides.length), 5000);
     return () => clearInterval(id);
-  }, []);
+  }, [heroSlides.length]);
 
-  const heroSlide = heroSlides[slide];
+  const heroSlide = heroSlides[slide] ?? heroSlides[0];
 
   const active = industries.find((i) => i.key === activeIndustry) || industries[0];
   const ActiveIcon = active.Icon;
