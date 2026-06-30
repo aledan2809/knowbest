@@ -18,6 +18,14 @@ Direcție: **hibrid** = erou dark („Mai puțină muncă manuală. **Mai mult c
 - [ ] **RĂMAS — catalog DB `/produse`:** adaugă **PRO** + **TravelAgency** ca produse reale în DB (acum sunt flagship doar hardcodate pe homepage; nu apar în `/produse`). + reconciliere completă catalog (ecosisteme 4PRO/AVE ca suite; exclude module interne `@aledan/*`/AIRouter/OCR; exclude deprecate PMB/KB). Sursă: ECOSYSTEM_REGISTRY + CLASSIFICATION + `knowledge/projects.json`.
 - [ ] **Opțional:** optimizează `dashboard-hero.png` 541KB → webp pt LCP (Next/Image oricum servește optimizat). + dacă obții acordul Hotel Alpin → testimonial pe nume real (acum anonim).
 
+## [~] 🎠 Carusel produse în erou (creat 2026-06-30) — mecanism LIVE, slide-uri în creștere
+Componentă carusel în erou (`heroSlides` în `page.tsx`): 1 slide = imagine framed (ca acum); ≥2 = auto-rotire 5s + puncte. **Slide 1 = ProcuChain LIVE** (link → `procuchain.com`, decizie b = app live). Adaugă slide pe măsură ce apar **rapoarte cu grafice** (verificat 2026-06-30: doar Procu are; restul 0 chart libs → TODO puse în proiecte).
+- [ ] **ContaKT** (`contakt.knowbest.ro`) — pending raport cu grafice (TODO în `RPA-Hub`)
+- [ ] **TravelAgency** (`ta.knowbest.ro`) — pending raport (TODO în `TravelAgency`)
+- [ ] **4pro-eat** (`eat.4pro.io`) — pending ecran scor/progres cu grafic (TODO în `4pro-eat`)
+- [ ] **eCabinet** (`cabinet.4pro.io`) — pending demo SINTETIC fără date pacienți (TODO în `eCabinet`)
+- Rețetă per slide: login demo → captură dashboard cu grafice → anonimizare (client→Acme, chrome test tăiat) → `public/<slug>-hero.png` → add în `heroSlides` + caption în i18n (`home.<slug>ImageCaption`).
+
 ## Items din Introspection 2026-06-20 — REZOLVATE (verificat 2026-06-29)
 - [x] **CMS seed (G-01)** — *claim vechi, nu era bug.* Modelul `PageContent` ARE câmpurile `page`+`type`, DB-ul prod are **153 rânduri** pe toate paginile, seeder-ul trece tsc. Nimic de reparat.
   - 🗣️ *Pe înțelesul tău:* panoul de conținut e populat corect în baza de date; bug-ul descris nu există (a fost reparat între timp).

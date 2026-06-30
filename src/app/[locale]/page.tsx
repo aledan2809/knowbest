@@ -7,6 +7,7 @@ import { useTranslations, useLocale } from "next-intl";
 import { motion } from "framer-motion";
 import {
   ArrowRight,
+  ArrowUpRight,
   Zap,
   Globe,
   Building2,
@@ -57,11 +58,25 @@ const flagship = [
   { key: "marketing", label: "Marketing Automation", abbr: "MA" },
 ];
 
+// Hero product carousel. Add a slide per product as a chart-rich, anonymized
+// screenshot becomes available (see knowbest TODO). With one slide it renders
+// as a single framed image; with >1 it auto-rotates with dots.
+const heroSlides = [
+  {
+    key: "procuchain",
+    name: "ProcuChain",
+    img: "/dashboard-hero.png",
+    url: "https://procuchain.com",
+    captionKey: "home.heroImageCaption",
+  },
+];
+
 export default function HomePage() {
   const t = useTranslations();
   const locale = useLocale();
   const [partners, setPartners] = useState<Partner[]>([]);
   const [activeIndustry, setActiveIndustry] = useState("medical");
+  const [slide, setSlide] = useState(0);
 
   useEffect(() => {
     fetch("/api/partners")
@@ -69,6 +84,14 @@ export default function HomePage() {
       .then((d) => setPartners(Array.isArray(d) ? d : []))
       .catch(() => {});
   }, []);
+
+  useEffect(() => {
+    if (heroSlides.length <= 1) return;
+    const id = setInterval(() => setSlide((s) => (s + 1) % heroSlides.length), 5000);
+    return () => clearInterval(id);
+  }, []);
+
+  const heroSlide = heroSlides[slide];
 
   const active = industries.find((i) => i.key === activeIndustry) || industries[0];
   const ActiveIcon = active.Icon;
@@ -164,23 +187,41 @@ export default function HomePage() {
                   <span className="w-2.5 h-2.5 rounded-full bg-amber-400/70" />
                   <span className="w-2.5 h-2.5 rounded-full bg-green-400/70" />
                 </div>
-                <Image
-                  src="/dashboard-hero.png"
-                  alt={t("home.heroImageAlt")}
-                  width={1200}
-                  height={841}
-                  priority
-                  className="w-full h-auto"
-                />
+                <motion.div key={heroSlide.key} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.4 }}>
+                  <Image
+                    src={heroSlide.img}
+                    alt={t("home.heroImageAlt")}
+                    width={1200}
+                    height={841}
+                    priority
+                    className="w-full h-auto"
+                  />
+                </motion.div>
               </div>
-              <Link
-                href={`/${locale}/products`}
+              <a
+                href={heroSlide.url}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="mt-3 flex items-center justify-center gap-1.5 text-sm text-slate-400 hover:text-slate-200 transition-colors"
               >
-                <span className="font-medium text-blue-300">ProcuChain</span>
-                <span>— {t("home.heroImageCaption")}</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </Link>
+                <span className="font-medium text-blue-300">{heroSlide.name}</span>
+                <span>— {t(heroSlide.captionKey)}</span>
+                <ArrowUpRight className="w-3.5 h-3.5" />
+              </a>
+              {heroSlides.length > 1 && (
+                <div className="mt-4 flex items-center justify-center gap-2">
+                  {heroSlides.map((s, i) => (
+                    <button
+                      key={s.key}
+                      onClick={() => setSlide(i)}
+                      aria-label={s.name}
+                      className={`h-2 rounded-full transition-all ${
+                        i === slide ? "w-6 bg-blue-400" : "w-2 bg-slate-600 hover:bg-slate-500"
+                      }`}
+                    />
+                  ))}
+                </div>
+              )}
             </motion.div>
           </div>
         </div>
