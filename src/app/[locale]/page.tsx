@@ -84,6 +84,17 @@ const heroSlides = [
     altKey: "home.eatImageAlt",
     captionKey: "home.eatImageCaption",
   },
+  {
+    key: "ave",
+    kind: "mobile" as const,
+    name: "AVE",
+    img: "/ave-hero.png",
+    w: 353,
+    h: 720,
+    url: "https://app.techbiz.ae",
+    altKey: "home.aveImageAlt",
+    captionKey: "home.aveImageCaption",
+  },
 ];
 
 export default function HomePage() {
