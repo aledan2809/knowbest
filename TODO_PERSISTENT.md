@@ -19,12 +19,14 @@ Direcție: **hibrid** = erou dark („Mai puțină muncă manuală. **Mai mult c
 - [ ] **Opțional:** optimizează `dashboard-hero.png` 541KB → webp pt LCP (Next/Image oricum servește optimizat). + dacă obții acordul Hotel Alpin → testimonial pe nume real (acum anonim).
 
 ## [~] 🎠 Carusel produse în erou (creat 2026-06-30) — mecanism LIVE, slide-uri în creștere
-Componentă carusel în erou (`heroSlides` în `page.tsx`): 1 slide = imagine framed (ca acum); ≥2 = auto-rotire 5s + puncte. **Slide 1 = ProcuChain LIVE** (link → `procuchain.com`, decizie b = app live). Adaugă slide pe măsură ce apar **rapoarte cu grafice** (verificat 2026-06-30: doar Procu are; restul 0 chart libs → TODO puse în proiecte).
-- [ ] **ContaKT** (`contakt.knowbest.ro`) — pending raport cu grafice (TODO în `RPA-Hub`)
-- [ ] **TravelAgency** (`ta.knowbest.ro`) — pending raport (TODO în `TravelAgency`)
-- [ ] **4pro-eat** (`eat.4pro.io`) — pending ecran scor/progres cu grafic (TODO în `4pro-eat`)
-- [ ] **eCabinet** (`cabinet.4pro.io`) — pending demo SINTETIC fără date pacienți (TODO în `eCabinet`)
-- Rețetă per slide: login demo → captură dashboard cu grafice → anonimizare (client→Acme, chrome test tăiat) → `public/<slug>-hero.png` → add în `heroSlides` + caption în i18n (`home.<slug>ImageCaption`).
+Componentă carusel în erou (`heroSlides` în `page.tsx`): 1 slide = imagine framed (ca acum); ≥2 = auto-rotire 5s + puncte. **Slide 1 = ProcuChain LIVE** (link → `procuchain.com`, decizie b = app live).
+**Principiu (rafinat 2026-06-30):** fiecare slide = **ecranul *signature*** al produsului (ce-l face wow), NU obligatoriu grafic. Blocajul real per produs = un **cont demo cu date prezentabile**, nu lipsa graficului.
+- [x] **4pro-eat** — ✅ DONE 2026-06-30 (commit `ec1228c`): slide 2 LIVE (ramă telefon, ecran „Mesele mele" — macros+scor+masă). Sursă = **asset reel din MA** (`MarketingAutomation/Reports/reel-eat-real-2026-06-26/frames/meals.png`), zero NO-TOUCH. Link → eat.4pro.io.
+- 💡 **Cale nouă (descoperită 2026-06-30):** MA are **creative/reel-uri gata** pentru produse (`MarketingAutomation/Reports/reel-*`, `public/campaigns`) — folosește-le ca slide-uri în loc de captură+seed pe app-uri NO-TOUCH. User: „inclusiv AVE e acolo". Verifică MA pentru AVE + altele înainte de a captura dashboard-uri.
+- [ ] **ContaKT** (`contakt.knowbest.ro`) — signature = ecran reconciliere (extras↔factură). Blocaj: tenant sintetic cu date.
+- [ ] **TravelAgency** (`ta.knowbest.ro`) — signature = rezultat sourcing (potrivire pensiuni/grup). Blocaj: cont demo cu date.
+- [ ] **eCabinet** (`cabinet.4pro.io`) — signature = agendă/calendar agregat. ⚠️ tenant SINTETIC, fără date pacienți.
+- Rețetă per slide: login demo → captură ecran signature → anonimizare (client→Acme, chrome test tăiat) → `public/<slug>-hero.png` → add în `heroSlides` + caption în i18n (`home.<slug>ImageCaption`). TODO-urile din proiecte = „asigură demo + ecran signature prezentabil" (nu strict grafic).
 
 ## Items din Introspection 2026-06-20 — REZOLVATE (verificat 2026-06-29)
 - [x] **CMS seed (G-01)** — *claim vechi, nu era bug.* Modelul `PageContent` ARE câmpurile `page`+`type`, DB-ul prod are **153 rânduri** pe toate paginile, seeder-ul trece tsc. Nimic de reparat.
