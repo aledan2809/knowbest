@@ -64,10 +64,25 @@ const flagship = [
 const heroSlides = [
   {
     key: "procuchain",
+    kind: "desktop" as const,
     name: "ProcuChain",
     img: "/dashboard-hero.png",
+    w: 1200,
+    h: 841,
     url: "https://procuchain.com",
+    altKey: "home.heroImageAlt",
     captionKey: "home.heroImageCaption",
+  },
+  {
+    key: "eat",
+    kind: "mobile" as const,
+    name: "eat",
+    img: "/eat-hero.png",
+    w: 292,
+    h: 720,
+    url: "https://eat.4pro.io",
+    altKey: "home.eatImageAlt",
+    captionKey: "home.eatImageCaption",
   },
 ];
 
@@ -181,21 +196,42 @@ export default function HomePage() {
               transition={{ delay: 0.4, duration: 0.6 }}
               className="relative"
             >
-              <div className="rounded-xl border border-slate-700/70 bg-slate-800/40 shadow-2xl overflow-hidden">
-                <div className="flex items-center gap-1.5 px-4 py-2.5 border-b border-slate-700/70 bg-slate-800/60">
-                  <span className="w-2.5 h-2.5 rounded-full bg-red-400/70" />
-                  <span className="w-2.5 h-2.5 rounded-full bg-amber-400/70" />
-                  <span className="w-2.5 h-2.5 rounded-full bg-green-400/70" />
-                </div>
-                <motion.div key={heroSlide.key} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.4 }}>
-                  <Image
-                    src={heroSlide.img}
-                    alt={t("home.heroImageAlt")}
-                    width={1200}
-                    height={841}
-                    priority
-                    className="w-full h-auto"
-                  />
+              <div className="flex h-[440px] items-center justify-center lg:h-[480px]">
+                <motion.div
+                  key={heroSlide.key}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.4 }}
+                  className="flex w-full items-center justify-center"
+                >
+                  {heroSlide.kind === "desktop" ? (
+                    <div className="w-full max-w-[560px] overflow-hidden rounded-xl border border-slate-700/70 bg-slate-800/40 shadow-2xl">
+                      <div className="flex items-center gap-1.5 border-b border-slate-700/70 bg-slate-800/60 px-4 py-2.5">
+                        <span className="h-2.5 w-2.5 rounded-full bg-red-400/70" />
+                        <span className="h-2.5 w-2.5 rounded-full bg-amber-400/70" />
+                        <span className="h-2.5 w-2.5 rounded-full bg-green-400/70" />
+                      </div>
+                      <Image
+                        src={heroSlide.img}
+                        alt={t(heroSlide.altKey)}
+                        width={heroSlide.w}
+                        height={heroSlide.h}
+                        priority
+                        className="h-auto w-full"
+                      />
+                    </div>
+                  ) : (
+                    <div className="aspect-[9/19] h-full overflow-hidden rounded-[2rem] border-4 border-slate-700 bg-slate-900 shadow-2xl">
+                      <Image
+                        src={heroSlide.img}
+                        alt={t(heroSlide.altKey)}
+                        width={heroSlide.w}
+                        height={heroSlide.h}
+                        priority
+                        className="h-full w-full object-cover object-top"
+                      />
+                    </div>
+                  )}
                 </motion.div>
               </div>
               <a
