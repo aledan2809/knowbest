@@ -764,5 +764,27 @@
     "featured": false,
     "_needsCopyReview": true,
     "sortOrder": 90
+  },
+  {
+    "name": "consj",
+    "nameEn": "consj",
+    "slug": "consj",
+    "description": "consj — soluție din suita KnowBest. Descriere în curs de actualizare.",
+    "descriptionEn": "consj — a solution from the KnowBest suite. Description being updated.",
+    "category": "WEB_APP",
+    "status": "LIVE",
+    "prodUrl": "https://consj.ro",
+    "standalone": true,
+    "icon": "📦",
+    "techStack": [
+      "Next.js 16",
+      "Prisma 6",
+      "self-hosted PG (local VPS1)",
+      "Tailwind 4"
+    ],
+    "tags": [],
+    "featured": false,
+    "_needsCopyReview": true,
+    "sortOrder": 90
   }
 ]
