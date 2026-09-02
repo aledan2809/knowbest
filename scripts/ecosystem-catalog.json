@@ -1,28 +1,27 @@
 [
   {
-    "name": "4PRO Platform",
-    "nameEn": "4PRO Platform",
+    "name": "PRO",
+    "nameEn": "PRO",
     "slug": "4pro",
-    "description": "Platformă completă pentru service-uri auto: programări online, fișe clienți și fidelizare — totul într-un singur loc.",
-    "descriptionEn": "All-in-one platform for auto service shops: online booking, client records and loyalty — all in one place.",
+    "description": "Programări și clienți prin WhatsApp pentru servicii și antrenori: sesiuni, reamintiri automate și reînnoiri — fără agende pierdute.",
+    "descriptionEn": "WhatsApp-first scheduling and client management for services and coaches: sessions, automatic reminders and renewals — no lost agendas.",
     "category": "WEB_APP",
     "status": "LIVE",
     "prodUrl": "https://pro.4pro.io",
     "standalone": true,
-    "icon": "🚗",
+    "icon": "💪",
     "techStack": [
       "Next.js",
-      "Fastify",
       "PostgreSQL",
       "WhatsApp API"
     ],
     "tags": [
-      "Auto Service",
-      "SaaS",
-      "CRM"
+      "Programări",
+      "Servicii",
+      "WhatsApp"
     ],
     "featured": true,
-    "sortOrder": 1
+    "sortOrder": 4
   },
   {
     "name": "4PRO Business",
@@ -45,7 +44,7 @@
       "Dashboard"
     ],
     "featured": false,
-    "sortOrder": 2
+    "sortOrder": 12
   },
   {
     "name": "eCabinet",
@@ -69,7 +68,7 @@
       "SaaS"
     ],
     "featured": true,
-    "sortOrder": 3
+    "sortOrder": 2
   },
   {
     "name": "ProcuChain",
@@ -95,7 +94,7 @@
       "AI"
     ],
     "featured": true,
-    "sortOrder": 4
+    "sortOrder": 1
   },
   {
     "name": "TeInformez",
@@ -119,7 +118,7 @@
       "Romania"
     ],
     "featured": false,
-    "sortOrder": 5
+    "sortOrder": 15
   },
   {
     "name": "AVE Platform",
@@ -140,8 +139,8 @@
       "Business",
       "Platform"
     ],
-    "featured": false,
-    "sortOrder": 6
+    "featured": true,
+    "sortOrder": 7
   },
   {
     "name": "4uPDF",
@@ -165,7 +164,7 @@
       "Free"
     ],
     "featured": false,
-    "sortOrder": 7
+    "sortOrder": 17
   },
   {
     "name": "Website Guru",
@@ -187,7 +186,7 @@
       "AI"
     ],
     "featured": false,
-    "sortOrder": 8
+    "sortOrder": 18
   },
   {
     "name": "Marketing Automation",
@@ -210,34 +209,8 @@
       "Automation",
       "Email"
     ],
-    "featured": false,
-    "sortOrder": 9
-  },
-  {
-    "name": "STT Module",
-    "nameEn": "STT Module",
-    "slug": "stt",
-    "description": "Transformă vorbirea în text, optimizat pentru dictare medicală în limba română.",
-    "descriptionEn": "Turns speech into text, optimized for Romanian medical dictation.",
-    "category": "MODULE",
-    "status": "LIVE",
-    "prodUrl": null,
-    "standalone": false,
-    "icon": "🎙️",
-    "techStack": [
-      "Next.js",
-      "Deepgram",
-      "faster-whisper",
-      "Python"
-    ],
-    "tags": [
-      "STT",
-      "AI",
-      "Medical",
-      "Romanian"
-    ],
     "featured": true,
-    "sortOrder": 10
+    "sortOrder": 8
   },
   {
     "name": "eProfit",
@@ -247,7 +220,7 @@
     "descriptionEn": "Estimate your taxes and profit in seconds and plan your business with no fiscal surprises.",
     "category": "WEB_APP",
     "status": "LIVE",
-    "prodUrl": "https://eprofit-web.vercel.app",
+    "prodUrl": null,
     "standalone": true,
     "icon": "💰",
     "techStack": [
@@ -285,29 +258,6 @@
     ],
     "featured": false,
     "sortOrder": 12
-  },
-  {
-    "name": "Feedback Hub",
-    "nameEn": "Feedback Hub",
-    "slug": "feedback-hub",
-    "description": "Adună feedback de la clienți pe orice site, cu un singur widget, și înțelege ce vor cu adevărat.",
-    "descriptionEn": "Collect customer feedback on any site with a single widget, and understand what they really want.",
-    "category": "WEB_APP",
-    "status": "LIVE",
-    "prodUrl": "https://feedback-hub-central.vercel.app",
-    "standalone": true,
-    "icon": "💬",
-    "techStack": [
-      "Next.js",
-      "Widget JS"
-    ],
-    "tags": [
-      "Feedback",
-      "SaaS",
-      "Widget"
-    ],
-    "featured": false,
-    "sortOrder": 13
   },
   {
     "name": "Meeting Recorder",
@@ -355,8 +305,8 @@
       "SaaS",
       "AI"
     ],
-    "featured": false,
-    "sortOrder": 15
+    "featured": true,
+    "sortOrder": 3
   },
   {
     "name": "TradeInvest",
@@ -391,7 +341,7 @@
     "descriptionEn": "Book rides and track them in real time, simply and fast.",
     "category": "WEB_APP",
     "status": "BETA",
-    "prodUrl": "https://racex-ride-book.vercel.app",
+    "prodUrl": "https://racex.ro",
     "standalone": true,
     "icon": "🏎️",
     "techStack": [
@@ -430,54 +380,8 @@
       "OCR",
       "Romania"
     ],
-    "featured": false,
-    "sortOrder": 18
-  },
-  {
-    "name": "PMB",
-    "nameEn": "PMB",
-    "slug": "pmb",
-    "description": "Organizează-ți proiectele și sarcinile pe o tablă vizuală, ca echipa să știe mereu ce are de făcut.",
-    "descriptionEn": "Organize your projects and tasks on a visual board, so your team always knows what to do.",
-    "category": "WEB_APP",
-    "status": "BETA",
-    "prodUrl": "https://pmb-gray.vercel.app",
-    "standalone": true,
-    "icon": "📌",
-    "techStack": [
-      "Next.js",
-      "Neon PostgreSQL"
-    ],
-    "tags": [
-      "Project Management",
-      "Kanban"
-    ],
-    "featured": false,
-    "sortOrder": 19
-  },
-  {
-    "name": "UtilajHub",
-    "nameEn": "UtilajHub",
-    "slug": "utilajhub",
-    "description": "Marketplace pentru utilaje și echipamente industriale — găsești sau închiriezi rapid ce ai nevoie.",
-    "descriptionEn": "Marketplace for industrial machinery and equipment — quickly find or rent what you need.",
-    "category": "WEB_APP",
-    "status": "DEVELOPMENT",
-    "prodUrl": null,
-    "standalone": true,
-    "icon": "🏗️",
-    "techStack": [
-      "Next.js",
-      "PostgreSQL",
-      "Maps"
-    ],
-    "tags": [
-      "Marketplace",
-      "Industrial",
-      "Equipment"
-    ],
-    "featured": false,
-    "sortOrder": 20
+    "featured": true,
+    "sortOrder": 6
   },
   {
     "name": "DevLearning Platform",
@@ -550,172 +454,8 @@
       "Fintech",
       "AI"
     ],
-    "featured": true,
+    "featured": false,
     "sortOrder": 23
-  },
-  {
-    "name": "OCR Module",
-    "nameEn": "OCR Module",
-    "slug": "ocr",
-    "description": "Extrage automat textul din documente scanate și poze, gata de folosit.",
-    "descriptionEn": "Automatically extracts text from scanned documents and photos, ready to use.",
-    "category": "API_SERVICE",
-    "status": "LIVE",
-    "prodUrl": null,
-    "standalone": false,
-    "icon": "👁️",
-    "techStack": [
-      "FastAPI",
-      "Python",
-      "Tesseract"
-    ],
-    "tags": [
-      "OCR",
-      "AI",
-      "API"
-    ],
-    "featured": false,
-    "sortOrder": 30
-  },
-  {
-    "name": "SMS Module",
-    "nameEn": "SMS Module",
-    "slug": "sms",
-    "description": "Trimite SMS-uri către clienți din orice aplicație, în România și internațional.",
-    "descriptionEn": "Send SMS to customers from any app, in Romania and internationally.",
-    "category": "MODULE",
-    "status": "LIVE",
-    "prodUrl": null,
-    "standalone": false,
-    "icon": "📱",
-    "techStack": [
-      "Node.js",
-      "Twilio"
-    ],
-    "tags": [
-      "SMS",
-      "API",
-      "Communication"
-    ],
-    "featured": false,
-    "sortOrder": 31
-  },
-  {
-    "name": "Email Guru",
-    "nameEn": "Email Guru",
-    "slug": "email-guru",
-    "description": "Gestionează inteligent toate emailurile tale dintr-un singur loc, cu sortare automată AI.",
-    "descriptionEn": "Smartly manage all your emails from one place, with automatic AI sorting.",
-    "category": "MODULE",
-    "status": "LIVE",
-    "prodUrl": null,
-    "standalone": false,
-    "icon": "✉️",
-    "techStack": [
-      "Node.js",
-      "SMTP",
-      "Templates"
-    ],
-    "tags": [
-      "Email",
-      "Templates",
-      "Marketing"
-    ],
-    "featured": false,
-    "sortOrder": 32
-  },
-  {
-    "name": "Scraping Module",
-    "nameEn": "Scraping Module",
-    "slug": "scraper",
-    "description": "Colectează automat date de pe web, structurate și gata de analiză.",
-    "descriptionEn": "Automatically collects data from the web, structured and ready to analyze.",
-    "category": "MODULE",
-    "status": "LIVE",
-    "prodUrl": null,
-    "standalone": false,
-    "icon": "🕷️",
-    "techStack": [
-      "Node.js",
-      "Puppeteer"
-    ],
-    "tags": [
-      "Scraping",
-      "Data",
-      "Automation"
-    ],
-    "featured": false,
-    "sortOrder": 33
-  },
-  {
-    "name": "Prompt Architect",
-    "nameEn": "Prompt Architect",
-    "slug": "prompt-architect",
-    "description": "Transformă o idee simplă într-un prompt clar și eficient pentru AI.",
-    "descriptionEn": "Turns a simple idea into a clear, effective AI prompt.",
-    "category": "UTILITY",
-    "status": "BETA",
-    "prodUrl": null,
-    "standalone": false,
-    "icon": "🏛️",
-    "techStack": [
-      "Node.js",
-      "Claude API",
-      "OpenAI"
-    ],
-    "tags": [
-      "AI",
-      "Prompts",
-      "Optimization"
-    ],
-    "featured": false,
-    "sortOrder": 34
-  },
-  {
-    "name": "WhatsApp Integration",
-    "nameEn": "WhatsApp Integration",
-    "slug": "whatsapp",
-    "description": "Trimite mesaje și notificări automate clienților tăi pe WhatsApp.",
-    "descriptionEn": "Send automated messages and notifications to your customers on WhatsApp.",
-    "category": "MODULE",
-    "status": "LIVE",
-    "prodUrl": null,
-    "standalone": false,
-    "icon": "💚",
-    "techStack": [
-      "Node.js",
-      "WhatsApp API"
-    ],
-    "tags": [
-      "WhatsApp",
-      "Messaging",
-      "API"
-    ],
-    "featured": false,
-    "sortOrder": 35
-  },
-  {
-    "name": "Telegram Bot",
-    "nameEn": "Telegram Bot",
-    "slug": "telegram",
-    "description": "Conectează-ți aplicația la Telegram pentru notificări și interacțiuni automate.",
-    "descriptionEn": "Connect your app to Telegram for automated notifications and interactions.",
-    "category": "MODULE",
-    "status": "BETA",
-    "prodUrl": null,
-    "standalone": false,
-    "icon": "🤖",
-    "techStack": [
-      "Node.js",
-      "Telegram API"
-    ],
-    "tags": [
-      "Telegram",
-      "Bot",
-      "Automation"
-    ],
-    "featured": false,
-    "sortOrder": 36
   },
   {
     "name": "tutor",
@@ -786,5 +526,146 @@
     "featured": false,
     "_needsCopyReview": true,
     "sortOrder": 90
+  },
+  {
+    "name": "TAventa",
+    "nameEn": "TAventa",
+    "slug": "travelagency",
+    "description": "Sourcing de cazare pentru grupuri și evenimente: cereri către pensiuni și hoteluri, urmărire automată multi-canal și pachet final de ofertă.",
+    "descriptionEn": "Venue sourcing for groups and events: requests to hotels and guesthouses, automatic multi-channel follow-up and a final offer package.",
+    "category": "WEB_APP",
+    "status": "LIVE",
+    "prodUrl": "https://ta.knowbest.ro",
+    "standalone": true,
+    "icon": "🧳",
+    "techStack": [
+      "Next.js",
+      "PostgreSQL",
+      "Prisma"
+    ],
+    "tags": [
+      "Turism",
+      "B2B",
+      "Sourcing"
+    ],
+    "featured": true,
+    "sortOrder": 5
+  },
+  {
+    "name": "eat",
+    "nameEn": "eat",
+    "slug": "4pro-eat",
+    "description": "Nutriție și disciplină: fotografiezi masa, primești scor zilnic și îndrumare — obiceiuri mai bune fără numărat calorii manual.",
+    "descriptionEn": "Nutrition and discipline: snap a photo of your meal, get a daily score and guidance — better habits without manual calorie counting.",
+    "category": "WEB_APP",
+    "status": "LIVE",
+    "prodUrl": "https://eat.4pro.io",
+    "standalone": true,
+    "icon": "🥗",
+    "techStack": [
+      "Next.js",
+      "PostgreSQL",
+      "WhatsApp API"
+    ],
+    "tags": [
+      "Nutriție",
+      "Sănătate"
+    ],
+    "featured": false,
+    "sortOrder": 24
+  },
+  {
+    "name": "Offer",
+    "nameEn": "Offer",
+    "slug": "offer",
+    "description": "Ofertare B2B rapidă: catalog propriu, reguli de preț pe client și comparație automată cu listele concurenței.",
+    "descriptionEn": "Fast B2B quoting: your own catalog, per-client pricing rules and automatic cross-reference against competitor price lists.",
+    "category": "WEB_APP",
+    "status": "LIVE",
+    "prodUrl": "https://offer.knowbest.ro",
+    "standalone": true,
+    "icon": "📄",
+    "techStack": [
+      "Next.js",
+      "PostgreSQL",
+      "Prisma"
+    ],
+    "tags": [
+      "B2B",
+      "Ofertare",
+      "CPQ"
+    ],
+    "featured": false,
+    "sortOrder": 25
+  },
+  {
+    "name": "Consult",
+    "nameEn": "Consult",
+    "slug": "consult",
+    "description": "Aplicația consultantului de management: clienți, registru problemă–soluție cu aprobare pe link, rapoarte pre-completate și contracte cu versiuni.",
+    "descriptionEn": "The management consultant’s app: clients, a problem–solution register with link-based approval, pre-filled reports and versioned contracts.",
+    "category": "WEB_APP",
+    "status": "LIVE",
+    "prodUrl": "https://consult.knowbest.ro",
+    "standalone": true,
+    "icon": "🗂️",
+    "techStack": [
+      "Next.js",
+      "PostgreSQL",
+      "Prisma"
+    ],
+    "tags": [
+      "Consultanță",
+      "CRM"
+    ],
+    "featured": false,
+    "sortOrder": 26
+  },
+  {
+    "name": "Notify",
+    "nameEn": "Notify",
+    "slug": "notify",
+    "description": "Promoții și vouchere pe telefonul clienților: acord GDPR pe WhatsApp/SMS, coduri unice cu QR și ecran de casă pentru validare.",
+    "descriptionEn": "Promotions and vouchers on your customers’ phones: GDPR double opt-in over WhatsApp/SMS, unique QR codes and a cashier validation screen.",
+    "category": "WEB_APP",
+    "status": "LIVE",
+    "prodUrl": "https://notify.knowbest.ro",
+    "standalone": true,
+    "icon": "📣",
+    "techStack": [
+      "Next.js",
+      "PostgreSQL",
+      "Twilio"
+    ],
+    "tags": [
+      "Retail",
+      "Vouchere",
+      "Marketing"
+    ],
+    "featured": false,
+    "sortOrder": 27
+  },
+  {
+    "name": "FUE",
+    "nameEn": "FUE",
+    "slug": "fue",
+    "description": "Dosare de finanțare europeană: scenarii comparate cu scor instant, calculator de costuri și validări pe fiecare secțiune a dosarului.",
+    "descriptionEn": "EU-funding dossiers: compared scenarios with instant scoring, cost calculators and per-section validation of the application.",
+    "category": "WEB_APP",
+    "status": "LIVE",
+    "prodUrl": "https://fue.knowbest.ro",
+    "standalone": true,
+    "icon": "🇪🇺",
+    "techStack": [
+      "Next.js",
+      "PostgreSQL",
+      "Prisma"
+    ],
+    "tags": [
+      "Fonduri UE",
+      "Multi-tenant"
+    ],
+    "featured": false,
+    "sortOrder": 28
   }
 ]

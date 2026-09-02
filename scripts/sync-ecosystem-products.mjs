@@ -24,6 +24,9 @@ import { PrismaClient } from "@prisma/client";
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const DRY = process.argv.includes("--dry-run");
 const FULL = process.argv.includes("--full"); // also refresh display fields on existing rows
+// Rows whose slug is no longer in the catalog get visible=false (never deleted —
+// reversible, and the public API already filters on visible).
+const HIDE = process.argv.includes("--hide-missing");
 const prisma = new PrismaClient();
 
 function loadCatalog() {
@@ -52,6 +55,7 @@ async function main() {
           description: c.description, descriptionEn: c.descriptionEn,
           status: c.status || "LIVE", prodUrl: c.prodUrl || null,
           icon: c.icon || "📦", techStack: c.techStack || [], tags: c.tags || [],
+          featured: c.featured === true, sortOrder: c.sortOrder || 99, visible: true,
         },
       });
       updated++;
@@ -82,6 +86,17 @@ async function main() {
         sortOrder: c.sortOrder || 99,
       },
     });
+  }
+
+  if (HIDE) {
+    const inCatalog = new Set(catalog.map((c) => c.slug));
+    const toHide = existing.filter((p) => !inCatalog.has(p.slug));
+    for (const p of toHide) {
+      log.push(`- HIDE: ${p.slug} (not in catalog)`);
+      if (DRY) continue;
+      await prisma.project.update({ where: { slug: p.slug }, data: { visible: false } });
+    }
+    console.log(`[hide-missing] ${DRY ? "[DRY] " : ""}hid ${toHide.length} product(s) missing from catalog.`);
   }
 
   const ts = new Date().toISOString();

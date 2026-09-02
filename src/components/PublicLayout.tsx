@@ -3,6 +3,7 @@
 import { useEffect } from "react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { SmoothScroll } from "@/components/site";
 
 /**
  * PublicLayout — consolidates Navbar + Footer for public marketing pages.
@@ -38,6 +39,7 @@ export function PublicLayout({ children }: { children: React.ReactNode }) {
 
   return (
     <div className="min-h-screen bg-[#0a0a12] text-slate-100">
+      <SmoothScroll />
       <Navbar />
       {children}
       <Footer />

@@ -21,7 +21,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { PublicLayout } from "@/components/PublicLayout";
 import { CountUp } from "@/components/CountUp";
-import { Eyebrow, SectionTitle, Reveal, GlowBackdrop, CardIndex, Marquee } from "@/components/site";
+import { Eyebrow, SectionTitle, Reveal, GlowBackdrop, CardIndex, Marquee, Magnetic } from "@/components/site";
 
 interface Partner {
   id: string;
@@ -52,16 +52,29 @@ const industries = [
 // quotes; a marquee with the single real testimonial repeated would read fake.
 const proofCases = ["case1", "case2", "case3", "case4", "case5", "case6", "case7", "case8", "case9", "case10"];
 
-const flagship = [
-  { key: "procuchain", label: "ProcuChain", abbr: "Pc" },
-  { key: "ecabinet", label: "eCabinet", abbr: "eC" },
-  { key: "blochub", label: "BlocHub", abbr: "BH" },
-  { key: "pro", label: "PRO", abbr: "PR" },
-  { key: "travelagency", label: "TravelAgency", abbr: "TA" },
-  { key: "seap", label: "SEAP Assistant", abbr: "SE" },
-  { key: "ave", label: "AVE", abbr: "AV" },
-  { key: "marketing", label: "Marketing Automation", abbr: "MA" },
+// Fallback only: the flagship grid is driven by the DB catalog (featured
+// products via /api/projects). This static list keeps the section populated
+// if the API is unreachable (e.g. local dev without the prod DB).
+const flagshipFallback = [
+  { key: "procuchain", label: "ProcuChain" },
+  { key: "ecabinet", label: "eCabinet" },
+  { key: "blochub", label: "BlocHub" },
+  { key: "pro", label: "PRO" },
+  { key: "travelagency", label: "TravelAgency" },
+  { key: "seap", label: "SEAP Assistant" },
+  { key: "ave", label: "AVE" },
+  { key: "marketing", label: "Marketing Automation" },
 ];
+
+interface FlagshipProject {
+  id: string;
+  name: string;
+  nameEn: string | null;
+  slug: string;
+  description: string | null;
+  descriptionEn: string | null;
+  featured: boolean;
+}
 
 // Hero product carousel. Screenshots have the product's UI language baked in,
 // so the set is curated per locale: each product is shown only on the page
@@ -72,7 +85,7 @@ const SLIDE_PROCUCHAIN = {
   key: "procuchain",
   kind: "desktop" as const,
   name: "ProcuChain",
-  img: "/dashboard-hero.png",
+  img: "/dashboard-hero.webp",
   w: 1200,
   h: 841,
   url: "https://procuchain.com",
@@ -83,7 +96,7 @@ const SLIDE_AVE = {
   key: "ave",
   kind: "mobile" as const,
   name: "AVE",
-  img: "/ave-hero.png",
+  img: "/ave-hero.webp",
   w: 353,
   h: 720,
   url: "https://app.techbiz.ae",
@@ -94,7 +107,7 @@ const SLIDE_EAT = {
   key: "eat",
   kind: "mobile" as const,
   name: "eat",
-  img: "/eat-hero.png",
+  img: "/eat-hero.webp",
   w: 292,
   h: 720,
   url: "https://eat.4pro.io",
@@ -105,7 +118,7 @@ const SLIDE_UTILAJHUB = {
   key: "utilajhub",
   kind: "desktop" as const,
   name: "UtilajHub",
-  img: "/utilajhub-hero.png",
+  img: "/utilajhub-hero.webp",
   w: 1440,
   h: 900,
   url: "https://utilajhub.ro",
@@ -124,6 +137,7 @@ export default function HomePage() {
   const t = useTranslations();
   const locale = useLocale();
   const [partners, setPartners] = useState<Partner[]>([]);
+  const [flagship, setFlagship] = useState<FlagshipProject[]>([]);
   const [activeIndustry, setActiveIndustry] = useState("medical");
   const [slide, setSlide] = useState(0);
 
@@ -133,6 +147,14 @@ export default function HomePage() {
     fetch("/api/partners")
       .then((r) => r.json())
       .then((d) => setPartners(Array.isArray(d) ? d : []))
+      .catch(() => {});
+    // Flagship grid comes from the DB catalog (featured products, sortOrder 1-8).
+    fetch("/api/projects")
+      .then((r) => r.json())
+      .then((d) => {
+        const featured = (d.projects || []).filter((p: FlagshipProject) => p.featured).slice(0, 8);
+        if (featured.length > 0) setFlagship(featured);
+      })
       .catch(() => {});
   }, []);
 
@@ -151,6 +173,15 @@ export default function HomePage() {
 
   const active = industries.find((i) => i.key === activeIndustry) || industries[0];
   const ActiveIcon = active.Icon;
+
+  const flagshipDisplay =
+    flagship.length > 0
+      ? flagship.map((p) => ({
+          key: p.slug,
+          label: locale === "en" && p.nameEn ? p.nameEn : p.name,
+          desc: locale === "en" && p.descriptionEn ? p.descriptionEn : p.description ?? "",
+        }))
+      : flagshipFallback.map((p) => ({ key: p.key, label: p.label, desc: t(`home.products.${p.key}`) }));
 
   return (
     <PublicLayout>
@@ -211,24 +242,28 @@ export default function HomePage() {
                 transition={{ delay: 0.45 }}
                 className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-10"
               >
-                <Button
-                  size="lg"
-                  asChild
-                  className="gap-2 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 px-7 text-white shadow-lg shadow-indigo-500/30 hover:from-blue-400 hover:to-purple-400"
-                >
-                  <Link href={`/${locale}/products`}>
-                    {t("home.exploreProducts")}
-                    <ArrowRight className="w-4 h-4" />
-                  </Link>
-                </Button>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  asChild
-                  className="rounded-full border-indigo-400/40 bg-transparent px-7 text-indigo-200 hover:border-indigo-300 hover:bg-indigo-500/10 hover:text-white"
-                >
-                  <Link href={`/${locale}/contact`}>{t("home.getInTouch")}</Link>
-                </Button>
+                <Magnetic>
+                  <Button
+                    size="lg"
+                    asChild
+                    className="gap-2 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 px-7 text-white shadow-lg shadow-indigo-500/30 hover:from-blue-400 hover:to-purple-400"
+                  >
+                    <Link href={`/${locale}/products`}>
+                      {t("home.exploreProducts")}
+                      <ArrowRight className="w-4 h-4" />
+                    </Link>
+                  </Button>
+                </Magnetic>
+                <Magnetic>
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    asChild
+                    className="rounded-full border-indigo-400/40 bg-transparent px-7 text-indigo-200 hover:border-indigo-300 hover:bg-indigo-500/10 hover:text-white"
+                  >
+                    <Link href={`/${locale}/contact`}>{t("home.getInTouch")}</Link>
+                  </Button>
+                </Magnetic>
               </motion.div>
 
               <motion.div
@@ -414,7 +449,7 @@ export default function HomePage() {
           </div>
 
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {flagship.map((p, i) => (
+            {flagshipDisplay.map((p, i) => (
               <motion.div
                 key={p.key}
                 initial={{ opacity: 0, y: 20 }}
@@ -432,7 +467,7 @@ export default function HomePage() {
                   <h3 className="mb-2 text-lg font-semibold text-white transition-colors group-hover:kb-gradient-text">
                     {p.label}
                   </h3>
-                  <p className="text-sm leading-relaxed text-slate-400">{t(`home.products.${p.key}`)}</p>
+                  <p className="text-sm leading-relaxed text-slate-400 line-clamp-3">{p.desc}</p>
                 </Link>
               </motion.div>
             ))}
@@ -539,12 +574,14 @@ export default function HomePage() {
                 </div>
                 <h2 className="mb-4 text-3xl font-bold md:text-4xl">{t("home.ctaTitle")}</h2>
                 <p className="mx-auto mb-8 max-w-xl text-lg opacity-90">{t("home.ctaDescription")}</p>
-                <Button size="lg" variant="secondary" asChild className="gap-2 rounded-full px-7">
-                  <Link href={`/${locale}/contact`}>
-                    {t("home.ctaButton")}
-                    <ArrowRight className="w-4 h-4" />
-                  </Link>
-                </Button>
+                <Magnetic>
+                  <Button size="lg" variant="secondary" asChild className="gap-2 rounded-full px-7">
+                    <Link href={`/${locale}/contact`}>
+                      {t("home.ctaButton")}
+                      <ArrowRight className="w-4 h-4" />
+                    </Link>
+                  </Button>
+                </Magnetic>
                 <div className="mt-6 flex items-center justify-center gap-2 text-sm opacity-80">
                   <CheckCircle2 className="w-4 h-4" />
                   {t("home.ctaRisk")}

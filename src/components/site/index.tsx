@@ -11,7 +11,61 @@
  * reveals, marquee testimonials.
  */
 
-import { motion } from "framer-motion";
+import { useEffect, useRef } from "react";
+import { motion, useMotionValue, useSpring, useScroll, useTransform } from "framer-motion";
+import Lenis from "lenis";
+
+/**
+ * Lenis smooth scrolling for the marketing pages (the benchmark's motion-first
+ * feel). Mounted by PublicLayout only, so admin/account/auth scroll natively.
+ * Skipped entirely under prefers-reduced-motion.
+ */
+export function SmoothScroll() {
+  useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const lenis = new Lenis({ lerp: 0.12 });
+    let rafId: number;
+    const raf = (time: number) => {
+      lenis.raf(time);
+      rafId = requestAnimationFrame(raf);
+    };
+    rafId = requestAnimationFrame(raf);
+    return () => {
+      cancelAnimationFrame(rafId);
+      lenis.destroy();
+    };
+  }, []);
+  return null;
+}
+
+/**
+ * Magnetic hover: the child is gently pulled toward the cursor and springs
+ * back on leave. Wrap primary CTAs only — it loses its charm when overused.
+ */
+export function Magnetic({ children, strength = 0.3 }: { children: React.ReactNode; strength?: number }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+  const sx = useSpring(x, { stiffness: 200, damping: 15, mass: 0.2 });
+  const sy = useSpring(y, { stiffness: 200, damping: 15, mass: 0.2 });
+
+  const onMove = (e: React.PointerEvent) => {
+    const r = ref.current?.getBoundingClientRect();
+    if (!r) return;
+    x.set((e.clientX - (r.left + r.width / 2)) * strength);
+    y.set((e.clientY - (r.top + r.height / 2)) * strength);
+  };
+  const onLeave = () => {
+    x.set(0);
+    y.set(0);
+  };
+
+  return (
+    <motion.div ref={ref} style={{ x: sx, y: sy }} onPointerMove={onMove} onPointerLeave={onLeave} className="inline-block">
+      {children}
+    </motion.div>
+  );
+}
 
 /** Small-caps section label with a glowing accent dot: `● SELECTED WORK`. */
 export function Eyebrow({ children, className = "" }: { children: React.ReactNode; className?: string }) {
@@ -97,10 +151,19 @@ export function Reveal({
   );
 }
 
-/** Blurred color blobs + dot grid backdrop for dark sections. */
+/**
+ * Blurred color blobs + dot grid backdrop for dark sections. The hero variant
+ * drifts its blobs at different rates as the page scrolls (subtle parallax).
+ */
 export function GlowBackdrop({ variant = "hero" }: { variant?: "hero" | "section" }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
+  const drift1 = useTransform(scrollYProgress, [0, 1], [0, 120]);
+  const drift2 = useTransform(scrollYProgress, [0, 1], [0, -80]);
+  const drift3 = useTransform(scrollYProgress, [0, 1], [0, 60]);
+
   return (
-    <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
+    <div ref={ref} aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
       <div
         className="absolute inset-0 opacity-[0.05]"
         style={{
@@ -110,9 +173,9 @@ export function GlowBackdrop({ variant = "hero" }: { variant?: "hero" | "section
       />
       {variant === "hero" ? (
         <>
-          <div className="absolute -top-48 left-1/2 h-[480px] w-[720px] -translate-x-1/2 rounded-full bg-indigo-600/20 blur-[140px]" />
-          <div className="absolute -left-40 top-1/3 h-96 w-96 rounded-full bg-blue-600/15 blur-[120px]" />
-          <div className="absolute -right-40 bottom-0 h-96 w-96 rounded-full bg-purple-600/15 blur-[120px]" />
+          <motion.div style={{ y: drift1 }} className="absolute -top-48 left-1/2 h-[480px] w-[720px] -translate-x-1/2 rounded-full bg-indigo-600/20 blur-[140px]" />
+          <motion.div style={{ y: drift2 }} className="absolute -left-40 top-1/3 h-96 w-96 rounded-full bg-blue-600/15 blur-[120px]" />
+          <motion.div style={{ y: drift3 }} className="absolute -right-40 bottom-0 h-96 w-96 rounded-full bg-purple-600/15 blur-[120px]" />
         </>
       ) : (
         <>
