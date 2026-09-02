@@ -16,8 +16,8 @@
       "WhatsApp API"
     ],
     "tags": [
-      "Programări",
-      "Servicii",
+      "Scheduling",
+      "Services",
       "WhatsApp"
     ],
     "featured": true,
@@ -111,8 +111,8 @@
       "PHP"
     ],
     "tags": [
-      "Știri",
-      "România"
+      "News",
+      "Romania"
     ],
     "featured": false,
     "sortOrder": 15
@@ -182,8 +182,8 @@
       "Puppeteer"
     ],
     "tags": [
-      "Optimizare web",
-      "Reparații automate"
+      "Web Optimization",
+      "Auto-fix"
     ],
     "featured": false,
     "sortOrder": 18
@@ -228,8 +228,8 @@
       "PostgreSQL"
     ],
     "tags": [
-      "Taxe",
-      "Finanțe"
+      "Taxes",
+      "Finance"
     ],
     "featured": false,
     "sortOrder": 11
@@ -251,7 +251,7 @@
       "PostgreSQL"
     ],
     "tags": [
-      "Recrutare",
+      "Recruitment",
       "HR"
     ],
     "featured": false,
@@ -274,8 +274,8 @@
       "BullMQ"
     ],
     "tags": [
-      "Ședințe",
-      "Transcriere"
+      "Meetings",
+      "Transcription"
     ],
     "featured": false,
     "sortOrder": 14
@@ -297,9 +297,9 @@
       "Revolut API"
     ],
     "tags": [
-      "Asociații",
+      "HOA",
       "SaaS",
-      "Plăți"
+      "Payments"
     ],
     "featured": true,
     "sortOrder": 3
@@ -321,8 +321,8 @@
     ],
     "tags": [
       "Trading",
-      "Investiții",
-      "Finanțe"
+      "Investing",
+      "Finance"
     ],
     "featured": false,
     "sortOrder": 16
@@ -344,8 +344,8 @@
       "Maps"
     ],
     "tags": [
-      "Curse",
-      "Rezervări"
+      "Racing",
+      "Booking"
     ],
     "featured": false,
     "sortOrder": 17
@@ -367,8 +367,8 @@
       "OCR"
     ],
     "tags": [
-      "Achiziții publice",
-      "România"
+      "Public Tenders",
+      "Romania"
     ],
     "featured": true,
     "sortOrder": 6
@@ -438,8 +438,8 @@
     ],
     "tags": [
       "RPA",
-      "Automatizare",
-      "Contabilitate"
+      "Automation",
+      "Accounting"
     ],
     "featured": false,
     "sortOrder": 23
@@ -461,7 +461,7 @@
       "Stripe"
     ],
     "tags": [
-      "Educație",
+      "Education",
       "SaaS"
     ],
     "featured": false,
@@ -487,7 +487,7 @@
     ],
     "tags": [
       "Marketplace",
-      "Închirieri"
+      "Rentals"
     ],
     "featured": false,
     "_needsCopyReview": true,
@@ -510,7 +510,7 @@
       "PostgreSQL"
     ],
     "tags": [
-      "Juridic",
+      "Legal",
       "Blog"
     ],
     "featured": false,
@@ -534,7 +534,7 @@
       "Prisma"
     ],
     "tags": [
-      "Turism",
+      "Travel",
       "B2B",
       "Sourcing"
     ],
@@ -558,8 +558,8 @@
       "WhatsApp API"
     ],
     "tags": [
-      "Nutriție",
-      "Sănătate"
+      "Nutrition",
+      "Health"
     ],
     "featured": false,
     "sortOrder": 24
@@ -582,7 +582,7 @@
     ],
     "tags": [
       "B2B",
-      "Ofertare",
+      "Quoting",
       "CPQ"
     ],
     "featured": false,
@@ -605,7 +605,7 @@
       "Prisma"
     ],
     "tags": [
-      "Consultanță",
+      "Consulting",
       "CRM"
     ],
     "featured": false,
@@ -629,7 +629,7 @@
     ],
     "tags": [
       "Retail",
-      "Vouchere",
+      "Vouchers",
       "Marketing"
     ],
     "featured": false,
@@ -652,7 +652,7 @@
       "Prisma"
     ],
     "tags": [
-      "Fonduri UE",
+      "EU Funding",
       "Multi-tenant"
     ],
     "featured": false,
