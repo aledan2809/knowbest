@@ -334,7 +334,7 @@
     "description": "Rezervă curse și urmărește-le în timp real, simplu și rapid.",
     "descriptionEn": "Book rides and track them in real time, simply and fast.",
     "category": "WEB_APP",
-    "status": "BETA",
+    "status": "LIVE",
     "prodUrl": "https://racex.ro",
     "standalone": true,
     "icon": "🏎️",
@@ -445,11 +445,11 @@
     "sortOrder": 23
   },
   {
-    "name": "tutor",
-    "nameEn": "tutor",
+    "name": "eTutor",
+    "nameEn": "eTutor",
     "slug": "tutor",
-    "description": "tutor — soluție din suita KnowBest. Descriere în curs de actualizare.",
-    "descriptionEn": "tutor — a solution from the KnowBest suite. Description being updated.",
+    "description": "Meditații online pentru elevi: profesori verificați, programări simple și plăți sigure — totul într-un singur loc.",
+    "descriptionEn": "Online tutoring for students: vetted teachers, simple scheduling and secure payments — all in one place.",
     "category": "WEB_APP",
     "status": "LIVE",
     "prodUrl": "https://etutor.ro",
@@ -466,19 +466,19 @@
     ],
     "featured": false,
     "_needsCopyReview": true,
-    "sortOrder": 90
+    "sortOrder": 29
   },
   {
-    "name": "utilajhub-next",
-    "nameEn": "utilajhub-next",
+    "name": "UtilajHub",
+    "nameEn": "UtilajHub",
     "slug": "utilajhub-next",
-    "description": "utilajhub-next — soluție din suita KnowBest. Descriere în curs de actualizare.",
-    "descriptionEn": "utilajhub-next — a solution from the KnowBest suite. Description being updated.",
+    "description": "Marketplace de utilaje de construcții: închirieri și vânzări cu prețuri transparente și rezervare online.",
+    "descriptionEn": "Construction equipment marketplace: rentals and sales with transparent pricing and instant online booking.",
     "category": "WEB_APP",
     "status": "LIVE",
     "prodUrl": "https://utilajhub.ro",
     "standalone": true,
-    "icon": "📦",
+    "icon": "🏗️",
     "techStack": [
       "Next.js",
       "Prisma",
@@ -491,19 +491,19 @@
     ],
     "featured": false,
     "_needsCopyReview": true,
-    "sortOrder": 90
+    "sortOrder": 30
   },
   {
-    "name": "consj",
-    "nameEn": "consj",
+    "name": "CONSJ",
+    "nameEn": "CONSJ",
     "slug": "consj",
-    "description": "consj — soluție din suita KnowBest. Descriere în curs de actualizare.",
-    "descriptionEn": "consj — a solution from the KnowBest suite. Description being updated.",
+    "description": "Site de prezentare cu CMS propriu pentru profesii liberale: articole, noutăți juridice și galerie media, ușor de administrat.",
+    "descriptionEn": "Presentation site with its own CMS for liberal professions: articles, legal news and a media gallery, easy to manage.",
     "category": "WEB_APP",
     "status": "LIVE",
     "prodUrl": "https://consj.ro",
     "standalone": true,
-    "icon": "📦",
+    "icon": "🖋️",
     "techStack": [
       "Next.js",
       "Prisma",
@@ -515,7 +515,7 @@
     ],
     "featured": false,
     "_needsCopyReview": true,
-    "sortOrder": 90
+    "sortOrder": 31
   },
   {
     "name": "TAventa",
