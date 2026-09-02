@@ -58,9 +58,9 @@
     "standalone": true,
     "icon": "🏥",
     "techStack": [
-      "Next.js",
+      "React",
       "Fastify",
-      "Neon PostgreSQL"
+      "PostgreSQL"
     ],
     "tags": [
       "Medical",
@@ -83,15 +83,14 @@
     "icon": "🔗",
     "techStack": [
       "Next.js",
-      "Turborepo",
       "Prisma",
-      "n8n",
-      "ML (Prophet/LightGBM)"
+      "PostgreSQL",
+      "n8n"
     ],
     "tags": [
       "Supply Chain",
       "Forecasting",
-      "AI"
+      "E-commerce"
     ],
     "featured": true,
     "sortOrder": 1
@@ -100,8 +99,8 @@
     "name": "TeInformez",
     "nameEn": "TeInformez",
     "slug": "teinformez",
-    "description": "Știri și informații relevante, selectate și rezumate cu AI, ca să fii la curent în câteva minute.",
-    "descriptionEn": "Relevant news and information, curated and summarized with AI, so you stay informed in minutes.",
+    "description": "Știri și informații relevante, selectate și rezumate automat, ca să fii la curent în câteva minute.",
+    "descriptionEn": "Relevant news and information, curated and summarized automatically, so you stay informed in minutes.",
     "category": "WEB_APP",
     "status": "LIVE",
     "prodUrl": "https://teinformez.eu",
@@ -109,13 +108,11 @@
     "icon": "📰",
     "techStack": [
       "WordPress",
-      "Next.js",
-      "OpenAI"
+      "PHP"
     ],
     "tags": [
-      "News",
-      "AI",
-      "Romania"
+      "Știri",
+      "România"
     ],
     "featured": false,
     "sortOrder": 15
@@ -133,11 +130,13 @@
     "icon": "🌐",
     "techStack": [
       "Next.js",
-      "Supabase"
+      "Prisma",
+      "PostgreSQL"
     ],
     "tags": [
-      "Business",
-      "Platform"
+      "Audit web",
+      "SEO",
+      "Performanță"
     ],
     "featured": true,
     "sortOrder": 7
@@ -179,11 +178,12 @@
     "icon": "🧙",
     "techStack": [
       "Next.js",
-      "AI"
+      "Prisma",
+      "Puppeteer"
     ],
     "tags": [
-      "Website Builder",
-      "AI"
+      "Optimizare web",
+      "Reparații automate"
     ],
     "featured": false,
     "sortOrder": 18
@@ -225,11 +225,11 @@
     "icon": "💰",
     "techStack": [
       "Next.js",
-      "Neon PostgreSQL"
+      "PostgreSQL"
     ],
     "tags": [
-      "Finance",
-      "Analytics"
+      "Taxe",
+      "Finanțe"
     ],
     "featured": false,
     "sortOrder": 11
@@ -248,13 +248,11 @@
     "techStack": [
       "Next.js",
       "FastAPI",
-      "PostgreSQL",
-      "AI Matching"
+      "PostgreSQL"
     ],
     "tags": [
-      "Recruitment",
-      "HR",
-      "AI"
+      "Recrutare",
+      "HR"
     ],
     "featured": false,
     "sortOrder": 12
@@ -272,13 +270,12 @@
     "icon": "📹",
     "techStack": [
       "Next.js",
-      "Whisper",
-      "Redis"
+      "Tauri",
+      "BullMQ"
     ],
     "tags": [
-      "Meetings",
-      "Transcription",
-      "AI"
+      "Ședințe",
+      "Transcriere"
     ],
     "featured": false,
     "sortOrder": 14
@@ -297,13 +294,12 @@
     "techStack": [
       "Next.js",
       "Prisma",
-      "Revolut",
-      "AIRouter"
+      "Revolut API"
     ],
     "tags": [
-      "HOA",
+      "Asociații",
       "SaaS",
-      "AI"
+      "Plăți"
     ],
     "featured": true,
     "sortOrder": 3
@@ -312,8 +308,8 @@
     "name": "TradeInvest",
     "nameEn": "TradeInvest",
     "slug": "tradeinvest",
-    "description": "Analizează și simulează investiții la bursă cu ajutorul AI, înainte să riști bani reali.",
-    "descriptionEn": "Analyze and simulate stock-market investments with AI before risking real money.",
+    "description": "Analizează și simulează investiții la bursă cu instrumente inteligente, înainte să riști bani reali.",
+    "descriptionEn": "Analyze and simulate stock-market investments with smart tooling before risking real money.",
     "category": "WEB_APP",
     "status": "BETA",
     "prodUrl": "https://tradeinvest.knowbest.ro",
@@ -321,14 +317,12 @@
     "icon": "📈",
     "techStack": [
       "Next.js",
-      "Market APIs",
-      "AIRouter"
+      "Market APIs"
     ],
     "tags": [
       "Trading",
-      "Investment",
-      "Finance",
-      "AI"
+      "Investiții",
+      "Finanțe"
     ],
     "featured": false,
     "sortOrder": 16
@@ -350,9 +344,8 @@
       "Maps"
     ],
     "tags": [
-      "Ride",
-      "Booking",
-      "Maps"
+      "Curse",
+      "Rezervări"
     ],
     "featured": false,
     "sortOrder": 17
@@ -361,8 +354,8 @@
     "name": "SEAP Assistant",
     "nameEn": "SEAP Assistant",
     "slug": "seap",
-    "description": "Monitorizează licitațiile publice și înțelege rapid fiecare oportunitate, cu analiză AI a documentelor.",
-    "descriptionEn": "Monitor public tenders and quickly understand each opportunity, with AI document analysis.",
+    "description": "Monitorizează licitațiile publice și înțelege rapid fiecare oportunitate, cu analiză automată a documentelor.",
+    "descriptionEn": "Monitor public tenders and quickly understand each opportunity, with automated document analysis.",
     "category": "WEB_APP",
     "status": "LIVE",
     "prodUrl": "https://seap.knowbest.ro",
@@ -370,15 +363,12 @@
     "icon": "📋",
     "techStack": [
       "Next.js",
-      "OCR",
-      "AIRouter",
-      "PostgreSQL"
+      "PostgreSQL",
+      "OCR"
     ],
     "tags": [
-      "Government",
-      "AI",
-      "OCR",
-      "Romania"
+      "Achiziții publice",
+      "România"
     ],
     "featured": true,
     "sortOrder": 6
@@ -443,16 +433,13 @@
     "icon": "🤖",
     "techStack": [
       "Next.js",
-      "Prisma",
       "PostgreSQL",
-      "AIRouter",
       "BullMQ"
     ],
     "tags": [
       "RPA",
-      "Automation",
-      "Fintech",
-      "AI"
+      "Automatizare",
+      "Contabilitate"
     ],
     "featured": false,
     "sortOrder": 23
@@ -469,14 +456,14 @@
     "standalone": true,
     "icon": "🎓",
     "techStack": [
-      "Next.js 15",
-      "Prisma 5",
-      "NextAuth",
-      "Stripe",
-      "i18n",
-      "local PG VPS2 (DBM)"
+      "Next.js",
+      "Prisma",
+      "Stripe"
     ],
-    "tags": [],
+    "tags": [
+      "Educație",
+      "Meditații"
+    ],
     "featured": false,
     "_needsCopyReview": true,
     "sortOrder": 90
@@ -493,14 +480,15 @@
     "standalone": true,
     "icon": "📦",
     "techStack": [
-      "Next.js 14",
-      "Prisma 5",
-      "NextAuth",
+      "Next.js",
+      "Prisma",
       "Stripe",
-      "Upstash",
-      "local MySQL"
+      "MySQL"
     ],
-    "tags": [],
+    "tags": [
+      "Marketplace",
+      "Utilaje"
+    ],
     "featured": false,
     "_needsCopyReview": true,
     "sortOrder": 90
@@ -517,12 +505,14 @@
     "standalone": true,
     "icon": "📦",
     "techStack": [
-      "Next.js 16",
-      "Prisma 6",
-      "self-hosted PG (local VPS1)",
-      "Tailwind 4"
+      "Next.js",
+      "Prisma",
+      "PostgreSQL"
     ],
-    "tags": [],
+    "tags": [
+      "Juridic",
+      "Blog"
+    ],
     "featured": false,
     "_needsCopyReview": true,
     "sortOrder": 90
