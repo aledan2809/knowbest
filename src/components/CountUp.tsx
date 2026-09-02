@@ -39,6 +39,10 @@ export function CountUp({ end, duration = 2000, suffix = "", className = "" }: C
     };
 
     requestAnimationFrame(animate);
+    // rAF is suspended in hidden/background tabs — without this fallback the
+    // counter can freeze at 0 if the tab loses visibility mid-animation.
+    const settle = setTimeout(() => setCount(endValue), duration + 200);
+    return () => clearTimeout(settle);
   }, [isInView, end, duration]);
 
   return (

@@ -1,3 +1,6 @@
+"use client";
+
+import { useEffect } from "react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 
@@ -21,11 +24,23 @@ import { Footer } from "@/components/Footer";
  * Admin and auth pages should NOT use this wrapper.
  */
 export function PublicLayout({ children }: { children: React.ReactNode }) {
+  // The document canvas stays light for admin/account pages, so on macOS/iOS
+  // rubber-band overscroll a white band would flash around the dark pages.
+  // Paint the <html> element dark only while a public page is mounted.
+  useEffect(() => {
+    const el = document.documentElement;
+    const prev = el.style.backgroundColor;
+    el.style.backgroundColor = "#0a0a12";
+    return () => {
+      el.style.backgroundColor = prev;
+    };
+  }, []);
+
   return (
-    <>
+    <div className="min-h-screen bg-[#0a0a12] text-slate-100">
       <Navbar />
       {children}
       <Footer />
-    </>
+    </div>
   );
 }

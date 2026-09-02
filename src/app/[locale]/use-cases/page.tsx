@@ -48,11 +48,11 @@ const useCaseSlugs: Record<string, string[]> = {
 
 // Subtle background gradients per section
 const sectionGradients = [
-  "from-blue-50/50 to-transparent",
-  "from-purple-50/50 to-transparent",
-  "from-indigo-50/50 to-transparent",
-  "from-sky-50/50 to-transparent",
-  "from-violet-50/50 to-transparent",
+  "from-blue-500/[0.06] to-transparent",
+  "from-purple-500/[0.06] to-transparent",
+  "from-indigo-500/[0.06] to-transparent",
+  "from-sky-500/[0.06] to-transparent",
+  "from-violet-500/[0.06] to-transparent",
 ];
 
 export default function UseCasesPage() {
@@ -79,12 +79,12 @@ export default function UseCasesPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
+    <div>
       <PublicLayout>
 
       {/* Hero Section */}
       <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 via-purple-600/5 to-transparent" />
+        <div className="absolute -top-48 left-1/2 h-[420px] w-[680px] -translate-x-1/2 rounded-full bg-indigo-600/20 blur-[140px]" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28 relative">
           <div className="text-center max-w-4xl mx-auto">
             <motion.div
@@ -92,29 +92,27 @@ export default function UseCasesPage() {
               animate={{ opacity: 1, y: 0 }}
               className="mb-6"
             >
-              <Badge variant="secondary" className="px-4 py-1.5 text-sm">
-                <Briefcase className="w-4 h-4 mr-2" />
+              <span className="inline-flex items-center gap-2.5 text-xs font-semibold uppercase tracking-[0.25em] text-indigo-300/90">
+                <Briefcase className="w-4 h-4" />
                 {t("useCases.badge")}
-              </Badge>
+              </span>
             </motion.div>
 
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6"
+              className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white mb-6"
             >
               {t("useCases.heroTitle")}{" "}
-              <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                {t("useCases.heroHighlight")}
-              </span>
+              <span className="kb-gradient-text">{t("useCases.heroHighlight")}</span>
             </motion.h1>
 
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="text-lg md:text-xl text-slate-600 max-w-2xl mx-auto"
+              className="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto"
             >
               {t("useCases.heroDescription")}
             </motion.p>
@@ -126,7 +124,7 @@ export default function UseCasesPage() {
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {loading ? (
-            <div className="text-center py-20 text-slate-400">{t("common.loading")}</div>
+            <div className="text-center py-20 text-slate-500">{t("common.loading")}</div>
           ) : (
             <div className="space-y-0">
               {useCases.map((useCaseKey, index) => {
@@ -140,7 +138,7 @@ export default function UseCasesPage() {
 
                     {/* Divider between sections */}
                     {index > 0 && (
-                      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent" />
+                      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-px bg-gradient-to-r from-transparent via-white/15 to-transparent" />
                     )}
 
                     <motion.div
@@ -151,13 +149,13 @@ export default function UseCasesPage() {
                       className="relative grid lg:grid-cols-2 gap-12 items-center py-16"
                     >
                       <div className={isReversed ? "lg:order-2" : ""}>
-                        <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-600 to-purple-600 text-white mb-6 shadow-lg shadow-blue-600/20">
+                        <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-purple-500 text-white mb-6 shadow-lg shadow-indigo-500/25">
                           {useCaseIcons[useCaseKey]}
                         </div>
-                        <h2 className="text-3xl font-bold text-slate-900 mb-4">
+                        <h2 className="text-3xl font-bold text-white mb-4">
                           {t(`useCases.cases.${useCaseKey}.title`)}
                         </h2>
-                        <p className="text-lg text-slate-600 mb-6">
+                        <p className="text-lg text-slate-400 mb-6">
                           {t(`useCases.cases.${useCaseKey}.description`)}
                         </p>
 
@@ -171,15 +169,15 @@ export default function UseCasesPage() {
                               transition={{ delay: 0.2 + i * 0.1 }}
                               className="flex items-start gap-3"
                             >
-                              <CheckCircle2 className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
-                              <span className="text-slate-600">
+                              <CheckCircle2 className="w-5 h-5 text-emerald-400 mt-0.5 flex-shrink-0" />
+                              <span className="text-slate-300">
                                 {t(`useCases.cases.${useCaseKey}.benefit${i}`)}
                               </span>
                             </motion.div>
                           ))}
                         </div>
 
-                        <Button asChild className="gap-2">
+                        <Button asChild className="gap-2 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-lg shadow-indigo-500/25 hover:from-blue-400 hover:to-purple-400">
                           <Link href={`/${locale}/contact`}>
                             {t("useCases.getStarted")}
                             <ArrowRight className="w-4 h-4" />
@@ -188,8 +186,8 @@ export default function UseCasesPage() {
                       </div>
 
                       <div className={isReversed ? "lg:order-1" : ""}>
-                        <div className="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm hover:shadow-md transition-shadow duration-300">
-                          <h3 className="text-sm font-semibold text-slate-500 uppercase tracking-wider mb-4">
+                        <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur-sm transition-colors duration-300 hover:border-indigo-400/30">
+                          <h3 className="text-xs font-semibold text-indigo-300/90 uppercase tracking-[0.25em] mb-4">
                             {t("useCases.relatedProducts")}
                           </h3>
                           <div className="space-y-3">
@@ -200,23 +198,23 @@ export default function UseCasesPage() {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: 0.3 + pi * 0.1 }}
-                                className="flex items-center gap-4 p-4 rounded-xl bg-slate-50 hover:bg-gradient-to-r hover:from-blue-50/50 hover:to-purple-50/50 border border-transparent hover:border-slate-200 transition-all duration-200"
+                                className="flex items-center gap-4 p-4 rounded-xl bg-white/[0.04] border border-transparent hover:border-indigo-400/30 hover:bg-white/[0.07] transition-all duration-200"
                               >
                                 <div className="text-3xl flex-shrink-0">
                                   {project.icon || "📦"}
                                 </div>
                                 <div className="flex-1 min-w-0">
-                                  <h4 className="font-semibold text-slate-900">
+                                  <h4 className="font-semibold text-white">
                                     {locale === "en" && project.nameEn ? project.nameEn : project.name}
                                   </h4>
-                                  <p className="text-sm text-slate-600 line-clamp-1">
+                                  <p className="text-sm text-slate-400 line-clamp-1">
                                     {locale === "en" && project.descriptionEn
                                       ? project.descriptionEn
                                       : project.description}
                                   </p>
                                 </div>
                                 {(project.prodUrl || project.demoUrl) && (
-                                  <Button size="sm" variant="outline" asChild>
+                                  <Button size="sm" variant="outline" asChild className="rounded-full border-indigo-400/40 bg-transparent text-indigo-200 hover:border-indigo-300 hover:bg-indigo-500/10 hover:text-white">
                                     <a
                                       href={project.prodUrl || project.demoUrl || "#"}
                                       target="_blank"
@@ -229,7 +227,7 @@ export default function UseCasesPage() {
                               </motion.div>
                             ))}
                             {relatedProjects.length === 0 && (
-                              <p className="text-slate-400 text-center py-4">
+                              <p className="text-slate-500 text-center py-4">
                                 {t("useCases.noProducts")}
                               </p>
                             )}

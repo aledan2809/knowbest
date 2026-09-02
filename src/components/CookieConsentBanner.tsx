@@ -67,32 +67,32 @@ export function CookieConsentBanner() {
           role="dialog"
           aria-label={t("title")}
         >
-          <div className="mx-auto max-w-3xl rounded-2xl border border-slate-200 bg-white/95 backdrop-blur shadow-2xl p-5">
+          <div className="mx-auto max-w-3xl rounded-2xl border border-white/10 bg-[#111120]/95 backdrop-blur shadow-2xl shadow-black/40 p-5">
             <div className="sm:flex sm:items-start sm:gap-5">
               <div className="flex items-start gap-3 flex-1">
-                <span className="inline-flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-blue-600 to-purple-600 text-white">
+                <span className="inline-flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-blue-500 to-purple-500 text-white">
                   <Cookie className="h-5 w-5" />
                 </span>
-                <p className="text-sm text-slate-600">
+                <p className="text-sm text-slate-300">
                   {t("message")}{" "}
-                  <Link href={`/${locale}/cookies`} className="text-blue-600 underline hover:text-blue-700">
+                  <Link href={`/${locale}/cookies`} className="text-indigo-300 underline hover:text-indigo-200">
                     {t("cookiesLink")}
                   </Link>{" "}·{" "}
-                  <Link href={`/${locale}/privacy`} className="text-blue-600 underline hover:text-blue-700">
+                  <Link href={`/${locale}/privacy`} className="text-indigo-300 underline hover:text-indigo-200">
                     {t("privacyLink")}
                   </Link>
                 </p>
               </div>
               <div className="mt-4 flex flex-wrap gap-2 sm:mt-0 sm:flex-shrink-0">
                 {!expanded && (
-                  <Button size="sm" variant="ghost" onClick={() => setExpanded(true)}>
+                  <Button size="sm" variant="ghost" onClick={() => setExpanded(true)} className="text-slate-300 hover:bg-white/5 hover:text-white">
                     {t("manage")}
                   </Button>
                 )}
-                <Button size="sm" variant="outline" onClick={rejectNonEssential}>
+                <Button size="sm" variant="outline" onClick={rejectNonEssential} className="rounded-full border-white/15 bg-transparent text-slate-200 hover:border-indigo-300 hover:bg-white/5 hover:text-white">
                   {t("rejectNonEssential")}
                 </Button>
-                <Button size="sm" onClick={acceptAll}>
+                <Button size="sm" onClick={acceptAll} className="rounded-full bg-gradient-to-r from-blue-500 to-purple-500 text-white hover:from-blue-400 hover:to-purple-400">
                   {t("acceptAll")}
                 </Button>
               </div>
@@ -106,7 +106,7 @@ export function CookieConsentBanner() {
                   exit={{ height: 0, opacity: 0 }}
                   className="overflow-hidden"
                 >
-                  <div className="mt-5 space-y-3 border-t border-slate-100 pt-4">
+                  <div className="mt-5 space-y-3 border-t border-white/10 pt-4">
                     <CategoryRow
                       name={t("necessaryName")}
                       desc={t("necessaryDesc")}
@@ -160,11 +160,11 @@ function CategoryRow({
   return (
     <div className="flex items-start justify-between gap-4">
       <div className="flex-1">
-        <p className="text-sm font-semibold text-slate-900">{name}</p>
-        <p className="text-xs text-slate-500">{desc}</p>
+        <p className="text-sm font-semibold text-white">{name}</p>
+        <p className="text-xs text-slate-400">{desc}</p>
       </div>
       {locked ? (
-        <span className="mt-0.5 flex-shrink-0 rounded-full bg-slate-100 px-2.5 py-1 text-xs font-medium text-slate-500">
+        <span className="mt-0.5 flex-shrink-0 rounded-full bg-white/10 px-2.5 py-1 text-xs font-medium text-slate-400">
           {lockedLabel}
         </span>
       ) : (
@@ -175,7 +175,7 @@ function CategoryRow({
           aria-label={name}
           onClick={onChange}
           className={`relative mt-0.5 inline-flex h-6 w-11 flex-shrink-0 items-center rounded-full transition-colors ${
-            checked ? "bg-blue-600" : "bg-slate-300"
+            checked ? "bg-indigo-500" : "bg-white/20"
           }`}
         >
           <span

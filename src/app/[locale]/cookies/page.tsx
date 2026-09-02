@@ -10,7 +10,7 @@ export default async function CookiesPage({ params }: { params: Promise<{ locale
   const t = await getTranslations({ locale });
   const doc = await getLegalDocument("cookies");
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
+    <div>
       <PublicLayout>
         <LegalDocBody title={t("cookies.title")} doc={doc} />
       </PublicLayout>

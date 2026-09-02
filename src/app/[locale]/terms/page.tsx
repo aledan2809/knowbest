@@ -10,7 +10,7 @@ export default async function TermsPage({ params }: { params: Promise<{ locale: 
   const t = await getTranslations({ locale });
   const doc = await getLegalDocument("tos");
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
+    <div>
       <PublicLayout>
         <LegalDocBody title={t("footer.terms")} doc={doc} />
       </PublicLayout>

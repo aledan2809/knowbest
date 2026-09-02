@@ -52,7 +52,7 @@ export default function UsagePage() {
 
   return (
     <PublicLayout>
-      <main className="min-h-screen bg-slate-50 py-12 px-4">
+      <main className="min-h-screen bg-slate-50 py-12 px-4 text-slate-900">
         <div className="max-w-3xl mx-auto">
           <h1 className="text-3xl font-bold text-slate-900 mb-2">Usage</h1>
           <p className="text-slate-600 mb-8">

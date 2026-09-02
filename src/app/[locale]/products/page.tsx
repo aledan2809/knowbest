@@ -8,6 +8,7 @@ import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { PublicLayout } from "@/components/PublicLayout";
+import { GlowBackdrop, CardIndex } from "@/components/site";
 
 interface Project {
   id: string;
@@ -39,10 +40,10 @@ const categoryIcons: Record<string, React.ReactNode> = {
 };
 
 const statusColors: Record<string, string> = {
-  LIVE: "bg-green-500",
-  BETA: "bg-yellow-500",
-  DEVELOPMENT: "bg-blue-500",
-  COMING_SOON: "bg-purple-500",
+  LIVE: "bg-green-400",
+  BETA: "bg-yellow-400",
+  DEVELOPMENT: "bg-blue-400",
+  COMING_SOON: "bg-purple-400",
   DEPRECATED: "bg-gray-500",
 };
 
@@ -79,35 +80,31 @@ export default function ProductsPage() {
   const featured = filtered.filter((p) => p.featured);
   const regular = filtered.filter((p) => !p.featured);
 
+  const chipClass = (on: boolean) =>
+    on
+      ? "rounded-full bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-lg shadow-indigo-500/25 hover:from-blue-400 hover:to-purple-400 hover:text-white"
+      : "rounded-full border border-white/10 bg-white/[0.03] text-slate-300 hover:border-indigo-400/40 hover:bg-white/[0.06] hover:text-white";
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
-      <PublicLayout>
+    <PublicLayout>
 
-      {/* Hero with gradient mesh background */}
+      {/* Hero */}
       <section className="relative overflow-hidden">
-        {/* Gradient mesh */}
-        <div className="absolute inset-0">
-          <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-400/8 rounded-full blur-3xl" />
-          <div className="absolute top-10 right-1/4 w-80 h-80 bg-purple-400/8 rounded-full blur-3xl" />
-          <div className="absolute bottom-0 left-1/2 w-72 h-72 bg-indigo-400/6 rounded-full blur-3xl" />
-        </div>
-
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center relative">
+        <GlowBackdrop variant="hero" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20 text-center relative">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-4xl md:text-5xl font-bold text-slate-900 mb-4"
+            className="text-4xl md:text-6xl font-bold tracking-tight text-white mb-4"
           >
             {t("products.title")}{" "}
-            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-              {t("products.titleHighlight")}
-            </span>
+            <span className="kb-gradient-text">{t("products.titleHighlight")}</span>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-lg text-slate-600 max-w-2xl mx-auto mb-8"
+            className="text-lg text-slate-400 max-w-2xl mx-auto mb-8"
           >
             {t("products.subtitle")}
           </motion.p>
@@ -120,19 +117,20 @@ export default function ProductsPage() {
             className="max-w-xl mx-auto space-y-4"
           >
             <div className="relative">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-500" />
               <Input
                 placeholder={t("common.search")}
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
-                className="pl-10 h-12 text-base bg-white/80 backdrop-blur-sm border-slate-200 shadow-sm"
+                className="pl-10 h-12 text-base rounded-full border-white/10 bg-white/[0.04] text-white placeholder:text-slate-500 backdrop-blur-sm focus-visible:border-indigo-400/60 focus-visible:ring-indigo-400/20"
               />
             </div>
             <div className="flex flex-wrap justify-center gap-2">
               <Button
                 size="sm"
-                variant={selectedCategory === null ? "default" : "outline"}
+                variant="ghost"
                 onClick={() => setSelectedCategory(null)}
+                className={chipClass(selectedCategory === null)}
               >
                 {t("common.all")}
               </Button>
@@ -140,9 +138,9 @@ export default function ProductsPage() {
                 <Button
                   key={cat}
                   size="sm"
-                  variant={selectedCategory === cat ? "default" : "outline"}
+                  variant="ghost"
                   onClick={() => setSelectedCategory(cat)}
-                  className="gap-1"
+                  className={`gap-1 ${chipClass(selectedCategory === cat)}`}
                 >
                   {categoryIcons[cat]}
                   {t(`categories.${cat}`)}
@@ -154,23 +152,23 @@ export default function ProductsPage() {
       </section>
 
       {/* Projects Grid */}
-      <section id="portfolio" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
+      <section id="portfolio" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-24">
         {loading ? (
-          <div className="text-center py-20 text-slate-400">{t("common.loading")}</div>
+          <div className="text-center py-20 text-slate-500">{t("common.loading")}</div>
         ) : filtered.length === 0 ? (
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             className="text-center py-20"
           >
-            <div className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-slate-100 mb-6">
-              <PackageOpen className="w-10 h-10 text-slate-400" />
+            <div className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-white/[0.04] border border-white/10 mb-6">
+              <PackageOpen className="w-10 h-10 text-slate-500" />
             </div>
-            <p className="text-lg text-slate-500 font-medium mb-2">
+            <p className="text-lg text-slate-400 font-medium mb-2">
               {projects.length === 0 ? t("portfolio.noProjects") : t("portfolio.noResults")}
             </p>
             {search && (
-              <Button variant="ghost" size="sm" onClick={() => setSearch("")} className="text-slate-400">
+              <Button variant="ghost" size="sm" onClick={() => setSearch("")} className="text-slate-500 hover:text-white hover:bg-white/5">
                 {t("common.clearSearch")}
               </Button>
             )}
@@ -179,7 +177,8 @@ export default function ProductsPage() {
           <>
             {featured.length > 0 && (
               <div className="mb-12">
-                <h3 className="text-sm font-semibold text-slate-500 uppercase tracking-wider mb-6">
+                <h3 className="mb-6 flex items-center gap-2.5 text-xs font-semibold uppercase tracking-[0.25em] text-indigo-300/90">
+                  <span className="inline-flex h-2 w-2 rounded-full bg-gradient-to-r from-blue-400 to-purple-400" />
                   {t("portfolio.featured")}
                 </h3>
                 <div className="grid md:grid-cols-2 gap-6">
@@ -192,7 +191,8 @@ export default function ProductsPage() {
 
             <div>
               {featured.length > 0 && (
-                <h3 className="text-sm font-semibold text-slate-500 uppercase tracking-wider mb-6">
+                <h3 className="mb-6 flex items-center gap-2.5 text-xs font-semibold uppercase tracking-[0.25em] text-indigo-300/90">
+                  <span className="inline-flex h-2 w-2 rounded-full bg-gradient-to-r from-blue-400 to-purple-400" />
                   {t("portfolio.allProjects")}
                 </h3>
               )}
@@ -206,8 +206,7 @@ export default function ProductsPage() {
         )}
       </section>
 
-      </PublicLayout>
-    </div>
+    </PublicLayout>
   );
 }
 
@@ -238,17 +237,12 @@ function ProjectCard({
       animate={{ opacity: 1, y: 0 }}
       whileHover={{ y: -4 }}
       transition={{ delay: index * 0.05 }}
-      className={`group relative bg-white rounded-2xl border border-slate-200 overflow-hidden transition-all duration-300 hover:shadow-xl ${
+      className={`group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-sm transition-colors duration-300 hover:border-indigo-400/40 hover:bg-white/[0.05] ${
         featured ? "md:flex" : ""
       }`}
-      style={{ isolation: "isolate" }}
     >
-      {/* Gradient border on hover */}
-      <div className="absolute -inset-px rounded-2xl bg-gradient-to-br from-blue-500 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10" />
-      <div className="absolute inset-0 rounded-2xl bg-white -z-[5]" />
-
       <div
-        className={`bg-gradient-to-br from-blue-50 via-slate-50 to-purple-50 group-hover:from-blue-100/80 group-hover:to-purple-100/80 flex items-center justify-center transition-colors duration-500 ${
+        className={`flex items-center justify-center bg-gradient-to-br from-blue-500/10 via-transparent to-purple-500/10 transition-colors duration-500 group-hover:from-blue-500/20 group-hover:to-purple-500/20 ${
           featured ? "md:w-2/5 h-48 md:h-auto" : "h-40"
         }`}
       >
@@ -258,7 +252,7 @@ function ProjectCard({
           <div className="relative flex items-center justify-center">
             <motion.div
               aria-hidden
-              className="absolute h-24 w-24 rounded-full bg-gradient-to-br from-blue-400/40 to-purple-400/40 blur-2xl"
+              className="absolute h-24 w-24 rounded-full bg-gradient-to-br from-blue-400/30 to-purple-400/30 blur-2xl"
               animate={{ scale: [1, 1.25, 1], opacity: [0.4, 0.7, 0.4] }}
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
             />
@@ -276,9 +270,10 @@ function ProjectCard({
       <div className={`p-5 ${featured ? "md:w-3/5" : ""}`}>
         <div className="flex items-start justify-between mb-2">
           <div className="flex items-center gap-2">
-            <h3 className="font-semibold text-slate-900 text-lg group-hover:text-blue-700 transition-colors">{name}</h3>
+            <CardIndex index={index} />
+            <h3 className="font-semibold text-white text-lg transition-colors group-hover:kb-gradient-text">{name}</h3>
             {project.standalone && (
-              <Badge variant="secondary" className="text-xs gap-1">
+              <Badge variant="secondary" className="text-xs gap-1 border-white/10 bg-white/[0.06] text-slate-300">
                 <Rocket className="w-3 h-3" />
                 {t("portfolio.standalone")}
               </Badge>
@@ -290,14 +285,18 @@ function ProjectCard({
           </div>
         </div>
 
-        <p className="text-sm text-slate-600 mb-3 line-clamp-2">{description}</p>
+        <p className="text-sm text-slate-400 mb-3 line-clamp-2">{description}</p>
 
         <div className="flex flex-wrap gap-1.5 mb-4">
           {project.techStack.slice(0, 4).map((tech) => (
-            <Badge key={tech} variant="secondary" className="text-xs">{tech}</Badge>
+            <Badge key={tech} variant="secondary" className="text-xs border-white/10 bg-white/[0.06] text-slate-300">
+              {tech}
+            </Badge>
           ))}
           {project.tags.slice(0, 2).map((tag) => (
-            <Badge key={tag} variant="outline" className="text-xs">{tag}</Badge>
+            <Badge key={tag} variant="outline" className="text-xs border-white/15 text-slate-400">
+              {tag}
+            </Badge>
           ))}
         </div>
 
@@ -305,7 +304,16 @@ function ProjectCard({
           {hasLinks ? (
             <>
               {showDemo && (
-                <Button size="sm" variant={showProd ? "outline" : "default"} asChild className="gap-1.5">
+                <Button
+                  size="sm"
+                  variant="ghost"
+                  asChild
+                  className={`gap-1.5 rounded-full ${
+                    showProd
+                      ? "border border-indigo-400/40 bg-transparent text-indigo-200 hover:border-indigo-300 hover:bg-indigo-500/10 hover:text-white"
+                      : "bg-gradient-to-r from-blue-500 to-purple-500 text-white hover:from-blue-400 hover:to-purple-400 hover:text-white"
+                  }`}
+                >
                   <a href={project.demoUrl!} target="_blank" rel="noopener noreferrer">
                     {project.accessType === "PASSWORD" ? (
                       <Lock className="w-3.5 h-3.5" />
@@ -317,7 +325,12 @@ function ProjectCard({
                 </Button>
               )}
               {showProd && (
-                <Button size="sm" asChild className="gap-1.5">
+                <Button
+                  size="sm"
+                  variant="ghost"
+                  asChild
+                  className="gap-1.5 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-lg shadow-indigo-500/20 hover:from-blue-400 hover:to-purple-400 hover:text-white"
+                >
                   <a href={project.prodUrl!} target="_blank" rel="noopener noreferrer">
                     <ExternalLink className="w-3.5 h-3.5" />
                     {t("portfolio.viewProduction")}
@@ -326,11 +339,11 @@ function ProjectCard({
               )}
             </>
           ) : (
-            <Button size="sm" variant="secondary" disabled className="cursor-default">
+            <Button size="sm" variant="secondary" disabled className="cursor-default rounded-full border-white/10 bg-white/[0.06] text-slate-400">
               {project.status === "BETA" ? t("portfolio.comingSoon") : t("portfolio.onRequest")}
             </Button>
           )}
-          <Badge variant="outline" className="gap-1 text-xs">
+          <Badge variant="outline" className="gap-1 text-xs border-white/15 text-slate-400">
             {categoryIcons[project.category]}
             {t(`categories.${project.category}`)}
           </Badge>

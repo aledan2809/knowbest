@@ -105,7 +105,9 @@
     "ctaRisk": "Consultare gratuită · fără obligație · răspundem în 24h",
     "learnMore": "Află mai multe",
     "trustedBy": "Cu încrederea echipelor din mai multe industrii",
-    "clientsTitle": "O parte din partenerii noștri"
+    "clientsTitle": "O parte din partenerii noștri",
+    "eyebrow": { "industries": "Industrii", "products": "Produse în producție", "proof": "Dovadă socială", "cta": "Următorul pas" },
+    "scrollHint": "Derulează pentru a explora"
   },
   "hero": {
     "title": "Solutii Software",
@@ -116,10 +118,10 @@
     "badge": "Despre KnowBest",
     "heroTitle": "Pasiune pentru",
     "heroHighlight": "Tehnologie",
-    "heroDescription": "Suntem o echipa dedicata crearii de solutii software care fac diferenta. De la aplicatii web la module AI, construim viitorul digital.",
+    "heroDescription": "Suntem o echipa dedicata crearii de solutii software care fac diferenta. De la aplicatii web la automatizari inteligente, construim viitorul digital.",
     "storyTitle": "Povestea Noastra",
-    "storyP1": "KnowBest este o companie de tehnologie specializata in consultanta IT si solutii software personalizate. Ajutam afacerile sa-si modernizeze operatiunile prin automatizare, dezvoltare aplicatii web si mobile, si integrare AI.",
-    "storyP2": "Expertiza noastra acopera automatizarea proceselor (RPA), dezvoltarea de software personalizat si integrarea inteligentei artificiale in fluxurile de business. Lucram cu clienti din domeniul medical, administrarea proprietatilor si industrii de servicii pentru a livra solutii scalabile, gata de productie.",
+    "storyP1": "KnowBest este o companie de tehnologie specializata in consultanta IT si solutii software personalizate. Ajutam afacerile sa-si modernizeze operatiunile prin automatizare, dezvoltare aplicatii web si mobile, si automatizari inteligente.",
+    "storyP2": "Expertiza noastra acopera automatizarea proceselor (RPA), dezvoltarea de software personalizat si automatizari inteligente in fluxurile de business. Lucram cu clienti din domeniul medical, administrarea proprietatilor si industrii de servicii pentru a livra solutii scalabile, gata de productie.",
     "storyP3": "De la concept la implementare, gestionam intregul ciclu de viata al software-ului, asigurandu-ne ca clientii primesc solutii fiabile si usor de mentinut care genereaza valoare de business masurabile.",
     "missionTitle": "Misiunea Noastra",
     "missionDescription": "Sa democratizam accesul la software de calitate, oferind solutii modulare, scalabile si accesibile pentru fiecare afacere.",
@@ -160,8 +162,8 @@
         "description": "Am intrat in domenii noi: sanatate, imobiliare si marketing."
       },
       "aiIntegration": {
-        "title": "Integrare AI",
-        "description": "Am integrat capabilitati de inteligenta artificiala in mai multe produse."
+        "title": "Automatizari inteligente",
+        "description": "Am integrat automatizari inteligente in mai multe produse."
       },
       "scale": {
         "title": "Scalare Operatiuni",
@@ -203,7 +205,7 @@
       "realestate": {
         "title": "Imobiliare & Guvernamental",
         "description": "Instrumente pentru managementul proprietatilor si procesele de achizitii publice.",
-        "benefit1": "Analiza documentelor SEAP cu AI",
+        "benefit1": "Analiza automata a documentelor SEAP",
         "benefit2": "Pregatire si urmarire automata a ofertelor",
         "benefit3": "Management contracte si monitorizare conformitate"
       },

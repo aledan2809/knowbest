@@ -29,7 +29,7 @@ export function Footer() {
   ].filter((s) => s.enabled);
 
   return (
-    <footer className="relative bg-slate-900 text-slate-300">
+    <footer className="relative border-t border-white/[0.06] bg-[#08080f] text-slate-300">
       {/* Gradient separator line */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500 to-transparent" />
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-purple-500 to-transparent opacity-50 blur-sm" />
@@ -57,7 +57,7 @@ export function Footer() {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-slate-800 text-slate-400 hover:bg-slate-700 hover:text-white transition-all duration-200"
+                  className="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-white/[0.06] text-slate-400 hover:bg-white/10 hover:text-white transition-all duration-200"
                   aria-label={social.label}
                 >
                   <social.icon className="w-4 h-4" />

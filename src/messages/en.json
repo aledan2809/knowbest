@@ -110,7 +110,9 @@
     "ctaRisk": "Free consultation · no commitment · we reply within 24h",
     "learnMore": "Learn more about us",
     "trustedBy": "Trusted by teams across multiple industries",
-    "clientsTitle": "Some of our partners"
+    "clientsTitle": "Some of our partners",
+    "eyebrow": { "industries": "Industries", "products": "Products in production", "proof": "Social proof", "cta": "Next step" },
+    "scrollHint": "Scroll to explore"
   },
   "products": {
     "title": "Our",
@@ -157,8 +159,8 @@
     "heroHighlight": "Business Software",
     "heroDescription": "We're a team of passionate developers and entrepreneurs dedicated to creating software that makes a difference.",
     "storyTitle": "Our Journey",
-    "storyP1": "KnowBest is a technology company specializing in IT consulting and custom software solutions. We help businesses modernize their operations through automation, web and mobile application development, and AI integration.",
-    "storyP2": "Our expertise spans process automation (RPA), custom software development, and integrating artificial intelligence into business workflows. We work with clients across healthcare, property management, and service industries to deliver scalable, production-ready solutions.",
+    "storyP1": "KnowBest is a technology company specializing in IT consulting and custom software solutions. We help businesses modernize their operations through automation, web and mobile application development, and smart automation.",
+    "storyP2": "Our expertise spans process automation (RPA), custom software development, and integrating smart automation into business workflows. We work with clients across healthcare, property management, and service industries to deliver scalable, production-ready solutions.",
     "storyP3": "From concept to deployment, we handle the entire software lifecycle, ensuring our clients receive reliable, maintainable solutions that drive measurable business value.",
     "missionTitle": "Our Mission",
     "missionDescription": "To democratize access to professional-grade software by creating affordable, reliable solutions that empower businesses of all sizes to operate more efficiently.",
@@ -199,8 +201,8 @@
         "description": "Expanded into healthcare, real estate, and marketing verticals."
       },
       "aiIntegration": {
-        "title": "AI Integration",
-        "description": "Integrated AI capabilities across multiple products."
+        "title": "Smart Automation",
+        "description": "Integrated smart automation across multiple products."
       },
       "scale": {
         "title": "Scaling Operations",
@@ -242,7 +244,7 @@
       "realestate": {
         "title": "Real Estate & Government",
         "description": "Tools for property management and public procurement processes.",
-        "benefit1": "AI-powered document analysis for SEAP procurement",
+        "benefit1": "Automated document analysis for SEAP procurement",
         "benefit2": "Automated bid preparation and tracking",
         "benefit3": "Contract management and compliance monitoring"
       },

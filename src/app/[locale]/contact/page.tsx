@@ -87,12 +87,12 @@ export default function ContactPage() {
   ].filter((s) => s.enabled);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
+    <div>
       <PublicLayout>
 
       {/* Hero Section */}
       <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 via-purple-600/5 to-transparent" />
+        <div className="absolute -top-48 left-1/2 h-[420px] w-[680px] -translate-x-1/2 rounded-full bg-indigo-600/20 blur-[140px]" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28 relative">
           <div className="text-center max-w-4xl mx-auto">
             <motion.div
@@ -100,29 +100,27 @@ export default function ContactPage() {
               animate={{ opacity: 1, y: 0 }}
               className="mb-6"
             >
-              <Badge variant="secondary" className="px-4 py-1.5 text-sm">
-                <MessageSquare className="w-4 h-4 mr-2" />
+              <span className="inline-flex items-center gap-2.5 text-xs font-semibold uppercase tracking-[0.25em] text-indigo-300/90">
+                <MessageSquare className="w-4 h-4" />
                 {t("contact.badge")}
-              </Badge>
+              </span>
             </motion.div>
 
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6"
+              className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white mb-6"
             >
               {t("contact.heroTitle")}{" "}
-              <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                {t("contact.heroHighlight")}
-              </span>
+              <span className="kb-gradient-text">{t("contact.heroHighlight")}</span>
             </motion.h1>
 
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="text-lg md:text-xl text-slate-600 max-w-2xl mx-auto"
+              className="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto"
             >
               {t("contact.heroDescription")}
             </motion.p>
@@ -141,11 +139,11 @@ export default function ContactPage() {
               viewport={{ once: true }}
               className="lg:col-span-2"
             >
-              <h2 className="text-2xl font-bold text-slate-900 mb-2">
+              <h2 className="text-2xl font-bold text-white mb-2">
                 {t("contact.infoTitle")}
               </h2>
-              <div className="w-16 h-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full mb-6" />
-              <p className="text-slate-600 mb-8">{t("contact.infoDescription")}</p>
+              <div className="w-16 h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mb-6" />
+              <p className="text-slate-400 mb-8">{t("contact.infoDescription")}</p>
 
               <div className="space-y-5 mb-8">
                 {contactInfo.map((info, i) => (
@@ -155,22 +153,22 @@ export default function ContactPage() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: i * 0.1 }}
-                    className="flex items-start gap-4 p-4 rounded-xl bg-white border border-slate-100 hover:border-blue-100 hover:shadow-sm transition-all duration-200"
+                    className="flex items-start gap-4 p-4 rounded-xl border border-white/10 bg-white/[0.03] backdrop-blur-sm hover:border-indigo-400/30 hover:bg-white/[0.05] transition-all duration-200"
                   >
-                    <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-blue-600 to-purple-600 text-white flex-shrink-0 shadow-lg shadow-blue-600/15">
+                    <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-purple-500 text-white flex-shrink-0 shadow-lg shadow-indigo-500/25">
                       <info.icon className="w-5 h-5" />
                     </div>
                     <div>
-                      <p className="text-xs font-medium text-slate-400 uppercase tracking-wider">{info.label}</p>
+                      <p className="text-xs font-medium text-slate-500 uppercase tracking-wider">{info.label}</p>
                       {info.href ? (
                         <a
                           href={info.href}
-                          className="text-slate-900 font-medium hover:text-blue-600 transition-colors"
+                          className="text-white font-medium hover:text-indigo-300 transition-colors"
                         >
                           {info.value}
                         </a>
                       ) : (
-                        <p className="text-slate-900 font-medium">{info.value}</p>
+                        <p className="text-white font-medium">{info.value}</p>
                       )}
                     </div>
                   </motion.div>
@@ -179,7 +177,7 @@ export default function ContactPage() {
 
               {socialLinks.length > 0 && (
                 <div>
-                  <h3 className="text-sm font-semibold text-slate-500 uppercase tracking-wider mb-4">
+                  <h3 className="text-xs font-semibold text-indigo-300/90 uppercase tracking-[0.25em] mb-4">
                     {t("contact.followUs")}
                   </h3>
                   <div className="flex gap-3">
@@ -189,7 +187,7 @@ export default function ContactPage() {
                         href={social.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-slate-100 text-slate-600 hover:bg-gradient-to-br hover:from-blue-600 hover:to-purple-600 hover:text-white transition-all duration-200"
+                        className="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-white/[0.06] text-slate-400 hover:bg-gradient-to-br hover:from-blue-500 hover:to-purple-500 hover:text-white transition-all duration-200"
                         aria-label={social.label}
                       >
                         <social.icon className="w-5 h-5" />
@@ -207,9 +205,9 @@ export default function ContactPage() {
               viewport={{ once: true }}
               className="lg:col-span-3"
             >
-              <div className="relative bg-white/80 backdrop-blur-xl rounded-2xl border border-slate-200/80 p-8 shadow-xl shadow-slate-200/50">
+              <div className="relative rounded-2xl border border-white/10 bg-white/[0.03] p-8 backdrop-blur-xl">
                 {/* Subtle gradient glow behind form */}
-                <div className="absolute -inset-1 bg-gradient-to-br from-blue-100/50 via-transparent to-purple-100/50 rounded-2xl blur-xl -z-10" />
+                <div className="absolute -inset-1 bg-gradient-to-br from-blue-500/10 via-transparent to-purple-500/10 rounded-2xl blur-xl -z-10" />
 
                 {sent ? (
                   <motion.div
@@ -217,14 +215,14 @@ export default function ContactPage() {
                     animate={{ opacity: 1, scale: 1 }}
                     className="text-center py-12"
                   >
-                    <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-green-100 text-green-600 mb-6">
+                    <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-emerald-500/15 text-emerald-400 mb-6">
                       <Send className="w-8 h-8" />
                     </div>
-                    <h3 className="text-2xl font-bold text-slate-900 mb-2">
+                    <h3 className="text-2xl font-bold text-white mb-2">
                       {t("contact.successTitle")}
                     </h3>
-                    <p className="text-slate-600 mb-6">{t("contact.successMessage")}</p>
-                    <Button variant="outline" onClick={() => setSent(false)}>
+                    <p className="text-slate-400 mb-6">{t("contact.successMessage")}</p>
+                    <Button variant="outline" onClick={() => setSent(false)} className="rounded-full border-indigo-400/40 bg-transparent text-indigo-200 hover:border-indigo-300 hover:bg-indigo-500/10 hover:text-white">
                       {t("contact.sendAnother")}
                     </Button>
                   </motion.div>
@@ -232,18 +230,18 @@ export default function ContactPage() {
                   <form onSubmit={handleSubmit} className="space-y-6">
                     <div className="grid sm:grid-cols-2 gap-6">
                       <div className="space-y-2">
-                        <Label htmlFor="name" className="text-slate-700">{t("contact.form.name")} *</Label>
+                        <Label htmlFor="name" className="text-slate-300">{t("contact.form.name")} *</Label>
                         <Input
                           id="name"
                           required
                           value={formData.name}
                           onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                           placeholder={t("contact.form.namePlaceholder")}
-                          className="bg-white/50 border-slate-200 focus:border-blue-400 focus:ring-blue-400/20 h-11"
+                          className="h-11 border-white/10 bg-white/[0.04] text-white placeholder:text-slate-500 focus-visible:border-indigo-400/60 focus-visible:ring-indigo-400/20"
                         />
                       </div>
                       <div className="space-y-2">
-                        <Label htmlFor="email" className="text-slate-700">{t("contact.form.email")} *</Label>
+                        <Label htmlFor="email" className="text-slate-300">{t("contact.form.email")} *</Label>
                         <Input
                           id="email"
                           type="email"
@@ -251,37 +249,37 @@ export default function ContactPage() {
                           value={formData.email}
                           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                           placeholder={t("contact.form.emailPlaceholder")}
-                          className="bg-white/50 border-slate-200 focus:border-blue-400 focus:ring-blue-400/20 h-11"
+                          className="h-11 border-white/10 bg-white/[0.04] text-white placeholder:text-slate-500 focus-visible:border-indigo-400/60 focus-visible:ring-indigo-400/20"
                         />
                       </div>
                     </div>
 
                     <div className="grid sm:grid-cols-2 gap-6">
                       <div className="space-y-2">
-                        <Label htmlFor="company" className="text-slate-700">{t("contact.form.company")}</Label>
+                        <Label htmlFor="company" className="text-slate-300">{t("contact.form.company")}</Label>
                         <Input
                           id="company"
                           value={formData.company}
                           onChange={(e) => setFormData({ ...formData, company: e.target.value })}
                           placeholder={t("contact.form.companyPlaceholder")}
-                          className="bg-white/50 border-slate-200 focus:border-blue-400 focus:ring-blue-400/20 h-11"
+                          className="h-11 border-white/10 bg-white/[0.04] text-white placeholder:text-slate-500 focus-visible:border-indigo-400/60 focus-visible:ring-indigo-400/20"
                         />
                       </div>
                       <div className="space-y-2">
-                        <Label htmlFor="subject" className="text-slate-700">{t("contact.form.subject")} *</Label>
+                        <Label htmlFor="subject" className="text-slate-300">{t("contact.form.subject")} *</Label>
                         <Input
                           id="subject"
                           required
                           value={formData.subject}
                           onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
                           placeholder={t("contact.form.subjectPlaceholder")}
-                          className="bg-white/50 border-slate-200 focus:border-blue-400 focus:ring-blue-400/20 h-11"
+                          className="h-11 border-white/10 bg-white/[0.04] text-white placeholder:text-slate-500 focus-visible:border-indigo-400/60 focus-visible:ring-indigo-400/20"
                         />
                       </div>
                     </div>
 
                     <div className="space-y-2">
-                      <Label htmlFor="message" className="text-slate-700">{t("contact.form.message")} *</Label>
+                      <Label htmlFor="message" className="text-slate-300">{t("contact.form.message")} *</Label>
                       <Textarea
                         id="message"
                         required
@@ -289,17 +287,17 @@ export default function ContactPage() {
                         value={formData.message}
                         onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                         placeholder={t("contact.form.messagePlaceholder")}
-                        className="bg-white/50 border-slate-200 focus:border-blue-400 focus:ring-blue-400/20"
+                        className="border-white/10 bg-white/[0.04] text-white placeholder:text-slate-500 focus-visible:border-indigo-400/60 focus-visible:ring-indigo-400/20"
                       />
                     </div>
 
                     {error && (
-                      <div className="rounded-lg bg-red-50 border border-red-200 p-3 text-sm text-red-700">
+                      <div className="rounded-lg bg-red-500/10 border border-red-400/30 p-3 text-sm text-red-300">
                         {error}
                       </div>
                     )}
 
-                    <Button type="submit" size="lg" className="w-full gap-2 h-12 text-base shadow-lg shadow-blue-600/20" disabled={sending}>
+                    <Button type="submit" size="lg" className="w-full gap-2 h-12 text-base rounded-full bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-lg shadow-indigo-500/30 hover:from-blue-400 hover:to-purple-400" disabled={sending}>
                       {sending ? (
                         <>{t("contact.form.sending")}</>
                       ) : (

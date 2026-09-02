@@ -59,19 +59,19 @@ export default function CaseStudiesPage() {
   const locale = useLocale();
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
+    <div>
       <PublicLayout>
 
       {/* Hero Section */}
       <section className="relative overflow-hidden">
         <div
-          className="absolute inset-0 opacity-[0.03]"
+          className="absolute inset-0 opacity-[0.05]"
           style={{
-            backgroundImage: "radial-gradient(circle, #1e293b 1px, transparent 1px)",
+            backgroundImage: "radial-gradient(circle, #fff 1px, transparent 1px)",
             backgroundSize: "24px 24px",
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 via-purple-600/5 to-transparent" />
+        <div className="absolute -top-48 left-1/2 h-[420px] w-[680px] -translate-x-1/2 rounded-full bg-indigo-600/20 blur-[140px]" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28 relative">
           <div className="text-center max-w-3xl mx-auto">
             <motion.div
@@ -79,28 +79,27 @@ export default function CaseStudiesPage() {
               animate={{ opacity: 1, y: 0 }}
               className="mb-6"
             >
-              <Badge variant="secondary" className="px-4 py-1.5 text-sm">
+              <span className="inline-flex items-center gap-2.5 text-xs font-semibold uppercase tracking-[0.25em] text-indigo-300/90">
+                <span className="inline-flex h-2 w-2 rounded-full bg-gradient-to-r from-blue-400 to-purple-400" />
                 {t("badge")}
-              </Badge>
+              </span>
             </motion.div>
 
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="text-4xl md:text-6xl font-bold text-slate-900 mb-6 leading-tight"
+              className="text-4xl md:text-6xl font-bold tracking-tight text-white mb-6 leading-tight"
             >
               {t("heroTitle")}{" "}
-              <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                {t("heroHighlight")}
-              </span>
+              <span className="kb-gradient-text">{t("heroHighlight")}</span>
             </motion.h1>
 
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="text-lg md:text-xl text-slate-600"
+              className="text-lg md:text-xl text-slate-400"
             >
               {t("heroDescription")}
             </motion.p>
@@ -112,7 +111,7 @@ export default function CaseStudiesPage() {
       {industries.map((industry, sectionIndex) => (
         <section
           key={industry.key}
-          className={`py-16 ${sectionIndex % 2 === 0 ? "bg-white/50" : "bg-slate-50/80"}`}
+          className={`py-16 ${sectionIndex % 2 === 0 ? "" : "bg-white/[0.02]"}`}
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             {/* Industry Header */}
@@ -127,7 +126,7 @@ export default function CaseStudiesPage() {
               >
                 {industry.icon}
               </div>
-              <h2 className="text-2xl md:text-3xl font-bold text-slate-900">
+              <h2 className="text-2xl md:text-3xl font-bold text-white">
                 {t(industry.key)}
               </h2>
             </motion.div>
@@ -141,13 +140,13 @@ export default function CaseStudiesPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: cardIndex * 0.1 }}
-                  className={`group bg-gradient-to-br ${industry.gradient} rounded-2xl border border-slate-200/60 p-6 md:p-8 hover:shadow-lg hover:border-slate-300 transition-all duration-300`}
+                  className={`group bg-gradient-to-br ${industry.gradient} rounded-2xl border border-white/10 p-6 md:p-8 transition-colors duration-300 hover:border-indigo-400/40`}
                 >
-                  <div className="bg-white/80 rounded-xl p-6">
-                    <h3 className="font-semibold text-lg text-slate-900 mb-3">
+                  <div className="rounded-xl bg-[#0c0c16]/80 p-6 backdrop-blur-sm">
+                    <h3 className="font-semibold text-lg text-white mb-3">
                       {t(`${caseKey}.title`)}
                     </h3>
-                    <p className="text-sm text-slate-600 mb-5 leading-relaxed">
+                    <p className="text-sm text-slate-400 mb-5 leading-relaxed">
                       {t(`${caseKey}.description`)}
                     </p>
 
@@ -155,8 +154,8 @@ export default function CaseStudiesPage() {
                     <div className="space-y-2.5 mb-5">
                       {["metric1", "metric2", "metric3"].map((metric) => (
                         <div key={metric} className="flex items-start gap-2.5">
-                          <CheckCircle2 className="w-4 h-4 text-emerald-500 mt-0.5 shrink-0" />
-                          <span className="text-sm text-slate-700">
+                          <CheckCircle2 className="w-4 h-4 text-emerald-400 mt-0.5 shrink-0" />
+                          <span className="text-sm text-slate-300">
                             {t(`${caseKey}.${metric}`)}
                           </span>
                         </div>
@@ -169,7 +168,7 @@ export default function CaseStudiesPage() {
                         <Badge
                           key={tag}
                           variant="secondary"
-                          className="text-xs font-normal"
+                          className="text-xs font-normal border-white/10 bg-white/[0.06] text-slate-300"
                         >
                           {t(`${caseKey}.${tag}`)}
                         </Badge>

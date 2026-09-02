@@ -141,17 +141,17 @@ export default function PricingPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div>
       <PublicLayout>
 
       <div className="py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-4xl text-center">
-            <p className="text-base font-semibold leading-7 text-indigo-600">Pricing</p>
-            <h1 className="mt-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
-              Choose the perfect plan for you
+            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-indigo-300/90">Pricing</p>
+            <h1 className="mt-2 text-4xl font-bold tracking-tight text-white sm:text-5xl">
+              Choose the perfect <span className="kb-gradient-text">plan for you</span>
             </h1>
-            <p className="mt-6 text-lg leading-8 text-gray-600">
+            <p className="mt-6 text-lg leading-8 text-slate-400">
               Start free and scale as you grow. All plans include our core features with different limits and support levels.
             </p>
           </div>
@@ -159,23 +159,23 @@ export default function PricingPage() {
           <div className="mt-16 flex justify-center">
             <div className="grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-y-0 sm:gap-x-6 lg:grid-cols-4 lg:gap-x-8">
               {plans.map((plan) => (
-                <Card key={plan.id} className={`relative ${plan.popular ? "border-indigo-500 ring-2 ring-indigo-500" : ""}`}>
+                <Card key={plan.id} className={`relative border-white/10 bg-white/[0.03] text-slate-100 backdrop-blur-sm ${plan.popular ? "border-indigo-400/60 ring-2 ring-indigo-400/40" : ""}`}>
                   {plan.popular && (
-                    <Badge className="absolute -top-2 left-1/2 transform -translate-x-1/2 bg-indigo-500">
+                    <Badge className="absolute -top-2 left-1/2 transform -translate-x-1/2 border-0 bg-gradient-to-r from-blue-500 to-purple-500 text-white">
                       <Star className="h-3 w-3 mr-1" />
                       Most Popular
                     </Badge>
                   )}
 
                   <CardHeader>
-                    <CardTitle className="text-lg font-semibold">{plan.name}</CardTitle>
-                    <CardDescription>{plan.description}</CardDescription>
+                    <CardTitle className="text-lg font-semibold text-white">{plan.name}</CardTitle>
+                    <CardDescription className="text-slate-400">{plan.description}</CardDescription>
                     <div className="mt-4">
-                      <span className="text-4xl font-bold text-gray-900">
+                      <span className="text-4xl font-bold text-white">
                         {getPrice(plan)}
                       </span>
                       {plan.price > 0 && (
-                        <span className="text-sm font-medium text-gray-500">
+                        <span className="text-sm font-medium text-slate-500">
                           /{plan.interval}
                         </span>
                       )}
@@ -186,8 +186,8 @@ export default function PricingPage() {
                     <ul className="space-y-3">
                       {plan.features.map((feature) => (
                         <li key={feature} className="flex items-start">
-                          <Check className="h-4 w-4 text-green-500 mt-0.5 mr-3 flex-shrink-0" />
-                          <span className="text-sm text-gray-600">{feature}</span>
+                          <Check className="h-4 w-4 text-emerald-400 mt-0.5 mr-3 flex-shrink-0" />
+                          <span className="text-sm text-slate-300">{feature}</span>
                         </li>
                       ))}
                     </ul>
@@ -195,7 +195,11 @@ export default function PricingPage() {
 
                   <CardFooter>
                     <Button
-                      className="w-full"
+                      className={`w-full rounded-full ${
+                        plan.popular
+                          ? "bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-lg shadow-indigo-500/25 hover:from-blue-400 hover:to-purple-400"
+                          : "border-indigo-400/40 bg-transparent text-indigo-200 hover:border-indigo-300 hover:bg-indigo-500/10 hover:text-white"
+                      }`}
                       variant={plan.popular ? "default" : "outline"}
                       onClick={() => handleSubscribe(plan.id, plan.stripePriceId)}
                     >
@@ -209,9 +213,9 @@ export default function PricingPage() {
           </div>
 
           <div className="mt-16 text-center">
-            <p className="text-sm text-gray-500">
+            <p className="text-sm text-slate-500">
               All plans include a 14-day free trial. No credit card required to start.{" "}
-              <Link href="/contact" className="text-indigo-600 hover:text-indigo-500">
+              <Link href="/contact" className="text-indigo-300 hover:text-indigo-200">
                 Questions? Contact us
               </Link>
             </p>

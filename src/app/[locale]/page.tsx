@@ -8,7 +8,6 @@ import { motion } from "framer-motion";
 import {
   ArrowRight,
   ArrowUpRight,
-  Zap,
   Globe,
   Building2,
   Stethoscope,
@@ -22,6 +21,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { PublicLayout } from "@/components/PublicLayout";
 import { CountUp } from "@/components/CountUp";
+import { Eyebrow, SectionTitle, Reveal, GlowBackdrop, CardIndex } from "@/components/site";
 
 interface Partner {
   id: string;
@@ -148,45 +148,54 @@ export default function HomePage() {
   const ActiveIcon = active.Icon;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
-      <PublicLayout>
+    <PublicLayout>
 
-      {/* Hero — dark */}
-      <section className="relative overflow-hidden bg-slate-900 text-white">
-        <div
-          className="absolute inset-0 opacity-[0.04]"
-          style={{ backgroundImage: "radial-gradient(circle, #fff 1px, transparent 1px)", backgroundSize: "26px 26px" }}
-        />
-        <div className="absolute -top-40 -right-40 w-96 h-96 rounded-full bg-blue-500/10 blur-3xl" />
-        <div className="absolute -bottom-40 -left-40 w-96 h-96 rounded-full bg-purple-500/10 blur-3xl" />
+      {/* Hero */}
+      <section className="relative overflow-hidden">
+        <GlowBackdrop variant="hero" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28 relative">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="text-center lg:text-left">
-              <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mb-6">
-                <span className="inline-flex items-center gap-2 rounded-full bg-blue-500/10 text-blue-300 px-4 py-1.5 text-sm font-medium">
-                  <Zap className="w-4 h-4" />
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="mb-8 flex justify-center lg:justify-start"
+              >
+                <span className="inline-flex items-center gap-2.5 text-xs font-semibold uppercase tracking-[0.25em] text-indigo-300/90">
+                  <span className="relative inline-flex h-2 w-2">
+                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-indigo-400 opacity-60" />
+                    <span className="relative inline-flex h-2 w-2 rounded-full bg-gradient-to-r from-blue-400 to-purple-400" />
+                  </span>
                   {t("home.badge")}
                 </span>
               </motion.div>
 
               <motion.h1
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1 }}
-                className="text-4xl md:text-6xl font-bold mb-6 leading-tight"
+                initial="hidden"
+                animate="show"
+                transition={{ staggerChildren: 0.12, delayChildren: 0.1 }}
+                className="text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-bold mb-6 leading-[1.05] tracking-tight text-white"
               >
-                {t("home.heroTitle")}
-                <br />
-                <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-                  {t("home.heroHighlight")}
-                </span>
+                {[t("home.heroTitle"), t("home.heroHighlight")].map((line, i) => (
+                  <span key={i} className="block overflow-hidden pb-1.5">
+                    <motion.span
+                      variants={{
+                        hidden: { y: "100%", opacity: 0 },
+                        show: { y: 0, opacity: 1, transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] } },
+                      }}
+                      className={`block ${i === 1 ? "kb-gradient-text" : ""}`}
+                    >
+                      {line}
+                    </motion.span>
+                  </span>
+                ))}
               </motion.h1>
 
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2 }}
-                className="text-lg md:text-xl text-slate-300 mb-8 max-w-2xl lg:max-w-none"
+                transition={{ delay: 0.35 }}
+                className="text-lg md:text-xl text-slate-400 mb-9 max-w-2xl lg:max-w-none"
               >
                 {t("home.heroDescription")}
               </motion.p>
@@ -194,16 +203,25 @@ export default function HomePage() {
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3 }}
+                transition={{ delay: 0.45 }}
                 className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-10"
               >
-                <Button size="lg" asChild className="gap-2 bg-blue-600 hover:bg-blue-500">
+                <Button
+                  size="lg"
+                  asChild
+                  className="gap-2 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 px-7 text-white shadow-lg shadow-indigo-500/30 hover:from-blue-400 hover:to-purple-400"
+                >
                   <Link href={`/${locale}/products`}>
                     {t("home.exploreProducts")}
                     <ArrowRight className="w-4 h-4" />
                   </Link>
                 </Button>
-                <Button size="lg" variant="outline" asChild className="border-slate-600 bg-transparent text-slate-200 hover:bg-slate-800 hover:text-white">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  asChild
+                  className="rounded-full border-indigo-400/40 bg-transparent px-7 text-indigo-200 hover:border-indigo-300 hover:bg-indigo-500/10 hover:text-white"
+                >
                   <Link href={`/${locale}/contact`}>{t("home.getInTouch")}</Link>
                 </Button>
               </motion.div>
@@ -211,21 +229,21 @@ export default function HomePage() {
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4 }}
-                className="grid grid-cols-2 sm:grid-cols-4 gap-6 border-t border-slate-800 pt-8"
+                transition={{ delay: 0.55 }}
+                className="grid grid-cols-2 sm:grid-cols-4 gap-6 border-t border-white/[0.06] pt-8"
               >
                 {stats.map((s) => (
                   <div key={s.key} className="text-center lg:text-left">
-                    <div className="text-2xl md:text-3xl font-bold">
+                    <div className="text-2xl md:text-3xl font-bold text-white">
                       <CountUp end={s.value} suffix={s.suffix} />
                     </div>
-                    <div className="text-xs text-slate-400 mt-1">{t(`home.stats.${s.key}`)}</div>
+                    <div className="text-xs text-slate-500 mt-1">{t(`home.stats.${s.key}`)}</div>
                   </div>
                 ))}
               </motion.div>
             </div>
 
-            {/* Right: product dashboard */}
+            {/* Right: product carousel */}
             <motion.div
               initial={{ opacity: 0, x: 40 }}
               animate={{ opacity: 1, x: 0 }}
@@ -248,8 +266,8 @@ export default function HomePage() {
                     className="group block w-full"
                   >
                     {heroSlide.kind === "desktop" ? (
-                      <div className="mx-auto w-full max-w-[460px] overflow-hidden rounded-xl border border-slate-700/70 bg-slate-800/40 shadow-2xl transition-transform duration-300 group-hover:scale-[1.015]">
-                        <div className="flex items-center gap-1.5 border-b border-slate-700/70 bg-slate-800/60 px-4 py-2.5">
+                      <div className="mx-auto w-full max-w-[460px] overflow-hidden rounded-xl border border-white/10 bg-white/[0.04] shadow-2xl shadow-indigo-950/40 transition-transform duration-300 group-hover:scale-[1.015]">
+                        <div className="flex items-center gap-1.5 border-b border-white/10 bg-white/[0.05] px-4 py-2.5">
                           <span className="h-2.5 w-2.5 rounded-full bg-red-400/70" />
                           <span className="h-2.5 w-2.5 rounded-full bg-amber-400/70" />
                           <span className="h-2.5 w-2.5 rounded-full bg-green-400/70" />
@@ -264,7 +282,7 @@ export default function HomePage() {
                         />
                       </div>
                     ) : (
-                      <div className="mx-auto aspect-[9/19] h-[360px] overflow-hidden rounded-[2rem] border-4 border-slate-700 bg-slate-900 shadow-2xl transition-transform duration-300 group-hover:scale-[1.015]">
+                      <div className="mx-auto aspect-[9/19] h-[360px] overflow-hidden rounded-[2rem] border-4 border-white/15 bg-[#0a0a12] shadow-2xl shadow-indigo-950/40 transition-transform duration-300 group-hover:scale-[1.015]">
                         <Image
                           src={heroSlide.img}
                           alt={t(heroSlide.altKey)}
@@ -282,9 +300,9 @@ export default function HomePage() {
                 href={heroSlide.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-7 flex items-center justify-center gap-1.5 text-sm text-slate-400 hover:text-slate-200 transition-colors"
+                className="mt-7 flex items-center justify-center gap-1.5 text-sm text-slate-500 hover:text-slate-300 transition-colors"
               >
-                <span className="font-medium text-blue-300">{heroSlide.name}</span>
+                <span className="font-medium text-indigo-300">{heroSlide.name}</span>
                 <span>— {t(heroSlide.captionKey)}</span>
                 <ArrowUpRight className="w-3.5 h-3.5" />
               </a>
@@ -296,7 +314,9 @@ export default function HomePage() {
                       onClick={() => setSlide(i)}
                       aria-label={s.name}
                       className={`h-2 rounded-full transition-all ${
-                        i === slide ? "w-6 bg-blue-400" : "w-2 bg-slate-600 hover:bg-slate-500"
+                        i === slide
+                          ? "w-6 bg-gradient-to-r from-blue-400 to-purple-400"
+                          : "w-2 bg-white/15 hover:bg-white/30"
                       }`}
                     />
                   ))}
@@ -304,25 +324,38 @@ export default function HomePage() {
               )}
             </motion.div>
           </div>
+
+          {/* Scroll hint */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1 }}
+            className="mt-14 hidden items-center justify-center gap-3 text-[11px] font-medium uppercase tracking-[0.3em] text-slate-400 lg:flex"
+          >
+            <span className="flex h-8 w-5 items-start justify-center rounded-full border border-white/15 p-1">
+              <motion.span
+                animate={{ y: [0, 8, 0], opacity: [1, 0.2, 1] }}
+                transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
+                className="h-1.5 w-1 rounded-full bg-indigo-300"
+              />
+            </span>
+            {t("home.scrollHint")}
+          </motion.div>
         </div>
       </section>
 
       {/* Industry selector */}
-      <section className="py-20">
+      <section className="relative py-24">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-10">
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-3xl md:text-4xl font-bold text-slate-900 mb-3"
-            >
-              {t("home.selector.title")}
-            </motion.h2>
-            <p className="text-lg text-slate-600">{t("home.selector.subtitle")}</p>
+          <div className="mb-12 text-center">
+            <Eyebrow className="justify-center">{t("home.eyebrow.industries")}</Eyebrow>
+            <SectionTitle lines={[t("home.selector.title")]} gradientLine={-1} className="mt-4" />
+            <Reveal delay={0.15}>
+              <p className="mt-4 text-lg text-slate-400">{t("home.selector.subtitle")}</p>
+            </Reveal>
           </div>
 
-          <div className="flex flex-wrap justify-center gap-3 mb-10">
+          <div className="mb-10 flex flex-wrap justify-center gap-3">
             {industries.map((ind) => {
               const on = ind.key === activeIndustry;
               const ChipIcon = ind.Icon;
@@ -332,8 +365,8 @@ export default function HomePage() {
                   onClick={() => setActiveIndustry(ind.key)}
                   className={`inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium transition-all ${
                     on
-                      ? "bg-blue-600 text-white shadow-md shadow-blue-600/20"
-                      : "bg-white text-slate-700 border border-slate-200 hover:border-blue-300 hover:text-blue-700"
+                      ? "bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-lg shadow-indigo-500/25"
+                      : "border border-white/10 bg-white/[0.03] text-slate-300 hover:border-indigo-400/40 hover:text-white"
                   }`}
                 >
                   <ChipIcon className="w-4 h-4" />
@@ -347,38 +380,35 @@ export default function HomePage() {
             key={activeIndustry}
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            className="bg-white rounded-2xl border border-slate-200 p-8 flex flex-col sm:flex-row items-start gap-5 max-w-3xl mx-auto"
+            className="mx-auto flex max-w-3xl flex-col items-start gap-5 rounded-2xl border border-white/10 bg-white/[0.03] p-8 backdrop-blur-sm sm:flex-row"
           >
-            <div className="flex-none w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-600 to-purple-600 text-white flex items-center justify-center">
+            <div className="flex h-14 w-14 flex-none items-center justify-center rounded-2xl bg-gradient-to-br from-blue-500 to-purple-500 text-white shadow-lg shadow-indigo-500/25">
               <ActiveIcon className="w-7 h-7" />
             </div>
             <div>
-              <h3 className="text-xl md:text-2xl font-bold text-slate-900 mb-1">
+              <h3 className="mb-1 text-xl font-bold text-white md:text-2xl">
                 {t("home.selector.prefix")}{" "}
-                <span className="text-blue-600">{t(`home.industries.${activeIndustry}.name`)}</span>.
+                <span className="kb-gradient-text">{t(`home.industries.${activeIndustry}.name`)}</span>.
               </h3>
-              <p className="text-slate-600">{t(`home.industries.${activeIndustry}.line`)}</p>
+              <p className="text-slate-400">{t(`home.industries.${activeIndustry}.line`)}</p>
             </div>
           </motion.div>
         </div>
       </section>
 
-      {/* Featured products */}
-      <section className="py-20 bg-white/50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-3xl md:text-4xl font-bold text-slate-900 mb-4"
-            >
-              {t("home.featuredTitle")}
-            </motion.h2>
-            <p className="text-lg text-slate-600 max-w-2xl mx-auto">{t("home.featuredDescription")}</p>
+      {/* Featured products — numbered case-study cards */}
+      <section className="relative py-24">
+        <GlowBackdrop variant="section" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="mb-14 text-center">
+            <Eyebrow className="justify-center">{t("home.eyebrow.products")}</Eyebrow>
+            <SectionTitle lines={[t("home.featuredTitle")]} className="mt-4" />
+            <Reveal delay={0.15}>
+              <p className="mx-auto mt-4 max-w-2xl text-lg text-slate-400">{t("home.featuredDescription")}</p>
+            </Reveal>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {flagship.map((p, i) => (
               <motion.div
                 key={p.key}
@@ -387,23 +417,29 @@ export default function HomePage() {
                 whileHover={{ y: -6 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.05 }}
-                className="group bg-white rounded-2xl border border-slate-200 p-6 hover:shadow-xl hover:border-blue-200 transition-all duration-300"
+                className="group rounded-2xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur-sm transition-colors duration-300 hover:border-indigo-400/40 hover:bg-white/[0.05]"
               >
                 <Link href={`/${locale}/products`} className="block">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-50 to-purple-50 text-blue-700 font-semibold flex items-center justify-center mb-4">
-                    {p.abbr}
+                  <div className="mb-5 flex items-start justify-between">
+                    <CardIndex index={i} />
+                    <ArrowUpRight className="h-4 w-4 text-slate-600 transition-colors group-hover:text-indigo-300" />
                   </div>
-                  <h3 className="font-semibold text-lg text-slate-900 mb-2 group-hover:text-blue-700 transition-colors">
+                  <h3 className="mb-2 text-lg font-semibold text-white transition-colors group-hover:kb-gradient-text">
                     {p.label}
                   </h3>
-                  <p className="text-sm text-slate-600">{t(`home.products.${p.key}`)}</p>
+                  <p className="text-sm leading-relaxed text-slate-400">{t(`home.products.${p.key}`)}</p>
                 </Link>
               </motion.div>
             ))}
           </div>
 
-          <div className="text-center mt-10">
-            <Button variant="outline" size="lg" asChild className="gap-2">
+          <div className="mt-12 text-center">
+            <Button
+              variant="outline"
+              size="lg"
+              asChild
+              className="gap-2 rounded-full border-indigo-400/40 bg-transparent px-7 text-indigo-200 hover:border-indigo-300 hover:bg-indigo-500/10 hover:text-white"
+            >
               <Link href={`/${locale}/products`}>
                 {t("home.viewAllProducts")}
                 <ArrowRight className="w-4 h-4" />
@@ -417,19 +453,20 @@ export default function HomePage() {
       {partners.length > 0 && (
         <section className="py-14">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <p className="text-center text-sm font-medium text-slate-400 uppercase tracking-wider mb-8">
+            <p className="mb-8 text-center text-xs font-semibold uppercase tracking-[0.25em] text-slate-500">
               {t("home.clientsTitle")}
             </p>
-            <div className="flex flex-wrap justify-center items-center gap-x-12 gap-y-6">
+            <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-5">
               {partners.map((partner) => (
-                <Image
-                  key={partner.id}
-                  src={partner.logo}
-                  alt={partner.name}
-                  width={140}
-                  height={50}
-                  className="h-10 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity"
-                />
+                <div key={partner.id} className="rounded-xl bg-white/90 px-5 py-3">
+                  <Image
+                    src={partner.logo}
+                    alt={partner.name}
+                    width={140}
+                    height={50}
+                    className="h-9 w-auto object-contain opacity-80 transition-opacity hover:opacity-100"
+                  />
+                </div>
               ))}
             </div>
           </div>
@@ -437,61 +474,58 @@ export default function HomePage() {
       )}
 
       {/* Testimonial */}
-      <section className="py-16">
+      <section className="relative py-20">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="bg-white rounded-3xl border border-slate-200 p-8 md:p-10"
-          >
-            <Quote className="w-8 h-8 text-blue-200 mb-4" />
-            <p className="text-xl md:text-2xl text-slate-800 leading-relaxed mb-6">
-              {t("home.testimonial.quote")}
-            </p>
-            <div className="text-sm font-medium text-slate-500">{t("home.testimonial.author")}</div>
-          </motion.div>
+          <div className="mb-10 text-center">
+            <Eyebrow className="justify-center">{t("home.eyebrow.proof")}</Eyebrow>
+          </div>
+          <Reveal>
+            <div className="relative rounded-3xl border border-white/10 bg-white/[0.03] p-8 backdrop-blur-sm md:p-10">
+              <div className="absolute -top-px left-8 right-8 h-px bg-gradient-to-r from-transparent via-indigo-400/60 to-transparent" />
+              <Quote className="mb-4 h-8 w-8 text-indigo-400/50" />
+              <p className="mb-6 text-xl leading-relaxed text-slate-200 md:text-2xl">
+                {t("home.testimonial.quote")}
+              </p>
+              <div className="text-sm font-medium text-slate-500">{t("home.testimonial.author")}</div>
+            </div>
+          </Reveal>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="py-20">
+      <section className="py-24">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="relative bg-gradient-to-br from-blue-600 to-purple-600 rounded-3xl p-10 md:p-16 text-center text-white overflow-hidden"
-          >
-            <div
-              className="absolute inset-0 opacity-[0.06]"
-              style={{ backgroundImage: "radial-gradient(circle, #fff 1px, transparent 1px)", backgroundSize: "20px 20px" }}
-            />
-            <div className="absolute -top-24 -right-24 w-64 h-64 bg-white/10 rounded-full blur-3xl" />
-            <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-white/10 rounded-full blur-3xl" />
+          <Reveal>
+            <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-blue-600 to-purple-600 p-10 text-center text-white md:p-16">
+              <div
+                className="absolute inset-0 opacity-[0.06]"
+                style={{ backgroundImage: "radial-gradient(circle, #fff 1px, transparent 1px)", backgroundSize: "20px 20px" }}
+              />
+              <div className="absolute -top-24 -right-24 h-64 w-64 rounded-full bg-white/10 blur-3xl" />
+              <div className="absolute -bottom-24 -left-24 h-64 w-64 rounded-full bg-white/10 blur-3xl" />
 
-            <div className="relative">
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-white/15 backdrop-blur-sm mb-6">
-                <Globe className="w-8 h-8 opacity-90" />
-              </div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">{t("home.ctaTitle")}</h2>
-              <p className="text-lg opacity-90 mb-8 max-w-xl mx-auto">{t("home.ctaDescription")}</p>
-              <Button size="lg" variant="secondary" asChild className="gap-2">
-                <Link href={`/${locale}/contact`}>
-                  {t("home.ctaButton")}
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-              </Button>
-              <div className="flex items-center justify-center gap-2 text-sm opacity-80 mt-6">
-                <CheckCircle2 className="w-4 h-4" />
-                {t("home.ctaRisk")}
+              <div className="relative">
+                <div className="mb-6 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-white/15 backdrop-blur-sm">
+                  <Globe className="h-8 w-8 opacity-90" />
+                </div>
+                <h2 className="mb-4 text-3xl font-bold md:text-4xl">{t("home.ctaTitle")}</h2>
+                <p className="mx-auto mb-8 max-w-xl text-lg opacity-90">{t("home.ctaDescription")}</p>
+                <Button size="lg" variant="secondary" asChild className="gap-2 rounded-full px-7">
+                  <Link href={`/${locale}/contact`}>
+                    {t("home.ctaButton")}
+                    <ArrowRight className="w-4 h-4" />
+                  </Link>
+                </Button>
+                <div className="mt-6 flex items-center justify-center gap-2 text-sm opacity-80">
+                  <CheckCircle2 className="w-4 h-4" />
+                  {t("home.ctaRisk")}
+                </div>
               </div>
             </div>
-          </motion.div>
+          </Reveal>
         </div>
       </section>
 
-      </PublicLayout>
-    </div>
+    </PublicLayout>
   );
 }

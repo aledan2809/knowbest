@@ -43,21 +43,21 @@ export function Navbar() {
 
   return (
     <header
-      className={`border-b sticky top-0 z-50 transition-all duration-300 ${
+      className={`sticky top-0 z-50 border-b border-white/[0.06] transition-all duration-300 ${
         scrolled
-          ? "bg-white/90 backdrop-blur-md shadow-sm"
-          : "bg-white/80 backdrop-blur-sm"
+          ? "bg-[#0a0a12]/90 backdrop-blur-md shadow-lg shadow-black/20"
+          : "bg-[#0a0a12]/70 backdrop-blur-sm"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
         <div className="flex items-center justify-between">
           <Link href={`/${locale}`} className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-purple-600 rounded-xl flex items-center justify-center">
+            <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-500 rounded-xl flex items-center justify-center shadow-lg shadow-indigo-500/25">
               <span className="text-white font-bold text-lg">K</span>
             </div>
             <div>
-              <span className="block text-xl font-bold text-slate-900">{t("common.brand")}</span>
-              <p className="text-xs text-slate-500">{t("common.subtitle")}</p>
+              <span className="block text-xl font-bold text-white">{t("common.brand")}</span>
+              <p className="text-xs text-slate-400">{t("common.subtitle")}</p>
             </div>
           </Link>
 
@@ -69,13 +69,13 @@ export function Navbar() {
                 href={link.href}
                 className="relative px-3 py-2 text-sm transition-colors rounded-md"
               >
-                <span className={isActive(link.href) ? "text-slate-900 font-medium" : "text-slate-600 hover:text-slate-900"}>
+                <span className={isActive(link.href) ? "text-white font-medium" : "text-slate-400 hover:text-white"}>
                   {link.label}
                 </span>
                 {isActive(link.href) && (
                   <motion.div
                     layoutId="navbar-indicator"
-                    className="absolute inset-x-1 -bottom-[21px] h-0.5 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full"
+                    className="absolute inset-x-1 -bottom-[21px] h-0.5 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full"
                     transition={{ type: "spring", stiffness: 350, damping: 30 }}
                   />
                 )}
@@ -83,7 +83,11 @@ export function Navbar() {
             ))}
             <div className="ml-4 flex items-center gap-3">
               <LanguageSwitcher />
-              <Button size="sm" asChild>
+              <Button
+                size="sm"
+                asChild
+                className="rounded-full bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-lg shadow-indigo-500/25 hover:from-blue-400 hover:to-purple-400"
+              >
                 <Link href={`/${locale}/contact`}>{t("nav.getInTouch")}</Link>
               </Button>
             </div>
@@ -91,7 +95,7 @@ export function Navbar() {
 
           {/* Mobile menu button */}
           <button
-            className="md:hidden p-2 rounded-lg hover:bg-slate-100"
+            className="md:hidden p-2 rounded-lg text-slate-300 hover:bg-white/5"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -105,7 +109,7 @@ export function Navbar() {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
-              className="md:hidden mt-4 pb-4 border-t pt-4"
+              className="md:hidden mt-4 pb-4 border-t border-white/[0.06] pt-4"
             >
               <div className="flex flex-col gap-1">
                 {navLinks.map((link) => (
@@ -114,17 +118,21 @@ export function Navbar() {
                     href={link.href}
                     className={`text-sm py-2 px-3 rounded-lg transition-colors ${
                       isActive(link.href)
-                        ? "text-slate-900 font-medium bg-slate-50"
-                        : "text-slate-600 hover:text-slate-900 hover:bg-slate-50"
+                        ? "text-white font-medium bg-white/5"
+                        : "text-slate-400 hover:text-white hover:bg-white/5"
                     }`}
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     {link.label}
                   </Link>
                 ))}
-                <div className="flex items-center justify-between pt-3 border-t mt-2">
+                <div className="flex items-center justify-between pt-3 border-t border-white/[0.06] mt-2">
                   <LanguageSwitcher />
-                  <Button size="sm" asChild>
+                  <Button
+                    size="sm"
+                    asChild
+                    className="rounded-full bg-gradient-to-r from-blue-500 to-purple-500 text-white hover:from-blue-400 hover:to-purple-400"
+                  >
                     <Link href={`/${locale}/contact`}>{t("nav.getInTouch")}</Link>
                   </Button>
                 </div>

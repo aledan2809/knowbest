@@ -10,7 +10,7 @@ export default async function PrivacyPage({ params }: { params: Promise<{ locale
   const t = await getTranslations({ locale });
   const doc = await getLegalDocument("privacy");
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
+    <div>
       <PublicLayout>
         <LegalDocBody title={t("footer.privacy")} doc={doc} />
       </PublicLayout>

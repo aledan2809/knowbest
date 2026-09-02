@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { PublicLayout } from "@/components/PublicLayout";
+import { GlowBackdrop } from "@/components/site";
 
 const values = [
   { key: "innovation", icon: Lightbulb },
@@ -28,7 +29,7 @@ const techStack = [
   { name: "Node.js", category: "Backend" },
   { name: "Fastify", category: "Backend" },
   { name: "PostgreSQL", category: "Database" },
-  { name: "Neon", category: "Database" },
+  { name: "Redis", category: "Database" },
   { name: "Prisma", category: "ORM" },
   { name: "Python", category: "Backend" },
   { name: "FastAPI", category: "Backend" },
@@ -37,7 +38,7 @@ const techStack = [
   { name: "Tailwind CSS", category: "Styling" },
   { name: "Stripe", category: "Payments" },
   { name: "Docker", category: "DevOps" },
-  { name: "Vercel", category: "Hosting" },
+  { name: "Nginx", category: "Hosting" },
 ];
 
 const milestones = [
@@ -54,46 +55,39 @@ export default function AboutPage() {
 
   return (
     <PublicLayout>
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
+    <div>
 
       {/* Hero Section */}
       <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 via-purple-600/5 to-transparent" />
-        <motion.div
-          className="absolute -top-40 -right-40 w-80 h-80 rounded-full bg-gradient-to-br from-blue-400/10 to-purple-400/10 blur-3xl"
-          animate={{ x: [0, 20, 0], y: [0, -15, 0] }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-        />
+        <GlowBackdrop variant="hero" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28 relative">
           <div className="text-center max-w-4xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="mb-6"
+              className="mb-8 flex justify-center"
             >
-              <Badge variant="secondary" className="px-4 py-1.5 text-sm">
-                <Heart className="w-4 h-4 mr-2" />
+              <span className="inline-flex items-center gap-2.5 text-xs font-semibold uppercase tracking-[0.25em] text-indigo-300/90">
+                <Heart className="w-4 h-4" />
                 {t("about.badge")}
-              </Badge>
+              </span>
             </motion.div>
 
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6"
+              className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white mb-6"
             >
               {t("about.heroTitle")}{" "}
-              <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                {t("about.heroHighlight")}
-              </span>
+              <span className="kb-gradient-text">{t("about.heroHighlight")}</span>
             </motion.h1>
 
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="text-lg md:text-xl text-slate-600 max-w-2xl mx-auto"
+              className="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto"
             >
               {t("about.heroDescription")}
             </motion.p>
@@ -102,7 +96,7 @@ export default function AboutPage() {
       </section>
 
       {/* Story Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div
@@ -110,12 +104,10 @@ export default function AboutPage() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                <span className="bg-gradient-to-r from-slate-900 via-slate-700 to-slate-900 bg-clip-text text-transparent">
-                  {t("about.storyTitle")}
-                </span>
+              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">
+                {t("about.storyTitle")}
               </h2>
-              <div className="space-y-4 text-slate-600">
+              <div className="space-y-4 text-slate-400">
                 <p>{t("about.storyP1")}</p>
                 <p>{t("about.storyP2")}</p>
                 <p>{t("about.storyP3")}</p>
@@ -128,7 +120,7 @@ export default function AboutPage() {
               viewport={{ once: true }}
               className="relative"
             >
-              <div className="rounded-3xl overflow-hidden h-[400px] relative bg-gradient-to-br from-blue-50 to-purple-50">
+              <div className="rounded-3xl overflow-hidden h-[400px] relative border border-white/10 bg-gradient-to-br from-blue-500/10 to-purple-500/10">
                 <Image
                   src="/about-illustration.svg"
                   alt="About KnowBest"
@@ -157,16 +149,14 @@ export default function AboutPage() {
               viewport={{ once: true }}
               className="text-3xl md:text-4xl font-bold mb-4"
             >
-              <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 bg-clip-text text-transparent">
-                {t("about.valuesTitle")}
-              </span>
+              <span className="kb-gradient-text">{t("about.valuesTitle")}</span>
             </motion.h2>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="text-lg text-slate-600 max-w-2xl mx-auto"
+              className="text-lg text-slate-400 max-w-2xl mx-auto"
             >
               {t("about.valuesDescription")}
             </motion.p>
@@ -180,16 +170,16 @@ export default function AboutPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="group bg-white rounded-2xl border border-slate-200 p-6 text-center hover:shadow-xl hover:border-blue-200 transition-all duration-300"
+                className="group rounded-2xl border border-white/10 bg-white/[0.03] p-6 text-center backdrop-blur-sm transition-colors duration-300 hover:border-indigo-400/40 hover:bg-white/[0.05]"
                 whileHover={{ y: -4 }}
               >
-                <div className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-gradient-to-br from-blue-600 to-purple-600 text-white mb-4 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-blue-600/25 transition-all duration-300">
+                <div className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-gradient-to-br from-blue-500 to-purple-500 text-white mb-4 shadow-lg shadow-indigo-500/25 group-hover:scale-110 transition-all duration-300">
                   <value.icon className="w-7 h-7" />
                 </div>
-                <h3 className="font-semibold text-lg text-slate-900 mb-2">
+                <h3 className="font-semibold text-lg text-white mb-2">
                   {t(`about.values.${value.key}.title`)}
                 </h3>
-                <p className="text-sm text-slate-600">
+                <p className="text-sm text-slate-400">
                   {t(`about.values.${value.key}.description`)}
                 </p>
               </motion.div>
@@ -199,8 +189,9 @@ export default function AboutPage() {
       </section>
 
       {/* Tech Stack Section */}
-      <section className="py-20 bg-slate-900 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative py-20 text-white">
+        <GlowBackdrop variant="section" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
@@ -208,9 +199,7 @@ export default function AboutPage() {
               viewport={{ once: true }}
               className="text-3xl md:text-4xl font-bold mb-4"
             >
-              <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-blue-400 bg-clip-text text-transparent">
-                {t("about.techTitle")}
-              </span>
+              <span className="kb-gradient-text">{t("about.techTitle")}</span>
             </motion.h2>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -239,7 +228,7 @@ export default function AboutPage() {
               >
                 <Badge
                   variant="secondary"
-                  className="px-4 py-2 text-sm bg-slate-800 text-slate-200 border-slate-700 hover:bg-blue-600 hover:border-blue-500 hover:text-white hover:scale-105 transition-all duration-200 cursor-default"
+                  className="px-4 py-2 text-sm rounded-full bg-white/[0.05] text-slate-300 border-white/10 hover:border-indigo-400/50 hover:bg-indigo-500/15 hover:text-white hover:scale-105 transition-all duration-200 cursor-default"
                 >
                   {tech.name}
                 </Badge>
@@ -259,15 +248,13 @@ export default function AboutPage() {
               viewport={{ once: true }}
               className="text-3xl md:text-4xl font-bold mb-4"
             >
-              <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                {t("about.timelineTitle")}
-              </span>
+              <span className="kb-gradient-text">{t("about.timelineTitle")}</span>
             </motion.h2>
           </div>
 
           <div className="relative">
             {/* Gradient timeline line */}
-            <div className="absolute left-8 top-0 bottom-0 w-0.5 md:left-1/2 md:-translate-x-1/2 bg-gradient-to-b from-blue-600 via-purple-500 to-blue-600" />
+            <div className="absolute left-8 top-0 bottom-0 w-0.5 md:left-1/2 md:-translate-x-1/2 bg-gradient-to-b from-blue-500/60 via-purple-500/60 to-blue-500/60" />
 
             {milestones.map((milestone, index) => (
               <motion.div
@@ -283,22 +270,22 @@ export default function AboutPage() {
                 <div className={`flex-1 ${index % 2 === 0 ? "md:text-right" : "md:text-left"} pl-20 md:pl-0`}>
                   <motion.div
                     whileHover={{ scale: 1.02 }}
-                    className="bg-white rounded-xl border border-slate-200 p-6 shadow-sm hover:shadow-md hover:border-blue-200 transition-all duration-300"
+                    className="rounded-xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur-sm transition-colors duration-300 hover:border-indigo-400/40 hover:bg-white/[0.05]"
                   >
-                    <span className="inline-block text-sm font-bold text-transparent bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text mb-1">
+                    <span className="kb-gradient-text inline-block text-sm font-bold mb-1">
                       {milestone.year}
                     </span>
-                    <h3 className="font-semibold text-slate-900 mb-2">
+                    <h3 className="font-semibold text-white mb-2">
                       {t(`about.milestones.${milestone.key}.title`)}
                     </h3>
-                    <p className="text-sm text-slate-600">
+                    <p className="text-sm text-slate-400">
                       {t(`about.milestones.${milestone.key}.description`)}
                     </p>
                   </motion.div>
                 </div>
 
                 {/* Timeline dot with ring */}
-                <div className="absolute left-6 md:left-1/2 md:-translate-x-1/2 w-5 h-5 rounded-full bg-gradient-to-br from-blue-600 to-purple-600 border-4 border-white shadow-md ring-2 ring-blue-100" />
+                <div className="absolute left-6 md:left-1/2 md:-translate-x-1/2 w-5 h-5 rounded-full bg-gradient-to-br from-blue-500 to-purple-500 border-4 border-[#0a0a12] shadow-md ring-2 ring-indigo-500/25" />
 
                 <div className="flex-1 hidden md:block" />
               </motion.div>
