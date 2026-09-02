@@ -124,6 +124,35 @@ export function GlowBackdrop({ variant = "hero" }: { variant?: "hero" | "section
   );
 }
 
+/**
+ * Infinite horizontal marquee; children are rendered twice for the loop, so
+ * the second copy is hidden from assistive tech. Pauses on hover; static
+ * under prefers-reduced-motion (see kb-marquee rules in globals.css).
+ */
+export function Marquee({
+  children,
+  durationSec = 45,
+  className = "",
+}: {
+  children: React.ReactNode;
+  durationSec?: number;
+  className?: string;
+}) {
+  return (
+    <div className={`kb-marquee overflow-hidden ${className}`}>
+      <div
+        className="kb-marquee-track flex w-max gap-4"
+        style={{ "--kb-marquee-duration": `${durationSec}s` } as React.CSSProperties}
+      >
+        <div className="flex gap-4">{children}</div>
+        <div className="flex gap-4" aria-hidden>
+          {children}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 /** Numbered case-study/product card number: `01`, `02`… */
 export function CardIndex({ index }: { index: number }) {
   return (

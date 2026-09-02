@@ -21,7 +21,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { PublicLayout } from "@/components/PublicLayout";
 import { CountUp } from "@/components/CountUp";
-import { Eyebrow, SectionTitle, Reveal, GlowBackdrop, CardIndex } from "@/components/site";
+import { Eyebrow, SectionTitle, Reveal, GlowBackdrop, CardIndex, Marquee } from "@/components/site";
 
 interface Partner {
   id: string;
@@ -46,6 +46,11 @@ const industries = [
   { key: "public", Icon: Landmark },
   { key: "itweb", Icon: Globe },
 ];
+
+// Marquee band under the testimonial: real outcomes pulled from the existing
+// case-studies i18n content (caseStudies.caseN.title/metric1) — no invented
+// quotes; a marquee with the single real testimonial repeated would read fake.
+const proofCases = ["case1", "case2", "case3", "case4", "case5", "case6", "case7", "case8", "case9", "case10"];
 
 const flagship = [
   { key: "procuchain", label: "ProcuChain", abbr: "Pc" },
@@ -490,6 +495,30 @@ export default function HomePage() {
             </div>
           </Reveal>
         </div>
+
+        {/* Results marquee — real metrics from the case studies */}
+        <Reveal className="mt-12">
+          <div
+            style={{
+              maskImage: "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
+              WebkitMaskImage: "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
+            }}
+          >
+            <Marquee durationSec={60}>
+              {proofCases.map((c) => (
+                <Link
+                  key={c}
+                  href={`/${locale}/case-studies`}
+                  className="flex flex-none items-center gap-2.5 rounded-xl border border-white/10 bg-white/[0.03] px-5 py-3 transition-colors hover:border-indigo-400/40 hover:bg-white/[0.06]"
+                >
+                  <CheckCircle2 className="h-4 w-4 flex-none text-emerald-400" />
+                  <span className="text-sm font-medium text-white">{t(`caseStudies.${c}.metric1`)}</span>
+                  <span className="text-sm text-slate-500">· {t(`caseStudies.${c}.title`)}</span>
+                </Link>
+              ))}
+            </Marquee>
+          </div>
+        </Reveal>
       </section>
 
       {/* CTA */}

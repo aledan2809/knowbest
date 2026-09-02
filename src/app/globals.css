@@ -142,3 +142,19 @@
   background-clip: text;
   color: transparent;
 }
+
+/* Marquee: content is rendered twice; the track scrolls exactly one copy. */
+@keyframes kb-marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.kb-marquee-track {
+  animation: kb-marquee var(--kb-marquee-duration, 45s) linear infinite;
+  will-change: transform;
+}
+.kb-marquee:hover .kb-marquee-track {
+  animation-play-state: paused;
+}
+@media (prefers-reduced-motion: reduce) {
+  .kb-marquee-track { animation: none; }
+}
