@@ -448,8 +448,8 @@
     "name": "eTutor",
     "nameEn": "eTutor",
     "slug": "tutor",
-    "description": "Meditații online pentru elevi: profesori verificați, programări simple și plăți sigure — totul într-un singur loc.",
-    "descriptionEn": "Online tutoring for students: vetted teachers, simple scheduling and secure payments — all in one place.",
+    "description": "Aplicație completă pentru educație online: programări cu calendar, plăți integrate, notificări automate și progres urmărit într-un singur loc.",
+    "descriptionEn": "Complete online education app: calendar scheduling, integrated payments, automatic notifications and progress tracking in one place.",
     "category": "WEB_APP",
     "status": "LIVE",
     "prodUrl": "https://etutor.ro",
@@ -462,7 +462,7 @@
     ],
     "tags": [
       "Educație",
-      "Meditații"
+      "SaaS"
     ],
     "featured": false,
     "_needsCopyReview": true,
@@ -472,8 +472,8 @@
     "name": "UtilajHub",
     "nameEn": "UtilajHub",
     "slug": "utilajhub-next",
-    "description": "Marketplace de utilaje de construcții: închirieri și vânzări cu prețuri transparente și rezervare online.",
-    "descriptionEn": "Construction equipment marketplace: rentals and sales with transparent pricing and instant online booking.",
+    "description": "Marketplace de închirieri de utilaje de construcții: prețuri transparente și rezervare online, direct de la deținători.",
+    "descriptionEn": "Construction equipment rental marketplace: transparent pricing and instant online booking, straight from the owners.",
     "category": "WEB_APP",
     "status": "LIVE",
     "prodUrl": "https://utilajhub.ro",
@@ -487,7 +487,7 @@
     ],
     "tags": [
       "Marketplace",
-      "Utilaje"
+      "Închirieri"
     ],
     "featured": false,
     "_needsCopyReview": true,
@@ -497,8 +497,8 @@
     "name": "CONSJ",
     "nameEn": "CONSJ",
     "slug": "consj",
-    "description": "Site de prezentare cu CMS propriu pentru profesii liberale: articole, noutăți juridice și galerie media, ușor de administrat.",
-    "descriptionEn": "Presentation site with its own CMS for liberal professions: articles, legal news and a media gallery, easy to manage.",
+    "description": "Blog juridic: articole de specialitate, noutăți legislative și galerie media, administrate simplu dintr-un panou propriu.",
+    "descriptionEn": "Legal blog: specialist articles, legislative news and a media gallery, easily managed from its own admin panel.",
     "category": "WEB_APP",
     "status": "LIVE",
     "prodUrl": "https://consj.ro",
