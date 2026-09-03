@@ -16,12 +16,17 @@
       "WhatsApp API"
     ],
     "tags": [
-      "Scheduling",
-      "Services",
+      "Programări",
+      "Servicii",
       "WhatsApp"
     ],
     "featured": true,
-    "sortOrder": 4
+    "sortOrder": 4,
+    "tagsEn": [
+      "Scheduling",
+      "Services",
+      "WhatsApp"
+    ]
   },
   {
     "name": "4PRO Business",
@@ -44,7 +49,11 @@
       "Dashboard"
     ],
     "featured": false,
-    "sortOrder": 12
+    "sortOrder": 12,
+    "tagsEn": [
+      "Business",
+      "Dashboard"
+    ]
   },
   {
     "name": "eCabinet",
@@ -64,11 +73,16 @@
     ],
     "tags": [
       "Medical",
-      "Dental",
+      "Stomatologie",
       "SaaS"
     ],
     "featured": true,
-    "sortOrder": 2
+    "sortOrder": 2,
+    "tagsEn": [
+      "Medical",
+      "Dental",
+      "SaaS"
+    ]
   },
   {
     "name": "ProcuChain",
@@ -88,12 +102,17 @@
       "n8n"
     ],
     "tags": [
-      "Supply Chain",
-      "Forecasting",
+      "Aprovizionare",
+      "Prognoză",
       "E-commerce"
     ],
     "featured": true,
-    "sortOrder": 1
+    "sortOrder": 1,
+    "tagsEn": [
+      "Supply Chain",
+      "Forecasting",
+      "E-commerce"
+    ]
   },
   {
     "name": "TeInformez",
@@ -111,11 +130,15 @@
       "PHP"
     ],
     "tags": [
-      "News",
-      "Romania"
+      "Știri",
+      "România"
     ],
     "featured": false,
-    "sortOrder": 15
+    "sortOrder": 15,
+    "tagsEn": [
+      "News",
+      "Romania"
+    ]
   },
   {
     "name": "AVE Platform",
@@ -134,12 +157,17 @@
       "PostgreSQL"
     ],
     "tags": [
+      "Audit web",
+      "SEO",
+      "Performanță"
+    ],
+    "featured": true,
+    "sortOrder": 7,
+    "tagsEn": [
       "Web Audit",
       "SEO",
       "Performance"
-    ],
-    "featured": true,
-    "sortOrder": 7
+    ]
   },
   {
     "name": "4uPDF",
@@ -159,11 +187,16 @@
     ],
     "tags": [
       "PDF",
-      "Tools",
-      "Free"
+      "Unelte",
+      "Gratuit"
     ],
     "featured": false,
-    "sortOrder": 17
+    "sortOrder": 17,
+    "tagsEn": [
+      "PDF",
+      "Tools",
+      "Free"
+    ]
   },
   {
     "name": "Website Guru",
@@ -182,11 +215,15 @@
       "Puppeteer"
     ],
     "tags": [
-      "Web Optimization",
-      "Auto-fix"
+      "Optimizare web",
+      "Reparații automate"
     ],
     "featured": false,
-    "sortOrder": 18
+    "sortOrder": 18,
+    "tagsEn": [
+      "Web Optimization",
+      "Auto-fix"
+    ]
   },
   {
     "name": "Marketing Automation",
@@ -206,11 +243,16 @@
     ],
     "tags": [
       "Marketing",
-      "Automation",
+      "Automatizare",
       "Email"
     ],
     "featured": true,
-    "sortOrder": 8
+    "sortOrder": 8,
+    "tagsEn": [
+      "Marketing",
+      "Automation",
+      "Email"
+    ]
   },
   {
     "name": "eProfit",
@@ -228,11 +270,15 @@
       "PostgreSQL"
     ],
     "tags": [
-      "Taxes",
-      "Finance"
+      "Taxe",
+      "Finanțe"
     ],
     "featured": false,
-    "sortOrder": 11
+    "sortOrder": 11,
+    "tagsEn": [
+      "Taxes",
+      "Finance"
+    ]
   },
   {
     "name": "HeadHunter",
@@ -251,11 +297,15 @@
       "PostgreSQL"
     ],
     "tags": [
-      "Recruitment",
+      "Recrutare",
       "HR"
     ],
     "featured": false,
-    "sortOrder": 12
+    "sortOrder": 12,
+    "tagsEn": [
+      "Recruitment",
+      "HR"
+    ]
   },
   {
     "name": "Meeting Recorder",
@@ -274,11 +324,15 @@
       "BullMQ"
     ],
     "tags": [
-      "Meetings",
-      "Transcription"
+      "Ședințe",
+      "Transcriere"
     ],
     "featured": false,
-    "sortOrder": 14
+    "sortOrder": 14,
+    "tagsEn": [
+      "Meetings",
+      "Transcription"
+    ]
   },
   {
     "name": "BlocHub",
@@ -297,12 +351,17 @@
       "Revolut API"
     ],
     "tags": [
+      "Asociații",
+      "SaaS",
+      "Plăți"
+    ],
+    "featured": true,
+    "sortOrder": 3,
+    "tagsEn": [
       "HOA",
       "SaaS",
       "Payments"
-    ],
-    "featured": true,
-    "sortOrder": 3
+    ]
   },
   {
     "name": "TradeInvest",
@@ -321,11 +380,16 @@
     ],
     "tags": [
       "Trading",
-      "Investing",
-      "Finance"
+      "Investiții",
+      "Finanțe"
     ],
     "featured": false,
-    "sortOrder": 16
+    "sortOrder": 16,
+    "tagsEn": [
+      "Trading",
+      "Investing",
+      "Finance"
+    ]
   },
   {
     "name": "RaceX",
@@ -344,11 +408,15 @@
       "Maps"
     ],
     "tags": [
-      "Racing",
-      "Booking"
+      "Curse",
+      "Rezervări"
     ],
     "featured": false,
-    "sortOrder": 17
+    "sortOrder": 17,
+    "tagsEn": [
+      "Racing",
+      "Booking"
+    ]
   },
   {
     "name": "SEAP Assistant",
@@ -367,11 +435,15 @@
       "OCR"
     ],
     "tags": [
-      "Public Tenders",
-      "Romania"
+      "Achiziții publice",
+      "România"
     ],
     "featured": true,
-    "sortOrder": 6
+    "sortOrder": 6,
+    "tagsEn": [
+      "Public Tenders",
+      "Romania"
+    ]
   },
   {
     "name": "DevLearning Platform",
@@ -389,12 +461,17 @@
       "LMS"
     ],
     "tags": [
-      "Education",
-      "Learning",
+      "Educație",
+      "Cursuri",
       "Dev"
     ],
     "featured": false,
-    "sortOrder": 21
+    "sortOrder": 21,
+    "tagsEn": [
+      "Education",
+      "Learning",
+      "Dev"
+    ]
   },
   {
     "name": "Legal Hub",
@@ -414,11 +491,16 @@
     ],
     "tags": [
       "GDPR",
-      "Compliance",
-      "Legal"
+      "Conformitate",
+      "Juridic"
     ],
     "featured": false,
-    "sortOrder": 22
+    "sortOrder": 22,
+    "tagsEn": [
+      "GDPR",
+      "Compliance",
+      "Legal"
+    ]
   },
   {
     "name": "Contakt",
@@ -438,11 +520,16 @@
     ],
     "tags": [
       "RPA",
-      "Automation",
-      "Accounting"
+      "Automatizare",
+      "Contabilitate"
     ],
     "featured": false,
-    "sortOrder": 23
+    "sortOrder": 23,
+    "tagsEn": [
+      "RPA",
+      "Automation",
+      "Accounting"
+    ]
   },
   {
     "name": "eTutor",
@@ -461,12 +548,16 @@
       "Stripe"
     ],
     "tags": [
-      "Education",
+      "Educație",
       "SaaS"
     ],
     "featured": false,
     "_needsCopyReview": true,
-    "sortOrder": 29
+    "sortOrder": 29,
+    "tagsEn": [
+      "Education",
+      "SaaS"
+    ]
   },
   {
     "name": "UtilajHub",
@@ -487,11 +578,15 @@
     ],
     "tags": [
       "Marketplace",
-      "Rentals"
+      "Închirieri"
     ],
     "featured": false,
     "_needsCopyReview": true,
-    "sortOrder": 30
+    "sortOrder": 30,
+    "tagsEn": [
+      "Marketplace",
+      "Rentals"
+    ]
   },
   {
     "name": "CONSJ",
@@ -510,12 +605,16 @@
       "PostgreSQL"
     ],
     "tags": [
-      "Legal",
+      "Juridic",
       "Blog"
     ],
     "featured": false,
     "_needsCopyReview": true,
-    "sortOrder": 31
+    "sortOrder": 31,
+    "tagsEn": [
+      "Legal",
+      "Blog"
+    ]
   },
   {
     "name": "TAventa",
@@ -534,12 +633,17 @@
       "Prisma"
     ],
     "tags": [
-      "Travel",
+      "Turism",
       "B2B",
       "Sourcing"
     ],
     "featured": true,
-    "sortOrder": 5
+    "sortOrder": 5,
+    "tagsEn": [
+      "Travel",
+      "B2B",
+      "Sourcing"
+    ]
   },
   {
     "name": "eat",
@@ -558,11 +662,15 @@
       "WhatsApp API"
     ],
     "tags": [
-      "Nutrition",
-      "Health"
+      "Nutriție",
+      "Sănătate"
     ],
     "featured": false,
-    "sortOrder": 24
+    "sortOrder": 24,
+    "tagsEn": [
+      "Nutrition",
+      "Health"
+    ]
   },
   {
     "name": "Offer",
@@ -582,11 +690,16 @@
     ],
     "tags": [
       "B2B",
-      "Quoting",
+      "Ofertare",
       "CPQ"
     ],
     "featured": false,
-    "sortOrder": 25
+    "sortOrder": 25,
+    "tagsEn": [
+      "B2B",
+      "Quoting",
+      "CPQ"
+    ]
   },
   {
     "name": "Consult",
@@ -605,11 +718,15 @@
       "Prisma"
     ],
     "tags": [
-      "Consulting",
+      "Consultanță",
       "CRM"
     ],
     "featured": false,
-    "sortOrder": 26
+    "sortOrder": 26,
+    "tagsEn": [
+      "Consulting",
+      "CRM"
+    ]
   },
   {
     "name": "Notify",
@@ -629,11 +746,16 @@
     ],
     "tags": [
       "Retail",
-      "Vouchers",
+      "Vouchere",
       "Marketing"
     ],
     "featured": false,
-    "sortOrder": 27
+    "sortOrder": 27,
+    "tagsEn": [
+      "Retail",
+      "Vouchers",
+      "Marketing"
+    ]
   },
   {
     "name": "FUE",
@@ -652,10 +774,14 @@
       "Prisma"
     ],
     "tags": [
-      "EU Funding",
+      "Fonduri UE",
       "Multi-tenant"
     ],
     "featured": false,
-    "sortOrder": 28
+    "sortOrder": 28,
+    "tagsEn": [
+      "EU Funding",
+      "Multi-tenant"
+    ]
   }
 ]

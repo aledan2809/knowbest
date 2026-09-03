@@ -55,6 +55,7 @@ async function main() {
           description: c.description, descriptionEn: c.descriptionEn,
           status: c.status || "LIVE", prodUrl: c.prodUrl || null,
           icon: c.icon || "📦", techStack: c.techStack || [], tags: c.tags || [],
+          tagsEn: c.tagsEn || [],
           featured: c.featured === true, sortOrder: c.sortOrder || 99, visible: true,
         },
       });
@@ -82,6 +83,7 @@ async function main() {
         icon: c.icon || "📦",
         techStack: c.techStack || [],
         tags: c.tags || [],
+        tagsEn: c.tagsEn || [],
         featured: c.featured === true,
         sortOrder: c.sortOrder || 99,
       },

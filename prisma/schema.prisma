@@ -258,6 +258,7 @@ model Project {
   screenshots       Json     @default("[]")
   videoUrl          String?
   tags              Json     @default("[]")
+  tagsEn            Json     @default("[]")
   techStack         Json     @default("[]")
   sortOrder         Int      @default(0)
   visible           Boolean  @default(true)

@@ -25,6 +25,7 @@ interface Project {
   icon: string | null;
   coverImage: string | null;
   tags: string[];
+  tagsEn: string[];
   techStack: string[];
   featured: boolean;
   accessType: string;
@@ -72,7 +73,8 @@ export default function ProductsPage() {
       !search ||
       p.name.toLowerCase().includes(search.toLowerCase()) ||
       p.description?.toLowerCase().includes(search.toLowerCase()) ||
-      p.tags.some((tag) => tag.toLowerCase().includes(search.toLowerCase()));
+      p.tags.some((tag) => tag.toLowerCase().includes(search.toLowerCase())) ||
+      (p.tagsEn || []).some((tag) => tag.toLowerCase().includes(search.toLowerCase()));
     const matchesCategory = !selectedCategory || p.category === selectedCategory;
     return matchesSearch && matchesCategory;
   });
@@ -225,6 +227,7 @@ function ProjectCard({
 }) {
   const name = locale === "en" && project.nameEn ? project.nameEn : project.name;
   const description = locale === "en" && project.descriptionEn ? project.descriptionEn : project.description;
+  const tags = locale === "en" && project.tagsEn?.length ? project.tagsEn : project.tags;
   // Only expose a clickable production link for stable, LIVE products — never send
   // a visitor into a BETA/in-progress or module-without-UI surface.
   const showProd = !!project.prodUrl && project.status === "LIVE";
@@ -293,7 +296,7 @@ function ProjectCard({
               {tech}
             </Badge>
           ))}
-          {project.tags.slice(0, 2).map((tag) => (
+          {tags.slice(0, 2).map((tag) => (
             <Badge key={tag} variant="outline" className="text-xs border-white/15 text-slate-400">
               {tag}
             </Badge>
