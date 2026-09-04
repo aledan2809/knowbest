@@ -293,9 +293,16 @@ function ProjectCard({
       animate={{ opacity: 1, y: 0 }}
       whileHover={{ y: -4 }}
       transition={{ delay: index * 0.05 }}
+      onClick={(e) => {
+        // Clicking anywhere on the card flips it — but never steal a click
+        // meant for a link or a button inside the card.
+        if (highlights.length === 0) return;
+        if ((e.target as HTMLElement).closest("a,button")) return;
+        setFlipped(true);
+      }}
       className={`kb-flip-face group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-sm transition-colors duration-300 hover:border-indigo-400/40 hover:bg-white/[0.05] ${
-        featured ? "md:flex" : "h-full"
-      }`}
+        highlights.length > 0 ? "cursor-pointer" : ""
+      } ${featured ? "md:flex" : "h-full"}`}
     >
       <div
         className={`flex items-center justify-center bg-gradient-to-br from-blue-500/10 via-transparent to-purple-500/10 transition-colors duration-500 group-hover:from-blue-500/20 group-hover:to-purple-500/20 ${
@@ -410,7 +417,7 @@ function ProjectCard({
             type="button"
             onClick={() => setFlipped(true)}
             aria-label={`${t("portfolio.whatItSolves")} — ${name}`}
-            className="mt-4 inline-flex items-center gap-1.5 rounded-full border border-white/10 px-3 py-1.5 text-xs font-medium text-slate-400 transition-colors hover:border-indigo-400/40 hover:text-white"
+            className="mt-4 inline-flex items-center gap-1.5 rounded-full border border-indigo-400/40 bg-indigo-500/10 px-3 py-1.5 text-xs font-medium text-indigo-200 transition-colors hover:border-indigo-300 hover:bg-indigo-500/20 hover:text-white"
           >
             {t("portfolio.whatItSolves")}
             <RefreshCw className="h-3 w-3" />
