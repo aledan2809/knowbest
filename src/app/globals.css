@@ -158,3 +158,28 @@
 @media (prefers-reduced-motion: reduce) {
   .kb-marquee-track { animation: none; }
 }
+
+/* Flip card (products): the inner shell rotates, both faces hide their back. */
+.kb-flip {
+  perspective: 1400px;
+}
+.kb-flip-inner {
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.kb-flip-inner.is-flipped {
+  transform: rotateY(180deg);
+}
+.kb-flip-face {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+.kb-flip-back {
+  position: absolute;
+  inset: 0;
+  transform: rotateY(180deg);
+}
+@media (prefers-reduced-motion: reduce) {
+  .kb-flip-inner { transition: none; }
+}

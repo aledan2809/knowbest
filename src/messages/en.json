@@ -144,6 +144,8 @@
     "featured": "Featured",
     "allProjects": "All Projects",
     "byTechnology": "By technology",
+    "whatItSolves": "What it solves",
+    "backToCard": "Back to card",
     "noProjects": "No projects yet. Add from Admin.",
     "noResults": "No projects found.",
     "demoLive": "Live Demo",

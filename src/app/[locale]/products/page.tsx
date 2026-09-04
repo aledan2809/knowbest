@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { useTranslations, useLocale } from "next-intl";
 import { motion } from "framer-motion";
-import { Search, ExternalLink, Lock, Sparkles, Code, Globe, Cpu, Play, Rocket, PackageOpen } from "lucide-react";
+import { Search, ExternalLink, Lock, Sparkles, Code, Globe, Cpu, Play, Rocket, PackageOpen, RefreshCw, ArrowRight } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -26,6 +26,10 @@ interface Project {
   coverImage: string | null;
   tags: string[];
   tagsEn: string[];
+  highlights: string[];
+  highlightsEn: string[];
+  tagline: string | null;
+  taglineEn: string | null;
   techStack: string[];
   featured: boolean;
   accessType: string;
@@ -270,6 +274,10 @@ function ProjectCard({
   const name = locale === "en" && project.nameEn ? project.nameEn : project.name;
   const description = locale === "en" && project.descriptionEn ? project.descriptionEn : project.description;
   const tags = locale === "en" && project.tagsEn?.length ? project.tagsEn : project.tags;
+  const highlights =
+    locale === "en" && project.highlightsEn?.length ? project.highlightsEn : project.highlights || [];
+  const tagline = locale === "en" && project.taglineEn ? project.taglineEn : project.tagline;
+  const [flipped, setFlipped] = useState(false);
   // Only expose a clickable production link for stable, LIVE products — never send
   // a visitor into a BETA/in-progress or module-without-UI surface.
   const showProd = !!project.prodUrl && project.status === "LIVE";
@@ -278,12 +286,14 @@ function ProjectCard({
 
   return (
     <Tilt max={5} className={featured ? "" : "h-full"}>
+    <div className={`kb-flip ${featured ? "" : "h-full"}`}>
+    <div className={`kb-flip-inner ${featured ? "" : "h-full"} ${flipped ? "is-flipped" : ""}`}>
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       whileHover={{ y: -4 }}
       transition={{ delay: index * 0.05 }}
-      className={`group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-sm transition-colors duration-300 hover:border-indigo-400/40 hover:bg-white/[0.05] ${
+      className={`kb-flip-face group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-sm transition-colors duration-300 hover:border-indigo-400/40 hover:bg-white/[0.05] ${
         featured ? "md:flex" : "h-full"
       }`}
     >
@@ -394,8 +404,68 @@ function ProjectCard({
             {t(`categories.${project.category}`)}
           </Badge>
         </div>
+
+        {highlights.length > 0 && (
+          <button
+            type="button"
+            onClick={() => setFlipped(true)}
+            aria-label={`${t("portfolio.whatItSolves")} — ${name}`}
+            className="mt-4 inline-flex items-center gap-1.5 rounded-full border border-white/10 px-3 py-1.5 text-xs font-medium text-slate-400 transition-colors hover:border-indigo-400/40 hover:text-white"
+          >
+            {t("portfolio.whatItSolves")}
+            <RefreshCw className="h-3 w-3" />
+          </button>
+        )}
       </div>
     </motion.div>
+
+    {highlights.length > 0 && (
+      <div className="kb-flip-face kb-flip-back flex flex-col justify-between overflow-hidden rounded-2xl border border-indigo-400/30 bg-gradient-to-br from-blue-600/90 to-purple-600/90 p-6 text-white">
+        <div>
+          <div className="mb-4">
+            <h3 className="text-lg font-semibold leading-tight">{name}</h3>
+            {tagline && <p className="mt-0.5 text-sm opacity-80">{tagline}</p>}
+          </div>
+          <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] opacity-70">
+            {t("portfolio.whatItSolves")}
+          </p>
+          <ul className="space-y-2.5">
+            {highlights.map((h) => (
+              <li key={h} className="flex gap-2 text-sm leading-relaxed">
+                <Sparkles className="mt-0.5 h-3.5 w-3.5 flex-none opacity-80" />
+                <span>{h}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div className="mt-5 flex items-center justify-between gap-3">
+          {showProd ? (
+            <a
+              href={project.prodUrl!}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 rounded-full bg-white/15 px-4 py-2 text-sm font-medium backdrop-blur-sm transition-colors hover:bg-white/25"
+            >
+              {t("portfolio.viewProduction")}
+              <ArrowRight className="h-3.5 w-3.5" />
+            </a>
+          ) : (
+            <span className="text-xs opacity-80">{name}</span>
+          )}
+          <button
+            type="button"
+            onClick={() => setFlipped(false)}
+            aria-label={`${t("portfolio.backToCard")} — ${name}`}
+            className="inline-flex items-center gap-1.5 rounded-full border border-white/30 px-3 py-1.5 text-xs font-medium transition-colors hover:bg-white/15"
+          >
+            {t("portfolio.backToCard")}
+            <RefreshCw className="h-3 w-3" />
+          </button>
+        </div>
+      </div>
+    )}
+    </div>
+    </div>
     </Tilt>
   );
 }

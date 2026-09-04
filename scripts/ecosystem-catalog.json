@@ -26,7 +26,19 @@
       "Scheduling",
       "Services",
       "WhatsApp"
-    ]
+    ],
+    "highlights": [
+      "Clienții își rezervă singuri sesiunea, prin WhatsApp",
+      "Reamintiri automate înainte de fiecare ședință",
+      "Vezi cine revine și cine trebuie recontactat"
+    ],
+    "highlightsEn": [
+      "Clients book their own sessions over WhatsApp",
+      "Automatic reminders before every session",
+      "See who returns and who needs a follow-up"
+    ],
+    "tagline": "Programări prin WhatsApp",
+    "taglineEn": "Booking over WhatsApp"
   },
   {
     "name": "4PRO Business",
@@ -53,14 +65,26 @@
     "tagsEn": [
       "Business",
       "Dashboard"
-    ]
+    ],
+    "highlights": [
+      "Cifrele afacerii într-un singur ecran, actualizate zilnic",
+      "Compari perioade fără să construiești rapoarte manual",
+      "Semnale timpurii când ceva scade"
+    ],
+    "highlightsEn": [
+      "Your business numbers on one screen, refreshed daily",
+      "Compare periods without building reports by hand",
+      "Early signals when something drops"
+    ],
+    "tagline": "Cifrele tale, zilnic",
+    "taglineEn": "Your numbers, daily"
   },
   {
     "name": "eCabinet",
     "nameEn": "eCabinet",
     "slug": "ecabinet",
-    "description": "Gestionează cabinetul medical sau dentar fără bătăi de cap: programări, fișe pacienți și reminder-e automate.",
-    "descriptionEn": "Run your medical or dental practice effortlessly: appointments, patient records and automatic reminders.",
+    "description": "Gestionează cabinetul fără bătăi de cap: programări online, fișe de client complete și reamintiri automate.",
+    "descriptionEn": "Run your practice effortlessly: online booking, complete client records and automatic reminders.",
     "category": "WEB_APP",
     "status": "LIVE",
     "prodUrl": "https://cabinet.4pro.io",
@@ -82,7 +106,19 @@
       "Medical",
       "Dental",
       "SaaS"
-    ]
+    ],
+    "highlights": [
+      "Programări online, fără telefoane pierdute",
+      "Fișe de client complete, accesibile în secunde",
+      "Reamintiri automate care reduc absențele"
+    ],
+    "highlightsEn": [
+      "Online booking without missed phone calls",
+      "Complete client records, accessible in seconds",
+      "Automatic reminders that cut no-shows"
+    ],
+    "tagline": "Cabinetul tău, organizat",
+    "taglineEn": "Your practice, organized"
   },
   {
     "name": "ProcuChain",
@@ -112,7 +148,19 @@
       "Supply Chain",
       "Forecasting",
       "E-commerce"
-    ]
+    ],
+    "highlights": [
+      "Știi ce stoc îți trebuie înainte să rămâi fără",
+      "Comenzi și furnizori urmăriți într-un singur tablou",
+      "Magazinele online se conectează direct, fără export manual"
+    ],
+    "highlightsEn": [
+      "Know what stock you need before you run out",
+      "Orders and suppliers tracked in one dashboard",
+      "Online stores connect directly — no manual exports"
+    ],
+    "tagline": "Aprovizionare fără surprize",
+    "taglineEn": "Supply without surprises"
   },
   {
     "name": "TeInformez",
@@ -138,7 +186,19 @@
     "tagsEn": [
       "News",
       "Romania"
-    ]
+    ],
+    "highlights": [
+      "Știrile relevante, filtrate din zeci de surse",
+      "Rezumate scurte, citite în câteva minute",
+      "Fără duplicate și fără titluri-capcană"
+    ],
+    "highlightsEn": [
+      "Relevant news filtered from dozens of sources",
+      "Short summaries you read in minutes",
+      "No duplicates, no clickbait"
+    ],
+    "tagline": "Știri fără zgomot",
+    "taglineEn": "News without the noise"
   },
   {
     "name": "AVE Platform",
@@ -167,7 +227,19 @@
       "Web Audit",
       "SEO",
       "Performance"
-    ]
+    ],
+    "highlights": [
+      "Afli exact ce frânează site-ul, în ordinea importanței",
+      "Verifici viteza, SEO și accesibilitatea într-un singur raport",
+      "Primești pașii concreți de reparat, nu doar scoruri"
+    ],
+    "highlightsEn": [
+      "Learn exactly what holds your site back, ranked by impact",
+      "Speed, SEO and accessibility in a single report",
+      "Get concrete fixes, not just scores"
+    ],
+    "tagline": "Site-ul tău, verificat",
+    "taglineEn": "Your site, audited"
   },
   {
     "name": "4uPDF",
@@ -196,7 +268,19 @@
       "PDF",
       "Tools",
       "Free"
-    ]
+    ],
+    "highlights": [
+      "Peste 40 de unelte PDF, gratuite, în browser",
+      "Combini, împarți și comprimi fără să instalezi nimic",
+      "Fișierele rămân ale tale — se procesează și se șterg"
+    ],
+    "highlightsEn": [
+      "Over 40 free PDF tools, right in the browser",
+      "Merge, split and compress with nothing to install",
+      "Your files stay yours — processed, then deleted"
+    ],
+    "tagline": "Unelte PDF gratuite",
+    "taglineEn": "Free PDF tools"
   },
   {
     "name": "Website Guru",
@@ -223,7 +307,19 @@
     "tagsEn": [
       "Web Optimization",
       "Auto-fix"
-    ]
+    ],
+    "highlights": [
+      "Problemele site-ului se repară automat, nu doar se raportează",
+      "Nu ai nevoie de programator pentru fiecare corecție",
+      "Verifici rezultatul înainte să fie publicat"
+    ],
+    "highlightsEn": [
+      "Site problems get fixed automatically, not just reported",
+      "No developer needed for every correction",
+      "Review the result before it goes live"
+    ],
+    "tagline": "Site reparat automat",
+    "taglineEn": "Sites fixed automatically"
   },
   {
     "name": "Marketing Automation",
@@ -252,7 +348,19 @@
       "Marketing",
       "Automation",
       "Email"
-    ]
+    ],
+    "highlights": [
+      "Secvențe de email care rulează singure după înscriere",
+      "Vezi ce campanie aduce clienți și ce doar consumă buget",
+      "Cereri de recenzie trimise la momentul potrivit"
+    ],
+    "highlightsEn": [
+      "Email sequences that run themselves after signup",
+      "See which campaign brings clients and which burns budget",
+      "Review requests sent at the right moment"
+    ],
+    "tagline": "Campanii care rulează singure",
+    "taglineEn": "Campaigns that run themselves"
   },
   {
     "name": "eProfit",
@@ -278,7 +386,19 @@
     "tagsEn": [
       "Taxes",
       "Finance"
-    ]
+    ],
+    "highlights": [
+      "Afli taxele datorate înainte să te surprindă",
+      "Compari regimurile fiscale pe cifrele tale reale",
+      "Planifici anul fără foi de calcul rescrise lunar"
+    ],
+    "highlightsEn": [
+      "Know the taxes you owe before they surprise you",
+      "Compare tax regimes on your own real numbers",
+      "Plan the year without monthly spreadsheet rewrites"
+    ],
+    "tagline": "Taxe calculate corect",
+    "taglineEn": "Taxes, calculated right"
   },
   {
     "name": "HeadHunter",
@@ -305,7 +425,19 @@
     "tagsEn": [
       "Recruitment",
       "HR"
-    ]
+    ],
+    "highlights": [
+      "Candidații potriviți ies primii, din tot fluxul",
+      "Istoricul fiecărei discuții rămâne într-un singur loc",
+      "Procesul de recrutare avansează fără să uiți pe cineva"
+    ],
+    "highlightsEn": [
+      "The right candidates surface first, out of the whole pipeline",
+      "Every conversation's history stays in one place",
+      "Hiring moves forward without forgetting anyone"
+    ],
+    "tagline": "Recrutare fără dezordine",
+    "taglineEn": "Hiring without the mess"
   },
   {
     "name": "Meeting Recorder",
@@ -332,7 +464,19 @@
     "tagsEn": [
       "Meetings",
       "Transcription"
-    ]
+    ],
+    "highlights": [
+      "Ședința rămâne transcrisă, nu în notițe pe hârtie",
+      "Găsești rapid ce s-a decis și cine ce a preluat",
+      "Nu mai pierzi contextul discuțiilor de acum trei luni"
+    ],
+    "highlightsEn": [
+      "Meetings stay transcribed, not on paper notes",
+      "Quickly find what was decided and who took what",
+      "Stop losing context from discussions three months back"
+    ],
+    "tagline": "Ședințe transcrise automat",
+    "taglineEn": "Meetings, auto-transcribed"
   },
   {
     "name": "BlocHub",
@@ -361,7 +505,19 @@
       "HOA",
       "SaaS",
       "Payments"
-    ]
+    ],
+    "highlights": [
+      "Întreținerea se calculează singură, pe apartament",
+      "Locatarii plătesc online, fără drumuri la casierie",
+      "Anunțuri și notificări ajung la toți deodată"
+    ],
+    "highlightsEn": [
+      "Maintenance fees calculated automatically, per flat",
+      "Residents pay online — no trips to the cashier",
+      "Announcements reach every resident at once"
+    ],
+    "tagline": "Asociația, fără hârtii",
+    "taglineEn": "Your association, paperless"
   },
   {
     "name": "TradeInvest",
@@ -389,7 +545,19 @@
       "Trading",
       "Investing",
       "Finance"
-    ]
+    ],
+    "highlights": [
+      "Simulezi o strategie înainte să pui bani reali",
+      "Vezi cum s-ar fi comportat pe date istorice",
+      "Înveți fără să plătești lecția pe piața reală"
+    ],
+    "highlightsEn": [
+      "Simulate a strategy before putting real money in",
+      "See how it would have behaved on historical data",
+      "Learn without paying for the lesson on the real market"
+    ],
+    "tagline": "Strategii testate în siguranță",
+    "taglineEn": "Strategies tested safely"
   },
   {
     "name": "RaceX",
@@ -416,7 +584,19 @@
     "tagsEn": [
       "Racing",
       "Booking"
-    ]
+    ],
+    "highlights": [
+      "Rezervi cursa în câteva atingeri",
+      "Urmărești traseul în timp real",
+      "Istoricul curselor, la îndemână"
+    ],
+    "highlightsEn": [
+      "Book a ride in a few taps",
+      "Follow the route in real time",
+      "Your ride history, always at hand"
+    ],
+    "tagline": "Curse rezervate rapid",
+    "taglineEn": "Rides booked fast"
   },
   {
     "name": "SEAP Assistant",
@@ -443,7 +623,19 @@
     "tagsEn": [
       "Public Tenders",
       "Romania"
-    ]
+    ],
+    "highlights": [
+      "Licitațiile relevante ajung la tine, nu le cauți",
+      "Documentele voluminoase, rezumate în puncte cheie",
+      "Termenele și cerințele, urmărite fără să scapi vreuna"
+    ],
+    "highlightsEn": [
+      "Relevant tenders come to you — no manual searching",
+      "Bulky documents summarized into key points",
+      "Deadlines and requirements tracked without slips"
+    ],
+    "tagline": "Licitații publice, filtrate",
+    "taglineEn": "Public tenders, filtered"
   },
   {
     "name": "DevLearning Platform",
@@ -471,7 +663,19 @@
       "Education",
       "Learning",
       "Dev"
-    ]
+    ],
+    "highlights": [
+      "Parcursuri structurate, nu tutoriale răzlețe",
+      "Progresul rămâne salvat de la o sesiune la alta",
+      "Exerciții practice după fiecare capitol"
+    ],
+    "highlightsEn": [
+      "Structured paths, not scattered tutorials",
+      "Progress saved from one session to the next",
+      "Hands-on exercises after every chapter"
+    ],
+    "tagline": "Programare, pas cu pas",
+    "taglineEn": "Coding, step by step"
   },
   {
     "name": "Legal Hub",
@@ -500,7 +704,19 @@
       "GDPR",
       "Compliance",
       "Legal"
-    ]
+    ],
+    "highlights": [
+      "Termeni, politici și consimțăminte, într-un singur loc",
+      "Fiecare acord rămâne dovedit, cu dată și versiune",
+      "Cererile GDPR se rezolvă fără căutări prin sisteme"
+    ],
+    "highlightsEn": [
+      "Terms, policies and consents in one place",
+      "Every agreement stays provable, with date and version",
+      "GDPR requests resolved without hunting through systems"
+    ],
+    "tagline": "Conformitate GDPR, centralizată",
+    "taglineEn": "GDPR compliance, centralized"
   },
   {
     "name": "Contakt",
@@ -529,11 +745,23 @@
       "RPA",
       "Automation",
       "Accounting"
-    ]
+    ],
+    "highlights": [
+      "Extrasele bancare se citesc singure, din 10 bănci",
+      "Facturile se potrivesc automat cu plățile",
+      "Închiderea lunii nu mai înseamnă introducere manuală"
+    ],
+    "highlightsEn": [
+      "Bank statements read themselves, from 10 banks",
+      "Invoices matched to payments automatically",
+      "Month-end close without manual data entry"
+    ],
+    "tagline": "Contabilitate fără introducere manuală",
+    "taglineEn": "Bookkeeping without data entry"
   },
   {
-    "name": "eTutor",
-    "nameEn": "eTutor",
+    "name": "Tutor",
+    "nameEn": "Tutor",
     "slug": "tutor",
     "description": "Aplicație completă pentru educație online: programări cu calendar, plăți integrate, notificări automate și progres urmărit într-un singur loc.",
     "descriptionEn": "Complete online education app: calendar scheduling, integrated payments, automatic notifications and progress tracking in one place.",
@@ -557,7 +785,19 @@
     "tagsEn": [
       "Education",
       "SaaS"
-    ]
+    ],
+    "highlights": [
+      "Programări cu calendar, fără mesaje încrucișate",
+      "Plăți încasate automat, la confirmarea lecției",
+      "Progresul elevului, vizibil pentru părinte"
+    ],
+    "highlightsEn": [
+      "Calendar scheduling without crossed messages",
+      "Payments collected automatically when a lesson is confirmed",
+      "Student progress visible to the parent"
+    ],
+    "tagline": "Educație online, completă",
+    "taglineEn": "Online education, complete"
   },
   {
     "name": "UtilajHub",
@@ -586,7 +826,19 @@
     "tagsEn": [
       "Marketplace",
       "Rentals"
-    ]
+    ],
+    "highlights": [
+      "Vezi prețul real de închiriere, fără să suni",
+      "Rezervi utilajul online, pe zilele de care ai nevoie",
+      "Discuți direct cu deținătorul, fără intermediar"
+    ],
+    "highlightsEn": [
+      "See the real rental price without calling",
+      "Book the machine online for the days you need",
+      "Talk directly to the owner, no middleman"
+    ],
+    "tagline": "Utilaje de închiriat",
+    "taglineEn": "Equipment for rent"
   },
   {
     "name": "CONSJ",
@@ -614,7 +866,19 @@
     "tagsEn": [
       "Legal",
       "Blog"
-    ]
+    ],
+    "highlights": [
+      "Articole de specialitate, scrise pe înțelesul clientului",
+      "Noutățile legislative, filtrate și explicate",
+      "Conținutul se publică singur, dintr-un panou simplu"
+    ],
+    "highlightsEn": [
+      "Specialist articles written in plain language",
+      "Legislative news filtered and explained",
+      "Content publishes itself from a simple panel"
+    ],
+    "tagline": "Drept explicat simplu",
+    "taglineEn": "Law explained simply"
   },
   {
     "name": "TAventa",
@@ -643,7 +907,19 @@
       "Travel",
       "B2B",
       "Sourcing"
-    ]
+    ],
+    "highlights": [
+      "Trimiți o cerere o dată, ajunge la zeci de pensiuni",
+      "Urmărire automată până răspund, pe mai multe canale",
+      "Primești pachetul de ofertă gata de trimis clientului"
+    ],
+    "highlightsEn": [
+      "Send one request, reach dozens of venues",
+      "Automatic follow-up across channels until they reply",
+      "Get an offer package ready to send to your client"
+    ],
+    "tagline": "Cazare pentru grupuri",
+    "taglineEn": "Venues for groups"
   },
   {
     "name": "eat",
@@ -670,7 +946,19 @@
     "tagsEn": [
       "Nutrition",
       "Health"
-    ]
+    ],
+    "highlights": [
+      "Fotografiezi masa și primești scorul zilei",
+      "Îndrumare care se adaptează la cum mergi",
+      "Obiceiuri mai bune fără să numeri calorii"
+    ],
+    "highlightsEn": [
+      "Snap your meal and get today's score",
+      "Guidance that adapts to how you're doing",
+      "Better habits without counting calories"
+    ],
+    "tagline": "Nutriție dintr-o poză",
+    "taglineEn": "Nutrition from a photo"
   },
   {
     "name": "Offer",
@@ -699,7 +987,19 @@
       "B2B",
       "Quoting",
       "CPQ"
-    ]
+    ],
+    "highlights": [
+      "Oferte trimise în minute, nu în ore",
+      "Prețuri și discounturi aplicate după regulile tale",
+      "Compari automat cu lista de prețuri a concurenței"
+    ],
+    "highlightsEn": [
+      "Quotes sent in minutes, not hours",
+      "Prices and discounts applied by your own rules",
+      "Automatic cross-reference against competitor price lists"
+    ],
+    "tagline": "Oferte B2B în minute",
+    "taglineEn": "B2B quotes in minutes"
   },
   {
     "name": "Consult",
@@ -726,7 +1026,19 @@
     "tagsEn": [
       "Consulting",
       "CRM"
-    ]
+    ],
+    "highlights": [
+      "Clienți, proiecte și probleme, într-un singur registru",
+      "Deciziile se aprobă de pe telefon, printr-un link",
+      "Rapoartele vin pre-completate din activitatea reală"
+    ],
+    "highlightsEn": [
+      "Clients, projects and issues in one register",
+      "Decisions approved from a phone, through a link",
+      "Reports arrive pre-filled from real activity"
+    ],
+    "tagline": "Consultanța ta, organizată",
+    "taglineEn": "Your consulting, organized"
   },
   {
     "name": "Notify",
@@ -755,7 +1067,19 @@
       "Retail",
       "Vouchers",
       "Marketing"
-    ]
+    ],
+    "highlights": [
+      "Promoții trimise direct pe telefonul clientului",
+      "Acordul GDPR se obține și se păstrează automat",
+      "Voucherele se validează la casă, fără dubluri"
+    ],
+    "highlightsEn": [
+      "Promotions sent straight to your customer's phone",
+      "GDPR consent collected and stored automatically",
+      "Vouchers validated at the till, no double use"
+    ],
+    "tagline": "Promoții pe telefon",
+    "taglineEn": "Promos on the phone"
   },
   {
     "name": "FUE",
@@ -782,6 +1106,18 @@
     "tagsEn": [
       "EU Funding",
       "Multi-tenant"
-    ]
+    ],
+    "highlights": [
+      "Compari scenarii de finanțare cu scor instant",
+      "Calculezi costurile reale, inclusiv taxele salariale",
+      "Fiecare secțiune e validată înainte de depunere"
+    ],
+    "highlightsEn": [
+      "Compare funding scenarios with instant scoring",
+      "Calculate real costs, salary taxes included",
+      "Every section validated before submission"
+    ],
+    "tagline": "Dosare de finanțare europeană",
+    "taglineEn": "EU funding dossiers"
   }
 ]
