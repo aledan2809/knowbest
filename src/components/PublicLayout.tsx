@@ -1,9 +1,10 @@
 "use client";
 
 import { useEffect } from "react";
+import { useTranslations } from "next-intl";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-import { SmoothScroll } from "@/components/site";
+import { SmoothScroll, GrainOverlay, BackToTop, CursorFollower } from "@/components/site";
 
 /**
  * PublicLayout — consolidates Navbar + Footer for public marketing pages.
@@ -25,6 +26,7 @@ import { SmoothScroll } from "@/components/site";
  * Admin and auth pages should NOT use this wrapper.
  */
 export function PublicLayout({ children }: { children: React.ReactNode }) {
+  const t = useTranslations();
   // The document canvas stays light for admin/account pages, so on macOS/iOS
   // rubber-band overscroll a white band would flash around the dark pages.
   // Paint the <html> element dark only while a public page is mounted.
@@ -40,9 +42,12 @@ export function PublicLayout({ children }: { children: React.ReactNode }) {
   return (
     <div className="min-h-screen bg-[#0a0a12] text-slate-100">
       <SmoothScroll />
+      <GrainOverlay />
+      <CursorFollower />
       <Navbar />
       {children}
       <Footer />
+      <BackToTop label={t("common.backToTop")} />
     </div>
   );
 }

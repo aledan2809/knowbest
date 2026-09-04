@@ -8,7 +8,7 @@ import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { PublicLayout } from "@/components/PublicLayout";
-import { GlowBackdrop, CardIndex } from "@/components/site";
+import { GlowBackdrop, CardIndex, Tilt } from "@/components/site";
 
 interface Project {
   id: string;
@@ -54,6 +54,7 @@ export default function ProductsPage() {
   const [projects, setProjects] = useState<Project[]>([]);
   const [search, setSearch] = useState("");
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  const [selectedTech, setSelectedTech] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -67,6 +68,19 @@ export default function ProductsPage() {
   }, []);
 
   const categories = [...new Set(projects.map((p) => p.category))];
+  // Technology axis (the benchmark filters by category AND tech). Ordered by
+  // how many products use it, capped so the chip row stays scannable.
+  const techCounts = projects.reduce<Record<string, number>>((acc, p) => {
+    (p.techStack || []).forEach((tech) => {
+      acc[tech] = (acc[tech] || 0) + 1;
+    });
+    return acc;
+  }, {});
+  const technologies = Object.entries(techCounts)
+    .filter(([, n]) => n > 1)
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 10)
+    .map(([tech]) => tech);
 
   const filtered = projects.filter((p) => {
     const matchesSearch =
@@ -76,7 +90,8 @@ export default function ProductsPage() {
       p.tags.some((tag) => tag.toLowerCase().includes(search.toLowerCase())) ||
       (p.tagsEn || []).some((tag) => tag.toLowerCase().includes(search.toLowerCase()));
     const matchesCategory = !selectedCategory || p.category === selectedCategory;
-    return matchesSearch && matchesCategory;
+    const matchesTech = !selectedTech || (p.techStack || []).includes(selectedTech);
+    return matchesSearch && matchesCategory && matchesTech;
   });
 
   const featured = filtered.filter((p) => p.featured);
@@ -149,6 +164,33 @@ export default function ProductsPage() {
                 </Button>
               ))}
             </div>
+
+            {technologies.length > 0 && (
+              <div className="flex flex-wrap justify-center gap-2 pt-1">
+                <span className="w-full text-[11px] font-semibold uppercase tracking-[0.25em] text-slate-500">
+                  {t("portfolio.byTechnology")}
+                </span>
+                <Button
+                  size="sm"
+                  variant="ghost"
+                  onClick={() => setSelectedTech(null)}
+                  className={chipClass(selectedTech === null)}
+                >
+                  {t("common.all")}
+                </Button>
+                {technologies.map((tech) => (
+                  <Button
+                    key={tech}
+                    size="sm"
+                    variant="ghost"
+                    onClick={() => setSelectedTech(tech)}
+                    className={chipClass(selectedTech === tech)}
+                  >
+                    {tech}
+                  </Button>
+                ))}
+              </div>
+            )}
           </motion.div>
         </div>
       </section>
@@ -170,7 +212,7 @@ export default function ProductsPage() {
               {projects.length === 0 ? t("portfolio.noProjects") : t("portfolio.noResults")}
             </p>
             {search && (
-              <Button variant="ghost" size="sm" onClick={() => setSearch("")} className="text-slate-500 hover:text-white hover:bg-white/5">
+              <Button variant="ghost" size="sm" onClick={() => { setSearch(""); setSelectedTech(null); setSelectedCategory(null); }} className="text-slate-500 hover:text-white hover:bg-white/5">
                 {t("common.clearSearch")}
               </Button>
             )}
@@ -235,13 +277,14 @@ function ProjectCard({
   const hasLinks = showProd || showDemo;
 
   return (
+    <Tilt max={5} className={featured ? "" : "h-full"}>
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       whileHover={{ y: -4 }}
       transition={{ delay: index * 0.05 }}
       className={`group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-sm transition-colors duration-300 hover:border-indigo-400/40 hover:bg-white/[0.05] ${
-        featured ? "md:flex" : ""
+        featured ? "md:flex" : "h-full"
       }`}
     >
       <div
@@ -353,5 +396,6 @@ function ProjectCard({
         </div>
       </div>
     </motion.div>
+    </Tilt>
   );
 }

@@ -21,7 +21,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { PublicLayout } from "@/components/PublicLayout";
 import { CountUp } from "@/components/CountUp";
-import { Eyebrow, SectionTitle, Reveal, GlowBackdrop, CardIndex, Marquee, Magnetic } from "@/components/site";
+import { Eyebrow, SectionTitle, Reveal, GlowBackdrop, CardIndex, Marquee, Magnetic, Tilt } from "@/components/site";
 
 interface Partner {
   id: string;
@@ -450,14 +450,14 @@ export default function HomePage() {
 
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {flagshipDisplay.map((p, i) => (
+              <Tilt key={p.key} max={5} className="h-full">
               <motion.div
-                key={p.key}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 whileHover={{ y: -6 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.05 }}
-                className="group rounded-2xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur-sm transition-colors duration-300 hover:border-indigo-400/40 hover:bg-white/[0.05]"
+                className="group h-full rounded-2xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur-sm transition-colors duration-300 hover:border-indigo-400/40 hover:bg-white/[0.05]"
               >
                 <Link href={`/${locale}/products`} className="block">
                   <div className="mb-5 flex items-start justify-between">
@@ -470,6 +470,7 @@ export default function HomePage() {
                   <p className="text-sm leading-relaxed text-slate-400 line-clamp-3">{p.desc}</p>
                 </Link>
               </motion.div>
+              </Tilt>
             ))}
           </div>
 

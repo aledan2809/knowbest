@@ -10,7 +10,8 @@
     "search": "Search projects...",
     "all": "All",
     "free": "Free",
-    "clearSearch": "Clear search"
+    "clearSearch": "Clear search",
+    "backToTop": "Back to top"
   },
   "nav": {
     "home": "Home",
@@ -142,6 +143,7 @@
   "portfolio": {
     "featured": "Featured",
     "allProjects": "All Projects",
+    "byTechnology": "By technology",
     "noProjects": "No projects yet. Add from Admin.",
     "noResults": "No projects found.",
     "demoLive": "Live Demo",

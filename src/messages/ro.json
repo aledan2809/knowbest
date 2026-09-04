@@ -10,7 +10,8 @@
     "search": "Cauta proiecte...",
     "all": "Toate",
     "free": "Gratis",
-    "clearSearch": "Sterge cautarea"
+    "clearSearch": "Sterge cautarea",
+    "backToTop": "Înapoi sus"
   },
   "nav": {
     "home": "Acasa",
@@ -291,6 +292,7 @@
   "portfolio": {
     "featured": "Recomandate",
     "allProjects": "Toate proiectele",
+    "byTechnology": "După tehnologie",
     "noProjects": "Niciun proiect inca. Adauga din Admin.",
     "noResults": "Niciun proiect gasit.",
     "demoLive": "Demo Live",
