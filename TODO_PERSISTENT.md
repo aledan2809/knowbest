@@ -15,8 +15,8 @@ Direcție: **hibrid** = erou dark („Mai puțină muncă manuală. **Mai mult c
 - [x] **Selector industrie (7)** — DONE: Cabinet medical / Asociații / Service / **Horeca-Turism** / Comerț / Administrație publică / **IT & web**. Interactiv (verificat).
 - [x] **8 flagship homepage** — DONE: ProcuChain, eCabinet, BlocHub, PRO, TravelAgency, SEAP, AVE, Marketing Automation (copy outcome).
 - [x] **Testimonial anonim** (Manager hotel · Poiana Brașov, decizie B) + **CTA cu reducere de risc** — DONE.
-- [ ] **RĂMAS — catalog DB `/produse`:** adaugă **PRO** + **TravelAgency** ca produse reale în DB (acum sunt flagship doar hardcodate pe homepage; nu apar în `/produse`). + reconciliere completă catalog (ecosisteme 4PRO/AVE ca suite; exclude module interne `@aledan/*`/AIRouter/OCR; exclude deprecate PMB/KB). Sursă: ECOSYSTEM_REGISTRY + CLASSIFICATION + `knowledge/projects.json`.
-- [ ] **Opțional:** optimizează `dashboard-hero.png` 541KB → webp pt LCP (Next/Image oricum servește optimizat). + dacă obții acordul Hotel Alpin → testimonial pe nume real (acum anonim).
+- [x] **DONE 2026-09-02 (commit `5e4e2a5`) — catalog DB `/produse`:** adaugă **PRO** + **TravelAgency** ca produse reale în DB (acum sunt flagship doar hardcodate pe homepage; nu apar în `/produse`). + reconciliere completă catalog (ecosisteme 4PRO/AVE ca suite; exclude module interne `@aledan/*`/AIRouter/OCR; exclude deprecate PMB/KB). Sursă: ECOSYSTEM_REGISTRY + CLASSIFICATION + `knowledge/projects.json`.
+- [x] **DONE 2026-09-02 (`5e4e2a5`):** optimizează `dashboard-hero.png` 541KB → webp (40KB; toate 4 hero-urile convertite) pt LCP (Next/Image oricum servește optimizat). + dacă obții acordul Hotel Alpin → testimonial pe nume real (acum anonim).
 
 ## [~] 🎠 Carusel produse în erou (creat 2026-06-30) — mecanism LIVE, slide-uri în creștere
 Componentă carusel în erou (`heroSlides` în `page.tsx`): 1 slide = imagine framed (ca acum); ≥2 = auto-rotire 5s + puncte. **Slide 1 = ProcuChain LIVE** (link → `procuchain.com`, decizie b = app live).
@@ -49,3 +49,41 @@ Componentă carusel în erou (`heroSlides` în `page.tsx`): 1 slide = imagine fr
 ## Deploy în așteptare (bundle la cutover)
 Commit-uri locale gata de livrat ÎMPREUNĂ când muți DNS-ul (decizie user „totul odată"):
 `c465c0b` (deps) + `160e888` (cookie categories). La cutover: certbot apex + `NEXT_PUBLIC_SITE_URL` + deploy + TWG verify live.
+
+---
+
+## [x] 📊 Analytics — DONE 2026-09-02 (`5e4e2a5`, Umami LIVE verificat 1 pageview; GA4 inert până la NEXT_PUBLIC_GA4_ID de la user) — adoptă `@aledan/analytics` pe knowbest.ro (propus 2026-07-01, modul ANL în /matrix)
+
+**De ce**: apex-ul knowbest.ro e live (cutover 2026-06-29) fără analytics. Modulul dă Umami cookieless + GA4 consent-gated, datele pe VPS-ul nostru.
+
+**Specific knowbest**: are DEJA banner de cookie-uri integrat Legal Hub (consent record 201 verificat la integrare) → **NU monta `CookieConsent`** (2 bannere). Cazul 3 din `Projects/Analytics/README.md`: `loadGA4('G-<knowbest>')` din calea Accept a banner-ului Legal existent + la load când decizia salvată e granted.
+
+**Mecanica (din modul — vezi `Projects/Analytics/README.md`):**
+1. Provisionează site-ul în Umami: `node Projects/Analytics/scripts/provision-umami.mjs --name "<domeniu>" --domain <domeniu>` → primești `websiteId`. (Dacă `analytics.knowbest.ro` nu are încă DNS, folosește `UMAMI_TECHBIZ_SRC`.)
+2. Vendored tgz: `cd Projects/Analytics && npm run build && npm pack` → copiază ca `<proiect>/vendor/analytics.tgz`; în package.json `"@aledan/analytics": "file:vendor/analytics.tgz"`; în next.config `transpilePackages: ["@aledan/analytics"]`.
+3. În root layout: `<UmamiScript websiteId="..."/>` (mereu, cookieless — NU cere consimțământ).
+4. **CSP obligatoriu** (lecția techbiz: CSP strict = zero date, silențios): adaugă originile din `umamiCsp()` + `GA4_CSP` în headerul CSP al proiectului (script-src/connect-src/img-src). Fără asta nu funcționează nimic.
+5. GA4: proprietate NOUĂ în contul Google al business-ului respectiv (NU refolosi G-WGNEF06DWS al techbiz) → un singur Measurement ID per business (subdomeniile aceluiași apex NU primesc stream-uri separate).
+6. Verificare onestă: vizită browser real (UA normal, nu headless) → hit în Umami dashboard; Accept → `gtag/js` 200 + `/g/collect` 204 → GA4 Realtime. Nu declara done pe build verde.
+
+**Extra knowbest**: GA4 property proprie (business knowbest). Umami provisionat pt `knowbest.ro` (apex; app.knowbest.ro e același apex → același website Umami e OK sau separat, la alegere).
+
+## [ ] 🧰 Bază de date locală pentru dezvoltare — decizie de infrastructură (creat 2026-09-06)
+
+`/produse` e **gol pe local** dar plin pe producție, iar asta a costat deja timp de diagnostic
+într-o sesiune. Cauza nu e aplicația: `.env`-ul local încă are `DATABASE_URL` spre **Neon**, baza
+abandonată (politica VPS+PG only, 2026-06-10). Am marcat linia ca MOARTĂ direct în `.env`, cu
+explicația, ca să nu mai păcălească pe nimeni — dar **remedierea reală rămâne o alegere de-a ta**,
+fiindcă baza vie stă pe VPS2 și nu e accesibilă din afară (port 5432 filtrat + `pg_hba` per-IP;
+verificat 2026-09-06: conexiunea din exterior e refuzată).
+
+Două căi, ambele o singură dată:
+- **(a) PostgreSQL local în docker** pentru knowbest — portul liber următor din tabelul Master este
+  **5444**; e nevoie și de un `docker-compose.dev.yml` (proiectul nu are unul) + seed. Curat și
+  independent de rețea, dar datele locale nu sunt cele reale.
+- **(b) Acces la VPS2** — deschidere firewall + o linie `pg_hba` pentru IP-ul tău de acasă. Datele
+  sunt cele adevărate, dar IP-ul e **dinamic** (se rupe la fiecare schimbare) și e o modificare de
+  firewall pe o mașină de producție.
+
+Până alegi, dezvoltarea de interfață merge prin interceptarea răspunsului `/api/projects` (ce am
+folosit în redesign) — fără să atingă nicio bază de date.

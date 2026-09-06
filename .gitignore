@@ -39,3 +39,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# session / tooling artifacts (regenerated per run, never source)
+.claude-session-routing
+/.tester/
