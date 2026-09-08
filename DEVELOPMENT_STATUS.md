@@ -1,6 +1,68 @@
 # Project Status — knowbest
 
-Last Updated: 2026-06-30
+Last Updated: 2026-09-08
+
+## Current State (Sesiunea 2026-09-02 → 09-08) — Redesign dark-premium al site-ului public + catalog corectat
+
+13 commit-uri, toate pushed + LIVE pe `knowbest.ro` (VPS2 :3023). Reper vizual cerut de user:
+`razvanmares.com` — inspirație, nu copie: am păstrat identitatea KnowBest (accent albastru→mov
+electric, nu coralul reperului). Scop: tot site-ul public, nu doar prima pagină.
+
+### Livrat (în ordine)
+1. **`dcaa5ff` — redesign dark-premium + reparat fontul.** Pânză aproape neagră, accent
+   albastru→mov, secțiuni motion-first. Limbaj de design comun în `src/components/site/index.tsx`
+   (SmoothScroll/Magnetic/Reveal/SectionTitle/GlowBackdrop/Marquee/Tilt/BackToTop/Grain/Cursor).
+   **Reparat un defect vechi și tăcut**: `--font-sans: var(--font-sans)` era circular → tot site-ul
+   rula în Times, inclusiv pe producție (vezi L532).
+2. **`16155c5` — marquee cu rezultate reale** sub testimonial (cifre din studiile de caz, nu decor).
+3. **`5e4e2a5` — catalogul vine din baza de date**, nu hardcodat. `scripts/ecosystem-catalog.json`
+   = sursă unică (28 produse); `sync-ecosystem-products.mjs --full` aliniază totul, iar `--hide-missing`
+   **ascunde** (`visible:false`), nu șterge — reversibil. + analytics Umami (verificat 1 vizită reală)
+   + hero-uri convertite la webp (541KB → 40KB).
+4. **`1d5cea3` → `c054f39` — cinci runde de corectat catalogul**, toate pornite de la tine:
+   „AVE nu are Supabase" → scoase tehnologiile inventate; „verifică vizual, nu doar prin API" → am
+   găsit 3 carduri rămase placeholder (Tutor/UtilajHub/CONSJ) pe care API-ul le raporta „complete";
+   apoi descrieri corectate per feedback; apoi `tagsEn` ca etichetele să fie cu adevărat pe două limbi.
+5. **`7c5692c` — efectele din reper**: înclinare 3D la mouse, dezvăluire pe caracter, back-to-top,
+   granulație, cursor propriu, filtru după tehnologie (calculat din date, nu listă fixă).
+6. **`340a2de` + `81b8a93` — cardul care se întoarce**, cu „ce rezolvă" per produs (RO+EN, 3-4 cuvinte
+   de poziționare + probleme rezolvate). A doua livrare a fost **reparația unei verificări greșite
+   de-a mea** — vezi L531.
+7. **`990f56e` — igienă**: șters directorul `C:/` (reziduu al unei căi Windows din AIRouter, cauza
+   deja reparată acolo), `.gitignore` pentru artefacte de sesiune, rapoarte netrackuite adăugate,
+   TODO sincronizat.
+
+### Verificat
+- Fiecare livrare: tsc + build + `/review` + verificare pe browser real (nu doar build verde).
+- Catalog: **fiecare URL de produs testat pentru viață** înainte de reconciliere — au ieșit la iveală
+  feedback-hub 404, pmb 404, racex care avea nevoie de `racex.ro`.
+- Umami: vizită din browser real (UA headless e filtrat) → 1 pageview înregistrat.
+- Cardul întors: reprodus traseul omului pe producție (hover + clic real) → spatele e elementul
+  pictat; clicul pe „Vezi producția" navighează și **nu** întoarce cardul.
+
+### Corectări de traseu (nu le ascund)
+- Am declarat „verificat" cardul întors pe baza proprietății CSS, iar tu l-ai infirmat live. Aveai
+  dreptate: mecanismul mergea, declanșatorul era invizibil. (L531)
+- Panoul de browser ascuns raporta identitate la **orice** transformare — era instrumentul, nu codul.
+  Prins pentru că am măsurat și un caz banal. (L530)
+- Am livrat de două ori cod mort (`Marquee`, `CharReveal`), prins de `/review` ambele dăți.
+
+## TODO (deschis)
+- [ ] 3 slide-uri în caruselul erou (ContaKT, TravelAgency, eCabinet) — blocate pe conturi demo cu date.
+- [ ] 4 module de refolosit (Feedback-Hub, broker Stripe, CAS, ai-governance) — fiecare sesiune dedicată.
+- [ ] Materiale de la user: ID de măsurare GA4, capturi reale de produs, cifre de studii de caz,
+      acordul Hotel Alpin pentru testimonial pe nume.
+- [ ] **Bază de date locală** — decizie de infrastructură (docker local pe 5444 vs acces la VPS2).
+      Detaliat în `TODO_PERSISTENT.md`; nu e blocant pentru ce urmează.
+
+## Lessons Learned (sesiunea 2026-09-08)
+- **L530** — Când o măsurătoare spune ceva imposibil, testează întâi instrumentul, nu codul.
+- **L531** — „Se aplică transformarea" nu înseamnă „omul vede că merge"; când userul contrazice un
+  „verificat", primul suspect e verificarea.
+- **L532** — O variabilă CSS circulară anulează tăcut toată declarația — site-ul a rulat în Times, pe
+  producție, fără nicio eroare nicăieri.
+- (numerele sunt cele din `Master/knowledge/lessons-learned.md`; L01 de mai jos e numerotarea veche,
+  locală acestui fișier)
 
 ## Current State (Sesiunea 2026-06-30) — Hero carousel: clickable images + per-locale product sets
 
