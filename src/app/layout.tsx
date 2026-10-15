@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { UmamiScript } from "@aledan/analytics/react";
+import { getLocale } from "next-intl/server";
 import "./globals.css";
 
 // Central Umami instance (cookieless — no consent needed), knowbest.ro website.
@@ -26,13 +27,14 @@ export const metadata: Metadata = {
   description: "Knowledge base platform",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    // The page's own language (it was always "en", also on every Romanian page).
+    <html lang={await getLocale()}>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >

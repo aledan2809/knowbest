@@ -30,6 +30,7 @@ export function Navbar() {
     { href: `/${locale}/products`, label: t("nav.products") },
     { href: `/${locale}/use-cases`, label: t("nav.useCases") },
     { href: `/${locale}/case-studies`, label: t("nav.caseStudies") },
+    { href: `/${locale}/blog`, label: t("nav.blog") },
     { href: `/${locale}/about`, label: t("nav.about") },
     { href: `/${locale}/contact`, label: t("nav.contact") },
   ];

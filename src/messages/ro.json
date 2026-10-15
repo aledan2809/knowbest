@@ -25,7 +25,8 @@
     "admin": "Admin",
     "viewSite": "Vezi site",
     "addProject": "Adauga proiect",
-    "caseStudies": "Studii de Caz"
+    "caseStudies": "Studii de Caz",
+    "blog": "Blog"
   },
   "home": {
     "badge": "Consultanță IT și software personalizat",
@@ -494,5 +495,27 @@
     "marketingDesc": "Folosite pentru continut si oferte relevante. Se activeaza doar cu acordul tau.",
     "cookiesLink": "Politica de cookies",
     "privacyLink": "Confidentialitate"
+  },
+  "blog": {
+    "badge": "Blog",
+    "title": "Idei pentru afaceri care vor mai puțină muncă manuală",
+    "description": "Articole despre site-uri, automatizări și instrumente care economisesc timp, scrise din proiectele noastre.",
+    "metaTitle": "Blog — KnowBest",
+    "metaDescription": "Articole despre site-uri, automatizări și instrumente care economisesc timp, scrise din proiectele KnowBest.",
+    "readMore": "Citește",
+    "page": "Pagina {page}",
+    "previous": "Înapoi",
+    "next": "Înainte",
+    "empty": "Primele articole apar aici în curând.",
+    "rss": "Abonează-te prin RSS",
+    "home": "Acasă",
+    "backToBlog": "Toate articolele",
+    "publishedOn": "Publicat pe {date}",
+    "translatedNote": "Tradus automat din engleză.",
+    "originalNote": "Articolul e momentan doar în engleză.",
+    "viewOnLinkedin": "Vezi pe LinkedIn",
+    "readOriginal": "Citește originalul",
+    "productsTitle": "Din aplicațiile noastre",
+    "productsLink": "Vezi toate produsele"
   }
 }

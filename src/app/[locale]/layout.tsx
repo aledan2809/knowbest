@@ -5,6 +5,7 @@ import { routing } from "@/i18n/routing";
 import { notFound } from "next/navigation";
 import { PageTransition } from "@/components/PageTransition";
 import { CookieConsentBanner } from "@/components/CookieConsentBanner";
+import { HtmlLang } from "@/components/HtmlLang";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -38,6 +39,7 @@ export default async function LocaleLayout({
 
   return (
     <NextIntlClientProvider messages={messages}>
+      <HtmlLang locale={locale} />
       <PageTransition>{children}</PageTransition>
       <CookieConsentBanner />
     </NextIntlClientProvider>

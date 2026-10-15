@@ -16,6 +16,7 @@ export function Footer() {
 
   const companyLinks = [
     { href: `/${locale}/about`, label: t("nav.about") },
+    { href: `/${locale}/blog`, label: t("nav.blog") },
     { href: `/${locale}/contact`, label: t("nav.contact") },
   ];
 

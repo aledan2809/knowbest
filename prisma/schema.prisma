@@ -278,6 +278,34 @@ model Project {
   @@map("kb_projects")
 }
 
+// Blog (2026-10-16): the LinkedIn posts published from MarketingAutomation, copied here once a day by
+// /api/cron/blog-sync and translated into Romanian. English is the original text; the Romanian columns stay
+// empty until a translation passes its checks, and the Romanian page shows the English text meanwhile.
+// `sourceHash` fingerprints the English text and `translatedHash` the English text the Romanian was made
+// from, so an edited post is translated again (pattern borrowed from CONSJ's translations).
+model BlogPost {
+  id             String    @id @default(cuid())
+  sourceId       String    @unique // SocialPost.id in MarketingAutomation
+  slug           String    @unique
+  titleEn        String
+  bodyEn         String    @db.Text
+  titleRo        String?
+  bodyRo         String?   @db.Text
+  imageUrl       String?
+  linkedinUrl    String?
+  publishedAt    DateTime
+  hidden         Boolean   @default(false) // no longer published in MarketingAutomation
+  sourceHash     String
+  translatedHash String?
+  translatedBy   String? // provider/model list, e.g. "groq/openai/gpt-oss-120b"
+  translatedAt   DateTime?
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+
+  @@index([hidden, publishedAt(sort: Desc)])
+  @@map("kb_blog_posts")
+}
+
 model Subscription {
   id                String   @id @default(cuid())
   userId            String

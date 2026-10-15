@@ -25,7 +25,8 @@
     "viewSite": "View site",
     "addProject": "Add project",
     "getInTouch": "Get in Touch",
-    "caseStudies": "Case Studies"
+    "caseStudies": "Case Studies",
+    "blog": "Blog"
   },
   "hero": {
     "title": "Professional Software",
@@ -494,5 +495,27 @@
     "marketingDesc": "Used for relevant content and offers. Enabled only with your consent.",
     "cookiesLink": "Cookie policy",
     "privacyLink": "Privacy"
+  },
+  "blog": {
+    "badge": "Blog",
+    "title": "Ideas for businesses that want less manual work",
+    "description": "Articles about websites, automation and tools that save time, written from our projects.",
+    "metaTitle": "Blog — KnowBest",
+    "metaDescription": "Articles about websites, automation and tools that save time, written from the KnowBest projects.",
+    "readMore": "Read",
+    "page": "Page {page}",
+    "previous": "Previous",
+    "next": "Next",
+    "empty": "The first articles will appear here soon.",
+    "rss": "Subscribe via RSS",
+    "home": "Home",
+    "backToBlog": "All articles",
+    "publishedOn": "Published on {date}",
+    "translatedNote": "",
+    "originalNote": "",
+    "viewOnLinkedin": "View on LinkedIn",
+    "readOriginal": "Read the original",
+    "productsTitle": "From our applications",
+    "productsLink": "See all products"
   }
 }
