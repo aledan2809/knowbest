@@ -74,6 +74,8 @@ export async function syncBlog({ translateLimit = 10 }: { translateLimit?: numbe
   const data = await res.json();
   const received: SourcePost[] = Array.isArray(data?.posts) ? data.posts.filter(isSourcePost) : [];
   const labelled = data?.site === "knowbest";
+  // Posts MarketingAutomation has not judged yet: missing from the list only because of that, so they stay.
+  const notJudgedYet: string[] = labelled && Array.isArray(data?.pending) ? data.pending.filter((id: unknown): id is string => typeof id === "string") : [];
   const posts = labelled ? received : received.filter((p) => !notForRomania(p.text));
 
   // The same text posted again later (LinkedIn reposts: 16 of 50 on 2026-10-16) is one article, not two
@@ -117,10 +119,10 @@ export async function syncBlog({ translateLimit = 10 }: { translateLimit?: numbe
   }
 
   // A post that is no longer published in MarketingAutomation, is a repeat or is not for this site leaves the blog. An empty answer is not
-  // taken as "everything was unpublished": a glitch there must not empty the blog.
+  // taken as "everything was unpublished": a glitch there must not empty the blog. A post MarketingAutomation has not judged yet stays.
   if (received.length) {
     const hidden = await prisma.blogPost.updateMany({
-      where: { hidden: false, sourceId: { notIn: unique.map((p) => p.id) } },
+      where: { hidden: false, sourceId: { notIn: [...unique.map((p) => p.id), ...notJudgedYet] } },
       data: { hidden: true },
     });
     result.hidden = hidden.count;

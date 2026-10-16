@@ -65,7 +65,10 @@ export type BlogLocale = "ro" | "en";
 export interface BlogView {
   slug: string;
   title: string;
+  /** The whole first sentence — the heading on cards and the article page. */
+  headline: string;
   body: string;
+  /** Starts after the first sentence, so the card does not repeat its heading. */
   excerpt: string;
   imageUrl: string | null;
   linkedinUrl: string | null;
@@ -100,7 +103,8 @@ export function viewFor(row: Row, locale: BlogLocale): BlogView {
     slug: row.slug,
     title,
     body,
-    excerpt: excerptFrom(body, title),
+    headline: splitHeadline(body, title).headline,
+    excerpt: excerptFrom(splitHeadline(body, title).rest, ""),
     imageUrl: row.imageUrl,
     linkedinUrl: row.linkedinUrl,
     publishedAt: row.publishedAt,

@@ -119,7 +119,7 @@ export default async function BlogPage({ params, searchParams }: Props) {
                   </time>
                   <h2 className="mt-2 text-lg font-semibold text-white leading-snug">
                     <Link href={`/${locale}/blog/${post.slug}`} className="hover:text-indigo-200">
-                      {post.title}
+                      {post.headline}
                     </Link>
                   </h2>
                   <p className="mt-3 text-sm text-slate-400 leading-relaxed flex-1">{post.excerpt}</p>
