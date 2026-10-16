@@ -102,17 +102,17 @@ export default async function BlogPage({ params, searchParams }: Props) {
                 key={post.slug}
                 className="group flex flex-col overflow-hidden rounded-2xl border border-white/[0.08] bg-white/[0.03] hover:border-indigo-400/40 transition-colors"
               >
-                <Link href={`/${locale}/blog/${post.slug}`} className="block aspect-square overflow-hidden bg-white/[0.04]">
-                  {post.imageUrl && (
-                    // eslint-disable-next-line @next/next/no-img-element
+                {post.imageUrl && (
+                  <Link href={`/${locale}/blog/${post.slug}`} className="block aspect-square overflow-hidden bg-white/[0.04]">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src={post.imageUrl}
                       alt={post.title}
                       loading="lazy"
                       className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
                     />
-                  )}
-                </Link>
+                  </Link>
+                )}
                 <div className="flex flex-1 flex-col p-6">
                   <time dateTime={post.publishedAt.toISOString()} className="text-xs text-slate-500">
                     {formatDate(post.publishedAt, lang)}

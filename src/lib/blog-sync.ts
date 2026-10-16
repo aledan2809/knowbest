@@ -4,7 +4,30 @@ import { prisma } from "@/lib/db";
 import { hashText, slugFrom, titleFrom } from "@/lib/blog";
 import { translateToRomanian } from "@/lib/blog-translate";
 
-const DEFAULT_SOURCE = "https://ma.techbiz.ae/api/public/linkedin-posts";
+// `site=knowbest`: MarketingAutomation labels every post (Emirates / Romania / general) and returns only the
+// ones meant for this site — Romania and general (decided with Alex, 2026-10-16).
+const DEFAULT_SOURCE = "https://ma.techbiz.ae/api/public/linkedin-posts?site=knowbest";
+
+// Until MarketingAutomation labels the posts, an answer without `site` is filtered here: posts about the
+// Emirates or carrying a TechBiz offer are not for a Romanian reader (16 of 35 named Dubai or the UAE,
+// 11 linked to TechBiz.ae on 2026-10-16). A post that only names a brand in passing still goes out.
+const NOT_FOR_ROMANIA = /\b(dubai|uae|u\.a\.e|emirat\w*|abu dhabi|sharjah|souk|aed|techbiz(\.ae)?)\b|\+971|\d+\s?% off|\bdiscount/i;
+
+export function notForRomania(text: string): boolean {
+  return NOT_FOR_ROMANIA.test(text);
+}
+
+const words = (text: string) => new Set(text.toLowerCase().match(/[\p{L}\p{N}]+/gu) ?? []);
+
+/** Share of words two texts have in common (Jaccard). 1 = the same words. */
+export function sameWords(a: string, b: string): number {
+  const x = words(a);
+  const y = words(b);
+  if (!x.size || !y.size) return 0;
+  let common = 0;
+  for (const w of x) if (y.has(w)) common++;
+  return common / (x.size + y.size - common);
+}
 
 interface SourcePost {
   id: string;
@@ -30,6 +53,8 @@ function isSourcePost(p: unknown): p is SourcePost {
 
 export interface SyncResult {
   received: number;
+  /** Posts about the Emirates or carrying a TechBiz offer: not shown on knowbest.ro. */
+  notForThisSite: number;
   /** Posts whose text was already published earlier: they are not separate articles. */
   repeats: number;
   created: number;
@@ -47,25 +72,28 @@ export async function syncBlog({ translateLimit = 10 }: { translateLimit?: numbe
   });
   if (!res.ok) throw new Error(`source answered ${res.status}`);
   const data = await res.json();
-  const posts: SourcePost[] = Array.isArray(data?.posts) ? data.posts.filter(isSourcePost) : [];
+  const received: SourcePost[] = Array.isArray(data?.posts) ? data.posts.filter(isSourcePost) : [];
+  const labelled = data?.site === "knowbest";
+  const posts = labelled ? received : received.filter((p) => !notForRomania(p.text));
 
   // The same text posted again later (LinkedIn reposts: 16 of 50 on 2026-10-16) is one article, not two
   // copies of the same page: the first publication is kept and the repeats are treated as not published.
-  const firstOf = new Map<string, SourcePost>();
+  // A repost with one word changed ("last week" → "recently") is still a repeat: 80% of the words in common.
+  const unique: SourcePost[] = [];
   for (const p of [...posts].sort((a, b) => Date.parse(a.publishedAt) - Date.parse(b.publishedAt))) {
-    const key = p.text.trim().toLowerCase().replace(/\s+/g, " ").slice(0, 120);
-    if (!firstOf.has(key)) firstOf.set(key, p);
+    if (!unique.some((u) => sameWords(u.text, p.text) >= 0.8)) unique.push(p);
   }
-  const unique = [...firstOf.values()];
 
-  const result: SyncResult = { received: posts.length, repeats: posts.length - unique.length, created: 0, updated: 0, hidden: 0, translated: 0, translationFailed: [], waitingTranslation: 0 };
+  const result: SyncResult = { received: received.length, notForThisSite: received.length - posts.length, repeats: posts.length - unique.length, created: 0, updated: 0, hidden: 0, translated: 0, translationFailed: [], waitingTranslation: 0 };
 
   for (const p of unique) {
     const text = p.text.trim();
     const fields = {
       titleEn: titleFrom(text),
       bodyEn: text,
-      imageUrl: p.image,
+      // The pictures are the posters MarketingAutomation draws for each project. Until it says which site a
+      // picture belongs to, none is shown here: every AVE poster carries a UAE phone number and techbiz.ae.
+      imageUrl: labelled ? p.image : null,
       linkedinUrl: p.url,
       publishedAt: new Date(p.publishedAt),
       sourceHash: hashText(text),
@@ -88,9 +116,9 @@ export async function syncBlog({ translateLimit = 10 }: { translateLimit?: numbe
     }
   }
 
-  // A post that is no longer published in MarketingAutomation, or is a repeat, leaves the blog. An empty answer is not
+  // A post that is no longer published in MarketingAutomation, is a repeat or is not for this site leaves the blog. An empty answer is not
   // taken as "everything was unpublished": a glitch there must not empty the blog.
-  if (unique.length) {
+  if (received.length) {
     const hidden = await prisma.blogPost.updateMany({
       where: { hidden: false, sourceId: { notIn: unique.map((p) => p.id) } },
       data: { hidden: true },
