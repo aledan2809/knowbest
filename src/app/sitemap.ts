@@ -4,6 +4,10 @@ import { prisma } from '@/lib/db';
 
 const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://app.knowbest.ro';
 
+// Rebuilt hourly: a sitemap with no request data is otherwise generated once, at build time, and the
+// blog articles imported after the deploy would never appear in it (2026-10-16).
+export const revalidate = 3600;
+
 // Public, indexable routes relative to the locale prefix. '' = locale home.
 const publicPaths = [
   '',
