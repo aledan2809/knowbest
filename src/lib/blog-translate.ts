@@ -119,7 +119,7 @@ export function rejectReason(source: string, translated: string): string | null 
   return null;
 }
 
-function clean(answer: string, source: string): string {
+export function cleanAnswer(answer: string, source: string): string {
   const text = answer
     .replace(/<think>[\s\S]*?<\/think>/g, "")
     .replace(/^```[a-z]*\n?|\n?```$/g, "")
@@ -131,7 +131,7 @@ function clean(answer: string, source: string): string {
 export async function translateToRomanian(text: string): Promise<{ ok: true; text: string; by: string } | { ok: false; reason: string }> {
   let last = "no model answered";
   for await (const answer of answers(text.trim())) {
-    const translated = clean(answer.text, text.trim());
+    const translated = cleanAnswer(answer.text, text.trim());
     const reason = rejectReason(text.trim(), translated);
     if (!reason) return { ok: true, text: translated, by: answer.by };
     last = `${answer.by}: ${reason}`;

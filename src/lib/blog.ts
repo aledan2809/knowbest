@@ -88,6 +88,7 @@ type Row = {
   bodyRo: string | null;
   sourceHash: string;
   translatedHash: string | null;
+  reviewedHash: string | null;
   imageUrl: string | null;
   linkedinUrl: string | null;
   publishedAt: Date;
@@ -95,8 +96,10 @@ type Row = {
 };
 
 export function viewFor(row: Row, locale: BlogLocale): BlogView {
-  // A translation made from an older English text is not shown: the post changed since.
-  const ro = locale === "ro" && row.titleRo && row.bodyRo && row.translatedHash === row.sourceHash;
+  // A translation made from an older English text is not shown (the post changed since), nor one that has not
+  // passed the two readings yet (blog-proofread.ts).
+  const ro =
+    locale === "ro" && row.titleRo && row.bodyRo && row.translatedHash === row.sourceHash && row.reviewedHash === row.sourceHash;
   const title = ro ? row.titleRo! : row.titleEn;
   const body = ro ? row.bodyRo! : row.bodyEn;
   return {
@@ -122,6 +125,7 @@ const ROW_SELECT = {
   bodyRo: true,
   sourceHash: true,
   translatedHash: true,
+  reviewedHash: true,
   imageUrl: true,
   linkedinUrl: true,
   publishedAt: true,

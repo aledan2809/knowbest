@@ -299,6 +299,11 @@ model BlogPost {
   translatedHash String?
   translatedBy   String? // provider/model list, e.g. "groq/openai/gpt-oss-120b"
   translatedAt   DateTime?
+  // The Romanian page shows the translation only after two readings passed (src/lib/blog-proofread.ts).
+  reviewedHash    String? // sourceHash of the English text whose translation passed the readings
+  reviewIssue     String? // why the latest translation was not published
+  reviewIssueHash String? // sourceHash Alex was told about on Telegram: one message per text
+  reviewAttemptAt DateTime? // last reading; a refused translation is read again a day later
   createdAt      DateTime  @default(now())
   updatedAt      DateTime  @updatedAt
 

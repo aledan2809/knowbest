@@ -42,11 +42,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   try {
     const posts = await prisma.blogPost.findMany({
       where: { hidden: false },
-      select: { slug: true, updatedAt: true, titleRo: true, bodyRo: true, sourceHash: true, translatedHash: true },
+      select: { slug: true, updatedAt: true, titleRo: true, bodyRo: true, sourceHash: true, translatedHash: true, reviewedHash: true },
       orderBy: { publishedAt: 'desc' },
     });
     for (const post of posts) {
-      const hasRo = Boolean(post.titleRo && post.bodyRo && post.translatedHash === post.sourceHash);
+      const hasRo = Boolean(post.titleRo && post.bodyRo && post.translatedHash === post.sourceHash && post.reviewedHash === post.sourceHash);
       const locales = routing.locales.filter((l) => l !== 'ro' || hasRo);
       const languages = Object.fromEntries(locales.map((l) => [l, `${baseUrl}/${l}/blog/${post.slug}`]));
       for (const locale of locales) {
