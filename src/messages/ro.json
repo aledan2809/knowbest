@@ -516,6 +516,10 @@
     "viewOnLinkedin": "Vezi pe LinkedIn",
     "readOriginal": "Citește originalul",
     "productsTitle": "Din aplicațiile noastre",
-    "productsLink": "Vezi toate produsele"
+    "productsLink": "Vezi toate produsele",
+    "discussTitle": "Ai o întrebare despre asta?",
+    "discussText": "O discuție scurtă, fără jargon. Îți răspundem în 24 de ore.",
+    "discussButton": "Hai să discutăm",
+    "contactSubject": "Despre articolul: {title}"
   }
 }

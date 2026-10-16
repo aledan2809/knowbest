@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useSearchParams } from "next/navigation";
 import { useTranslations, useLocale } from "next-intl";
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, Send, Linkedin, Github, Twitter, MessageSquare, Building2 } from "lucide-react";
@@ -14,11 +15,13 @@ import { PublicLayout } from "@/components/PublicLayout";
 export default function ContactPage() {
   const t = useTranslations();
   const locale = useLocale();
+  // A link from a blog article names the article in ?subject=; the reader only writes the question.
+  const subjectFromLink = useSearchParams().get("subject")?.trim().slice(0, 200) ?? "";
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     company: "",
-    subject: "",
+    subject: subjectFromLink,
     message: "",
   });
   const [sending, setSending] = useState(false);

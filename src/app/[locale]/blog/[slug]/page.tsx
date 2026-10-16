@@ -2,11 +2,11 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getTranslations } from "next-intl/server";
-import { ArrowLeft, ArrowRight, ExternalLink } from "lucide-react";
+import { ArrowLeft, ArrowRight, ExternalLink, MessageSquare } from "lucide-react";
 import { PublicLayout } from "@/components/PublicLayout";
 import { PostBody } from "@/components/blog/PostBody";
 import { JsonLd } from "@/components/blog/JsonLd";
-import { BLOG_AUTHOR, featuredProducts, formatDate, getPost, siteUrl, splitHeadline, type BlogLocale } from "@/lib/blog";
+import { BLOG_AUTHOR, formatDate, getPost, productsForPost, siteUrl, splitHeadline, type BlogLocale } from "@/lib/blog";
 
 type Props = { params: Promise<{ locale: string; slug: string }> };
 
@@ -57,10 +57,12 @@ export default async function BlogPostPage({ params }: Props) {
   const post = await getPost(lang, slug);
   if (!post) notFound();
   const t = await getTranslations({ locale, namespace: "blog" });
-  const products = await featuredProducts(lang);
+  const products = await productsForPost(post.body, lang);
   const base = siteUrl();
   const url = `${base}/${locale}/blog/${slug}`;
   const { headline, rest } = splitHeadline(post.body, post.title);
+  // The contact form opens with the article already named, so the reader only writes the question.
+  const contactHref = `/${locale}/contact?subject=${encodeURIComponent(t("contactSubject", { title: headline }).slice(0, 200))}`;
 
   return (
     <PublicLayout>
@@ -145,7 +147,13 @@ export default async function BlogPostPage({ params }: Props) {
             <ul className="mt-4 space-y-3">
               {products.map((p) => (
                 <li key={p.slug}>
-                  <Link href={`/${locale}/products`} className="group flex items-start gap-3">
+                  <Link
+                    href={`/${locale}/products#${p.slug}`}
+                    className="group flex items-start gap-3"
+                    data-umami-event="blog-product"
+                    data-umami-event-product={p.slug}
+                    data-umami-event-article={slug}
+                  >
                     <span className="text-xl leading-6" aria-hidden>{p.icon ?? "•"}</span>
                     <span>
                       <span className="block font-medium text-slate-100 group-hover:text-white">{p.name}</span>
@@ -158,11 +166,26 @@ export default async function BlogPostPage({ params }: Props) {
             <Link
               href={`/${locale}/products`}
               className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-indigo-300 hover:text-indigo-200"
+              data-umami-event="blog-all-products"
+              data-umami-event-article={slug}
             >
               {t("productsLink")} <ArrowRight className="w-4 h-4" />
             </Link>
           </aside>
         )}
+
+        <section className="mt-8 rounded-2xl border border-white/[0.08] bg-white/[0.03] p-6">
+          <h2 className="text-lg font-semibold text-white">{t("discussTitle")}</h2>
+          <p className="mt-2 text-sm text-slate-400">{t("discussText")}</p>
+          <Link
+            href={contactHref}
+            className="mt-5 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 px-5 py-2.5 text-sm font-medium text-white shadow-lg shadow-indigo-500/20 hover:from-blue-400 hover:to-purple-400"
+            data-umami-event="blog-contact"
+            data-umami-event-article={slug}
+          >
+            <MessageSquare className="w-4 h-4" /> {t("discussButton")}
+          </Link>
+        </section>
 
         <Link href={`/${locale}/blog`} className="mt-12 inline-flex items-center gap-2 text-sm text-slate-400 hover:text-white">
           <ArrowLeft className="w-4 h-4" /> {t("backToBlog")}

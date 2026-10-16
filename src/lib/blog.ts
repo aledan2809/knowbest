@@ -162,20 +162,47 @@ export async function allPosts(locale: BlogLocale) {
   return rows.map((r) => viewFor(r, locale));
 }
 
-/** Up to three of the site's own products, shown under every article. */
-export async function featuredProducts(locale: BlogLocale, take = 3) {
+const PRODUCT_SELECT = { slug: true, name: true, nameEn: true, tagline: true, taglineEn: true, description: true, descriptionEn: true, icon: true } as const;
+type ProductRow = { slug: string; name: string; nameEn: string | null; tagline: string | null; taglineEn: string | null; description: string | null; descriptionEn: string | null; icon: string | null };
+export type BlogProduct = { slug: string; icon: string | null; name: string; text: string };
+
+const productView = (p: ProductRow, locale: BlogLocale): BlogProduct => ({
+  slug: p.slug,
+  icon: p.icon,
+  name: locale === "en" ? p.nameEn || p.name : p.name,
+  text: (locale === "en" ? p.taglineEn || p.descriptionEn : p.tagline || p.description) || "",
+});
+
+/** Up to three of the site's own products marked as recommended. */
+export async function featuredProducts(locale: BlogLocale, take = 3): Promise<BlogProduct[]> {
   const rows = await prisma.project.findMany({
     where: { visible: true, featured: true, status: "LIVE" },
     orderBy: { sortOrder: "asc" },
-    select: { slug: true, name: true, nameEn: true, tagline: true, taglineEn: true, description: true, descriptionEn: true, icon: true },
+    select: PRODUCT_SELECT,
     take,
   });
-  return rows.map((p) => ({
-    slug: p.slug,
-    icon: p.icon,
-    name: locale === "en" ? p.nameEn || p.name : p.name,
-    text: (locale === "en" ? p.taglineEn || p.descriptionEn : p.tagline || p.description) || "",
-  }));
+  return rows.map((p) => productView(p, locale));
+}
+
+// An article about websites leads to the products that check and fix a website (2026-10-17, decided with
+// Alex): a reader convinced by "your site loads too slowly" has nothing to do with a procurement tool. The
+// words are read in both languages, so an article that is shown in English still finds its products.
+const WEBSITE_WORDS =
+  /(?<![\p{L}\p{N}])(site|website|web page|pagin|page|google|seo|lac[aă]t|padlock|certificat|https|accesibil|accessib|încărc|load)/iu;
+const WEBSITE_PRODUCTS = ["ave", "website-guru"];
+
+/** The products shown under an article: the ones its subject is about, otherwise the recommended ones. */
+export async function productsForPost(text: string, locale: BlogLocale): Promise<BlogProduct[]> {
+  if (WEBSITE_WORDS.test(text)) {
+    const rows = await prisma.project.findMany({
+      where: { visible: true, status: "LIVE", slug: { in: WEBSITE_PRODUCTS } },
+      select: PRODUCT_SELECT,
+    });
+    const bySlug = new Map(rows.map((p) => [p.slug, p]));
+    const matched = WEBSITE_PRODUCTS.flatMap((slug) => (bySlug.has(slug) ? [productView(bySlug.get(slug)!, locale)] : []));
+    if (matched.length) return matched;
+  }
+  return featuredProducts(locale);
 }
 
 export function formatDate(date: Date, locale: BlogLocale): string {

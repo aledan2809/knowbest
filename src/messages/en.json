@@ -516,6 +516,10 @@
     "viewOnLinkedin": "View on LinkedIn",
     "readOriginal": "Read the original",
     "productsTitle": "From our applications",
-    "productsLink": "See all products"
+    "productsLink": "See all products",
+    "discussTitle": "Have a question about this?",
+    "discussText": "A short conversation, no jargon. We reply within 24 hours.",
+    "discussButton": "Let's talk",
+    "contactSubject": "About the article: {title}"
   }
 }
